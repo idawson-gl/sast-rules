@@ -4,34 +4,34 @@
 # yamllint enable
 ---
 find_sec_bugs:
-  - id: "PREDICTABLE_RANDOM"
+  - id: "Find Security Bugs-PREDICTABLE_RANDOM"
     rules:
       - "java/random/rule-PseudoRandom"
-  - id: "XSS_SERVLET"
+  - id: "Find Security Bugs-XSS_SERVLET"
     rules:
       - "java/xss/rule-XSSServlet"
-  - id: "XSS_SERVLET_PARAMETER"
+  - id: "Find Security Bugs-XSS_SERVLET_PARAMETER"
     rules:
       - "java/xss/rule-XSSServletParameter"
-  - id: "XSS_REQUEST_PARAMETER_TO_SERVLET_WRITER"
+  - id: "Find Security Bugs-XSS_REQUEST_PARAMETER_TO_SERVLET_WRITER"
     rules:
       - "java/xss/rule-XSSReqParamToServletWriter"
-  - id: "NORMALIZATION_AFTER_VALIDATION"
+  - id: "Find Security Bugs-NORMALIZATION_AFTER_VALIDATION"
     rules:
       - "java/strings/rule-NormalizeAfterValidation"
-  - id: "MODIFICATION_AFTER_VALIDATION"
+  - id: "Find Security Bugs-MODIFICATION_AFTER_VALIDATION"
     rules:
       - "java/strings/rule-ModifyAfterValidation"
-  - id: "IMPROPER_UNICODE"
+  - id: "Find Security Bugs-IMPROPER_UNICODE"
     rules:
       - "java/strings/rule-ImproperUnicode"
-  - id: "DANGEROUS_PERMISSION_COMBINATION"
+  - id: "Find Security Bugs-DANGEROUS_PERMISSION_COMBINATION"
     rules:
       - "java/perm/rule-DangerousPermissions"
-  - id: "OVERLY_PERMISSIVE_FILE_PERMISSION"
+  - id: "Find Security Bugs-OVERLY_PERMISSIVE_FILE_PERMISSION"
     rules:
       - "java/perm/rule-OverlyPermissiveFilePermissionInline"
       - "java/perm/rule-OverlyPermissiveFilePermissionObj"
-  - id: "SAML_IGNORE_COMMENTS"
+  - id: "Find Security Bugs-SAML_IGNORE_COMMENTS"
     rules:
       - "java/xml/rule-SAMLIgnoreComments"
