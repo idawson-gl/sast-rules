@@ -1,0 +1,17 @@
+# yamllint disable
+# License: MIT (c) GitLab Inc.
+# yamllint enable
+---
+rules:
+- id: "java/csrf/rule-SpringCsrf"
+  patterns:
+  - pattern: "(org.springframework.security.config.annotation.web.builders.HttpSecurity
+      $H).csrf().disable()"
+  languages:
+  - "java"
+  message: |
+    Disabling Spring Security's CSRF protection is unsafe for standard web applications.
+  metadata:
+    category: "security"
+    cwe: "CWE-352: Cross-Site Request Forgery (CSRF)"
+  severity: "ERROR"

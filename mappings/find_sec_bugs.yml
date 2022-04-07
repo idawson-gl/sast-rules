@@ -155,6 +155,11 @@ find_sec_bugs:
     rules:
       - "java/file/rule-FileUploadFileName"
 
+  # Csrf
+  - id: "SPRING_CSRF_PROTECTION_DISABLED"
+    rules:
+      - "java/csrf/rule-SpringCsrf"
+
   # Script
   - id: "SCRIPT_ENGINE_INJECTION"
     rules:
