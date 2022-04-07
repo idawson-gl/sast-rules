@@ -159,6 +159,7 @@ find_sec_bugs:
   - id: "SPRING_CSRF_PROTECTION_DISABLED"
     rules:
       - "java/csrf/rule-SpringCsrf"
+      - "java/csrf/rule-UnvalidatedRedirectServlet"
 
   # Script
   - id: "SCRIPT_ENGINE_INJECTION"

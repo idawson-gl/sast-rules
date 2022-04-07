@@ -1,0 +1,25 @@
+# yamllint disable
+# License: MIT (c) GitLab Inc.
+# yamllint enable
+---
+rules:
+- id: "java/csrf/rule-UnvalidatedRedirectServlet"
+  patterns:
+  - pattern-either:
+    - patterns:
+      - pattern: "(javax.servlet.http.HttpServletResponse $RESP).sendRedirect($ARG);"
+      - pattern-not: "(javax.servlet.http.HttpServletResponse $RESP).sendRedirect(\"...\");"
+    - patterns:
+      - pattern: "(javax.servlet.http.HttpServletResponse $RESP).addHeader($ARG1,
+          $ARG2);"
+      - pattern-not: "(javax.servlet.http.HttpServletResponse $RESP).addHeader(\"...\",
+          \"...\");"
+  languages:
+  - "java"
+  message: |
+    Unvalidated redirects occur when an application redirects a user to a
+    destination URL specified by a user supplied parameter that is not validated
+  metadata:
+    category: "security"
+    cwe: "CWE-601: URL Redirection to Untrusted Site ('Open Redirect')"
+  severity: "ERROR"
