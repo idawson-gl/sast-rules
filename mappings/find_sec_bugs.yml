@@ -79,6 +79,30 @@ find_sec_bugs:
   - id: "REQUESTDISPATCHER_FILE_DISCLOSURE"
     rules: 
       - "java/inject/rule-FileDisclosure"
+  - id: "SQL_INJECTION_HIBERNATE"
+    rules: 
+      - "java/inject/rule-SqlInjection"
+  - id: "SQL_INJECTION_JDBC"
+    rules: 
+      - "java/inject/rule-SqlInjection"
+  - id: "SQL_INJECTION_JDO"
+    rules: 
+      - "java/inject/rule-SqlInjection"
+  - id: "SQL_INJECTION_JPA"
+    rules: 
+      - "java/inject/rule-SqlInjection"
+  - id: "SQL_INJECTION_SPRING_JDBC"
+    rules: 
+      - "java/inject/rule-SqlInjection"
+  - id: "SQL_INJECTION_TURBINE"
+    rules: 
+      - "java/inject/rule-SqlInjection"
+  - id: "SQL_INJECTION_VERTX"
+    rules: 
+      - "java/inject/rule-SqlInjection"
+  - id: "SQL_INJECTION"
+    rules: 
+      - "java/inject/rule-SqlInjection"
   
   # Cryptography
   - id: "BLOWFISH_KEY_SIZE"
