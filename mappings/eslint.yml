@@ -8,37 +8,37 @@ eslint:
     rules:
       - "javascript/react/rule-missing_noopener"
       - "javascript/react/rule-dangerouslysetinnerhtml"
-  - id: "security/detect-no-csrf-before-method-override"
+  - id: "detect-no-csrf-before-method-override"
     rules:
       - "javascript/csrf/rule-no_csrf_before_method_override"
-  - id: "security/detect-eval-with-expression"
+  - id: "detect-eval-with-expression"
     rules:
       - "javascript/eval/rule-eval_with_expression"
-  - id: "security/detect-child-process"
+  - id: "detect-child-process"
     rules:
       - "javascript/exec/rule-child_process"
-  - id: "security/detect-pseudoRandomBytes"
+  - id: "detect-pseudoRandomBytes"
     rules:
       - "javascript/random/rule-pseudo_random_bytes"
-  - id: "security/detect-disable-mustache-escape"
+  - id: "detect-disable-mustache-escape"
     rules:
       - "javascript/xss/rule-mustache_escape"
-  - id: "security/detect-non-literal-require"
+  - id: "detect-non-literal-require"
     rules:
       - "javascript/require/rule-non_literal_require"
-  - id: "security/detect-buffer-noassert"
+  - id: "detect-buffer-noassert"
     rules:
       - "javascript/buf/rule-buffer-noassert"
-  - id: "security/detect-possible-timing-attacks"
+  - id: "detect-possible-timing-attacks"
     rules:
       - "javascript/timing/rule-possible_timing_attacks"
-  - id: "security/detect-non-literal-regexp"
+  - id: "detect-non-literal-regexp"
     rules:
       - "javascript/dos/rule-non_literal_regexp"
-  - id: "security/detect-non-literal-fs-filename"
+  - id: "detect-non-literal-fs-filename"
     rules:
       - "javascript/pathtraversal/rule-non_literal_fs_filename"
-  - id: "security/detect-object-injection"
+  - id: "detect-object-injection"
     rules:
       - "javascript/protinjection/rule-object_injection"
 
