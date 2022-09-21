@@ -17,6 +17,7 @@ rules:
     cwe: "CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site
       Scripting')"
     owasp: "A7: Cross-Site Scripting (XSS)"
+    primary-id: "bandit.B702"
   severity: "INFO"
   languages:
   - "python"

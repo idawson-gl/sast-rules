@@ -20,6 +20,7 @@ rules:
   metadata:
     cwe: "CWE-611: Improper Restriction of XML External Entity Reference"
     owasp: "A4: XML External Entities (XXE)"
+    primary-id: "bandit.B317"
   severity: "WARNING"
   languages:
   - "python"

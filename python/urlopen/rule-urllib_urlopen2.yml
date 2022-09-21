@@ -27,6 +27,7 @@ rules:
   metadata:
     cwe: "CWE-939: Improper Authorization in Handler for Custom URL Scheme"
     owasp: "A5: Broken Access Control"
+    primary-id: "bandit.310-2"
   severity: "WARNING"
   languages:
   - "python"

@@ -23,6 +23,7 @@ rules:
   metadata:
     cwe: "CWE-116: Improper Encoding or Escaping of Output"
     owasp: "A7: Cross-Site Scripting (XSS)"
+    primary-id: "bandit.B701"
   severity: "WARNING"
   languages:
   - "python"

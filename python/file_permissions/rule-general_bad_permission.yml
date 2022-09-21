@@ -17,6 +17,7 @@ rules:
   metadata:
     cwe: "CWE-732: Incorrect Permission Assignment for Critical Resource"
     owasp: "A6: Security Misconfiguration"
+    primary-id: "bandit.B103"
   severity: "WARNING"
   languages:
   - "python"

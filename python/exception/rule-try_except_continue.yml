@@ -17,6 +17,7 @@ rules:
     Try, Except, Continue
   metadata:
     cwe: "CWE-703: Improper Check or Handling of Exceptional Conditions"
+    primary-id: "bandit.B112"
   severity: "INFO"
   languages:
   - "python"

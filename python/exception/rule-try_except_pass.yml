@@ -14,6 +14,7 @@ rules:
     Try, Except, Pass
   metadata:
     cwe: "CWE-703: Improper Check or Handling of Exceptional Conditions"
+    primary-id: "bandit.B110"
   severity: "INFO"
   languages:
   - "python"

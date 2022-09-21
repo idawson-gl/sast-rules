@@ -14,6 +14,7 @@ rules:
     The Python `os` `tempnam|tmpnam` functions are vulnerable to symlink attacks
   metadata:
     cwe: "CWE-377: Insecure Temporary File"
+    primary-id: "bandit.B325"
   severity: "WARNING"
   languages:
   - "python"

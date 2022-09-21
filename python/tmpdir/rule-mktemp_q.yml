@@ -16,6 +16,7 @@ rules:
   metadata:
     cwe: "CWE-377: Insecure Temporary File"
     owasp: "A3: Sensitive Data Exposure"
+    primary-id: "bandit.B306"
   languages:
   - "python"
   severity: "ERROR"

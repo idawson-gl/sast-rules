@@ -12,6 +12,7 @@ rules:
   metadata:
     cwe: "CWE-319: Cleartext Transmission of Sensitive Information"
     owasp: "A3: Sensitive Data Exposure"
+    primary-id: "bandit.B401"
   severity: "ERROR"
   languages:
   - "python"

@@ -14,6 +14,7 @@ rules:
   metadata:
     cwe: "CWE-502: Deserialization of Untrusted Data"
     owasp: "A8: Insecure Deserialization"
+    primary-id: "bandit.B403"
   severity: "ERROR"
   languages:
   - "python"

@@ -20,6 +20,7 @@ rules:
   metadata:
     cwe: "CWE-489: Active Debug Code"
     owasp: "A6: Security Misconfiguration"
+    primary-id: "bandit.B201"
   severity: "WARNING"
   languages:
   - "python"

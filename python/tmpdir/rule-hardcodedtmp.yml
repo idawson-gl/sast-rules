@@ -12,6 +12,7 @@ rules:
     Detected hardcoded temp directory. Consider using `tempfile.TemporaryFile` instead.
   metadata:
     cwe: "CWE-377: Insecure Temporary File"
+    primary-id: "bandit.B108-1"
   severity: "WARNING"
   languages:
   - "python"
