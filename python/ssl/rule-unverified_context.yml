@@ -15,7 +15,6 @@ rules:
     cwe: "CWE-295: Improper Certificate Validation"
     owasp: "A3: Sensitive Data Exposure"
     primary_identifier: "bandit.B323"
-    primary_identifier: "bandit.B323"
     secondary_identifiers:
     - type: "bandit_test_id"
       value: "B323"
