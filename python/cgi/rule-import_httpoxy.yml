@@ -14,8 +14,8 @@ rules:
     owasp: "A5: Broken Access Control"
     primary_identifier: "bandit.B412"
     secondary_identifiers:
-      - type: "bandit_test_id"
-        value: "B412"
+    - type: "bandit_test_id"
+    value: "B412"
   severity: "ERROR"
   languages:
   - "python"

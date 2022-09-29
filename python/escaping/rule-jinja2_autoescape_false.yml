@@ -25,8 +25,8 @@ rules:
     owasp: "A7: Cross-Site Scripting (XSS)"
     primary_identifier: "bandit.B701"
     secondary_identifiers:
-      - type: "bandit_test_id"
-        value: "B701"
+    - type: "bandit_test_id"
+      value: "B701"
   severity: "WARNING"
   languages:
   - "python"

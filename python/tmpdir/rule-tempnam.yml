@@ -16,8 +16,8 @@ rules:
     cwe: "CWE-377: Insecure Temporary File"
     primary_identifier: "bandit.B325"
     secondary_identifiers:
-      - type: "bandit_test_id"
-        value: "B325"
+    - type: "bandit_test_id"
+      value: "B325"
   severity: "WARNING"
   languages:
   - "python"

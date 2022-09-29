@@ -19,8 +19,8 @@ rules:
     owasp: "A6: Security Misconfiguration"
     primary_identifier: "bandit.B103"
     secondary_identifiers:
-      - type: "bandit_test_id"
-        value: "B103"
+    - type: "bandit_test_id"
+      value: "B103"
   severity: "WARNING"
   languages:
   - "python"

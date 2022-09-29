@@ -21,8 +21,8 @@ rules:
     owasp: "A1: Injection"
     primary_identifier: "bandit.B601"
     secondary_identifiers:
-      - type: "bandit_test_id"
-        value: "B601"
+    - type: "bandit_test_id"
+      value: "B601"
   severity: "WARNING"
   languages:
   - "python"

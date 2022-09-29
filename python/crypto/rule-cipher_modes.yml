@@ -16,8 +16,8 @@ rules:
     owasp: "A3: Sensitive Data Exposure"
     primary_identifier: "bandit.B305"
     secondary_identifiers:
-      - type: "bandit_test_id"
-        value: "B305"
+    - type: "bandit_test_id"
+      value: "B305"
   severity: "WARNING"
   languages:
   - "python"

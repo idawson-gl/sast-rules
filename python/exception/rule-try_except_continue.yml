@@ -19,8 +19,8 @@ rules:
     cwe: "CWE-703: Improper Check or Handling of Exceptional Conditions"
     primary_identifier: "bandit.B112"
     secondary_identifiers:
-      - type: "bandit_test_id"
-        value: "B112"
+    - type: "bandit_test_id"
+      value: "B112"
   severity: "INFO"
   languages:
   - "python"

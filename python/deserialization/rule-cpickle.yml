@@ -17,6 +17,9 @@ rules:
     cwe: "CWE-502: Deserialization of Untrusted Data"
     owasp: "A8: Insecure Deserialization"
     primary_identifier: "bandit.B301-2"
+    secondary_identifiers:
+    - type: "bandit_test_id"
+      value: "B301"
   severity: "WARNING"
   languages:
   - "python"

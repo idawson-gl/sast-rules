@@ -16,8 +16,8 @@ rules:
     owasp: "A8: Insecure Deserialization"
     primary_identifier: "bandit.B403"
     secondary_identifiers:
-      - type: "bandit_test_id"
-        value: "B403"
+    - type: "bandit_test_id"
+      value: "B403"
   severity: "ERROR"
   languages:
   - "python"
