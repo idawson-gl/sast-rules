@@ -21,8 +21,6 @@ rules:
     secondary_identifiers:
     - type: "bandit_test_id"
       value: "B304"
-
-
   severity: "WARNING"
   languages:
   - "python"
