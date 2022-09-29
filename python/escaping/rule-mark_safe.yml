@@ -25,7 +25,10 @@ rules:
     cwe: "CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site
       Scripting')"
     owasp: "A7: Cross-Site Scripting (XSS)"
-    primary-id: "bandit.B703"
+    primary_identifier: "bandit.B703"
+    secondary_identifiers:
+      - type: "bandit_test_id"
+        value: "B703"
   severity: "WARNING"
   languages:
   - "python"

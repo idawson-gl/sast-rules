@@ -16,7 +16,10 @@ rules:
   metadata:
     cwe: "CWE-330: Use of Insufficiently Random Values"
     owasp: "A3: Sensitive Data Exposure"
-    primary-id: "bandit.B311"
+    primary_identifier: "bandit.B311"
+    secondary_identifiers:
+      - type: "bandit_test_id"
+        value: "B311"
   severity: "INFO"
   languages:
   - "python"

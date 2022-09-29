@@ -23,7 +23,10 @@ rules:
   metadata:
     cwe: "CWE-322: Key Exchange without Entity Authentication"
     owasp: "A5: Broken Access Control"
-    primary-id: "bandit.B507"
+    primary_identifier: "bandit.B507"
+    secondary_identifiers:
+      - type: "bandit_test_id"
+        value: "B507"
   severity: "WARNING"
   languages:
   - "python"

@@ -15,7 +15,10 @@ rules:
   metadata:
     cwe: "CWE-326: Inadequate Encryption Strength"
     owasp: "A3: Sensitive Data Exposure"
-    primary-id: "bandit.B504"
+    primary_identifier: "bandit.B504"
+    secondary_identifiers:
+      - type: "bandit_test_id"
+        value: "B504"
   severity: "INFO"
   languages:
   - "python"

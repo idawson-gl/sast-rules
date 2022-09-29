@@ -15,7 +15,10 @@ rules:
   metadata:
     cwe: "CWE-327: Use of a Broken or Risky Cryptographic Algorithm"
     owasp: "A3: Sensitive Data Exposure"
-    primary-id: "bandit.B303-1"
+    primary_identifier: "bandit.B303-1"
+    secondary_identifiers:
+      - type: "bandit_test_id"
+        value: "B303"
   severity: "WARNING"
   languages:
   - "python"

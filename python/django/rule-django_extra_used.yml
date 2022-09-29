@@ -19,7 +19,10 @@ rules:
     cwe: "CWE-89: Improper Neutralization of Special Elements used in an SQL Command
       ('SQL Injection')"
     owasp: "A1: Injection"
-    primary-id: "bandit.B610"
+    primary_identifier: "bandit.B610"
+    secondary_identifiers:
+      - type: "bandit_test_id"
+        value: "B610"
   severity: "ERROR"
   languages:
   - "python"

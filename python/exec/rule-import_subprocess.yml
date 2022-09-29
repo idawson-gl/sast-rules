@@ -15,7 +15,10 @@ rules:
     cwe: "CWE-78: Improper Neutralization of Special Elements used in an OS Command
       ('OS Command Injection')"
     owasp: "A8: Insecure Deserialization"
-    primary-id: "bandit.B404"
+    primary_identifier: "bandit.B404"
+    secondary_identifiers:
+      - type: "bandit_test_id"
+        value: "B404"
   languages:
   - "python"
   severity: "WARNING"

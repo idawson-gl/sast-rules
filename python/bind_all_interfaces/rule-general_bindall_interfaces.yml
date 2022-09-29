@@ -29,7 +29,10 @@ rules:
   metadata:
     cwe: "CWE-200: Exposure of Sensitive Information to an Unauthorized Actor"
     owasp: "A6: Security Misconfiguration"
-    primary-id: "bandit.B104"
+    primary_identifier: "bandit.B104"
+    secondary_identifiers:
+      - type: "bandit_test_id"
+        value: "B104"
   severity: "INFO"
   languages:
   - "python"

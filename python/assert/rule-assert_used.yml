@@ -28,7 +28,10 @@ rules:
     code.
   metadata:
     cwe: "CWE-754: Improper Check for Unusual or Exceptional Conditions"
-    primary-id: "bandit.B101"
+    primary_identifier: "bandit.B101"
+    secondary_identifiers:
+      - type: "bandit_test_id"
+        value: "B101"
   severity: "INFO"
   languages:
   - "python"

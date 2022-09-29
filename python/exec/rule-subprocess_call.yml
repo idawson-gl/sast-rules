@@ -28,7 +28,10 @@ rules:
     cwe: "CWE-78: Improper Neutralization of Special Elements used in an OS Command
       ('OS Command Injection')"
     owasp: "A1: Injection"
-    primary-id: "bandit.B603"
+    primary_identifier: "bandit.B603"
+    secondary_identifiers:
+      - type: "bandit_test_id"
+        value: "B603"
   severity: "WARNING"
   languages:
   - "python"

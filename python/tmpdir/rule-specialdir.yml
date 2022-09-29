@@ -13,7 +13,10 @@ rules:
     Probable insecure usage of temp file/directory.
   metadata:
     cwe: "CWE-377: Insecure Temporary File"
-    primary-id: "bandit.B108-2"
+    primary_identifier: "bandit.B108-2"
+    secondary_identifiers:
+      - type: "bandit_test_id"
+        value: "B108"
   severity: "WARNING"
   languages:
   - "python"

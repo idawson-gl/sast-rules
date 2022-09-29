@@ -29,7 +29,10 @@ rules:
   metadata:
     cwe: "CWE-155: Improper Neutralization of Wildcards or Matching Symbols"
     owasp: "A1: Injection"
-    primary-id: "bandit.B609"
+    primary_identifier: "bandit.B609"
+    secondary_identifiers:
+      - type: "bandit_test_id"
+        value: "B609"
   severity: "WARNING"
   languages:
   - "python"
