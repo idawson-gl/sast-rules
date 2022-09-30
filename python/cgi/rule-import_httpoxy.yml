@@ -15,7 +15,7 @@ rules:
     primary_identifier: "bandit.B412"
     secondary_identifiers:
     - type: "bandit_test_id"
-    value: "B412"
+      value: "B412"
   severity: "ERROR"
   languages:
   - "python"
