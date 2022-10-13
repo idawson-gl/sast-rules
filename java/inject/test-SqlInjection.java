@@ -10,9 +10,19 @@ import javax.jdo.PersistenceManagerFactory;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import java.util.ArrayList;
+import org.springframework.jdbc.core.JdbcTemplate;
 
+private final String CLIENT_FIELDS =
+      "client_id, client_secret, resource_ids, scope, "
+          + "authorized_grant_types, web_server_redirect_uri, authorities, access_token_validity, "
+          + "refresh_token_validity, additional_information, autoapprove";
+
+private static final String DEFAULT_INSERT_STATEMENT =
+      "insert into oauth_client_details (" + CLIENT_FIELDS + ")" + "values (?,?,?,?,?,?,?,?,?,?,?)";
 
 public class SqlInjection {
+
+    private JdbcTemplate jdbcTemplate;
 
     public class UserEntity {
         private Long id;
@@ -83,4 +93,24 @@ public class SqlInjection {
         session.createQuery(input);
         CriteriaQuery<Object> cq = cb.createQuery(Object.class);
     }
+
+    public good(String clientDetails) {
+        final String statementUsingConstants =
+        "insert into oauth_client_details (" + CLIENT_FIELDS + ")" + "values (?,?,?,?,?,?,?,?,?,?,?)";
+        jdbcTemplate.update(statementUsingConstants, clientDetails);
+    }
+
+    public void good2(String clientDetails) {
+        jdbcTemplate.update(DEFAULT_INSERT_STATEMENT, clientDetails);
+    }
+
+    public void bad(String clientDetails) {
+        String stmtUsingFuncParam = "test" + clientDetails + "test";
+        jdbcTemplate.update(stmtUsingFuncParam, clientDetails);
+    }
+
+    public void badInline(String clientDetails) {
+        jdbcTemplate.update("test" + clientDetails + "test", clientDetails);
+    }
+
 }

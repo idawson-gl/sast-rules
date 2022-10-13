@@ -4,7 +4,19 @@
 ---
 rules:
 - id: "java/inject/rule-SqlInjection"
-  pattern-either:
+  mode: "taint"
+  pattern-sources:
+  - patterns:
+    - pattern: "$Z"
+    - pattern-either:
+      - pattern-inside: |
+          $FUNC(..., String $Z, ...) {
+            ...
+          }
+      - patterns:
+        - pattern: "static final String $Z = ...;"
+        - pattern-not: "static final String $Z = \"...\";"
+  pattern-sinks:
   - patterns:
     - pattern: "(javax.jdo.PersistenceManager $PM).newQuery($ARG)"
     - pattern-not: "(javax.jdo.PersistenceManager $PM).newQuery(\"...\")"
