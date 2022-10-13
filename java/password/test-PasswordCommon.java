@@ -214,6 +214,49 @@ public class PasswordCommon {
         new X509EncodedKeySpec(newArray);
     }
 
+    public KeyStore good4(VaultService vaultService, @Qualifier("keyStorePassword") String pass) {
+        KeyStore keyStore = KeyStore.getInstance(KEYSTORE_TYPE);
+        keyStore.load(
+            new ByteArrayInputStream(Base64.decode(vaultService.fetchKeyStoreString())),
+            pass.toCharArray());
+        return keyStore;
+    }
+
+    public KeyStore good5(VaultService vaultService, @Qualifier("keyStorePassword") char[] password) {
+        KeyStore keyStore = KeyStore.getInstance(KEYSTORE_TYPE);
+        keyStore.load(
+            new ByteArrayInputStream(Base64.decode(vaultService.fetchKeyStoreString())),
+            password);
+        return keyStore;
+    }
+
+    public KeyStore bad16(VaultService vaultService) {
+        KeyStore keyStore = KeyStore.getInstance(KEYSTORE_TYPE);
+        String pass = "test";
+        keyStore.load(
+            new ByteArrayInputStream(Base64.decode(vaultService.fetchKeyStoreString())),
+            pass.toCharArray());
+        return keyStore;
+    }
+
+
+    public KeyStore bad17(VaultService vaultService) {
+        KeyStore keyStore = KeyStore.getInstance(KEYSTORE_TYPE);
+        keyStore.load(
+            new ByteArrayInputStream(Base64.decode(vaultService.fetchKeyStoreString())),
+            "test".toCharArray());
+        return keyStore;
+    }
+
+    public KeyStore bad18(VaultService vaultService) {
+        KeyStore keyStore = KeyStore.getInstance(KEYSTORE_TYPE);
+        String pass = "test".toCharArray();
+        keyStore.load(
+            new ByteArrayInputStream(Base64.decode(vaultService.fetchKeyStoreString())),
+            pass);
+        return keyStore;
+    }
+
     private void passwordEquals(char[] pwd, char[] pwd2) {
         String PWD8 = "secret4";
         if (Arrays.equals(pwd, pwd2)) {
