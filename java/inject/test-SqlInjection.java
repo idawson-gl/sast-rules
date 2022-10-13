@@ -12,15 +12,15 @@ import javax.persistence.criteria.CriteriaQuery;
 import java.util.ArrayList;
 import org.springframework.jdbc.core.JdbcTemplate;
 
-private final String CLIENT_FIELDS =
-      "client_id, client_secret, resource_ids, scope, "
-          + "authorized_grant_types, web_server_redirect_uri, authorities, access_token_validity, "
-          + "refresh_token_validity, additional_information, autoapprove";
-
-private static final String DEFAULT_INSERT_STATEMENT =
-      "insert into oauth_client_details (" + CLIENT_FIELDS + ")" + "values (?,?,?,?,?,?,?,?,?,?,?)";
 
 public class SqlInjection {
+    private static final String CLIENT_FIELDS =
+            "client_id, client_secret, resource_ids, scope, "
+                    + "authorized_grant_types, web_server_redirect_uri, authorities, access_token_validity, "
+                    + "refresh_token_validity, additional_information, autoapprove";
+
+    private static final String DEFAULT_INSERT_STATEMENT =
+            "insert into oauth_client_details (" + CLIENT_FIELDS + ")" + "values (?,?,?,?,?,?,?,?,?,?,?)";
 
     private JdbcTemplate jdbcTemplate;
 
