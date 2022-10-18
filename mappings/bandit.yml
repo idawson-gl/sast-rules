@@ -6,7 +6,7 @@
 bandit:
   native_id:
     type: "bandit_test_id"
-    name: "Bandit Test ID: $ID"
+    name: "Bandit Test ID $ID"
     value: "$ID"
   mappings:
   - id: "B101"
