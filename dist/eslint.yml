@@ -71,7 +71,7 @@ rules:
   languages:
   - "javascript"
   - "typescript"
-- id: "eslint.security/detect-non-literal-regexp-1"
+- id: "eslint.detect-non-literal-regexp-1"
   patterns:
   - pattern: |
       new RegExp(...)
@@ -86,11 +86,11 @@ rules:
   severity: "WARNING"
   metadata:
     cwe: "CWE-185: Incorrect Regular Expression"
-    primary_identifier: "eslint.security/detect-non-literal-regexp"
+    primary_identifier: "eslint.detect-non-literal-regexp"
     secondary_identifiers:
-    - name: "ESLint rule ID security/detect-non-literal-regexp"
+    - name: "ESLint rule ID detect-non-literal-regexp"
       type: "eslint_rule_id"
-      value: "security/detect-non-literal-regexp"
+      value: "detect-non-literal-regexp"
 - id: "eslint.detect-eval-with-expression-1"
   metadata:
     cwe: "CWE-95: Improper Neutralization of Directives in Dynamically Evaluated Code
