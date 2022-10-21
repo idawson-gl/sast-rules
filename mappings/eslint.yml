@@ -39,7 +39,7 @@ eslint:
   - id: "detect-possible-timing-attacks"
     rules:
     - "javascript/timing/rule-possible_timing_attacks"
-  - id: "detect-non-literal-regexp"
+  - id: "security/detect-non-literal-regexp"
     rules:
     - "javascript/dos/rule-non_literal_regexp"
   - id: "detect-non-literal-fs-filename"
