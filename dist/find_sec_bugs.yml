@@ -1,9 +1,5 @@
 # yamllint disable
-<<<<<<< HEAD
-# rule-set version: 1.1.4
-=======
 # rule-set version: v1.1.7
->>>>>>> 5d53986e2aab9ce40c566ddf802af8574ca27c06
 # yamllint enable
 ---
 rules:
