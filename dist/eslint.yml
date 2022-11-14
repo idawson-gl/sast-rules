@@ -10,7 +10,7 @@ rules:
     source-rule-url: "https://github.com/nodesecurity/eslint-plugin-security/blob/master/rules/detect-buffer-noassert.js"
     primary_identifier: "eslint.detect-buffer-noassert"
     secondary_identifiers:
-    - name: "ESLint rule ID detect-buffer-noassert"
+    - name: "ESLint rule ID/detect-buffer-noassert"
       type: "eslint_rule_id"
       value: "detect-buffer-noassert"
   message: |
@@ -57,7 +57,7 @@ rules:
     - "https://github.com/nodesecurity/eslint-plugin-security/blob/master/docs/bypass-connect-csrf-protection-by-abusing.md"
     primary_identifier: "eslint.detect-no-csrf-before-method-override"
     secondary_identifiers:
-    - name: "ESLint rule ID detect-no-csrf-before-method-override"
+    - name: "ESLint rule ID/detect-no-csrf-before-method-override"
       type: "eslint_rule_id"
       value: "detect-no-csrf-before-method-override"
   message: |
@@ -88,7 +88,7 @@ rules:
     cwe: "CWE-185: Incorrect Regular Expression"
     primary_identifier: "eslint.detect-non-literal-regexp"
     secondary_identifiers:
-    - name: "ESLint rule ID detect-non-literal-regexp"
+    - name: "ESLint rule ID/detect-non-literal-regexp"
       type: "eslint_rule_id"
       value: "detect-non-literal-regexp"
 - id: "eslint.detect-eval-with-expression-1"
@@ -99,7 +99,7 @@ rules:
     source-rule-url: "https://github.com/nodesecurity/eslint-plugin-security/blob/master/rules/detect-eval-with-expression.js"
     primary_identifier: "eslint.detect-eval-with-expression"
     secondary_identifiers:
-    - name: "ESLint rule ID detect-eval-with-expression"
+    - name: "ESLint rule ID/detect-eval-with-expression"
       type: "eslint_rule_id"
       value: "detect-eval-with-expression"
   message: |
@@ -119,7 +119,7 @@ rules:
     source-rule-url: "https://github.com/nodesecurity/eslint-plugin-security/blob/master/rules/detect-child-process.js"
     primary_identifier: "eslint.detect-child-process"
     secondary_identifiers:
-    - name: "ESLint rule ID detect-child-process"
+    - name: "ESLint rule ID/detect-child-process"
       type: "eslint_rule_id"
       value: "detect-child-process"
   message: |
@@ -245,7 +245,7 @@ rules:
       Traversal')"
     primary_identifier: "eslint.detect-non-literal-fs-filename"
     secondary_identifiers:
-    - name: "ESLint rule ID detect-non-literal-fs-filename"
+    - name: "ESLint rule ID/detect-non-literal-fs-filename"
       type: "eslint_rule_id"
       value: "detect-non-literal-fs-filename"
 - id: "eslint.detect-object-injection-1"
@@ -270,7 +270,7 @@ rules:
     cwe: "CWE-94: Improper Control of Generation of Code ('Code Injection')"
     primary_identifier: "eslint.detect-object-injection"
     secondary_identifiers:
-    - name: "ESLint rule ID detect-object-injection"
+    - name: "ESLint rule ID/detect-object-injection"
       type: "eslint_rule_id"
       value: "detect-object-injection"
 - id: "eslint.detect-pseudoRandomBytes-1"
@@ -279,7 +279,7 @@ rules:
     source-rule-url: "https://github.com/nodesecurity/eslint-plugin-security/blob/master/rules/detect-pseudoRandomBytes.js"
     primary_identifier: "eslint.detect-pseudoRandomBytes"
     secondary_identifiers:
-    - name: "ESLint rule ID detect-pseudoRandomBytes"
+    - name: "ESLint rule ID/detect-pseudoRandomBytes"
       type: "eslint_rule_id"
       value: "detect-pseudoRandomBytes"
   message: |
@@ -306,7 +306,7 @@ rules:
     - "https://reactjs.org/docs/dom-elements.html#dangerouslysetinnerhtml"
     primary_identifier: "eslint.react-dangerouslysetinnerhtml"
     secondary_identifiers:
-    - name: "ESLint rule ID react-dangerouslysetinnerhtml"
+    - name: "ESLint rule ID/react-dangerouslysetinnerhtml"
       type: "eslint_rule_id"
       value: "react-dangerouslysetinnerhtml"
   languages:
@@ -364,7 +364,7 @@ rules:
     - "https://owasp.org/www-community/attacks/Reverse_Tabnabbing"
     primary_identifier: "eslint.react-missing-noopener"
     secondary_identifiers:
-    - name: "ESLint rule ID react-missing-noopener"
+    - name: "ESLint rule ID/react-missing-noopener"
       type: "eslint_rule_id"
       value: "react-missing-noopener"
   languages:
@@ -379,7 +379,7 @@ rules:
     source-rule-url: "https://github.com/nodesecurity/eslint-plugin-security/blob/master/rules/detect-non-literal-require.js"
     primary_identifier: "eslint.detect-non-literal-require"
     secondary_identifiers:
-    - name: "ESLint rule ID detect-non-literal-require"
+    - name: "ESLint rule ID/detect-non-literal-require"
       type: "eslint_rule_id"
       value: "detect-non-literal-require"
   message: |
@@ -885,7 +885,7 @@ rules:
     cwe: "CWE-208: Observable Timing Discrepancy"
     primary_identifier: "eslint.detect-possible-timing-attacks"
     secondary_identifiers:
-    - name: "ESLint rule ID detect-possible-timing-attacks"
+    - name: "ESLint rule ID/detect-possible-timing-attacks"
       type: "eslint_rule_id"
       value: "detect-possible-timing-attacks"
 - id: "eslint.detect-disable-mustache-escape-1"
@@ -895,7 +895,7 @@ rules:
     source-rule-url: "https://github.com/nodesecurity/eslint-plugin-security/blob/master/rules/detect-disable-mustache-escape.js"
     primary_identifier: "eslint.detect-disable-mustache-escape"
     secondary_identifiers:
-    - name: "ESLint rule ID detect-disable-mustache-escape"
+    - name: "ESLint rule ID/detect-disable-mustache-escape"
       type: "eslint_rule_id"
       value: "detect-disable-mustache-escape"
   message: |

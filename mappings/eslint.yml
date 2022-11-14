@@ -6,7 +6,7 @@
 eslint:
   native_id:
     type: "eslint_rule_id"
-    name: "ESLint rule ID $ID"
+    name: "ESLint rule ID/$ID"
     value: "$ID"
   mappings:
   - id: "react-dangerouslysetinnerhtml"
