@@ -1426,12 +1426,9 @@ rules:
     - name: "Bandit Test ID B502"
       type: "bandit_test_id"
       value: "B502"
-<<<<<<< HEAD
     - name: "Bandit Test ID B503"
       type: "bandit_test_id"
       value: "B503"
-=======
->>>>>>> 5d53986e2aab9ce40c566ddf802af8574ca27c06
   severity: "WARNING"
   languages:
   - "python"
