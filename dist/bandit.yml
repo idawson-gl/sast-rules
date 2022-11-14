@@ -1,5 +1,5 @@
 # yamllint disable
-# rule-set version: v1.1.7
+# rule-set version: v1.1.19
 # yamllint enable
 ---
 rules:
@@ -706,9 +706,6 @@ rules:
     owasp: "A7: Cross-Site Scripting (XSS)"
     primary_identifier: "bandit.B703"
     secondary_identifiers:
-    - name: "Bandit Test ID B308"
-      type: "bandit_test_id"
-      value: "B308"
     - name: "Bandit Test ID B703"
       type: "bandit_test_id"
       value: "B703"
@@ -875,7 +872,7 @@ rules:
     owasp: "A1: Injection"
     primary_identifier: "bandit.B607"
     secondary_identifiers:
-    - name: "Bandit Test ID: B607"
+    - name: "Bandit Test ID B607"
       type: "bandit_test_id"
       value: "B607"
   severity: "INFO"
@@ -930,68 +927,6 @@ rules:
       type: "bandit_test_id"
       value: "B601"
   severity: "WARNING"
-  languages:
-  - "python"
-- id: "bandit.B607-2"
-  patterns:
-  - pattern-either:
-    - pattern: "os.popen(...)"
-    - pattern: "os.system(...)"
-    - pattern: "os.popen2(...)"
-    - pattern: "os.popen3(...)"
-    - pattern: "os.popen4(...)"
-    - pattern: "subprocess.Popen(...)"
-    - pattern: "popen2.popen2(...)"
-    - pattern: "popen2.popen3(...)"
-    - pattern: "popen2.popen4(...)"
-    - pattern: "popen2.Popen3(...)"
-    - pattern: "popen2.Popen4(...)"
-    - pattern: "commands.getoutput(...)"
-    - pattern: "commands.getstatusoutput(...)"
-  message: |
-    Starting a process with a partial executable path
-  metadata:
-    cwe: "CWE-78: Improper Neutralization of Special Elements used in an OS Command
-      ('OS Command Injection')"
-    owasp: "A1: Injection"
-    primary_identifier: "bandit.B607-2"
-    secondary_identifiers:
-    - name: "Bandit Test ID B607"
-      type: "bandit_test_id"
-      value: "B607"
-  severity: "INFO"
-  languages:
-  - "python"
-- id: "bandit.B607-1"
-  patterns:
-  - pattern-either:
-    - pattern: "subprocess.Popen($BIN, shell=False)"
-    - pattern: "subprocess.Popen([$BIN, ...], shell=False)"
-    - pattern: "os.system($BIN, shell=False)"
-    - pattern: "os.system([$BIN, ...], shell=False)"
-    - pattern: "popen2.Popen3($BIN, shell=False)"
-    - pattern: "popen2.Popen3([$BIN, ...], shell=False)"
-    - pattern: "popen2.Popen4($BIN, shell=False)"
-    - pattern: "popen2.Popen4([$BIN, ...], shell=False)"
-    - pattern: "commands.getoutput($BIN, shell=False)"
-    - pattern: "commands.getoutput([$BIN, ...], shell=False)"
-    - pattern: "commands.getstatusoutput($BIN, shell=False)"
-    - pattern: "commands.getstatusoutput([$BIN, ...], shell=False)"
-  - metavariable-regex:
-      metavariable: "$BIN"
-      regex: "^['\"][^/\\.][^:].*['\"]"
-  message: |
-    Starting a process with a partial executable path
-  metadata:
-    cwe: "CWE-78: Improper Neutralization of Special Elements used in an OS Command
-      ('OS Command Injection')"
-    owasp: "A1: Injection"
-    primary_identifier: "bandit.B607"
-    secondary_identifiers:
-    - name: "Bandit Test ID B607"
-      type: "bandit_test_id"
-      value: "B607"
-  severity: "INFO"
   languages:
   - "python"
 - id: "bandit.B606-1"
@@ -1426,9 +1361,6 @@ rules:
     - name: "Bandit Test ID B502"
       type: "bandit_test_id"
       value: "B502"
-    - name: "Bandit Test ID B503"
-      type: "bandit_test_id"
-      value: "B503"
   severity: "WARNING"
   languages:
   - "python"
@@ -1636,7 +1568,7 @@ rules:
     owasp: "A4: XML External Entities (XXE)"
     primary_identifier: "bandit.B313"
     secondary_identifiers:
-    - name: "Bandit Test ID: B313"
+    - name: "Bandit Test ID B313"
       type: "bandit_test_id"
       value: "B313"
   message: |
@@ -1659,7 +1591,7 @@ rules:
     owasp: "A4: XML External Entities (XXE)"
     primary_identifier: "bandit.B314"
     secondary_identifiers:
-    - name: "Bandit Test ID: B314"
+    - name: "Bandit Test ID B314"
       type: "bandit_test_id"
       value: "B314"
   message: |
@@ -1684,7 +1616,7 @@ rules:
     owasp: "A4: XML External Entities (XXE)"
     primary_identifier: "bandit.B320"
     secondary_identifiers:
-    - name: "Bandit Test ID: B320"
+    - name: "Bandit Test ID B320"
       type: "bandit_test_id"
       value: "B320"
   message: |
@@ -1707,7 +1639,7 @@ rules:
     owasp: "A4: XML External Entities (XXE)"
     primary_identifier: "bandit.B316"
     secondary_identifiers:
-    - name: "Bandit Test ID: B316"
+    - name: "Bandit Test ID B316"
       type: "bandit_test_id"
       value: "B316"
   severity: "WARNING"
@@ -1728,7 +1660,7 @@ rules:
     owasp: "A4: XML External Entities (XXE)"
     primary_identifier: "bandit.B315"
     secondary_identifiers:
-    - name: "Bandit Test ID: B315"
+    - name: "Bandit Test ID B315"
       type: "bandit_test_id"
       value: "B315"
   severity: "WARNING"
@@ -1746,7 +1678,7 @@ rules:
     owasp: "A8: Insecure Deserialization"
     primary_identifier: "bandit.B405"
     secondary_identifiers:
-    - name: "Bandit Test ID: B405"
+    - name: "Bandit Test ID B405"
       type: "bandit_test_id"
       value: "B405"
   severity: "INFO"
@@ -1765,7 +1697,7 @@ rules:
     owasp: "A8: Insecure Deserialization"
     primary_identifier: "bandit.B407"
     secondary_identifiers:
-    - name: "Bandit Test ID: B407"
+    - name: "Bandit Test ID B407"
       type: "bandit_test_id"
       value: "B407"
   severity: "INFO"
@@ -1783,7 +1715,7 @@ rules:
     owasp: "A8: Insecure Deserialization"
     primary_identifier: "bandit.B410"
     secondary_identifiers:
-    - name: "Bandit Test ID: B410"
+    - name: "Bandit Test ID B410"
       type: "bandit_test_id"
       value: "B410"
   severity: "INFO"
@@ -1802,7 +1734,7 @@ rules:
     owasp: "A8: Insecure Deserialization"
     primary_identifier: "bandit.B408"
     secondary_identifiers:
-    - name: "Bandit Test ID: B408"
+    - name: "Bandit Test ID B408"
       type: "bandit_test_id"
       value: "B408"
   severity: "INFO"
@@ -1840,7 +1772,7 @@ rules:
     owasp: "A8: Insecure Deserialization"
     primary_identifier: "bandit.B409"
     secondary_identifiers:
-    - name: "Bandit Test ID: B409"
+    - name: "Bandit Test ID B409"
       type: "bandit_test_id"
       value: "B409"
   severity: "INFO"
@@ -1859,7 +1791,7 @@ rules:
     owasp: "A8: Insecure Deserialization"
     primary_identifier: "bandit.B406"
     secondary_identifiers:
-    - name: "Bandit Test ID: B406"
+    - name: "Bandit Test ID B406"
       type: "bandit_test_id"
       value: "B406"
   severity: "INFO"
@@ -1892,7 +1824,7 @@ rules:
     owasp: "A4: XML External Entities (XXE)"
     primary_identifier: "bandit.B318"
     secondary_identifiers:
-    - name: "Bandit Test ID B317"
+    - name: "Bandit Test ID B318"
       type: "bandit_test_id"
       value: "B318"
   message: |
@@ -1913,45 +1845,9 @@ rules:
     owasp: "A4: XML External Entities (XXE)"
     primary_identifier: "bandit.B319"
     secondary_identifiers:
-    - name: "Bandit Test ID B313"
-      type: "bandit_test_id"
-      value: "B313"
-    - name: "Bandit Test ID B314"
-      type: "bandit_test_id"
-      value: "B314"
-    - name: "Bandit Test ID B315"
-      type: "bandit_test_id"
-      value: "B315"
-    - name: "Bandit Test ID B316"
-      type: "bandit_test_id"
-      value: "B316"
-    - name: "Bandit Test ID B318"
-      type: "bandit_test_id"
-      value: "B318"
     - name: "Bandit Test ID B319"
       type: "bandit_test_id"
       value: "B319"
-    - name: "Bandit Test ID B320"
-      type: "bandit_test_id"
-      value: "B320"
-    - name: "Bandit Test ID B405"
-      type: "bandit_test_id"
-      value: "B405"
-    - name: "Bandit Test ID B406"
-      type: "bandit_test_id"
-      value: "B406"
-    - name: "Bandit Test ID B407"
-      type: "bandit_test_id"
-      value: "B407"
-    - name: "Bandit Test ID B408"
-      type: "bandit_test_id"
-      value: "B408"
-    - name: "Bandit Test ID B409"
-      type: "bandit_test_id"
-      value: "B409"
-    - name: "Bandit Test ID B410"
-      type: "bandit_test_id"
-      value: "B410"
   message: |
     Found use of the native Python XML libraries, which is vulnerable to XML external entity (XXE)
     attacks. The Python documentation recommends the `defusedxml` library instead. Use
@@ -1973,7 +1869,7 @@ rules:
     owasp: "A4: XML External Entities (XXE)"
     primary_identifier: "bandit.B317"
     secondary_identifiers:
-    - name: "Bandit Test ID: B317"
+    - name: "Bandit Test ID B317"
       type: "bandit_test_id"
       value: "B317"
   severity: "WARNING"
