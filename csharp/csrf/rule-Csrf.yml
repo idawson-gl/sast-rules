@@ -6,7 +6,7 @@ rules:
 - id: "csharp/csrf/rule-Csrf"
   patterns:
   - pattern: |
-      [HttpPost]
+      [$HTTPMETHOD]
       public $RET $FOO(...) {
         ...
       }
@@ -15,6 +15,9 @@ rules:
       public $RET $FOO(...) {
         ...
       }
+  - metavariable-regex:
+      metavariable: "$HTTPMETHOD"
+      regex: "Http(Post|Delete|Patch|Put)"
   message: |
     An attacker could send a link to the victim. By visiting the
     malicious link, a web page would trigger a POST request (because it is a

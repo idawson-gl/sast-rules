@@ -1,0 +1,28 @@
+# yamllint disable
+# License: LGPL 2.1 (c) Return To Corporation
+# source (modified): https://github.com/returntocorp/semgrep-rules/blob/develop/python/lang/security/audit/dangerous-system-call.yaml
+# hash: acdabdb
+# id: dangerous-system-call
+# yamllint enable
+---
+rules:
+- id: "python/exec/rule-subprocess_call_array"
+  patterns:
+  - pattern: |
+      subprocess.$FUNC([..., $ARG, ...])
+  - metavariable-pattern:
+      metavariable: "$ARG"
+      patterns:
+      - pattern-not: |
+          "..."
+      - pattern-not: |
+          '...'
+  message: |
+    subprocess call - check for execution of untrusted input
+  metadata:
+    cwe: "CWE-78: Improper Neutralization of Special Elements used in an OS Command
+      ('OS Command Injection')"
+    owasp: "A1: Injection"
+  severity: "WARNING"
+  languages:
+  - "python"

@@ -6,15 +6,12 @@
 # yamllint enable
 ---
 rules:
-- id: "python/xxe/rule-xml_bad_expatbuilder"
+- id: "python/xml/rule-expatbuilder"
   pattern-either:
   - patterns:
-    - pattern: "xml.$ANYTHING"
-    - pattern-not: "xml.sax.saxutils"
-    - pattern-not: "xml.etree.ElementTree.Element"
-    - pattern-not: "xml.etree.ElementTree.SubElement"
-  - pattern: "lxml.$ANYTHING"
-  - pattern: "xmlrpclib.$ANYTHING"
+    - pattern: "xml.dom.expatbuilder.parse(...)"
+    - pattern-not: "xml.dom.expatbuilder.parse(\"...\")"
+  - pattern: "xml.dom.expatbuilder.parseString(...)"
   message: |
     Insecure XML parsing functionality, prefer `defusedxml`
   metadata:

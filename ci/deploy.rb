@@ -10,18 +10,18 @@ if ARGV.empty?
   exit 1
 end
 
-dest = "dist"
+dest = 'dist'
 version = ARGV[0]
 
-unless version.match?(/[0-9.]{1,15}/) 
-  puts "only semver version strings allowed"
+unless version.match?(/[0-9.]{1,15}/)
+  puts 'only semver version strings allowed'
   exit 1
 end
 
-Dir.mkdir(dest) unless Dir.exists?(dest)
+Dir.mkdir(dest) unless Dir.exist?(dest)
 
 Dir.glob('mappings/*.yml').each do |mappings|
-  prefix = File.basename(mappings, ".yml")
+  prefix = File.basename(mappings, '.yml')
 
   dict = YAML.safe_load(File.read(mappings))
 
@@ -44,13 +44,15 @@ Dir.glob('mappings/*.yml').each do |mappings|
       rulefiles << rule
     end
   end
-  
+
   rulefiles.sort!.uniq!
 
   rulefiles.each do |rfil|
     rulefiledict = YAML.safe_load(File.read("#{rfil}.yml"))
     rulefromfile = rulefiledict['rules'].first
     ids = rule2ids[rfil]
+
+    primary_id = "#{prefix}.#{ids.first}"
     # generate a unique rule hash that makes it possible to map results
     # back to the original analyzer -- note that we have n:m mappings multiple
     # native ids can be mapped to a collection of semgrep rules and vice versa
@@ -61,14 +63,12 @@ Dir.glob('mappings/*.yml').each do |mappings|
     rulez[newid] = rulefromfile
     secondary_ids = []
     ids.uniq.each do |id|
-      rule = Marshal.load( Marshal.dump(rulefromfile) )
-      secondary_ids << { 
-        'name' => native_id['name'].gsub("$ID", id),
-        'type' => native_id['type'].gsub("$ID", id),
-        'value' => native_id['value'].gsub("$ID", id)
-      } 
+      secondary_ids << {
+        'name' => native_id['name'].gsub('$ID', id),
+        'type' => native_id['type'].gsub('$ID', id),
+        'value' => native_id['value'].gsub('$ID', id)
+      }
     end
-    primary_id = ids.one? ? newid.delete_suffix('-1') : newid
     rulez[newid]['metadata'].merge!('primary_identifier' => primary_id)
     rulez[newid]['metadata'].merge!('secondary_identifiers' => secondary_ids)
   end
@@ -77,10 +77,10 @@ Dir.glob('mappings/*.yml').each do |mappings|
   formatted = AutoFormat.reformat_yaml('', outdict)
 
   puts("writing #{prefix}.yml")
-  File.open("#{dest}/#{prefix}.yml", 'w') { |file| 
+  File.open("#{dest}/#{prefix}.yml", 'w') do |file|
     file.puts('# yamllint disable')
     file.puts("# rule-set version: #{version}")
     file.puts('# yamllint enable')
-    file.write(formatted) 
-  }
+    file.write(formatted)
+  end
 end

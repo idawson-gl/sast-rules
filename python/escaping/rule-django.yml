@@ -6,11 +6,23 @@
 # yamllint enable
 ---
 rules:
-- id: "python/escaping/rule-mark_safe"
+- id: "python/escaping/rule-django"
   patterns:
   - pattern-not-inside: |-
       django.utils.html.format_html(...)
   - pattern-either:
+    - patterns:
+      - pattern: "django.utils.safestring.SafeText(...)"
+      - pattern-not: "django.utils.safestring.SafeText(\"...\")"
+    - patterns:
+      - pattern: "django.utils.safestring.SafeUnicode(...)"
+      - pattern-not: "django.utils.safestring.SafeUnicode(\"...\")"
+    - patterns:
+      - pattern: "django.utils.safestring.SafeString(...)"
+      - pattern-not: "django.utils.safestring.SafeString(\"...\")"
+    - patterns:
+      - pattern: "django.utils.safestring.SafeBytes(...)"
+      - pattern-not: "django.utils.safestring.SafeBytes(\"...\")"
     - patterns:
       - pattern: "django.utils.safestring.mark_safe(...)"
       - pattern-not: "django.utils.safestring.mark_safe(\"...\")"

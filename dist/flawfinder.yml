@@ -1,5 +1,9 @@
 # yamllint disable
+<<<<<<< HEAD
 # rule-set version: 1.1.4
+=======
+# rule-set version: v1.1.7
+>>>>>>> 5d53986e2aab9ce40c566ddf802af8574ca27c06
 # yamllint enable
 ---
 rules:
@@ -11,7 +15,7 @@ rules:
   metadata:
     cwe: "CWE-250: If this call fails, the program could fail to drop heightened privileges
       (CWE-250)"
-    primary_identifier: "flawfinder.RpcImpersonateClient-1.ImpersonateLoggedOnUser-1.CoImpersonateClient-1.ImpersonateNamedPipeClient-1.ImpersonateDdeClientWindow-1.ImpersonateSecurityContext-1.SetThreadToken-1"
+    primary_identifier: "flawfinder.RpcImpersonateClient"
     secondary_identifiers:
     - name: "Flawfinder - RpcImpersonateClient"
       type: "flawfinder_func_name"
@@ -81,7 +85,7 @@ rules:
   metadata:
     cwe: "CWE-120: Does not check for buffer overflows when concatenating to destination
       [MS-banned] (CWE-120)"
-    primary_identifier: "flawfinder.StrCat-1.StrCatA-1.StrcatW-1.lstrcatA-1.lstrcatW-1.strCatBuff-1.StrCatBuffA-1.StrCatBuffW-1.StrCatChainW-1._tccat-1._mbccat-1._ftcscat-1.StrCatN-1.StrCatNA-1.StrCatNW-1.StrNCat-1.StrNCatA-1.StrNCatW-1.lstrncat-1.lstrcatnA-1.lstrcatnW-1"
+    primary_identifier: "flawfinder.StrCat"
     secondary_identifiers:
     - name: "Flawfinder - StrCat"
       type: "flawfinder_func_name"
@@ -178,7 +182,7 @@ rules:
   metadata:
     cwe: "CWE-120: Statically-sized arrays can be improperly restricted, leading to
       potential overflows or other issues (CWE-119!/CWE-120)"
-    primary_identifier: "flawfinder.char-1.TCHAR-1.wchar_t-1"
+    primary_identifier: "flawfinder.char"
     secondary_identifiers:
     - name: "Flawfinder - char"
       type: "flawfinder_func_name"
@@ -214,7 +218,7 @@ rules:
   metadata:
     cwe: "CWE-126: Function does not check the second iterator for over-read conditions
       (CWE-126)"
-    primary_identifier: "flawfinder.equal-1.mismatch-1.is_permutation-1"
+    primary_identifier: "flawfinder.equal"
     secondary_identifiers:
     - name: "Flawfinder - equal"
       type: "flawfinder_func_name"
@@ -238,7 +242,7 @@ rules:
   metadata:
     cwe: "CWE-120: The scanf() family's %s operation, without a limit specification,
       permits buffer overflows (CWE-120, CWE-20)"
-    primary_identifier: "flawfinder.fscanf-1.sscanf-1.vsscanf-1.vfscanf-1._ftscanf-1.fwscanf-1.vfwscanf-1.vswscanf-1"
+    primary_identifier: "flawfinder.fscanf"
     secondary_identifiers:
     - name: "Flawfinder - fscanf"
       type: "flawfinder_func_name"
@@ -314,7 +318,7 @@ rules:
   metadata:
     cwe: "CWE-20: Check buffer boundaries if used in a loop including recursive loops
       (CWE-120, CWE-20)"
-    primary_identifier: "flawfinder.getchar-1.fgetc-1.getc-1.read-1._gettc-1"
+    primary_identifier: "flawfinder.getchar"
     secondary_identifiers:
     - name: "Flawfinder - getchar"
       type: "flawfinder_func_name"
@@ -347,7 +351,7 @@ rules:
     cwe: "CWE-20: Environment variables are untrustable input if they can be set by
       an attacker.  They can have any content and length, and the same variable can
       be set more than once (CWE-807, CWE-20)"
-    primary_identifier: "flawfinder.getenv-1.curl_getenv-1"
+    primary_identifier: "flawfinder.getenv"
     secondary_identifiers:
     - name: "Flawfinder - getenv"
       type: "flawfinder_func_name"
@@ -367,7 +371,7 @@ rules:
   metadata:
     cwe: "CWE-120: Some older implementations do not protect against internal buffer
       overflows (CWE-120, CWE-20)"
-    primary_identifier: "flawfinder.getopt-1.getopt_long-1"
+    primary_identifier: "flawfinder.getopt"
     secondary_identifiers:
     - name: "Flawfinder - getopt"
       type: "flawfinder_func_name"
@@ -403,7 +407,7 @@ rules:
     Use fgets() instead.
   metadata:
     cwe: "CWE-120: Does not check for buffer overflows (CWE-120, CWE-20)"
-    primary_identifier: "flawfinder.gets-1._getts-1"
+    primary_identifier: "flawfinder.gets"
     secondary_identifiers:
     - name: "Flawfinder - gets"
       type: "flawfinder_func_name"
@@ -438,7 +442,7 @@ rules:
   metadata:
     cwe: "CWE-120: Does not check for buffer overflows when concatenating to destination
       [MS-banned] (CWE-120)"
-    primary_identifier: "flawfinder.lstrcat-1.wcscat-1._tcscat-1._mbscat-1"
+    primary_identifier: "flawfinder.lstrcat"
     secondary_identifiers:
     - name: "Flawfinder - lstrcat"
       type: "flawfinder_func_name"
@@ -466,7 +470,7 @@ rules:
   metadata:
     cwe: "CWE-120: Easily used incorrectly (e.g., incorrectly computing the correct
       maximum size to add) [MS-banned] (CWE-120)"
-    primary_identifier: "flawfinder.lstrcatn-1.wcsncat-1._tcsncat-1._mbsnbcat-1"
+    primary_identifier: "flawfinder.lstrcatn"
     secondary_identifiers:
     - name: "Flawfinder - lstrcatn"
       type: "flawfinder_func_name"
@@ -494,7 +498,7 @@ rules:
   metadata:
     cwe: "CWE-120: Does not check for buffer overflows when copying to destination
       [MS-banned] (CWE-120)"
-    primary_identifier: "flawfinder.lstrcpy-1.wcscpy-1._tcscpy-1._mbscpy-1"
+    primary_identifier: "flawfinder.lstrcpy"
     secondary_identifiers:
     - name: "Flawfinder - lstrcpy"
       type: "flawfinder_func_name"
@@ -522,7 +526,7 @@ rules:
   metadata:
     cwe: "CWE-120: Doesn't always \\0-terminate or check for invalid pointers [MS-banned]
       (CWE-120)"
-    primary_identifier: "flawfinder.lstrcpyn-1.wcsncpy-1._tcsncpy-1._mbsnbcpy-1"
+    primary_identifier: "flawfinder.lstrcpyn"
     secondary_identifiers:
     - name: "Flawfinder - lstrcpyn"
       type: "flawfinder_func_name"
@@ -550,7 +554,7 @@ rules:
   metadata:
     cwe: "CWE-120: Does not check for buffer overflows when copying to destination
       (CWE-120)"
-    primary_identifier: "flawfinder.memcpy-1.CopyMemory-1.bcopy-1"
+    primary_identifier: "flawfinder.memcpy"
     secondary_identifiers:
     - name: "Flawfinder - memcpy"
       type: "flawfinder_func_name"
@@ -591,7 +595,7 @@ rules:
   metadata:
     cwe: "CWE-120: The scanf() family's %s operation, without a limit specification,
       permits buffer overflows (CWE-120, CWE-20)"
-    primary_identifier: "flawfinder.scanf-1.vscanf-1.wscanf-1._tscanf-1.vwscanf-1"
+    primary_identifier: "flawfinder.scanf"
     secondary_identifiers:
     - name: "Flawfinder - scanf"
       type: "flawfinder_func_name"
@@ -632,7 +636,7 @@ rules:
     Use sprintf_s, snprintf, or vsnprintf.
   metadata:
     cwe: "CWE-120: Does not check for buffer overflows (CWE-120)"
-    primary_identifier: "flawfinder.sprintf-1.vsprintf-1.swprintf-1.vswprintf-1._stprintf-1._vstprintf-1"
+    primary_identifier: "flawfinder.sprintf"
     secondary_identifiers:
     - name: "Flawfinder - sprintf"
       type: "flawfinder_func_name"
@@ -682,7 +686,7 @@ rules:
     Ensure that destination buffer is sufficiently large.
   metadata:
     cwe: "CWE-120: Subject to buffer overflow if buffer is not as big as claimed (CWE-120)"
-    primary_identifier: "flawfinder.strccpy-1.strcadd-1"
+    primary_identifier: "flawfinder.strccpy"
     secondary_identifiers:
     - name: "Flawfinder - strccpy"
       type: "flawfinder_func_name"
@@ -717,7 +721,7 @@ rules:
   metadata:
     cwe: "CWE-120: Does not check for buffer overflows when copying to destination
       [MS-banned] (CWE-120)"
-    primary_identifier: "flawfinder.strcpyA-1.strcpyW-1.StrCpy-1.StrCpyA-1.lstrcpyA-1.lstrcpyW-1._tccpy-1._mbccpy-1._ftcscpy-1._mbsncpy-1.StrCpyN-1.StrCpyNA-1.StrCpyNW-1.StrNCpy-1.strcpynA-1.StrNCpyA-1.StrNCpyW-1.lstrcpynA-1.lstrcpynW-1"
+    primary_identifier: "flawfinder.strcpyA"
     secondary_identifiers:
     - name: "Flawfinder - strcpyA"
       type: "flawfinder_func_name"
@@ -804,7 +808,7 @@ rules:
     Ensure the destination has 4 times the size of the source, to leave room for expansion.
   metadata:
     cwe: "CWE-120: This function does not protect against buffer overflows (CWE-120)"
-    primary_identifier: "flawfinder.streadd-1.strecpy-1"
+    primary_identifier: "flawfinder.streadd"
     secondary_identifiers:
     - name: "Flawfinder - streadd"
       type: "flawfinder_func_name"
@@ -824,7 +828,7 @@ rules:
   metadata:
     cwe: "CWE-126: Does not handle strings that are not \\0-terminated; if given one
       it may perform an over-read (it could cause a crash if unprotected) (CWE-126)"
-    primary_identifier: "flawfinder.strlen-1.wcslen-1._tcslen-1._mbslen-1"
+    primary_identifier: "flawfinder.strlen"
     secondary_identifiers:
     - name: "Flawfinder - strlen"
       type: "flawfinder_func_name"
@@ -896,7 +900,7 @@ rules:
   metadata:
     cwe: "CWE-327: DES only supports a 56-bit keysize, which is too small given today's
       computers (CWE-327)"
-    primary_identifier: "flawfinder.EVP_des_ecb-1.EVP_des_cbc-1.EVP_des_cfb-1.EVP_des_ofb-1.EVP_desx_cbc-1"
+    primary_identifier: "flawfinder.EVP_des_ecb"
     secondary_identifiers:
     - name: "Flawfinder - EVP_des_ecb"
       type: "flawfinder_func_name"
@@ -927,7 +931,7 @@ rules:
     Use a different patent-free encryption algorithm with a larger keysize, such as 3DES or AES.
   metadata:
     cwe: "CWE-327: These keysizes are too small given today's computers (CWE-327)"
-    primary_identifier: "flawfinder.EVP_rc4_40-1.EVP_rc2_40_cbc-1.EVP_rc2_64_cbc-1"
+    primary_identifier: "flawfinder.EVP_rc4_40"
     secondary_identifiers:
     - name: "Flawfinder - EVP_rc4_40"
       type: "flawfinder_func_name"
@@ -953,7 +957,7 @@ rules:
       they only accept passwords of 8 characters or fewer and only a two-byte salt,
       they are excessively vulnerable to dictionary attacks given today's faster computing
       equipment (CWE-327)"
-    primary_identifier: "flawfinder.crypt-1.crypt_r-1"
+    primary_identifier: "flawfinder.crypt"
     secondary_identifiers:
     - name: "Flawfinder - crypt"
       type: "flawfinder_func_name"
@@ -973,7 +977,7 @@ rules:
   metadata:
     cwe: "CWE-134: If format strings can be influenced by an attacker, they can be
       exploited (CWE-134)"
-    primary_identifier: "flawfinder.fprintf-1.vfprintf-1._ftprintf-1._vftprintf-1.fwprintf-1.fvwprintf-1"
+    primary_identifier: "flawfinder.fprintf"
     secondary_identifiers:
     - name: "Flawfinder - fprintf"
       type: "flawfinder_func_name"
@@ -1018,7 +1022,7 @@ rules:
   metadata:
     cwe: "CWE-134: If format strings can be influenced by an attacker, they can be
       exploited (CWE-134)"
-    primary_identifier: "flawfinder.printf-1.vprintf-1.vwprintf-1.vfwprintf-1._vtprintf-1.wprintf-1"
+    primary_identifier: "flawfinder.printf"
     secondary_identifiers:
     - name: "Flawfinder - printf"
       type: "flawfinder_func_name"
@@ -1066,7 +1070,7 @@ rules:
   metadata:
     cwe: "CWE-134: If format strings can be influenced by an attacker, they can be
       exploited, and note that sprintf variations do not always \\0-terminate (CWE-134)"
-    primary_identifier: "flawfinder.snprintf-1.vsnprintf-1._snprintf-1._sntprintf-1._vsntprintf-1"
+    primary_identifier: "flawfinder.snprintf"
     secondary_identifiers:
     - name: "Flawfinder - snprintf"
       type: "flawfinder_func_name"
@@ -1149,7 +1153,7 @@ rules:
   metadata:
     cwe: "CWE-190: Unless checked, the resulting number can exceed the expected range
       (CWE-190)"
-    primary_identifier: "flawfinder.atoi-1.atol-1._wtoi-1._wtoi64-1"
+    primary_identifier: "flawfinder.atoi"
     secondary_identifiers:
     - name: "Flawfinder - atoi"
       type: "flawfinder_func_name"
@@ -1290,7 +1294,7 @@ rules:
     cwe: "CWE-362: Check when opening files - can an attacker redirect it (via symlinks),
       force the opening of special file type (e.g., device files), move things around
       to create a race condition, control its ancestors, or change its contents? (CWE-362)"
-    primary_identifier: "flawfinder.fopen-1.open-1"
+    primary_identifier: "flawfinder.fopen"
     secondary_identifiers:
     - name: "Flawfinder - fopen"
       type: "flawfinder_func_name"
@@ -1350,7 +1354,7 @@ rules:
       non-portable (Linux-based systems handle them radically different, basically
       if gsignal/ssignal were the same as raise/signal respectively, while System
       V considers them a separate set and obsolete) (CWE-676)"
-    primary_identifier: "flawfinder.gsignal-1.ssignal-1"
+    primary_identifier: "flawfinder.gsignal"
     secondary_identifiers:
     - name: "Flawfinder - gsignal"
       type: "flawfinder_func_name"
@@ -1494,7 +1498,7 @@ rules:
   metadata:
     cwe: "CWE-327: This function is not sufficiently random for security-related functions
       such as key and nonce creation (CWE-327)"
-    primary_identifier: "flawfinder.drand48-1.erand48-1.jrand48-1.lcong48-1.lrand48-1.mrand48-1.nrand48-1.random-1.seed48-1.setstate-1.srand-1.strfry-1.srandom-1.g_rand_boolean-1.g_rand_int-1.g_rand_int_range-1.g_rand_double-1.g_rand_double_range-1.g_random_boolean-1.g_random_int-1.g_random_int_range-1.g_random_double-1.g_random_double_range-1"
+    primary_identifier: "flawfinder.drand48"
     secondary_identifiers:
     - name: "Flawfinder - drand48"
       type: "flawfinder_func_name"
@@ -1615,7 +1619,7 @@ rules:
   metadata:
     cwe: "CWE-78: This causes a new process to execute and is difficult to use safely
       (CWE-78)"
-    primary_identifier: "flawfinder.CreateProcessAsUser-1.CreateProcessWithLogon-1"
+    primary_identifier: "flawfinder.CreateProcessAsUser"
     secondary_identifiers:
     - name: "Flawfinder - CreateProcessAsUser"
       type: "flawfinder_func_name"
@@ -1635,7 +1639,7 @@ rules:
   metadata:
     cwe: "CWE-78: This causes a new program to execute and is difficult to use safely
       (CWE-78)"
-    primary_identifier: "flawfinder.execl-1.execlp-1.execle-1.execv-1.execvp-1.popen-1.WinExec-1.ShellExecute-1"
+    primary_identifier: "flawfinder.execl"
     secondary_identifiers:
     - name: "Flawfinder - execl"
       type: "flawfinder_func_name"
@@ -1757,7 +1761,7 @@ rules:
     attack.
   metadata:
     cwe: "CWE-377: Temporary file race condition (CWE-377)"
-    primary_identifier: "flawfinder.tmpnam-1.tempnam-1"
+    primary_identifier: "flawfinder.tmpnam"
     secondary_identifiers:
     - name: "Flawfinder - tmpnam"
       type: "flawfinder_func_name"

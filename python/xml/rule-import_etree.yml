@@ -3,14 +3,13 @@
 # yamllint enable
 ---
 rules:
-- id: "python/xml/rule-import_pickle"
+- id: "python/xml/rule-import_etree"
   patterns:
   - pattern-either:
-    - pattern: "import pickle"
-    - pattern: "import cPickle"
-    - pattern: "import dill"
+    - pattern: "import xml.etree.cElementTree"
+    - pattern: "import xml.etree.ElementTree"
   message: |
-    Consider possible security implications associated with pickle module.
+    Consider possible security implications associated with etree module.
   metadata:
     cwe: "CWE-502: Deserialization of Untrusted Data"
     owasp: "A8: Insecure Deserialization"

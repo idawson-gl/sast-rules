@@ -11,6 +11,7 @@ def Popen(*args, **kwargs):
     def __len__(self):
         return 0
 
+# safe
 pop('/bin/gcc --version', shell=True)
 Popen('/bin/gcc --version', shell=True)
 
@@ -33,7 +34,7 @@ subprocess.run(['/bin/ls', '-l'])
 subprocess.run('/bin/ls -l', shell=True)
 
 subprocess.Popen('/bin/ls *', shell=True)
-subprocess.Popen('/bin/ls %s' % ('something',), shell=True)
+subprocess.Popen('/bin/ls %s' % ('something'), shell=True)
 subprocess.Popen('/bin/ls {}'.format('something'), shell=True)
 
 command = "/bin/ls" + unknown_function()
@@ -41,19 +42,12 @@ subprocess.Popen(command, shell=True)
 
 subprocess.Popen('/bin/ls && cat /etc/passwd', shell=True)
 
-command = 'pwd'
-subprocess.call(command, shell='True')
-subprocess.call(command, shell='False')
-subprocess.call(command, shell='None')
-subprocess.call(command, shell=1)
+constant_command = 'pwd'
+subprocess.call(constant_command, shell=True)
+subprocess.call(constant_command, shell=False)
 
-subprocess.call(command, shell=Popen())
-subprocess.call(command, shell=[True])
-subprocess.call(command, shell={'IS': 'True'})
-subprocess.call(command, shell=command)
-
-subprocess.call(command, shell=False)
-subprocess.call(command, shell=0)
-subprocess.call(command, shell=[])
-subprocess.call(command, shell={})
-subprocess.call(command, shell=None)
+# unsafe
+user_command = input()
+subprocess.run([user_command])
+subprocess.run(user_command)
+subprocess.run(user_command, shell=True)

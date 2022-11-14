@@ -1,7 +1,13 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # License: MIT (c) GitLab Inc.
 
-try:
-  do_some_stuff()
-except Exception:
-  continue
+x = 0
+
+while x < 1:
+    try:
+        x = 1 
+    except Exception as e:
+        continue
+    except Exception: continue
+    except Exception:
+        x = 1

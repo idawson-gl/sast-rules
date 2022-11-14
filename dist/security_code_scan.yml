@@ -1,5 +1,9 @@
 # yamllint disable
+<<<<<<< HEAD
 # rule-set version: 1.1.4
+=======
+# rule-set version: v1.1.7
+>>>>>>> 5d53986e2aab9ce40c566ddf802af8574ca27c06
 # yamllint enable
 ---
 rules:
@@ -203,7 +207,7 @@ rules:
 - id: "security_code_scan.SCS0016-1"
   patterns:
   - pattern: |
-      [HttpPost]
+      [$HTTPMETHOD]
       public $RET $FOO(...) {
         ...
       }
@@ -212,6 +216,9 @@ rules:
       public $RET $FOO(...) {
         ...
       }
+  - metavariable-regex:
+      metavariable: "$HTTPMETHOD"
+      regex: "Http(Post|Delete|Patch|Put)"
   message: |
     An attacker could send a link to the victim. By visiting the
     malicious link, a web page would trigger a POST request (because it is a
@@ -385,7 +392,7 @@ rules:
     category: "security"
     cwe: "CWE-90: Improper Neutralization of Special Elements used in an LDAP Query
       (‘LDAP Injection’)"
-    primary_identifier: "security_code_scan.SCS0026-1.SCS0031-1"
+    primary_identifier: "security_code_scan.SCS0026"
     secondary_identifiers:
     - name: "SCS0026"
       type: "security_code_scan_rule_id"
@@ -635,7 +642,7 @@ rules:
   metadata:
     category: "security"
     cwe: "CWE-521: Weak Password Requirements"
-    primary_identifier: "security_code_scan.SCS0032-1.SCS0033-1.SCS0034-1"
+    primary_identifier: "security_code_scan.SCS0032"
     secondary_identifiers:
     - name: "SCS0032"
       type: "security_code_scan_rule_id"

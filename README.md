@@ -117,6 +117,13 @@ sources listed below:
 The details are listed in the headers of all the rule end test-files including
 the licensing information and proper attribution. 
 
+## Contributing
+
+If you know about a pattern that isn't present in this repo or refinements that
+could be applied to the rules in this repository, you can contribute by opening
+an issue, or even submit an improvement to the rule files/test cases in this
+repository. 
+
 ## Contribution instructions
 
 After making changes to rules or mappings, make sure to run `./ci/deploy.sh <semantic version>` 
@@ -131,11 +138,31 @@ We apply the following semantic versioning scheme to this repository:
 1. minor version increment: backwards-compatible YAML schema changes (e.g., adding/removing optional fields).
 1. major version increment: non-backwards-compatible YAML schema changes (e.g., adding/removing required fields)
 
+## Credits 
+
+We would like to thank the following authors very much for their valuable
+contributions.
+
+| Author         | MRs/Issues            |
+| -------------- | --------------------- |
+| @masakura      | !99                   |
+
+
 ## Rule deployment
 
 ## Rules that are not covered at the moment
 
+### Bandit
+
+#### Excluded patterns (1)
+- B308: [django.utils.safestring.mark_safe](https://bandit.readthedocs.io/en/1.7.1/blacklists/blacklist_calls.html#b308-mark-safe) This rule is basically redundant with [B703](https://bandit.readthedocs.io/en/latest/plugins/b703_django_mark_safe.html)
+
+#### Adusted patterns (1)
+- B503: [ssl_with_bad_defaults](https://bandit.readthedocs.io/en/latest/plugins/b503_ssl_with_bad_defaults.html) Our semgrep pattern captures both B503 and B502 because they are very similar and are both practically capturing insecure setting using outdated versions of encryption algorithms.
+
 ### Gosec
+
+#### Patterns we were unable to migrate (2)
 
 - G104: [Metavariable types not supported for go at the moment](https://github.com/returntocorp/semgrep-rules/issues/1149)
 - G307: [Deferring a method which returns an error](https://github.com/returntocorp/semgrep-rules/issues/1149)

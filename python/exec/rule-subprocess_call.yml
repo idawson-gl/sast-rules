@@ -8,22 +8,29 @@
 rules:
 - id: "python/exec/rule-subprocess_call"
   patterns:
-  - pattern-not: "subprocess.$FUNC(..., shell=True)"
+  - pattern-not: "subprocess.$FUNC($ARG, shell=<... True ...>)"
+  - pattern-not: "subprocess.$FUNC($ARG, shell=<... 'True' ...>)"
+  - pattern-not: "subprocess.$FUNC($ARG, shell=<... \"True\" ...>)"
   - pattern-either:
-    - pattern: "subprocess.$FUNC([...], ...)"
-    - pattern: "subprocess.$FUNC(...)"
-    - pattern: "subprocess.$FUNC([...], shell=False)"
-    - pattern: "subprocess.$FUNC(..., shell=False)"
-    - pattern: "subprocess.$FUNC([...], shell=0)"
-    - pattern: "subprocess.$FUNC(..., shell=0)"
-    - pattern: "subprocess.$FUNC([...], shell=[])"
-    - pattern: "subprocess.$FUNC(..., shell=[])"
-    - pattern: "subprocess.$FUNC([...], shell={})"
-    - pattern: "subprocess.$FUNC(..., shell={})"
-    - pattern: "subprocess.$FUNC([...], shell=None)"
-    - pattern: "subprocess.$FUNC(..., shell=None)"
+    - pattern: |
+        subprocess.$FUNC($ARG, shell=False)
+    - pattern: |
+        subprocess.$FUNC($ARG, shell=0)
+    - pattern: |
+        subprocess.$FUNC($ARG, shell={...})
+    - pattern: |
+        subprocess.$FUNC($ARG, shell=[...])
+    - pattern: |
+        subprocess.$FUNC($ARG)
   message: |
-    subprocess call - check for execution of untrusted input
+    Python possesses many mechanisms to invoke an external executable. However,
+    doing so may present a security issue if appropriate care is not taken to
+    sanitize any user provided or variable input. This plugin test is part of a
+    family of tests built to check for process spawning and warn appropriately.
+    Specifically, this test looks for the spawning of a subprocess without the
+    use of a command shell. This type of subprocess invocation is not
+    vulnerable to shell injection attacks, but care should still be taken to
+    ensure validity of input.
   metadata:
     cwe: "CWE-78: Improper Neutralization of Special Elements used in an OS Command
       ('OS Command Injection')"

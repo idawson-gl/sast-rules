@@ -9,9 +9,14 @@ rules:
 - id: "python/django/rule-django_extra_used"
   patterns:
   - pattern-either:
-    - pattern: "$X.objects.$FUNC(...).extra(...)"
-    - pattern: "$X.objects.$FUNC(...).$FILTER(...).extra(...)"
-    - pattern: "$X.objects.$FUNC(...).$FILTER(...).$UPDATE(...).extra(...)"
+    - pattern: "$X.objects. ... .extra($...Y)"
+  - metavariable-pattern:
+      language: "generic"
+      metavariable: "$...Y"
+      patterns:
+      - pattern: "$K = $V"
+      - pattern-not: "$K = \"...\""
+      - pattern-not: "$K = '...'"
   message: |
     This is a last resort. You should be careful when using `QuerySet.extra` due
     to SQLi.
@@ -21,4 +26,4 @@ rules:
     owasp: "A1: Injection"
   severity: "ERROR"
   languages:
-  - "python"
+  - "generic"

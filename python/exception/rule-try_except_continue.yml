@@ -7,16 +7,15 @@
 ---
 rules:
 - id: "python/exception/rule-try_except_continue"
-  patterns:
+  pattern-either:
   - pattern: |
-      try:
-        ...
-      except $X:
+      except ...:
         continue
+  - pattern: "except ... continue"
   message: |
     Try, Except, Continue
   metadata:
     cwe: "CWE-703: Improper Check or Handling of Exceptional Conditions"
   severity: "INFO"
   languages:
-  - "python"
+  - "generic"

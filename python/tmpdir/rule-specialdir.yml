@@ -8,7 +8,10 @@
 rules:
 - id: "python/tmpdir/rule-specialdir"
   patterns:
-  - pattern: "open(\"=~/^/(dev|var).*/\", ...)"
+  - pattern: "open($DIR, ...)"
+  - metavariable-regex:
+      metavariable: "$DIR"
+      regex: "['\"](/tmp|/var/tmp|/dev/shm).*['\"]"
   message: |
     Probable insecure usage of temp file/directory.
   metadata:

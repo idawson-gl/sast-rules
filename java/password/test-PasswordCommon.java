@@ -2,32 +2,39 @@
 // scaffold: dependencies=io.vertx.vertx-core@4.2.6,io.vertx.vertx-web@4.2.6
 package password;
 
+import com.amazonaws.util.Base64;
+import org.springframework.beans.factory.annotation.Qualifier;
+
 import javax.crypto.spec.*;
 import javax.net.ssl.KeyManagerFactory;
 import javax.security.auth.callback.PasswordCallback;
 import javax.security.auth.kerberos.KerberosKey;
 import javax.security.auth.kerberos.KerberosTicket;
+import java.io.ByteArrayInputStream;
 import java.io.FileInputStream;
+import java.io.IOException;
 import java.math.BigInteger;
 import java.net.PasswordAuthentication;
 import java.nio.charset.StandardCharsets;
 import java.security.KeyRep;
 import java.security.KeyStore;
+import java.security.KeyStoreException;
+import java.security.NoSuchAlgorithmException;
+import java.security.cert.CertificateException;
 import java.security.spec.*;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Arrays;
 
-
 public class PasswordCommon {
-
-    private static final byte[] PUBLIC_KEY = new byte[]{1, 2, 3, 4, 5, 6, 7};
+    private static final String KEYSTORE_TYPE = "RSA";
+    private static final byte[] PUBLIC_KEY = new byte[] { 1, 2, 3, 4, 5, 6, 7 };
     private static final String PWD1 = "secret4";
-    private static final char[] PWD2 = {'s', 'e', 'c', 'r', 'e', 't', '5'};
+    private static final char[] PWD2 = { 's', 'e', 'c', 'r', 'e', 't', '5' };
     private static final BigInteger big = new BigInteger("1000000");
-    private static final byte[] keys = {1, 2, 3, 4, 5, 6, 7, 8};
-    private final char[] PWD3 = {'s', 'e', 'c', 'r', 'e', 't', '5'};
+    private static final byte[] keys = { 1, 2, 3, 4, 5, 6, 7, 8 };
+    private final char[] PWD3 = { 's', 'e', 'c', 'r', 'e', 't', '5' };
     private final char[] pwd5 = null;
     private final char[] pwd6 = new char[7];
     private byte[] pwd4; // not considered hard coded
@@ -61,7 +68,7 @@ public class PasswordCommon {
     }
 
     public void bad3() throws Exception {
-        char[] passphrase = {'s', 'e', 'c', 'r', 'e', 't', '3'};
+        char[] passphrase = { 's', 'e', 'c', 'r', 'e', 't', '3' };
         KeyStore.getInstance("JKS").load(new FileInputStream("keystore"), passphrase);
     }
 
@@ -99,7 +106,7 @@ public class PasswordCommon {
 
     public void bad8a() throws Exception {
         new DESKeySpec(null); // should not be reported
-        byte[] key = new byte[]{1, 2, 3, 4, 5, 6, 7, 8};
+        byte[] key = new byte[] { 1, 2, 3, 4, 5, 6, 7, 8 };
         DESKeySpec spec = new DESKeySpec(key);
         KeySpec spec2 = new DESedeKeySpec(key);
         KerberosKey kerberosKey = new KerberosKey(null, key, 0, 0);
@@ -208,10 +215,57 @@ public class PasswordCommon {
         String message = "can be hard coded";
         byte[] byteStringToEncrypt = message.getBytes(StandardCharsets.UTF_8);
         new SecretKeySpec(key.getBytes(), "AES"); // should not report
-        byte[] bytes = {0, 0, 7};
+        byte[] bytes = { 0, 0, 7 };
         new PBEKeySpec(getPassword(), bytes, 1); // different parameter hard coded
         byte[] newArray = new byte[1024]; // not considered hard coded
         new X509EncodedKeySpec(newArray);
+    }
+
+    public KeyStore good4(String vaultServiceKey, @Qualifier("keyStorePassword") String pass)
+            throws KeyStoreException, CertificateException, IOException, NoSuchAlgorithmException {
+        KeyStore keyStore = KeyStore.getInstance(KEYSTORE_TYPE);
+        keyStore.load(
+                new ByteArrayInputStream(Base64.decode(vaultServiceKey)),
+                pass.toCharArray());
+        return keyStore;
+    }
+
+    public KeyStore good5(String vaultServiceKey, @Qualifier("keyStorePassword") char[] password)
+            throws KeyStoreException, CertificateException, IOException, NoSuchAlgorithmException {
+        KeyStore keyStore = KeyStore.getInstance(KEYSTORE_TYPE);
+        keyStore.load(
+                new ByteArrayInputStream(Base64.decode(vaultServiceKey)),
+                password);
+        return keyStore;
+    }
+
+    public KeyStore bad16(String vaultServiceKey)
+            throws KeyStoreException, CertificateException, IOException, NoSuchAlgorithmException {
+        KeyStore keyStore = KeyStore.getInstance(KEYSTORE_TYPE);
+        String pass = "test";
+        keyStore.load(
+                new ByteArrayInputStream(Base64.decode(vaultServiceKey)),
+                pass.toCharArray());
+        return keyStore;
+    }
+
+    public KeyStore bad17(String vaultServiceKey)
+            throws KeyStoreException, CertificateException, IOException, NoSuchAlgorithmException {
+        KeyStore keyStore = KeyStore.getInstance(KEYSTORE_TYPE);
+        keyStore.load(
+                new ByteArrayInputStream(Base64.decode(vaultServiceKey)),
+                "test".toCharArray());
+        return keyStore;
+    }
+
+    public KeyStore bad18(String vaultServiceKey)
+            throws KeyStoreException, CertificateException, IOException, NoSuchAlgorithmException {
+        KeyStore keyStore = KeyStore.getInstance(KEYSTORE_TYPE);
+        char[] pass = "test".toCharArray();
+        keyStore.load(
+                new ByteArrayInputStream(Base64.decode(vaultServiceKey)),
+                pass);
+        return keyStore;
     }
 
     private void passwordEquals(char[] pwd, char[] pwd2) {

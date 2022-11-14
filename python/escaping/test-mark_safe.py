@@ -39,7 +39,7 @@ def except_insecure(cls='" onload="alert(\'xss\')'):
 
 def try_else_insecure(cls='" onload="alert(\'xss\')'):
     try:
-        if 1 == random.randint(0, 1):  # nosec
+        if 1 == random.randint(0, 1):  
             raise Exception
     except Exception:
         my_insecure_str = 'Secure'
@@ -50,7 +50,7 @@ def try_else_insecure(cls='" onload="alert(\'xss\')'):
 
 def finally_insecure(cls='" onload="alert(\'xss\')'):
     try:
-        if 1 == random.randint(0, 1):  # nosec
+        if 1 == random.randint(0, 1):  
             raise Exception
     except Exception:
         print("Exception")
@@ -128,7 +128,7 @@ def also_with_insecure(path):
 
 def for_insecure():
     my_secure_str = ''
-    for i in range(random.randint(0, 1)):  # nosec
+    for i in range(random.randint(0, 1)):  
         my_secure_str += insecure_function('insecure', cls='" onload="alert(\'xss\')')
     safestring.mark_safe(my_secure_str)
 
@@ -200,8 +200,8 @@ def format_secure():
     safestring.mark_safe('<b>{}</b>'.format(my_secure_str))
     safestring.mark_safe('<b>{} {}</b>'.format(my_secure_str, 'a'))
     safestring.mark_safe('<b>{} {}</b>'.format(*[my_secure_str, 'a']))
-    safestring.mark_safe('<b>{b}</b>'.format(b=my_secure_str))  # nosec TODO
-    safestring.mark_safe('<b>{b}</b>'.format(**{'b': my_secure_str}))  # nosec TODO
+    safestring.mark_safe('<b>{b}</b>'.format(b=my_secure_str))  
+    safestring.mark_safe('<b>{b}</b>'.format(**{'b': my_secure_str}))  
     my_secure_str = '<b>{}</b>'.format(my_secure_str)
     safestring.mark_safe(my_secure_str)
 
@@ -211,7 +211,7 @@ def percent_secure():
     my_secure_str = 'secure'
     safestring.mark_safe('<b>%s</b>' % my_secure_str)
     safestring.mark_safe('<b>%s %s</b>' % (my_secure_str, 'a'))
-    safestring.mark_safe('<b>%(b)s</b>' % {'b': my_secure_str})  # nosec TODO
+    safestring.mark_safe('<b>%(b)s</b>' % {'b': my_secure_str})  
 
 
 def with_secure(path):

@@ -5,6 +5,8 @@
 rules:
 - id: "java/inject/rule-CustomInjectionSQLString"
   patterns:
+  - pattern-not-inside: |
+      final String $VAR = ...;
   - pattern-either:
     - pattern: |
         "$SQL_STR" + ...

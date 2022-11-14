@@ -2,6 +2,10 @@
 # License: MIT (c) GitLab Inc.
 
 try:
-  do_some_stuff()
+    v = 1
 except Exception:
-  pass
+    logging.info("Info level logging")
+except Exception: pass
+except Exception as e:
+    pass
+

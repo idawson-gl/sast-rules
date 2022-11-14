@@ -4,16 +4,15 @@
 ---
 rules:
 - id: "python/exception/rule-try_except_pass"
-  patterns:
+  pattern-either:
   - pattern: |
-      try:
-        ...
-      except $X:
+      except ...:
         pass
+  - pattern: "except ... pass"
   message: |
     Try, Except, Pass
   metadata:
     cwe: "CWE-703: Improper Check or Handling of Exceptional Conditions"
   severity: "INFO"
   languages:
-  - "python"
+  - "generic"
