@@ -1,0 +1,56 @@
+# yamllint disable
+# License: MIT (c) GitLab Inc.
+# yamllint enable
+---
+rules:
+- id: "java/password/rule-HardcodeKey"
+  pattern-either:
+  - patterns:
+    - pattern-not-inside: |
+        $FUNC(...,byte[] $KEY_BYTES, ...) {
+            ...
+        }
+    - pattern-either:
+      - pattern: "new DESKeySpec((byte[] $KEY_BYTES));"
+      - pattern: "new DESedeKeySpec((byte[] $KEY_BYTES));"
+      - pattern: "new KerberosKey(..., (byte[] $KEY_BYTES), ..., ...);"
+      - pattern: "new SecretKeySpec((byte[] $KEY_BYTES), ...);"
+      - pattern: "new X509EncodedKeySpec((byte[] $KEY_BYTES));"
+      - pattern: "new PKCS8EncodedKeySpec((byte[] $KEY_BYTES));"
+      - pattern: "new KeyRep(...,(byte[] $KEY_BYTES));"
+      - pattern: "new KerberosTicket(...,(byte[] $KEY_BYTES),...);"
+    - metavariable-pattern:
+        metavariable: "$KEY_BYTES"
+        patterns:
+        - pattern-not-regex: "(null)"
+  - patterns:
+    - pattern-not-inside: |
+        $FUNC(..., BigInteger $PRIVATE_KEY, ...) {
+            ...
+        }
+    - pattern-either:
+      - pattern: "new DSAPrivateKeySpec((BigInteger $PRIVATE_KEY), ...);"
+      - pattern: "new DSAPublicKeySpec((BigInteger $PRIVATE_KEY), ...);"
+      - pattern: "new DHPrivateKeySpec((BigInteger $PRIVATE_KEY), ...);"
+      - pattern: "new DHPublicKeySpec((BigInteger $PRIVATE_KEY), ...);"
+      - pattern: "new ECPrivateKeySpec((BigInteger $PRIVATE_KEY), ...);"
+      - pattern: "new RSAPrivateKeySpec((BigInteger $PRIVATE_KEY), ...);"
+      - pattern: "new RSAMultiPrimePrivateCrtKeySpec((BigInteger $PRIVATE_KEY), ...);"
+      - pattern: "new RSAPrivateCrtKeySpec((BigInteger $PRIVATE_KEY), ...);"
+      - pattern: "new RSAPublicKeySpec((BigInteger $PRIVATE_KEY), ...);"
+    - metavariable-pattern:
+        metavariable: "$PRIVATE_KEY"
+        patterns:
+        - pattern-not-regex: "(null)"
+  message: |
+    Cryptographic keys should not be kept in the source code. The source code can be widely shared
+    in an enterprise environment, and is certainly shared in open source. To be managed safely,
+    passwords and secret keys should be stored in separate configuration files or keystores.
+  languages:
+  - "java"
+  severity: "ERROR"
+  metadata:
+    category: "security"
+    cwe: "CWE-321: Use of Hard-coded Cryptographic Key"
+    technology:
+    - "java"

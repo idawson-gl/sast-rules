@@ -1,0 +1,46 @@
+# yamllint disable
+# License: MIT (c) GitLab Inc.
+# source file: test-PathTraversal.java
+# yamllint enable
+---
+rules:
+- id: "java/inject/rule-PathTraversalOut"
+  mode: "taint"
+  pattern-sources:
+  - patterns:
+    - pattern-inside: |
+        $FUNC(String[] $ARGS) {
+          ...
+        }
+    - pattern: "$ARGS[$IDX]"
+  - patterns:
+    - pattern-inside: |
+        $FUNC(..., String $VAR, ...) {
+          ...
+        }
+    - pattern: "$VAR"
+  pattern-sanitizers:
+  - pattern: "org.apache.commons.io.FilenameUtils.getName(...)"
+  pattern-sinks:
+  - patterns:
+    - pattern-inside: |-
+        new java.io.FileWriter($PATH, ...)
+    - pattern: "$PATH"
+  - patterns:
+    - pattern-inside: |-
+        new java.io.FileOutputStream($PATH, ...)
+    - pattern: "$PATH"
+  message: |
+    A file is opened to write to its contents. The filename comes from an input parameter. If an
+    unfiltered parameter is passed to this file API, files at an arbitrary filesystem location
+    could be modified. This rule identifies potential path traversal vulnerabilities. In many
+    cases, the constructed file path cannot be controlled by the user.
+  languages:
+  - "java"
+  severity: "ERROR"
+  metadata:
+    category: "security"
+    cwe: "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path
+      Traversal')"
+    technology:
+    - "java"

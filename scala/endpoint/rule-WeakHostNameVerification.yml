@@ -1,0 +1,41 @@
+# yamllint disable
+# License: MIT (c) GitLab Inc.
+# yamllint enable
+---
+rules:
+- id: "java/endpoint/rule-WeakHostNameVerification"
+  patterns:
+  - pattern-either:
+    - patterns:
+      - pattern-inside: |
+          class $V implements HostnameVerifier {
+            ...
+          }
+      - pattern-inside: |
+          public boolean verify(...) {
+            ...
+          }
+      - pattern: "return true;"
+    - patterns:
+      - pattern-inside: |
+          class $V implements X509TrustManager {
+            ...
+          }
+      - pattern-either:
+        - pattern: "public void checkClientTrusted(...) {}"
+        - pattern: "public void checkServerTrusted(...) {}"
+        - pattern: |
+            public X509Certificate[] getAcceptedIssuers() {
+              ...
+              return null;
+            }
+  languages:
+  - "java"
+  message: |
+    A HostnameVerifier that accept any host are often use because of certificate
+    reuse on many hosts. As a consequence, this is vulnerable to Man-in-the-middle
+    attacks since the client will trust any certificate.
+  metadata:
+    category: "security"
+    cwe: "CWE-295: Improper Certificate Validation"
+  severity: "WARNING"

@@ -1,0 +1,58 @@
+# yamllint disable
+# License: MIT (c) GitLab Inc.
+# yamllint enable
+---
+rules:
+- id: "java/inject/rule-FileDisclosure"
+  mode: "taint"
+  pattern-sources:
+  - pattern: "(javax.servlet.http.HttpServletRequest $VAR).getParameter(...)"
+  pattern-sinks:
+  - patterns:
+    - pattern: "new org.springframework.web.servlet.ModelAndView($FST);"
+    - pattern: "$FST"
+  - patterns:
+    - pattern: "new org.springframework.web.servlet.ModelAndView($FST, $SND);"
+    - pattern: "$FST"
+  - patterns:
+    - pattern: "new org.springframework.web.servlet.ModelAndView($FST, $SND, $TRD);"
+    - pattern: "$FST"
+  - patterns:
+    - pattern: "new org.apache.struts.action.ActionForward($FST)"
+    - pattern: "$FST"
+  - patterns:
+    - pattern: "new org.apache.struts.action.ActionForward($FST, $SND)"
+    - pattern: "$FST"
+  - patterns:
+    - pattern: "new org.apache.struts.action.ActionForward($FST, $SND, $TRD)"
+    - pattern: "$SND"
+  - patterns:
+    - pattern: "new org.apache.struts.action.ActionForward($FST, $SND, $TRD)"
+    - pattern: "$TRD"
+  - patterns:
+    - pattern-inside: |
+        $ACTION = new org.apache.struts.action.ActionForward();
+        ...
+    - pattern: "$ACTION.setPath(...)"
+  - patterns:
+    - pattern-inside: |
+        $MVC = new org.springframework.web.servlet.ModelAndView();
+        ...
+    - pattern: "$MVC.setViewName(...);"
+  - patterns:
+    - pattern-inside: |
+        $REQ = $HTTP.getRequestDispatcher(...);
+        ...
+    - pattern-either:
+      - pattern: "$REQ.include($FST, $SND)"
+      - pattern: "$REQ.forward($FST, $SND)"
+  languages:
+  - "java"
+  message: |
+    Constructing a server-side redirect path with user input could allow an
+    attacker to download application binaries (including application classes or
+    jar files) or view arbitrary files within protected directories.
+  metadata:
+    category: "security"
+    cwe: "CWE-552: Files or Directories Accessible to External Parties"
+  severity: "ERROR"

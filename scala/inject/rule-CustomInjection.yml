@@ -1,0 +1,41 @@
+# yamllint disable
+# License: MIT (c) GitLab Inc.
+# yamllint enable
+---
+rules:
+- id: "java/inject/rule-CustomInjection"
+  patterns:
+  - pattern-either:
+    - pattern: |
+        $QUERY = ... + $VAR + ...;
+        ...
+        $ST.executeQuery($QUERY);
+    - pattern: |
+        $QUERY = ... + $VAR ;
+        ...
+        $ST.executeQuery($QUERY);
+    - pattern: |
+        $QUERY = String.format("...",...,$VAR,...);
+        ...
+        $ST.executeQuery($QUERY);
+    - pattern: "$ST.executeQuery((StringBuilder $SB).toString());"
+    - pattern: "$ST.executeQuery(... + $VAR + ...);"
+    - pattern: "$ST.executeQuery(... + $VAR);"
+    - pattern: "$ST.executeQuery(...,String.format(\"...\",...,$VAR,...), ...);"
+  - metavariable-pattern:
+      metavariable: "$ST"
+      pattern-either:
+      - pattern: "(java.sql.Statement $ST)"
+      - pattern: "(org.apache.turbine.om.peer.BasePeer $ST)"
+  message: |
+    The method identified is susceptible to injection. The input should be validated and properly
+    escaped.
+  languages:
+  - "java"
+  severity: "WARNING"
+  metadata:
+    category: "security"
+    cwe: "CWE-89: Improper Neutralization of Special Elements used in an SQL Command
+      ('SQL Injection')"
+    technology:
+    - "java"

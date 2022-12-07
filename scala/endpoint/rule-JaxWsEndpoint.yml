@@ -1,0 +1,44 @@
+# yamllint disable
+# License: MIT (c) GitLab Inc.
+# yamllint enable
+---
+rules:
+- id: "java/endpoint/rule-JaxWsEndpoint"
+  mode: "taint"
+  pattern-sources:
+  - patterns:
+    - pattern-inside: |
+        @javax.jws.WebMethod(...)
+        $TYPE $FUNC(..., $VAR, ...) {
+          ...
+        }
+    - pattern: "$VAR"
+  pattern-sanitizers:
+  - patterns:
+    - pattern-inside: |
+        $STR.replaceAll("$REPLACE_CHAR", "$REPLACER");
+        ...
+    - pattern: "$STR"
+    - metavariable-regex:
+        metavariable: "$REPLACER"
+        regex: ".*^(CRLF).*"
+    - metavariable-regex:
+        metavariable: "$REPLACE_CHAR"
+        regex: "(*CRLF)"
+  - pattern: "org.apache.commons.text.StringEscapeUtils.unescapeJava(...);"
+  pattern-sinks:
+  - pattern: "return ...;"
+  message: |
+    This method is part of a SOAP Web Service (JSR224). The security of this web service should be
+    analyzed; Authentication, if enforced, should be tested. Access control, if enforced, should be
+    tested. The inputs should be tracked for potential vulnerabilities. The communication should
+    ideally be over SSL.
+  languages:
+  - "java"
+  severity: "INFO"
+  metadata:
+    category: "security"
+    cwe: "CWE-20: Improper Input Validation"
+    owasp: "OWASP: Cross-Site Request Forgery"
+    technology:
+    - "java"

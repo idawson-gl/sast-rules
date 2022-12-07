@@ -1,0 +1,50 @@
+# yamllint disable
+# License: MIT (c) GitLab Inc.
+# yamllint enable
+---
+rules:
+- id: "java/inject/rule-AWSQueryInjection"
+  mode: "taint"
+  pattern-sources:
+  - patterns:
+    - pattern-inside: |
+        $FUNC(..., $VAR, ...) {
+          ...
+        }
+    - pattern: "$VAR"
+  - patterns:
+    - pattern-inside: |
+        $FUNC(...) {
+          ...
+          $VAR = ... + $X;
+          ...
+        }
+    - pattern: "$VAR"
+  pattern-sinks:
+  - patterns:
+    - pattern-either:
+      - pattern-inside: |
+          $REQ = new SelectRequest($QUERY, ...);
+          ...
+          $DB.select($REQ);
+      - pattern-inside: |
+          $DB.select(new SelectRequest($QUERY,...));
+      - pattern-inside: |
+          $DB.select((SelectRequest $SR).withSelectExpression($QUERY,...));
+    - pattern: "$QUERY"
+    - metavariable-pattern:
+        metavariable: "$DB"
+        pattern-either:
+        - pattern: "(AmazonSimpleDB $DB)"
+        - pattern: "(AmazonSimpleDBClient $DB)"
+  message: |
+    Constructing SimpleDB queries containing user input can allow an attacker to view unauthorized
+    records.
+  languages:
+  - "java"
+  severity: "ERROR"
+  metadata:
+    category: "security"
+    cwe: "CWE-943: Improper Neutralization of Special Elements in Data Query Logic"
+    technology:
+    - "java"
