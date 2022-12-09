@@ -3,30 +3,30 @@
 # yamllint enable
 ---
 rules:
-- id: "scala/cookie/rule-CookieHTTPOnly"
-  pattern-either:
-    - patterns:
-        - pattern: |
-            val $C = new javax.servlet.http.Cookie(..., ...);
-            ...
-            $RESP.addCookie($C);
-        - pattern-not-inside: |
-            val $C = new javax.servlet.http.Cookie(..., ...);
-            ...
-            $C.setHttpOnly(true);
-            ...
-            $RESP.addCookie($C);
-    - pattern: "(javax.servlet.http.Cookie $C).setHttpOnly(false);"
-  message: |
-    A new cookie is created without the HttpOnly flag set. The HttpOnly flag is a directive to the
-    browser to make sure that the cookie can not be red by malicious script. When a user is the
-    target of a "Cross-Site Scripting", the attacker would benefit greatly from getting the session
-    id for example.
-  languages:
-  - "scala"
-  severity: "WARNING"
-  metadata:
-    category: "security"
-    cwe: "CWE-1004: Sensitive Cookie Without 'HttpOnly' Flag"
-    technology:
-    - "scala"
+  - id: "scala/cookie/rule-CookieHTTPOnly"
+    pattern-either:
+      - patterns:
+          - pattern: |
+              val $C = new javax.servlet.http.Cookie(..., ...);
+              ...
+              $RESP.addCookie($C);
+          - pattern-not-inside: |
+              val $C = new javax.servlet.http.Cookie(..., ...);
+              ...
+              $C.setHttpOnly(true);
+              ...
+              $RESP.addCookie($C);
+      - pattern: "(javax.servlet.http.Cookie $C).setHttpOnly(false);"
+    message: |
+      A new cookie is created without the HttpOnly flag set. The HttpOnly flag is a directive to the
+      browser to make sure that the cookie can not be red by malicious script. When a user is the
+      target of a "Cross-Site Scripting", the attacker would benefit greatly from getting the session
+      id for example.
+    languages:
+      - "scala"
+    severity: "WARNING"
+    metadata:
+      category: "security"
+      cwe: "CWE-1004: Sensitive Cookie Without 'HttpOnly' Flag"
+      technology:
+        - "scala"

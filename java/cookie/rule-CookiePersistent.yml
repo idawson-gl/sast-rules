@@ -11,8 +11,8 @@ rules:
       metavariable: "$AGE"
       comparison: "$AGE >= 31536000"
   message: |
-    A new cookie is created without the Secure flag set. The Secure flag is a directive to the
-    browser to make sure that the cookie is not sent for insecure communication (http://)
+    Storing sensitive data in a persistent cookie for an extended period can lead to a breach of
+    confidentiality or account compromise.
   languages:
   - "java"
   severity: "WARNING"
