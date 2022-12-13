@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "java/crypto/rule-CipherPaddingOracle"
+- id: "scala/crypto/rule-CipherPaddingOracle"
   patterns:
   - pattern-inside: |-
       javax.crypto.Cipher.getInstance("...")

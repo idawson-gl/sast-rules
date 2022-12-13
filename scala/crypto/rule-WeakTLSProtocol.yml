@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "java/crypto/rule-WeakTLSProtocol"
+- id: "scala/crypto/rule-WeakTLSProtocol"
   patterns:
   - pattern-either:
     - pattern: "new org.apache.http.impl.client.DefaultHttpClient();"

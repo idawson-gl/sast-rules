@@ -3,23 +3,23 @@
 # yamllint enable
 ---
 rules:
-  - id: scalapermrule-OverlyPermissiveFilePermissionObj
-    patterns:
-      - pattern-inside: |
-          ...
-          java.nio.file.Files.setPosixFilePermissions(..., $PERMS);
-      - pattern-either:
-          - pattern: $PERMS.add($P);
-          - pattern: $A = $B + $P;
-      - metavariable-regex:
-          metavariable: $P
-          regex: (PosixFilePermission.){0,1}(OTHERS_)
-    languages:
-      - scala
-    message: |
-      Overly permissive file permission
-    metadata:
-      cwe: "CWE-732: Incorrect Permission Assignment for Critical Resource"
-      category: security
-      confidence: HIGH
-    severity: WARNING
+- id: "scala/perm/rule-OverlyPermissiveFilePermissionObj"
+  patterns:
+  - pattern-inside: |
+      ...
+      java.nio.file.Files.setPosixFilePermissions(..., $PERMS);
+  - pattern-either:
+    - pattern: "$PERMS.add($P);"
+    - pattern: "$A = $B + $P;"
+  - metavariable-regex:
+      metavariable: "$P"
+      regex: "(PosixFilePermission.){0,1}(OTHERS_)"
+  languages:
+  - "scala"
+  message: |
+    Overly permissive file permission
+  metadata:
+    cwe: "CWE-732: Incorrect Permission Assignment for Critical Resource"
+    category: "security"
+    confidence: "HIGH"
+  severity: "WARNING"

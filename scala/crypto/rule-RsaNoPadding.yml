@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "java/crypto/rule-RsaNoPadding"
+- id: "scala/crypto/rule-RsaNoPadding"
   patterns:
   - pattern: "javax.crypto.Cipher.getInstance($ALG,...);"
   - metavariable-regex:

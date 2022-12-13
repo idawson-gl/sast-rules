@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "java/password/rule-HardcodeKeySuspiciousName"
+- id: "scala/password/rule-HardcodeKeySuspiciousName"
   patterns:
   - pattern-either:
     - pattern: "String $VAR = \"...\";"

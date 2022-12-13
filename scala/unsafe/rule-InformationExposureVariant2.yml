@@ -4,7 +4,7 @@
 # yamllint enable
 ---
 rules:
-- id: "java/unsafe/rule-InformationExposureVariant2"
+- id: "scala/unsafe/rule-InformationExposureVariant2"
   patterns:
   - pattern-either:
     - pattern: |

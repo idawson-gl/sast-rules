@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "java/inject/rule-CustomInjectionSQLString"
+- id: "scala/inject/rule-CustomInjectionSQLString"
   patterns:
   - pattern-not-inside: |
       final String $VAR = ...;

@@ -3,19 +3,19 @@
 # yamllint enable
 ---
 rules:
-  - id: "scala/xss/rule-RequestWrapper"
-    patterns:
-      - pattern-inside: |
-          class $CLASS(...) extends HttpServletRequestWrapper(...) {
-          ...
-          }
-      - pattern: "def stripXSS(...) = { ... }"
-    languages:
-      - "scala"
-    message: |
-      Avoid using custom XSS filtering. Please use standard sanitization functions.
-    metadata:
-      category: "security"
-      cwe: "CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site
+- id: "scala/xss/rule-RequestWrapper"
+  patterns:
+  - pattern-inside: |
+      class $CLASS(...) extends HttpServletRequestWrapper(...) {
+      ...
+      }
+  - pattern: "def stripXSS(...) = { ... }"
+  languages:
+  - "scala"
+  message: |
+    Avoid using custom XSS filtering. Please use standard sanitization functions.
+  metadata:
+    category: "security"
+    cwe: "CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site
       Scripting')"
-    severity: "INFO"
+  severity: "INFO"

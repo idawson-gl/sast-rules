@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "java/crypto/rule-HazelcastSymmetricEncryption"
+- id: "scala/crypto/rule-HazelcastSymmetricEncryption"
   patterns:
   - pattern: "new com.hazelcast.config.SymmetricEncryptionConfig()"
   message: |

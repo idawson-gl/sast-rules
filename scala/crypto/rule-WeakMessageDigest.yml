@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "java/crypto/rule-WeakMessageDigest"
+- id: "scala/crypto/rule-WeakMessageDigest"
   patterns:
   - pattern-either:
     - pattern: "MessageDigest.getInstance($ALG, ...)"

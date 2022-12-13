@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "java/crypto/rule-CustomMessageDigest"
+- id: "scala/crypto/rule-CustomMessageDigest"
   patterns:
   - pattern: |
       class $CLAZZ extends java.security.MessageDigest {

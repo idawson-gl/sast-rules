@@ -3,24 +3,24 @@
 # yamllint enable
 ---
 rules:
-  - id: "scala/xml/rule-XmlDecoder"
-    patterns:
+- id: "scala/xml/rule-XmlDecoder"
+  patterns:
+  - pattern-either:
+    - patterns:
+      - pattern-inside: |
+          val $D = new XMLDecoder($IN);
+          ...
+      - pattern-not-inside: |
+          val $D = new XMLDecoder("...");
+          ...
       - pattern-either:
-          - patterns:
-              - pattern-inside: |
-                  val $D = new XMLDecoder($IN);
-                  ...
-              - pattern-not-inside: |
-                  val $D = new XMLDecoder("...");
-                  ...
-              - pattern-either:
-                  - pattern: "val $R = $D.readObject()"
-                  - pattern: "val $R = $D.readObject"
-    languages:
-      - "scala"
-    message: |
-      Avoid using XMLDecoder to parse content from an untrusted source.
-    metadata:
-      category: "security"
-      cwe: "CWE-502: Deserialization of Untrusted Data"
-    severity: "WARNING"
+        - pattern: "val $R = $D.readObject()"
+        - pattern: "val $R = $D.readObject"
+  languages:
+  - "scala"
+  message: |
+    Avoid using XMLDecoder to parse content from an untrusted source.
+  metadata:
+    category: "security"
+    cwe: "CWE-502: Deserialization of Untrusted Data"
+  severity: "WARNING"

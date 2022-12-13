@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "java/inject/rule-AWSQueryInjection"
+- id: "scala/inject/rule-AWSQueryInjection"
   mode: "taint"
   pattern-sources:
   - patterns:

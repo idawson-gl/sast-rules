@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "java/xxe/rule-XMLStreamRdr"
+- id: "scala/xxe/rule-XMLStreamRdr"
   patterns:
   - pattern-inside: |
       $SF = XMLInputFactory.newFactory();

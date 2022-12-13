@@ -3,19 +3,19 @@
 # yamllint enable
 ---
 rules:
-  - id: "scala/ldap/rule-AnonymousLDAP"
-    patterns:
-      - pattern-inside: |
-          import javax.naming.Context;
-          ...
-      - pattern: "$ENV.put(Context.SECURITY_AUTHENTICATION, \"none\");"
-    languages:
-      - "scala"
-    message: |
-      Without proper access control, executing an LDAP statement that contains a
-      user-controlled value can allow an attacker to abuse poorly configured LDAP
-      context
-    metadata:
-      category: "security"
-      cwe: "CWE-20: Improper Input Validation"
-    severity: "WARNING"
+- id: "scala/ldap/rule-AnonymousLDAP"
+  patterns:
+  - pattern-inside: |
+      import javax.naming.Context;
+      ...
+  - pattern: "$ENV.put(Context.SECURITY_AUTHENTICATION, \"none\");"
+  languages:
+  - "scala"
+  message: |
+    Without proper access control, executing an LDAP statement that contains a
+    user-controlled value can allow an attacker to abuse poorly configured LDAP
+    context
+  metadata:
+    category: "security"
+    cwe: "CWE-20: Improper Input Validation"
+  severity: "WARNING"

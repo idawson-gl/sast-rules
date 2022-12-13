@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "java/script/rule-SpelView"
+- id: "scala/script/rule-SpelView"
   patterns:
   - pattern: "(org.springframework.expression.spel.standard.SpelExpressionParser $P).parseExpression($ARG);"
   - pattern-not: "(org.springframework.expression.spel.standard.SpelExpressionParser

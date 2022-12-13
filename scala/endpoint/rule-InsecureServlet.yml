@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "java/endpoint/rule-InsecureServlet"
+- id: "scala/endpoint/rule-InsecureServlet"
   mode: "taint"
   pattern-sources:
   - pattern-either:

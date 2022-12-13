@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "java/inject/rule-SqlInjection"
+- id: "scala/inject/rule-SqlInjection"
   patterns:
   - pattern-not-inside: |
       final String $ARG = ...;

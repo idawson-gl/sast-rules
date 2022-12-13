@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "java/endpoint/rule-UnencryptedSocket"
+- id: "scala/endpoint/rule-UnencryptedSocket"
   patterns:
   - pattern: "new java.net.Socket(...)"
   languages:

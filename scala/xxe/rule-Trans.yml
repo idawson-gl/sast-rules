@@ -3,29 +3,29 @@
 # yamllint enable
 ---
 rules:
-  - id: "scala/xxe/rule-Trans"
-    patterns:
-      - pattern-inside: |-
-          import javax.xml.transform._; ...
-      - pattern-inside: |
-          val $T = $FACT.newTransformer;
-          ...
-      - pattern-not-inside: |
-          $T.setAttribute(XMLConstants.ACCESS_EXTERNAL_DTD, "");
-          ...
-      - pattern-not-inside: |
-          $T.setAttribute(XMLConstants.ACCESS_EXTERNAL_SCHEMA, "");
-          ...
-      - pattern-not-inside: |
-          $T.setFeature(XMLConstants.FEATURE_SECURE_PROCESSING, true);
-          ...
-      - pattern: "$T.transform(...)"
-    languages:
-      - "scala"
-    message: |
-      XML External Entity (XXE) attacks can occur when an XML parser supports XML
-      entities while processing XML received from an untrusted source.
-    metadata:
-      category: "security"
-      cwe: "CWE-611: Improper Restriction of XML External Entity Reference ('XXE')"
-    severity: "ERROR"
+- id: "scala/xxe/rule-Trans"
+  patterns:
+  - pattern-inside: |-
+      import javax.xml.transform._; ...
+  - pattern-inside: |
+      val $T = $FACT.newTransformer;
+      ...
+  - pattern-not-inside: |
+      $T.setAttribute(XMLConstants.ACCESS_EXTERNAL_DTD, "");
+      ...
+  - pattern-not-inside: |
+      $T.setAttribute(XMLConstants.ACCESS_EXTERNAL_SCHEMA, "");
+      ...
+  - pattern-not-inside: |
+      $T.setFeature(XMLConstants.FEATURE_SECURE_PROCESSING, true);
+      ...
+  - pattern: "$T.transform(...)"
+  languages:
+  - "scala"
+  message: |
+    XML External Entity (XXE) attacks can occur when an XML parser supports XML
+    entities while processing XML received from an untrusted source.
+  metadata:
+    category: "security"
+    cwe: "CWE-611: Improper Restriction of XML External Entity Reference ('XXE')"
+  severity: "ERROR"

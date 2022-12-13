@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "java/inject/rule-LDAPInjection"
+- id: "scala/inject/rule-LDAPInjection"
   mode: "taint"
   pattern-sources:
   - patterns:

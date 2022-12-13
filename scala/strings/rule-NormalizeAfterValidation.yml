@@ -3,19 +3,19 @@
 # yamllint enable
 ---
 rules:
-  - id: "scala/strings/rule-NormalizeAfterValidation"
-    patterns:
-      - pattern: |
-          $Y = java.util.regex.Pattern.compile("[<>]");
-          ...
-          $Y.matcher($VAR);
-          ...
-          java.text.Normalizer.normalize($VAR, ...);
-    languages:
-      - scala
-    message: |
-      IDS01-J. Normalize strings before validating them
-    metadata:
-      category: security
-      confidence: HIGH
-    severity: WARNING
+- id: "scala/strings/rule-NormalizeAfterValidation"
+  patterns:
+  - pattern: |
+      $Y = java.util.regex.Pattern.compile("[<>]");
+      ...
+      $Y.matcher($VAR);
+      ...
+      java.text.Normalizer.normalize($VAR, ...);
+  languages:
+  - "scala"
+  message: |
+    IDS01-J. Normalize strings before validating them
+  metadata:
+    category: "security"
+    confidence: "HIGH"
+  severity: "WARNING"

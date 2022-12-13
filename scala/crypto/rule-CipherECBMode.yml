@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "java/crypto/rule-CipherECBMode"
+- id: "scala/crypto/rule-CipherECBMode"
   patterns:
   - pattern-inside: |-
       javax.crypto.Cipher.getInstance("...")

@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "java/password/rule-HardcodeKeySuspiciousValue"
+- id: "scala/password/rule-HardcodeKeySuspiciousValue"
   patterns:
   - pattern: "String $VAR = \"$VAL\";"
   - metavariable-regex:

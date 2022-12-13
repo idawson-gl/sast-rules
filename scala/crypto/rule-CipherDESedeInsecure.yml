@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "java/crypto/rule-CipherDESedeInsecure"
+- id: "scala/crypto/rule-CipherDESedeInsecure"
   patterns:
   - pattern-inside: |-
       javax.crypto.Cipher.getInstance("$ALG")

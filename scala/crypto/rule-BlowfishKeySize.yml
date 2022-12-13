@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "java/crypto/rule-BlowfishKeySize"
+- id: "scala/crypto/rule-BlowfishKeySize"
   patterns:
   - pattern-inside: |
       $KEYGEN = javax.crypto.KeyGenerator.getInstance("Blowfish", ...);

@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "java/crypto/rule-CipherIntegrity"
+- id: "scala/crypto/rule-CipherIntegrity"
   patterns:
   - pattern-inside: |-
       javax.crypto.Cipher.getInstance("...")

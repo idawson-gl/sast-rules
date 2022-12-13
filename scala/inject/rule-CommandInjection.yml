@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "java/inject/rule-CommandInjection"
+- id: "scala/inject/rule-CommandInjection"
   pattern-either:
   - patterns:
     - pattern-inside: |

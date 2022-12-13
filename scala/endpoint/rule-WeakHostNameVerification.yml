@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "java/endpoint/rule-WeakHostNameVerification"
+- id: "scala/endpoint/rule-WeakHostNameVerification"
   patterns:
   - pattern-either:
     - patterns:

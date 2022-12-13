@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "java/endpoint/rule-JaxRsEndpoint"
+- id: "scala/endpoint/rule-JaxRsEndpoint"
   mode: "taint"
   pattern-sources:
   - patterns:

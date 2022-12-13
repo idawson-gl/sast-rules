@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "java/inject/rule-HttpParameterPollution"
+- id: "scala/inject/rule-HttpParameterPollution"
   mode: "taint"
   pattern-sources:
   - pattern: "(HttpServletRequest $REQ).getParameter(...)"

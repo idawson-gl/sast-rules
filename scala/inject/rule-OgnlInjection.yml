@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "java/inject/rule-OgnlInjection"
+- id: "scala/inject/rule-OgnlInjection"
   mode: "taint"
   pattern-sources:
   - patterns:

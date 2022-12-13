@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "java/crypto/rule-InsufficientKeySizeRsa"
+- id: "scala/crypto/rule-InsufficientKeySizeRsa"
   patterns:
   - pattern-either:
     - patterns:

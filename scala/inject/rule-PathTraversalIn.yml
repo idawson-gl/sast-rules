@@ -4,7 +4,7 @@
 # yamllint enable
 ---
 rules:
-- id: "java/inject/rule-PathTraversalIn"
+- id: "scala/inject/rule-PathTraversalIn"
   mode: "taint"
   pattern-sources:
   - patterns:

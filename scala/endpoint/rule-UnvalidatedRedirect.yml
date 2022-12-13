@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "java/endpoint/rule-UnvalidatedRedirect"
+- id: "scala/endpoint/rule-UnvalidatedRedirect"
   patterns:
   - pattern-either:
     - patterns:

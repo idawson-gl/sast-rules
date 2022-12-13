@@ -4,7 +4,7 @@
 # yamllint enable
 ---
 rules:
-- id: "java/inject/rule-SpotbugsPathTraversalRelative"
+- id: "scala/inject/rule-SpotbugsPathTraversalRelative"
   mode: "taint"
   pattern-sources:
   - patterns:

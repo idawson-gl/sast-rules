@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "java/inject/rule-ELInjection"
+- id: "scala/inject/rule-ELInjection"
   patterns:
   - pattern-inside: |
       $FUNC(..., String $EXPR, ...) {

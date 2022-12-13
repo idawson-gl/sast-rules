@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "java/inject/rule-FileDisclosure"
+- id: "scala/inject/rule-FileDisclosure"
   mode: "taint"
   pattern-sources:
   - pattern: "(javax.servlet.http.HttpServletRequest $VAR).getParameter(...)"

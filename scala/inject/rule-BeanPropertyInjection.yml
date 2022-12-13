@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "java/inject/rule-BeanPropertyInjection"
+- id: "scala/inject/rule-BeanPropertyInjection"
   patterns:
   - pattern-inside: |-
       $TYPE $FUNC(..., HttpServletRequest $REQ, ...) { ... }

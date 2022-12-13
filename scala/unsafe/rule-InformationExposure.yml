@@ -4,7 +4,7 @@
 # yamllint enable
 ---
 rules:
-- id: "java/unsafe/rule-InformationExposure"
+- id: "scala/unsafe/rule-InformationExposure"
   pattern-either:
   - pattern: |
       catch(Throwable $E) {

@@ -3,20 +3,17 @@
 # yamllint enable
 ---
 rules:
-  - id: "scala/ldap/rule-EntryPoisoning"
-    patterns:
-      - pattern: new javax.naming.directory.SearchControls($SCOPE, $CLIMIT, $TLIMIT,
-          $ATTR, true, $DEREF)
-    languages:
-      - scala
-    message: >
-      Without proper access control, executing an LDAP statement that contains a
-
-      user-controlled value can allow an attacker to abuse poorly configured LDAP
-
-      context
-    metadata:
-      category: security
-      cwe: "CWE-20: Improper Input Validation"
-    severity: ERROR
-
+- id: "scala/ldap/rule-EntryPoisoning"
+  patterns:
+  - pattern: "new javax.naming.directory.SearchControls($SCOPE, $CLIMIT, $TLIMIT,
+      $ATTR, true, $DEREF)"
+  languages:
+  - "scala"
+  message: |
+    Without proper access control, executing an LDAP statement that contains a
+    user-controlled value can allow an attacker to abuse poorly configured LDAP
+    context
+  metadata:
+    category: "security"
+    cwe: "CWE-20: Improper Input Validation"
+  severity: "ERROR"

@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "java/password/rule-HardcodeKeyEquals"
+- id: "scala/password/rule-HardcodeKeyEquals"
   patterns:
   - pattern-not-inside: |
       $FUNC(..., $VAR_NAME, ...) {

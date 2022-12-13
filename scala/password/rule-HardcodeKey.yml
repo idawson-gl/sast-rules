@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "java/password/rule-HardcodeKey"
+- id: "scala/password/rule-HardcodeKey"
   pattern-either:
   - patterns:
     - pattern-not-inside: |

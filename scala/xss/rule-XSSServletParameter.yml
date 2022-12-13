@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "java/xss/rule-XSSServletParameter"
+- id: "scala/xss/rule-XSSServletParameter"
   pattern-either:
   - patterns:
     - pattern-inside: |-

@@ -3,32 +3,32 @@
 # yamllint enable
 ---
 rules:
-  - id: "scala/smtp/rule-InsecureSmtp"
-    patterns:
-      - pattern-either:
-          - pattern-inside: |
-              $E = new org.apache.commons.mail.SimpleEmail(...);
-              ...
-          - pattern-inside: |
-              $E = new org.apache.commons.mail.Email(...);
-              ...
-          - pattern-inside: |
-              $E = new org.apache.commons.mail.MultiPartEmail(...);
-              ...
-          - pattern-inside: |
-              $E = new org.apache.commons.mail.HtmlEmail(...);
-              ...
-          - pattern-inside: |
-              $E = new org.apache.commons.mail.ImageHtmlEmail(...);
-              ...
-      - pattern-not: |
-          $E.setSSLOnConnect(true);
-          ...
-          $E.setSSLCheckServerIdentity(true);
-    message: |
-      Server identity verification is disabled when making SSL connections.
-    metadata:
-      cwe: "CWE-297: Improper Validation of Certificate with Host Mismatch"
-    severity: ERROR
-    languages:
-      - scala
+- id: "scala/smtp/rule-InsecureSmtp"
+  patterns:
+  - pattern-either:
+    - pattern-inside: |
+        $E = new org.apache.commons.mail.SimpleEmail(...);
+        ...
+    - pattern-inside: |
+        $E = new org.apache.commons.mail.Email(...);
+        ...
+    - pattern-inside: |
+        $E = new org.apache.commons.mail.MultiPartEmail(...);
+        ...
+    - pattern-inside: |
+        $E = new org.apache.commons.mail.HtmlEmail(...);
+        ...
+    - pattern-inside: |
+        $E = new org.apache.commons.mail.ImageHtmlEmail(...);
+        ...
+  - pattern-not: |
+      $E.setSSLOnConnect(true);
+      ...
+      $E.setSSLCheckServerIdentity(true);
+  message: |
+    Server identity verification is disabled when making SSL connections.
+  metadata:
+    cwe: "CWE-297: Improper Validation of Certificate with Host Mismatch"
+  severity: "ERROR"
+  languages:
+  - "scala"
