@@ -9,9 +9,9 @@ rules:
           val $R = XMLReaderFactory.createXMLReader
           ...
       - pattern-not-inside: |
-          $R.setFeature(XMLConstants.FEATURE_SECURE_PROCESSING, true);
+          $R.setFeature(XMLConstants.FEATURE_SECURE_PROCESSING, true)
           ...
-      - pattern: "$R.parse(...);"
+      - pattern: "$R.parse(...)"
     languages:
       - "scala"
     message: |

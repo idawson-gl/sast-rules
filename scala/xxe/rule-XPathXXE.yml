@@ -9,16 +9,16 @@ rules:
           $DF = df.newDocumentBuilder
           ...
       - pattern-not-inside: |
-          $DF.setAttribute(XMLConstants.ACCESS_EXTERNAL_DTD, "");
+          $DF.setAttribute(XMLConstants.ACCESS_EXTERNAL_DTD, "")
           ...
       - pattern-not-inside: |
-          $DF.setAttribute(XMLConstants.ACCESS_EXTERNAL_SCHEMA, "");
+          $DF.setAttribute(XMLConstants.ACCESS_EXTERNAL_SCHEMA, "")
           ...
       - pattern-not-inside: |
-          $DF.setFeature(XMLConstants.FEATURE_SECURE_PROCESSING, true);
+          $DF.setFeature(XMLConstants.FEATURE_SECURE_PROCESSING, true)
           ...
       - pattern-not-inside: |
-          $DF.setFeature("http://apache.org/xml/features/disallow-doctype-decl", true);
+          $DF.setFeature("http://apache.org/xml/features/disallow-doctype-decl", true)
           ...
       - pattern-either:
           - pattern: "$SF.newDocumentBuilder(...)"

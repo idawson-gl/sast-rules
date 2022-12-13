@@ -6,16 +6,16 @@ rules:
   - id: "scala/xxe/rule-SaxParserXXE"
     patterns:
       - pattern-inside: |
-          val $SF = SAXParserFactory.newInstance;
+          val $SF = SAXParserFactory.newInstance
           ...
       - pattern-not-inside: |
-          $SF.setFeature(XMLConstants.FEATURE_SECURE_PROCESSING, true);
+          $SF.setFeature(XMLConstants.FEATURE_SECURE_PROCESSING, true)
           ...
       - pattern-not-inside: |
-          $SF.setFeature("http://apache.org/xml/features/disallow-doctype-decl", true);
+          $SF.setFeature("http://apache.org/xml/features/disallow-doctype-decl", true)
           ...
       - pattern-inside: |
-          val $P = $SFP.newSAXParser;
+          val $P = $SFP.newSAXParser
           ...
       - pattern: "$P.parse(...);"
     languages:
