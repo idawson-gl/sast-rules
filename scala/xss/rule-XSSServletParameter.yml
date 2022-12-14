@@ -6,20 +6,15 @@ rules:
 - id: "scala/xss/rule-XSSServletParameter"
   pattern-either:
   - patterns:
-    - pattern-inside: |
-        def $FUNC(..., $REQ: ServletRequest, ...) = $RET {
-          ... 
-        }
+    - pattern-inside: "def $FUNC(..., $REQ: ServletRequest, ...) = $RET {\n  ... \n}\n"
     - pattern-either:
       - pattern: "$REQ.getParameter(...);"
       - pattern: "$REQ.getParameterValues;"
       - pattern: "$REQ.getParameterMap(...);"
       - pattern: "$REQ.getParameterNames;"
   - patterns:
-    - pattern-inside: |
-        def $FUNC(..., $SREQ: HttpServletRequest, ...) = $RET {
-          ... 
-        }
+    - pattern-inside: "def $FUNC(..., $SREQ: HttpServletRequest, ...) = $RET {\n  ...
+        \n}\n"
     - pattern-either:
       - pattern: "$SREQ.getRequestedSessionId;"
       - pattern: "$SREQ.getQueryString;"
