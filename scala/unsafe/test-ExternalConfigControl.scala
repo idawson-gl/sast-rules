@@ -1,3 +1,4 @@
+// License: LGPL-3.0 License (c) find-sec-bugs
 import javax.servlet.http.HttpServletRequest
 import java.sql.Connection
 import java.sql.SQLException
