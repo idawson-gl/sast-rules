@@ -1,3 +1,6 @@
+# yamllint disable
+# License: MIT (c) GitLab Inc.
+# yamllint enable
 ---
 rules:
 - id: "scala/xml/rule-XsltTransform"
