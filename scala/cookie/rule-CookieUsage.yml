@@ -6,13 +6,13 @@ rules:
 - id: "scala/cookie/rule-CookieUsage"
   patterns:
   - pattern-inside: |
-      $FUNC(..., HttpServletRequest $REQ, ...) {
+      $FUNC(..., $REQ: HttpServletRequest , ...) {
         ...
       }
   - pattern-either:
     - patterns:
       - pattern-inside: |
-          for (Cookie $C : $REQ.getCookies()) {
+          for ($C <- $REQ.getCookies()) {
               ...
           }
       - pattern-either:

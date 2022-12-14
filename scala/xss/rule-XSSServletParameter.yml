@@ -6,16 +6,20 @@ rules:
 - id: "scala/xss/rule-XSSServletParameter"
   pattern-either:
   - patterns:
-    - pattern-inside: |-
-        def $FUNC(..., ServletRequest $REQ, ...): $TYPE = { ... }
+    - pattern-inside: |
+        def $FUNC(..., $REQ: ServletRequest, ...) = $RET {
+          ... 
+        }
     - pattern-either:
       - pattern: "$REQ.getParameter(...);"
       - pattern: "$REQ.getParameterValues;"
       - pattern: "$REQ.getParameterMap(...);"
       - pattern: "$REQ.getParameterNames;"
   - patterns:
-    - pattern-inside: |-
-        def $FUNC(..., HttpServletRequest $SREQ, ...): $TYPE = { ... }
+    - pattern-inside: |
+        def $FUNC(..., $SREQ: HttpServletRequest, ...) = $RET {
+          ... 
+        }
     - pattern-either:
       - pattern: "$SREQ.getRequestedSessionId;"
       - pattern: "$SREQ.getQueryString;"
@@ -33,10 +37,10 @@ rules:
     considered unsafe. You may need to validate or sanitize those values before passing them to
     sensitive APIs
   languages:
-  - "java"
+  - "scala"
   severity: "WARNING"
   metadata:
     cwe: "CWE-20: Improper Input Validation"
     category: "security"
     technology:
-    - "java"
+    - "scala"

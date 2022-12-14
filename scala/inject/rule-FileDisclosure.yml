@@ -47,7 +47,7 @@ rules:
       - pattern: "$REQ.include($FST, $SND)"
       - pattern: "$REQ.forward($FST, $SND)"
   languages:
-  - "java"
+  - "scala"
   message: |
     Constructing a server-side redirect path with user input could allow an
     attacker to download application binaries (including application classes or
