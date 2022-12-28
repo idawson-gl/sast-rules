@@ -92,4 +92,21 @@ class SQLInjection
         cmd.Parameters["@username"].Value = input;
         cmd.ExecuteReader();
     }
+
+#region DbBatchCommand
+    static void QueryWithUserInputNpgsqlBatch(string input)
+    {
+        var cmd = new NpgsqlBatchCommand("SELECT * FROM Users WHERE username = '" + input + "' and role='user'");
+        cmd.ExecuteReader();
+    }
+
+    static void QueryWithUserInputBatchCommandText(string input)
+    {
+        var npgsqlCmd = new NpgsqlBatchCommand();
+        npgsqlCmd.CommandText = "SELECT * FROM Users WHERE username = '" + input + "' and role='user'";
+
+        var mySqlCmd = new MySqlBatchCommand();
+        mySqlCmd.CommandText = "SELECT * FROM Users WHERE username = '" + input + "' and role='user'";
+    }
+#endregion
 }

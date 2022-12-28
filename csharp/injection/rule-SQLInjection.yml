@@ -23,7 +23,7 @@ rules:
     - patterns:
       - metavariable-regex:
           metavariable: "$IMPL"
-          regex: "^(SqlCommand|OracleCommand|NpgsqlCommand|MySqlCommand|EntityCommand|OdbcCommand|OleDbCommand|SqliteCommand)$"
+          regex: "^(SqlCommand|OracleCommand|Npgsql(Batch|)Command|MySql(Batch|)Command|EntityCommand|OdbcCommand|OleDbCommand|SqliteCommand)$"
       - pattern-either:
         - patterns:
           - pattern: "new $IMPL($ARG, ...);"
