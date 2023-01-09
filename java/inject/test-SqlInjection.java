@@ -19,6 +19,10 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import io.vertx.sqlclient.SqlClient;
 import io.vertx.sqlclient.SqlConnection;
 
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import java.sql.Statement;
 import java.sql.SQLException;
 import java.sql.PreparedStatement;
@@ -104,7 +108,9 @@ public class SqlInjection {
 
     }
 
-    public void testHibernate(SessionFactory sessionFactory, String input) {
+    public void testHibernate(HttpServletRequest req, SessionFactory sessionFactory) {
+        String input = req.getParameter("input");
+
         Session session = sessionFactory.openSession();
         String instring = String.format("%s", input);
 
