@@ -48,12 +48,12 @@ public class ImproperUnicode {
     }
 
     public static void stringNormalizationSuite(String s) throws URISyntaxException {
-       System.out.println("Normalizer NFKC: "+Normalizer.normalize(h, Normalizer.Form.NFKC)); //RISKY!
-       System.out.println("Normalizer NFKD: "+Normalizer.normalize(h, Normalizer.Form.NFKD)); //RISKY!
-       System.out.println("Normalizer NFC: "+Normalizer.normalize(h, Normalizer.Form.NFC)); //RISKY!
-       System.out.println("Normalizer NFD: "+Normalizer.normalize(h, Normalizer.Form.NFD)); //RISKY!
-       System.out.println("URL.toASCIIString(): "+new URI(h).toASCIIString()); //RISKY!
-       System.out.println("URL.toString(): "+new URI(h).toString());
-       System.out.println("IDN.toASCII(): "+ IDN.toASCII(h)); //RISKY!
+       System.out.println("Normalizer NFKC: "+Normalizer.normalize(s, Normalizer.Form.NFKC)); //RISKY!
+       System.out.println("Normalizer NFKD: "+Normalizer.normalize(s, Normalizer.Form.NFKD)); //RISKY!
+       System.out.println("Normalizer NFC: "+Normalizer.normalize(s, Normalizer.Form.NFC)); //RISKY!
+       System.out.println("Normalizer NFD: "+Normalizer.normalize(s, Normalizer.Form.NFD)); //RISKY!
+       System.out.println("URL.toASCIIString(): "+new URI(s).toASCIIString()); //RISKY!
+       System.out.println("URL.toString(): "+new URI(s).toString());
+       System.out.println("IDN.toASCII(): "+ IDN.toASCII(s)); //RISKY!
     }
 }
