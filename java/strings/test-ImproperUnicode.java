@@ -68,7 +68,6 @@ public class ImproperUnicode {
             System.out.println("Normalizer NFD: "+Normalizer.normalize(h, Normalizer.Form.NFD)); //RISKY!
             System.out.println("URL.toASCIIString(): "+new URI(h).toASCIIString()); //RISKY!
             System.out.println("URL.toString(): "+new URI(h).toString());
-            System.out.println("Utils.encode(): "+Utils.encode(h)); //RISKY! (not covered yet..)
             System.out.println("IDN.toASCII(): "+ IDN.toASCII(h)); //RISKY!
         }
     }
