@@ -6,29 +6,37 @@ rules:
 - id: "scala/inject/rule-AWSQueryInjection"
   patterns:
   - pattern-either:
-    - pattern-inside: "def $FUNC(..., $VAR: HttpServletRequest, ...): $TYPE = { \n
-        \ ... \n}\n"
-    - pattern-inside: |
-        def $FUNC(...): $TYPE = {
-          ...
-          $VAR = ... + $X;
-          ...
-        }
-  - pattern-either:
-    - pattern-inside: |
-        $REQ = new SelectRequest($QUERY, ...);
-        ...
-        $DB.select($REQ);
-    - pattern-inside: |
-        $DB.select(new SelectRequest($QUERY,...));
-    - pattern-inside: |
-        $DB.select(($SR: SelectRequest ).withSelectExpression($QUERY,...));
-  - pattern: "$QUERY"
-  - metavariable-pattern:
-      metavariable: "$DB"
-      pattern-either:
-      - pattern: "($DB: AmazonSimpleDB)"
-      - pattern: "($DB: AmazonSimpleDBClient)"
+    - patterns:
+      - pattern-either:
+        - pattern-inside: "def $FUNC(..., $VAR: HttpServletRequest, ...): $TYPE =
+            { \n  ... \n}\n"
+        - pattern-inside: |
+            def $FUNC(...): $TYPE = {
+              ...
+              $VAR = ... + $X;
+              ...
+            }
+      - pattern-either:
+        - pattern-inside: |
+            $REQ = new SelectRequest($QUERY, ...)
+            ...
+            $DB.select($REQ);
+        - pattern-inside: |
+            $DB.select(new SelectRequest($QUERY,...))
+        - pattern-inside: |
+            $DB.select(($SR: SelectRequest ).withSelectExpression($QUERY,...));
+      - pattern: "$QUERY"
+      - metavariable-pattern:
+          metavariable: "$DB"
+          pattern-either:
+          - pattern: "($DB: AmazonSimpleDB)"
+          - pattern: "($DB: AmazonSimpleDBClient)"
+    - patterns:
+      - pattern-either:
+        - pattern-inside: "def $FUNC(..., $S: String, ...) { \n  ... \n}\n"
+        - pattern-inside: |-
+            val $QUERY = ... + $S + ...
+        - pattern: "$DB.select(new SelectRequest($QUERY,...))"
   message: |
     Constructing SimpleDB queries containing user input can allow an attacker to view unauthorized
     records.

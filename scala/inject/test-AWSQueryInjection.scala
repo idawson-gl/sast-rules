@@ -31,13 +31,13 @@ class AWSQueryInjection extends HttpServlet {
     }
   }
 
-  def danger(customerID: Nothing, productCategory: Nothing): Unit = {
+  def danger(customerID: String, productCategory: String): Unit = {
     val sdbc = AmazonSimpleDBClient.builder.build
     val query = "select * from invoices where productCategory = '" + productCategory + "' and customerID = '" + customerID + "' order by '"
     val sdbResult = sdbc.select(new SelectRequest(query))
   }
 
-  def danger2(customerID: Nothing, productCategory: Nothing): Unit = {
+  def danger2(customerID: String, productCategory: String): Unit = {
     val sdbc = AmazonSimpleDBClient.builder.build
     val query = "select * from invoices where productCategory = '" + productCategory + "' and customerID = '" + customerID + "' order by '"
     val sdbResult = sdbc.select(new SelectRequest(query, false))

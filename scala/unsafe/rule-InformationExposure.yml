@@ -5,8 +5,9 @@
 ---
 rules:
 - id: "scala/unsafe/rule-InformationExposure"
-  patterns:
+  pattern-either:
   - pattern: "$E.printStackTrace(...)"
+  - pattern: "$E.printStackTrace"
   message: |
     The sensitive information may be valuable information on its own (such as a password), or it
     may be useful for launching other, more deadly attacks. If an attack fails, an attacker may use

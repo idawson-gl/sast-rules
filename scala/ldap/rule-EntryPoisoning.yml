@@ -4,9 +4,12 @@
 ---
 rules:
 - id: "scala/ldap/rule-EntryPoisoning"
-  patterns:
-  - pattern: "new javax.naming.directory.SearchControls($SCOPE, $CLIMIT, $TLIMIT,
-      $ATTR, true, $DEREF)"
+  pattern-either:
+  - pattern: "new SearchControls($SCOPE, $CLIMIT, $TLIMIT, $ATTR, true, $DEREF)"
+  - pattern: |
+      val $CTRL = new SearchControls(...)
+      ...
+      $CTRL.setReturningObjFlag(true)
   languages:
   - "scala"
   message: |

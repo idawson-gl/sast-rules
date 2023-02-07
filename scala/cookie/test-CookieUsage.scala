@@ -19,8 +19,8 @@ class CookieUsage {
     }
   }
 
-  def getCookieName(req: HttpServletRequest) = {
-    val c: Cookie = req.getCookies.head
+  def getCookieName(req: HttpServletRequest): Unit = {
+    val c = req.getCookies.head
     c.getName
   }
 }

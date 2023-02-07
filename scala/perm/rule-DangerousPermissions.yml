@@ -7,14 +7,8 @@ rules:
   pattern-either:
   - pattern: |
       $RUNVAR = new RuntimePermission("createClassLoader");
-      ...
-      ($PC: PermissionCollection).add($RUNVAR);
   - pattern: |
       $REFVAR = new ReflectPermission("suppressAccessChecks");
-      ...
-      ($PC: PermissionCollection).add($REFVAR);
-  - pattern: "($PC: PermissionCollection).add(new ReflectPermission (\"suppressAccessChecks\"))"
-  - pattern: "($PC: PermissionCollection).add(new RuntimePermission(\"createClassLoader\"))"
   languages:
   - "scala"
   message: |

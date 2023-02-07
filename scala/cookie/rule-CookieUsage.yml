@@ -1,5 +1,6 @@
 # yamllint disable
 # License: MIT (c) GitLab Inc.
+# this is a very specific rule because of the use of .head
 # yamllint enable
 ---
 rules:
@@ -12,6 +13,11 @@ rules:
   - pattern-either:
     - patterns:
       - pattern-inside: |
+          val $COOKIE = $REQ.getCookies.head
+          ...
+      - pattern: "$COOKIE.getName"
+    - patterns:
+      - pattern-inside: |
           for ($C <- $REQ.getCookies) {
               ...
           }
@@ -19,7 +25,7 @@ rules:
         - pattern: "$C.getName"
         - pattern: "$C.getValue"
         - pattern: "$C.getPath"
-    - pattern: "($C: Cookie).getName()"
+    - pattern: "($C: Cookie).getName"
     - pattern: "($C: Cookie).getValue"
     - pattern: "($C: Cookie).getPath"
   message: |

@@ -36,7 +36,7 @@ class XSSReqParamToServletWriter extends HttpServlet {
       val userAgent = req.getHeader("User-Agent")
     }
     val writer = resp.getWriter
-    writer.write(input1)
+    writer.write(input1) // BAD
   }
 
   @throws[ServletException]
@@ -48,7 +48,7 @@ class XSSReqParamToServletWriter extends HttpServlet {
     val names = req.getParameterNames
     val contentType = req.getContentType
     val serverName = req.getServerName
-    resp.getWriter.write(input1)
+    resp.getWriter.write(input1) // BAD
   }
 
   @throws[ServletException]

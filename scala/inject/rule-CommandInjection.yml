@@ -13,6 +13,15 @@ rules:
     - pattern-inside: |
         val $RT = Runtime.getRuntime
         ...
+    - pattern: "$RT.exec($PARAM)"
+  - patterns:
+    - pattern-inside: |
+        def $FUNC(..., $PARAM: String, ...): $TYPE = {
+          ...
+        }
+    - pattern-inside: |
+        val $RT = Runtime.getRuntime
+        ...
     - pattern-either:
       - pattern: "$RT.exec($PARAM)"
       - pattern: |

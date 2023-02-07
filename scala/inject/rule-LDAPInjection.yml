@@ -16,11 +16,24 @@ rules:
           $VAR = ... + $X;
           ...
         }
+    - pattern-inside: |
+        def $FUNC(..., $VAR: String, ...) = {
+          ...
+        }
+    - pattern-inside: |
+        def $FUNC(..., $X: String, ...) = {
+          ...
+          $VAR = ... + $X;
+          ...
+        }
   - pattern-either:
     - pattern: "($P: java.util.Properties).put($KEY, $VAR)"
     - pattern: "$CTX.lookup(..., $VAR, ...)"
+    - pattern: "$CTX.lookup(..., ... + $VAR + ..., ...)"
     - pattern: "$CTX.search(..., $VAR, ...)"
+    - pattern: "$CTX.search(..., ... + $VAR + ..., ...)"
     - pattern: "$CTX.list(..., $VAR, ...)"
+    - pattern: "$CTX.list(..., ... + $VAR + ..., ...)"
   - metavariable-pattern:
       metavariable: "$CTX"
       pattern-either:

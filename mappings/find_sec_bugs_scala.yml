@@ -271,6 +271,7 @@ find_sec_bugs_scala:
     - "scala/password/rule-HardcodePassword"
     - "scala/password/rule-EmptyDBPassword"
     - "scala/password/rule-ConstantDBPassword"
+    - "scala/password/rule-HardcodePasswordConstants"
 
   # Unsafe
   - id: "EXTERNAL_CONFIG_CONTROL"
