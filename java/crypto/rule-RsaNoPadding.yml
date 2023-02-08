@@ -5,10 +5,12 @@
 rules:
 - id: "java/crypto/rule-RsaNoPadding"
   patterns:
-  - pattern: "javax.crypto.Cipher.getInstance($ALG,...);"
-  - metavariable-regex:
+  - pattern: "javax.crypto.Cipher.getInstance($ALG, ...)"
+  - metavariable-pattern:
       metavariable: "$ALG"
-      regex: ".*NoPadding.*"
+      pattern-either:
+      - pattern-regex: ".*NoPadding.*"
+      - pattern: "\"RSA/NONE/NoPadding\""
   message: |
     The software uses the RSA algorithm but does not incorporate Optimal Asymmetric
     Encryption Padding (OAEP), which might weaken the encryption.
@@ -16,4 +18,4 @@ rules:
     cwe: "CWE-780: Use of RSA Algorithm without OAEP"
   severity: "WARNING"
   languages:
-  - "java"
+  - "scala"
