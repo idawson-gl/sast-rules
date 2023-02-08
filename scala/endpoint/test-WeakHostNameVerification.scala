@@ -1,6 +1,7 @@
 // License: LGPL-3.0 License (c) find-sec-bugs
 package endpoint
 
+import javax.net.ssl.SSLContext
 import javax.net.ssl._
 import java.security.KeyManagementException
 import java.security.NoSuchAlgorithmException

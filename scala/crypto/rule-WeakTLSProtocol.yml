@@ -6,8 +6,8 @@ rules:
 - id: "scala/crypto/rule-WeakTLSProtocol"
   patterns:
   - pattern-either:
-    - pattern: "new org.apache.http.impl.client.DefaultHttpClient();"
-    - pattern: "javax.net.ssl.SSLContext.getInstance(\"SSL\");"
+    - pattern: "new org.apache.http.impl.client.DefaultHttpClient()"
+    - pattern: "javax.net.ssl.SSLContext.getInstance(\"SSL\")"
   message: |
     A HostnameVerifier that accept any host are often use because of certificate
     reuse on many hosts. As a consequence, this is vulnerable to Man-in-the-middleattacks
