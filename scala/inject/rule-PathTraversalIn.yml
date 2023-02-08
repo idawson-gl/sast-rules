@@ -46,6 +46,7 @@ rules:
     - pattern: "new java.io.File(..., $VAR, ...)"
     - pattern: "new java.io.File($VAR)"
     - pattern: "new java.io.FileInputStream(... + $VAR)"
+    - pattern: "new java.io.FileInputStream($VAR)"
     - pattern: "new java.io.FileInputStream($VAR + ...)"
     - pattern: "new javax.activation.FileDataSource(... + $VAR)"
     - pattern: "new javax.activation.FileDataSource($VAR + ...)"

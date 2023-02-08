@@ -7,8 +7,8 @@ rules:
 - id: "scala/cors/rule-PermissiveCORS"
   patterns:
   - pattern-either:
-    - pattern: "(HttpServletResponse $RESP).setHeader(\"$HEADER\", \"$VAL\")"
-    - pattern: "(HttpServletResponse $RESP).addHeader(\"$HEADER\", \"$VAL\")"
+    - pattern: "($RESP: HttpServletResponse).setHeader(\"$HEADER\", \"$VAL\")"
+    - pattern: "($RESP: HttpServletResponse).addHeader(\"$HEADER\", \"$VAL\")"
   - metavariable-regex:
       metavariable: "$HEADER"
       regex: "(?i)(Access-Control-Allow-Origin)"
