@@ -7,9 +7,10 @@ rules:
   patterns:
   - pattern-either:
     - pattern: "scala.util.Random.$METHOD"
+    - pattern: "Math.$METHOD"
   - metavariable-regex:
       metavariable: "$METHOD"
-      regex: "^(next)"
+      regex: "^(next|random)"
   message: |
     The use of a predictable random value can lead to vulnerabilities when used in certain security
     critical contexts. A quick fix could be to replace the use of scala.util.Random with something
