@@ -8,9 +8,11 @@ rules:
   patterns:
   - pattern-either:
     - pattern-inside: |
-        def $FUNC(...,$VAR: String, ...): $TYPE = {
+        def $FUNC(..., $VAR: String, ...): $TYPE = {
             ...
         }
+    - pattern-inside: |
+        def $FUNC(..., $VAR: String, ...): $TYPE = ...
     - pattern-inside: |
         def $FUNC(..., $REQ: HttpServletRequest, ...): $TYPE = {
             ...
@@ -34,14 +36,19 @@ rules:
     - pattern: "new javax.activation.FileDataSource(..., $VAR, ...)"
     - pattern: "new java.io.FileInputStream(..., $VAR, ...)"
     - pattern: "new java.io.File(..., $VAR, ...)"
-    - pattern: "new java.nio.file.Paths.get(...,$VAR,...)"
-    - pattern: "new java.io.File.createTempFile(...,$VAR, ...)"
-    - pattern: "new java.io.File.createTempDirectory(...,$VAR,...)"
-    - pattern: "new java.nio.file.Files.createTempFile(..., $VAR, ...)"
-    - pattern: "new java.nio.file.Files.createTempDirectory(..., $VAR, ...)"
+    - pattern: "java.nio.file.Paths.get(...,$VAR,...)"
+    - pattern: "java.io.File.createTempFile(..., $VAR, ...)"
+    - pattern: "java.io.File.createTempDirectory(...,$VAR,...)"
+    - pattern: "java.nio.file.Files.createTempFile(..., $VAR, ...)"
+    - pattern: "java.nio.file.Files.createTempDirectory(..., $VAR, ...)"
     - pattern: "new java.io.File(..., $VAR + ..., ...)"
     - pattern: "new java.io.File(..., ... + $VAR, ...)"
     - pattern: "new java.io.File(..., $VAR, ...)"
+    - pattern: "new java.io.File($VAR)"
+    - pattern: "new java.io.FileInputStream(... + $VAR)"
+    - pattern: "new java.io.FileInputStream($VAR + ...)"
+    - pattern: "new javax.activation.FileDataSource(... + $VAR)"
+    - pattern: "new javax.activation.FileDataSource($VAR + ...)"
   - metavariable-pattern:
       metavariable: "$VAR"
       patterns:
