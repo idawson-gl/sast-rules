@@ -8,14 +8,17 @@ rules:
   - pattern-either:
     - patterns:
       - pattern-inside: |
-          val $VAR = new XmlRpcServerConfigImpl();
+          val $VAR = new XmlRpcServerConfigImpl()
           ...
-      - pattern: "$VAR.setEnabledForExtensions(true);"
+      - pattern: "$VAR.setEnabledForExtensions($FLAG)"
     - patterns:
       - pattern-inside: |
-          val $VAR = new org.apache.xmlrpc.client.XmlRpcClientConfigImpl();
+          val $VAR = new org.apache.xmlrpc.client.XmlRpcClientConfigImpl()
           ...
-      - pattern: "$VAR.setEnabledForExtensions(true);"
+      - pattern: "$VAR.setEnabledForExtensions($FLAG)"
+  - metavariable-comparison:
+      metavariable: "$FLAG"
+      comparison: "$FLAG == True"
   languages:
   - "scala"
   message: |

@@ -41,7 +41,7 @@ class SqlInjection {
   }
 
   def testJdoQueries(input: String): Unit = {
-    val pm = SqlInjection.getPM
+    val pm: javax.jdo.PersistenceManager = SqlInjection.getPM
     pm.newQuery("select * from Users where name = " + input)
     pm.newQuery("sql", "select * from Products where name = " + input)
     // Test for false positive
@@ -52,7 +52,7 @@ class SqlInjection {
   }
 
   def testJdoQueriesAdditionalMethodSig(input: String): Unit = {
-    val pm = SqlInjection.getPM
+    val pm: javax.jdo.PersistenceManager = SqlInjection.getPM
     pm.newQuery(classOf[SqlInjection#UserEntity], "id == 1")
     pm.newQuery(classOf[SqlInjection#UserEntity], "id == " + input)
     pm.newQuery(null.asInstanceOf[String], "id == " + input)
