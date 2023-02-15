@@ -27,6 +27,8 @@ import java.sql.PreparedStatement;
 import io.vertx.sqlclient.SqlClient;
 import io.vertx.sqlclient.SqlConnection;
 
+import java.sql.Statement;
+import java.sql.SQLException;
 import java.sql.PreparedStatement;
 
 
