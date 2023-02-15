@@ -51,4 +51,3 @@ eslint:
   - id: "detect-new-buffer"
     rules:
     - "javascript/buf/rule-detect-new-buffer"
-
