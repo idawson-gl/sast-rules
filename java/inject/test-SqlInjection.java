@@ -179,13 +179,10 @@ public class SqlInjection {
         stmt.execute("select * from users where email = " + input, new int[]{Statement.RETURN_GENERATED_KEYS});
         stmt.execute("select * from users where email = " + input, new int[]{Statement.RETURN_GENERATED_KEYS});
         stmt.executeQuery("select * from users where email = " + input);
-        stmt.executeQuery(String.format("select * from users where email = %s",input));
         stmt.executeQuery("select * from users where email = '" + input +"' AND name != NULL");
-        stmt.executeQuery(String.format("select * from users where email = %s",input));
         stmt.executeUpdate("update from users set email = '" + input +"' where name != NULL");
         stmt.executeLargeUpdate("update from users set email = '" + input +"' where name != NULL");
         stmt.addBatch("update from users set email = '" + input +"' where name != NULL");
-        stmt.addBatch(String.format("select * from users where email = " + input + " AND name= %s",input));
     }
 
     public void good(String clientDetails) {
