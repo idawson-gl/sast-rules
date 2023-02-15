@@ -27,6 +27,8 @@ import java.sql.PreparedStatement;
 import io.vertx.sqlclient.SqlClient;
 import io.vertx.sqlclient.SqlConnection;
 
+import java.sql.PreparedStatement;
+
 
 public class SqlInjection {
     private static final String CLIENT_FIELDS = "client_id, client_secret, resource_ids, scope, "
@@ -101,13 +103,9 @@ public class SqlInjection {
     }
 
     public void testHibernate(SessionFactory sessionFactory, String input) {
-<<<<<<< HEAD
         Session session = sessionFactory.openSession();
         String instring = String.format("%s", input);
 
-=======
-        Session session = null;
->>>>>>> 214d610 (java: SQL_INJECTION for Hibernate and Vertx mapped)
         CriteriaBuilder cb = session.getCriteriaBuilder();
         CriteriaQuery<Object> query = null;
         // should not be reported
@@ -116,16 +114,11 @@ public class SqlInjection {
         session.createQuery(instring);
         CriteriaQuery<Object> cq = cb.createQuery(Object.class);
 
-<<<<<<< HEAD
-=======
-        Session session = sessionFactory.openSession();
->>>>>>> 214d610 (java: SQL_INJECTION for Hibernate and Vertx mapped)
 
         Criteria criteria = session.createCriteria(UserEntity.class);
 
         //The following would need to be audited
 
-<<<<<<< HEAD
         criteria.add(Restrictions.sqlRestriction("test=1234" + instring));
 
         session.createQuery("select t from UserEntity t where id = " + instring);
@@ -135,18 +128,6 @@ public class SqlInjection {
 
         criteria.add(Restrictions.sqlRestriction("param1  = ? and param2 = " + instring,instring, StandardBasicTypes.STRING));
         criteria.add(Restrictions.sqlRestriction("param1  = ? and param2 = " + instring,new String[] {instring}, new Type[] {StandardBasicTypes.STRING}));
-=======
-        criteria.add(Restrictions.sqlRestriction("test=1234" + input));
-
-        session.createQuery("select t from UserEntity t where id = " + input);
-
-        session.createSQLQuery(String.format("select * from TestEntity where id = %s ", input));
-
-        //More sqlRestriction signatures
-
-        criteria.add(Restrictions.sqlRestriction("param1  = ? and param2 = " + input,input, StandardBasicTypes.STRING));
-        criteria.add(Restrictions.sqlRestriction("param1  = ? and param2 = " + input,new String[] {input}, new Type[] {StandardBasicTypes.STRING}));
->>>>>>> 214d610 (java: SQL_INJECTION for Hibernate and Vertx mapped)
 
         //OK nothing risky here..
 
@@ -162,13 +143,8 @@ public class SqlInjection {
 
         //More sqlRestriction signatures (with safe binding)
 
-<<<<<<< HEAD
         criteria.add(Restrictions.sqlRestriction("param1  = ?",instring, StandardBasicTypes.STRING));
         criteria.add(Restrictions.sqlRestriction("param1  = ? and param2 = ?", new String[] {instring}, new Type[] {StandardBasicTypes.STRING}));
-=======
-        criteria.add(Restrictions.sqlRestriction("param1  = ?",input, StandardBasicTypes.STRING));
-        criteria.add(Restrictions.sqlRestriction("param1  = ? and param2 = ?", new String[] {input}, new Type[] {StandardBasicTypes.STRING}));
->>>>>>> 214d610 (java: SQL_INJECTION for Hibernate and Vertx mapped)
 
     }
 
@@ -177,15 +153,10 @@ public class SqlInjection {
         client.query(injection);
         client.preparedQuery(injection);
         conn.prepare(injection);
-<<<<<<< HEAD
-=======
-        conn.prepare(injection, null);
->>>>>>> 214d610 (java: SQL_INJECTION for Hibernate and Vertx mapped)
 
         // false positives
         String constantValue = "SELECT * FROM test";
         client.query(constantValue);
-<<<<<<< HEAD
         conn.query(constantValue);
     }
 
@@ -199,10 +170,22 @@ public class SqlInjection {
         stmt.executeUpdate("update from users set email = '" + input +"' where name != NULL");
         stmt.executeLargeUpdate("update from users set email = '" + input +"' where name != NULL");
         stmt.addBatch("update from users set email = '" + input +"' where name != NULL");
-=======
-        String constantValue = "SELECT * FROM test";
-        conn.query(constantValue);
->>>>>>> 214d610 (java: SQL_INJECTION for Hibernate and Vertx mapped)
+    }
+
+    public void testPreparedStmt(PreparedStatement stmt, String input) throws SQLException {
+        stmt.execute("select * from users where email = " + input);
+        stmt.execute(String.format("select * from users where email = %s",input));
+        stmt.execute("select * from users where email = " + input, Statement.RETURN_GENERATED_KEYS);
+        stmt.execute("select * from users where email = " + input, new int[]{Statement.RETURN_GENERATED_KEYS});
+        stmt.execute("select * from users where email = " + input, new int[]{Statement.RETURN_GENERATED_KEYS});
+        stmt.executeQuery("select * from users where email = " + input);
+        stmt.executeQuery(String.format("select * from users where email = %s",input));
+        stmt.executeQuery("select * from users where email = '" + input +"' AND name != NULL");
+        stmt.executeQuery(String.format("select * from users where email = %s",input));
+        stmt.executeUpdate("update from users set email = '" + input +"' where name != NULL");
+        stmt.executeLargeUpdate("update from users set email = '" + input +"' where name != NULL");
+        stmt.addBatch("update from users set email = '" + input +"' where name != NULL");
+        stmt.addBatch(String.format("select * from users where email = " + input + " AND name= %s",input));
     }
 
     public void good(String clientDetails) {

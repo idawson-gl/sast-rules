@@ -83,12 +83,12 @@ find_sec_bugs:
   - id: "SQL_INJECTION_VERTX"
     rules:
     - "java/inject/rule-SqlInjection"
-<<<<<<< HEAD
   - id: "SQL_PREPARED_STATEMENT_GENERATED_FROM_NONCONSTANT_STRING"
     rules:
     - "java/inject/rule-SqlInjection"
-=======
->>>>>>> 214d610 (java: SQL_INJECTION for Hibernate and Vertx mapped)
+  - id: "SQL_PREPARED_STATEMENT_GENERATED_FROM_NONCONSTANT_STRING"
+    rules:
+    - "java/inject/rule-SqlInjection"
 
     # XPATHI
   - id: "XPATH_INJECTION"
