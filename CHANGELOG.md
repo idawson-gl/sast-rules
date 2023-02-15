@@ -1,7 +1,7 @@
 sast-rules changelog
 
 ## v1.2.5
-- Synchronize new upstream rules in the ruleset (!112)
+- Synchronize new upstream rules in the ruleset for Go and Java  (!112)
 
 ## v1.2.4
 - Adjust bandit severity (!116)
