@@ -21,6 +21,7 @@ end
 Dir.mkdir(dest) unless Dir.exist?(dest)
 
 Dir.glob('mappings/*.yml').each do |mappings|
+  next unless mappings == "mappings/bandit.yml"
   prefix = File.basename(mappings, '.yml')
 
   dict = YAML.safe_load(File.read(mappings))
@@ -32,16 +33,19 @@ Dir.glob('mappings/*.yml').each do |mappings|
   rule2ids = {}
   ruleids = {}
   rulefiles = []
+  id2primaryid = {}
 
   dict[prefix]['mappings'].each do |mapping|
     id = mapping['id']
     ruleids[id] = ruleids.keys.size unless ruleids.key?(id)
     id2rules[id] = [] unless id2rules.key?(id)
     mapping['rules'].each do |rule|
-      rule2ids[rule] = [] unless rule2ids.key?(rule)
-      rule2ids[rule] << id
-      id2rules[id] << rule
-      rulefiles << rule
+      rule_path = rule['path']
+      rule2ids[rule_path] = [] unless rule2ids.key?(rule_path)
+      rule2ids[rule_path] << id
+      id2rules[id] << rule_path
+      id2primaryid[id] = rule['primary_identifier'] if rule['primary_identifier']
+      rulefiles << rule_path
     end
   end
 
@@ -53,6 +57,8 @@ Dir.glob('mappings/*.yml').each do |mappings|
     ids = rule2ids[rfil]
 
     primary_id = "#{prefix}.#{ids.first}"
+    primary_id = id2primaryid[ids.first] if id2primaryid[ids.first]
+
     # generate a unique rule hash that makes it possible to map results
     # back to the original analyzer -- note that we have n:m mappings multiple
     # native ids can be mapped to a collection of semgrep rules and vice versa

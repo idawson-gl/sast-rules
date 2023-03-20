@@ -1771,7 +1771,7 @@ rules:
     Detected hardcoded temp directory. Consider using `tempfile.TemporaryFile` instead.
   metadata:
     cwe: "CWE-377: Insecure Temporary File"
-    primary_identifier: "bandit.B108"
+    primary_identifier: "bandit.B108-2"
     secondary_identifiers:
     - name: "Bandit Test ID B108"
       type: "bandit_test_id"
@@ -1807,7 +1807,7 @@ rules:
     Probable insecure usage of temp file/directory.
   metadata:
     cwe: "CWE-377: Insecure Temporary File"
-    primary_identifier: "bandit.B108"
+    primary_identifier: "bandit.B108-2"
     secondary_identifiers:
     - name: "Bandit Test ID B108"
       type: "bandit_test_id"
