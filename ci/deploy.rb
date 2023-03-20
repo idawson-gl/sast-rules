@@ -21,7 +21,6 @@ end
 Dir.mkdir(dest) unless Dir.exist?(dest)
 
 Dir.glob('mappings/*.yml').each do |mappings|
-  next unless mappings == "mappings/bandit.yml"
   prefix = File.basename(mappings, '.yml')
 
   dict = YAML.safe_load(File.read(mappings))
