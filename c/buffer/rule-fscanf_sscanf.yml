@@ -9,7 +9,7 @@ rules:
   languages:
   - "c"
   message: |
-    Format specifiers can take an optional field widths, which should be
+    Format specifiers can take optional field widths, which should be
     used to limit how many characters are copied into the target buffer.
 
     Example:
