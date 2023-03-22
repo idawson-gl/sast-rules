@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "java/crypto/rule-CipherPaddingOracle"
+  primary_identifier: find_sec_bugs.PADDING_ORACLE
   patterns:
   - pattern-inside: |-
       javax.crypto.Cipher.getInstance("...")

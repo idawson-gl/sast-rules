@@ -7,6 +7,7 @@
 ---
 rules:
 - id: "python/deserialization/rule-yaml_load"
+  primary_identifier: bandit.B506
   patterns:
   - pattern-inside: |
       import yaml

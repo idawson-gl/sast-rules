@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "csharp/path/rule-PathTraversal"
+  primary_identifier: security_code_scan.SCS0018
   mode: "taint"
   pattern-sources:
   - patterns:

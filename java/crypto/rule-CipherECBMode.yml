@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "java/crypto/rule-CipherECBMode"
+  primary_identifier: find_sec_bugs.ECB_MODE
   patterns:
   - pattern-inside: |-
       javax.crypto.Cipher.getInstance("...")

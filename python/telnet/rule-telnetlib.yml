@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "python/telnet/rule-telnetlib"
+  primary_identifier: bandit.B312
   pattern: "telnetlib.$ANYTHING(...)"
   message: |
     Telnet does not encrypt communications. Use SSH instead.

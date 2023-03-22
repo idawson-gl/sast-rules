@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "csharp/injection/rule-CommandInjection"
+  primary_identifier: security_code_scan.SCS0001
   patterns:
   - pattern-inside: |
       using System.Diagnostics;

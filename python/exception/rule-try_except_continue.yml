@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "python/exception/rule-try_except_continue"
+  primary_identifier: bandit.B112
   pattern-either:
   - pattern: |
       try: ...

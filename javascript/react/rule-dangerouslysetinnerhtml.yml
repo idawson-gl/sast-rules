@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "javascript/react/rule-dangerouslysetinnerhtml"
+  primary_identifier: eslint.react-dangerouslysetinnerhtml
   pattern-either:
   - pattern: |
       <$X dangerouslySetInnerHTML=... />

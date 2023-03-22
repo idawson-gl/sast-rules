@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "scala/xxe/rule-SaxParserXXE"
+  primary_identifier: find_sec_bugs_scala.XXE_SAXPARSER
   patterns:
   - pattern-inside: |
       val $SF = SAXParserFactory.newInstance

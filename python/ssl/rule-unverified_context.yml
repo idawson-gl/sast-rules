@@ -7,6 +7,7 @@
 ---
 rules:
 - id: "python/ssl/rule-unverified_context"
+  primary_identifier: bandit.B323
   pattern: "ssl._create_unverified_context(...)"
   message: |
     Unverified SSL context detected. This will permit insecure connections without `verifyingSSL`

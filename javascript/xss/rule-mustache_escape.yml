@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "javascript/xss/rule-mustache_escape"
+  primary_identifier: eslint.detect-disable-mustache-escape
   metadata:
     cwe: "CWE-79: Improper Neutralization of Input During Web Page Generation (XSS)"
     owasp: "A7: Cross-Site Scripting XSS"

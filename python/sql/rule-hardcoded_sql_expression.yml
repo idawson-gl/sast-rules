@@ -7,6 +7,7 @@
 ---
 rules:
 - id: "python/sql/rule-hardcoded_sql_expression"
+  primary_identifier: bandit.B608
   patterns:
   - pattern-either:
     - pattern: "$DB.execute(\"...\" % ...)"

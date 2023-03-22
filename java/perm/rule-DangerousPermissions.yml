@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "java/perm/rule-DangerousPermissions"
+  primary_identifier: find_sec_bugs.DANGEROUS_PERMISSION_COMBINATION
   pattern-either:
   - pattern: |
       $RUNVAR = new RuntimePermission("createClassLoader");

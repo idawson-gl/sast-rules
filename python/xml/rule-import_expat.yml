@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "python/xml/rule-import_expat"
+  primary_identifier: bandit.B407
   patterns:
   - pattern-either:
     - pattern: "import xml.dom.expatbuilder"

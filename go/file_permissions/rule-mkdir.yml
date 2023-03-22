@@ -6,6 +6,7 @@
 ---
 rules:
 - id: "go/file_permissions/rule-mkdir"
+  primary_identifier: gosec.G301
   patterns:
   - pattern-either:
     - pattern: "os.Mkdir(...,$MASK)"

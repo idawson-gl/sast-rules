@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "java/inject/rule-LDAPInjection"
+  primary_identifier: find_sec_bugs.LDAP_INJECTION
   mode: "taint"
   pattern-sources:
   - patterns:

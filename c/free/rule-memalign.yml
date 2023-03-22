@@ -6,6 +6,7 @@
 ---
 rules:
 - id: "c/free/rule-memalign"
+  primary_identifier: flawfinder.memalign
   languages:
   - "c"
   message: |

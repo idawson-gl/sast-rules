@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "scala/random/rule-PseudoRandom"
+  primary_identifier: find_sec_bugs_scala.PREDICTABLE_RANDOM
   patterns:
   - pattern-either:
     - pattern: "scala.util.Random.$METHOD"

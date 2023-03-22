@@ -5,6 +5,7 @@
 ---
 rules:
 - id: "javascript/exec/rule-child_process"
+  primary_identifier: eslint.detect-child-process
   metadata:
     cwe: "CWE-95: Improper Neutralization of Directives in Dynamically Evaluated Code
       ('Eval Injection')"

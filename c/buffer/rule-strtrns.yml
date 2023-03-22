@@ -6,6 +6,7 @@
 ---
 rules:
 - id: "c/buffer/rule-strtrns"
+  primary_identifier: flawfinder.strtrns
   languages:
   - "c"
   message: |

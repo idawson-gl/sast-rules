@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "scala/crypto/rule-WeakTLSProtocol"
+  primary_identifier: find_sec_bugs_scala.SSL_CONTEXT
   patterns:
   - pattern-either:
     - pattern: "new org.apache.http.impl.client.DefaultHttpClient();"

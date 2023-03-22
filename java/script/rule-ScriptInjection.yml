@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "java/script/rule-ScriptInjection"
+  primary_identifier: find_sec_bugs.SCRIPT_ENGINE_INJECTION
   patterns:
   - pattern: "(javax.script.ScriptEngine $ENGINE).eval($ARG);"
   - pattern-not: "(javax.script.ScriptEngine $ENGINE).eval(\"...\");"

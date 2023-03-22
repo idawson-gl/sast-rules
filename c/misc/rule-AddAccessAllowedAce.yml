@@ -6,6 +6,7 @@
 ---
 rules:
 - id: "c/misc/rule-AddAccessAllowedAce"
+  primary_identifier: flawfinder.AddAccessAllowedAce
   languages:
   - "c"
   message: |

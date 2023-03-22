@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "java/random/rule-PseudoRandom"
+  primary_identifier: find_sec_bugs.PREDICTABLE_RANDOM
   patterns:
   - pattern-either:
     - pattern: |

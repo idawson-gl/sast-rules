@@ -6,6 +6,7 @@
 ---
 rules:
 - id: "c/random/rule-drand48_erand48"
+  primary_identifier: flawfinder.drand48
   languages:
   - "c"
   message: |

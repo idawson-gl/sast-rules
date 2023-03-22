@@ -6,6 +6,7 @@
 ---
 rules:
 - id: "go/injection/rule-template_injection"
+  primary_identifier: gosec.G203
   patterns:
   - pattern-either:
     - patterns:

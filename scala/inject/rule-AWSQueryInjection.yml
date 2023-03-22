@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "scala/inject/rule-AWSQueryInjection"
+  primary_identifier: find_sec_bugs_scala.AWS_QUERY_INJECTION
   patterns:
   - pattern-either:
     - pattern-inside: "def $FUNC(..., $VAR: HttpServletRequest, ...): $TYPE = { \n

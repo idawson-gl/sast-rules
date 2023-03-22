@@ -5,6 +5,7 @@
 ---
 rules:
 - id: "java/inject/rule-SpotbugsPathTraversalAbsolute"
+  primary_identifier: find_sec_bugs.PT_ABSOLUTE_PATH_TRAVERSAL
   mode: "taint"
   pattern-sources:
   - pattern: "(HttpServletRequest $REQ).getParameter(...)"

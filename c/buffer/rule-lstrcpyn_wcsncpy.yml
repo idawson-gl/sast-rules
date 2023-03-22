@@ -6,6 +6,7 @@
 ---
 rules:
 - id: "c/buffer/rule-lstrcpyn_wcsncpy"
+  primary_identifier: flawfinder.lstrcpyn
   languages:
   - "c"
   message: |

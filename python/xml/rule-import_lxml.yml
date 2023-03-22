@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "python/xml/rule-import_lxml"
+  primary_identifier: bandit.B410
   patterns:
   - pattern-either:
     - pattern: "import lxml"

@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "scala/file/rule-FileUploadFileName"
+  primary_identifier: find_sec_bugs_scala.FILE_UPLOAD_FILENAME
   patterns:
   - pattern: |
       def $FUNC (..., $REQ: HttpServletRequest, ... ) = {

@@ -5,6 +5,7 @@
 ---
 rules:
 - id: "scala/inject/rule-SpotbugsPathTraversalAbsolute"
+  primary_identifier: find_sec_bugs_scala.PT_ABSOLUTE_PATH_TRAVERSAL
   mode: "taint"
   pattern-sources:
   - pattern: "($REQ: HttpServletRequest ).getParameter(...)"

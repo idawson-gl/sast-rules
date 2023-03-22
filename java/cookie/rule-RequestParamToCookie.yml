@@ -5,6 +5,7 @@
 ---
 rules:
 - id: "java/cookie/rule-RequestParamToCookie"
+  primary_identifier: find_sec_bugs.HRS_REQUEST_PARAMETER_TO_COOKIE
   mode: "taint"
   pattern-sources:
   - pattern: "(javax.servlet.http.HttpServletRequest $REQ).getParameter(...);"

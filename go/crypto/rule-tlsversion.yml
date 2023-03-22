@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "go/crypto/rule-tlsversion"
+  primary_identifier: gosec.G402
   patterns:
   - pattern-either:
     - pattern: "tls.VersionTLS11"

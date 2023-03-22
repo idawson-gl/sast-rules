@@ -8,6 +8,7 @@
 ---
 rules:
 - id: "python/urlopen/rule-urllib_urlopen1"
+  primary_identifier: bandit.B310
   patterns:
   - pattern-not: "urllib.$W(\"...\")"
   - pattern-not: "urllib.request.$W(\"...\")"

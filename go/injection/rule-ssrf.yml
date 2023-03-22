@@ -6,6 +6,7 @@
 ---
 rules:
 - id: "go/injection/rule-ssrf"
+  primary_identifier: gosec.G107
   patterns:
   - pattern-either:
     - patterns:

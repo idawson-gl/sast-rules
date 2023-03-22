@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "python/ftp/rule-import_ftplib"
+  primary_identifier: bandit.B402
   patterns:
   - pattern-either:
     - pattern: "import ftplib"

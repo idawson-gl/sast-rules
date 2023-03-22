@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "python/files/rule-tarfile_unsafe_members"
+  primary_identifier: bandit.B202
   patterns:
   - pattern-inside: |
       import tarfile

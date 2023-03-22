@@ -6,6 +6,7 @@
 ---
 rules:
 - id: "c/buffer/rule-strncat"
+  primary_identifier: flawfinder.strncat
   languages:
   - "c"
   message: |

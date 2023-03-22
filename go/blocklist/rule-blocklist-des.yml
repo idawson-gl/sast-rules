@@ -5,6 +5,7 @@
 ---
 rules:
 - id: "go/blocklist/rule-blocklist-des"
+  primary_identifier: gosec.G502
   patterns:
   - pattern: |
       import "crypto/des"

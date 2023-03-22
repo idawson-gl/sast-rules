@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "javascript/require/rule-non_literal_require"
+  primary_identifier: eslint.detect-non-literal-require
   metadata:
     cwe: "CWE-95: Improper Neutralization of Directives in Dynamically Evaluated Code
       ('Eval Injection')"

@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "java/ldap/rule-AnonymousLDAP"
+  primary_identifier: find_sec_bugs.LDAP_ANONYMOUS
   patterns:
   - pattern-inside: |
       import javax.naming.Context;

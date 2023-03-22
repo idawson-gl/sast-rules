@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "java/xss/rule-XSSReqParamToServletWriter"
+  primary_identifier: find_sec_bugs.XSS_REQUEST_PARAMETER_TO_SERVLET_WRITER
   mode: "taint"
   pattern-sources:
   - patterns:

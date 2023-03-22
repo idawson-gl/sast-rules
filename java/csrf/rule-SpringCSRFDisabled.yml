@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "java/csrf/rule-SpringCSRFDisabled"
+  primary_identifier: find_sec_bugs.SPRING_CSRF_PROTECTION_DISABLED
   pattern-either:
   - pattern: "(org.springframework.security.config.annotation.web.builders.HttpSecurity
       $H). ... .csrf().disable();"

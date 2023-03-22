@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "csharp/other/rule-UnsafeXSLTSettingUsed"
+  primary_identifier: security_code_scan.SCS0011
   patterns:
   - pattern-either:
     - pattern: "new XsltSettings() {EnableScript = true};"

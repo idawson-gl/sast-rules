@@ -5,6 +5,7 @@
 ---
 rules:
 - id: "go/blocklist/rule-blocklist-sha1"
+  primary_identifier: gosec.G505
   patterns:
   - pattern: |
       import "crypto/sha1"

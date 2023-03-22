@@ -5,6 +5,7 @@
 ---
 rules:
 - id: "go/blocklist/rule-blocklist-cgi"
+  primary_identifier: gosec.G504
   patterns:
   - pattern: |
       import "net/http/cgi"

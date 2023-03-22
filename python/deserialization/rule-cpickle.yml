@@ -7,6 +7,7 @@
 ---
 rules:
 - id: "python/deserialization/rule-cpickle"
+  primary_identifier: bandit.B301
   pattern: "cPickle.$FUNC(...)"
   message: |
     Avoid using `cPickle`, which is known to lead to code execution vulnerabilities.

@@ -7,6 +7,7 @@
 ---
 rules:
 - id: "python/ssh/rule-ssl_nohost_key_verification"
+  primary_identifier: bandit.B507
   patterns:
   - pattern-inside: |
       $CLIENT = paramiko.client.SSHClient(...)

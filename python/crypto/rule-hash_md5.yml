@@ -7,6 +7,7 @@
 ---
 rules:
 - id: "python/crypto/rule-hash_md5"
+  primary_identifier: bandit.B303
   pattern: "hashlib.md5(...)"
   message: |
     Detected MD5 hash algorithm which is considered insecure. MD5 is not

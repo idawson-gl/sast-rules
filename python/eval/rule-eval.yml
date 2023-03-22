@@ -6,6 +6,7 @@
 ---
 rules:
 - id: "python/eval/rule-eval"
+  primary_identifier: bandit.B307
   patterns:
   - pattern: "eval(...)"
   message: |

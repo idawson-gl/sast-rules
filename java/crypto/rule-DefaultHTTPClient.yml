@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "java/crypto/rule-DefaultHTTPClient"
+  primary_identifier: find_sec_bugs.DEFAULT_HTTP_CLIENT
   patterns:
   - pattern: "new org.apache.http.impl.client.DefaultHttpClient(...);"
   message: |

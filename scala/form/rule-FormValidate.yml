@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "scala/form/rule-FormValidate"
+  primary_identifier: find_sec_bugs_scala.STRUTS_FORM_VALIDATION
   patterns:
   - pattern-inside: |
       class $CLASS extends $SC {

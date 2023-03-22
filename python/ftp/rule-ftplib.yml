@@ -7,6 +7,7 @@
 ---
 rules:
 - id: "python/ftp/rule-ftplib"
+  primary_identifier: bandit.B321
   pattern: "ftplib.$ANYTHING(...)"
   message: |
     FTP does not encrypt communications by default. This can lead to sensitive data being exposed.

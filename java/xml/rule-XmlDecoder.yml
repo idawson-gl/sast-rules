@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "java/xml/rule-XmlDecoder"
+  primary_identifier: find_sec_bugs.XML_DECODER
   patterns:
   - pattern-either:
     - patterns:

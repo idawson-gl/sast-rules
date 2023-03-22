@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "scala/cookie/rule-CookieInsecure"
+  primary_identifier: find_sec_bugs_scala.INSECURE_COOKIE
   pattern-either:
   - patterns:
     - pattern: |

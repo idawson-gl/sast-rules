@@ -6,6 +6,7 @@
 ---
 rules:
 - id: "go/file_permissions/rule-fileperm"
+  primary_identifier: gosec.G302
   patterns:
   - pattern-either:
     - pattern: "os.Chmod(...,$MASK)"

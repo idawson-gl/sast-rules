@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "java/xml/rule-ApacheXmlRpc"
+  primary_identifier: find_sec_bugs.RPC_ENABLED_EXTENSIONS
   patterns:
   - pattern-either:
     - patterns:

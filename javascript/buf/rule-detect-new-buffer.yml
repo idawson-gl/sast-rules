@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "javascript/buf/rule-detect-new-buffer"
+  primary_identifier: eslint.detect-new-buffer
   metadata:
     # yamllint disable
     source-rule-url: "https://github.com/eslint-community/eslint-plugin-security/blob/main/rules/detect-new-buffer.js"

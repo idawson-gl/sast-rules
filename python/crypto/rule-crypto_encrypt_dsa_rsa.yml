@@ -6,6 +6,7 @@
 ---
 rules:
 - id: "python/crypto/rule-crypto_encrypt_dsa_rsa"
+  primary_identifier: bandit.B505
   patterns:
   - pattern-either:
     - pattern: |

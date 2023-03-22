@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "python/escaping/rule-mark_safe"
+  primary_identifier: bandit.B703
   patterns:
   - pattern-not-inside: |-
       django.utils.html.format_html(...)

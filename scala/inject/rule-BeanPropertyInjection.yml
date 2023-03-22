@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "scala/inject/rule-BeanPropertyInjection"
+  primary_identifier: find_sec_bugs_scala.BEAN_PROPERTY_INJECTION
   patterns:
   - pattern-inside: |-
       def $FUNC(..., $REQ: HttpServletRequest, ...): $TYPE = { ... }

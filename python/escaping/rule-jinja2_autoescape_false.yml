@@ -7,6 +7,7 @@
 ---
 rules:
 - id: "python/escaping/rule-jinja2_autoescape_false"
+  primary_identifier: bandit.B701
   patterns:
   - pattern-not: "jinja2.Environment(..., autoescape=True, ...)"
   - pattern-not: "jinja2.Environment(..., autoescape=jinja2.select_autoescape(...),

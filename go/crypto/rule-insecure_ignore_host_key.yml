@@ -6,6 +6,7 @@
 ---
 rules:
 - id: "go/crypto/rule-insecure_ignore_host_key"
+  primary_identifier: gosec.G106
   patterns:
   - pattern: "ssh.InsecureIgnoreHostKey(...)"
   message: |

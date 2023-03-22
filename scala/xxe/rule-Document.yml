@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "scala/xxe/rule-Document"
+  primary_identifier: find_sec_bugs_scala.XXE_DOCUMENT
   patterns:
   - pattern-inside: |
       $DF = DocumentBuilderFactory.newInstance

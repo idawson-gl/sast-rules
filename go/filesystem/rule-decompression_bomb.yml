@@ -6,6 +6,7 @@
 ---
 rules:
 - id: "go/filesystem/rule-decompression_bomb"
+  primary_identifier: gosec.G110
   mode: "taint"
   pattern-sinks:
   - pattern: "io.Copy(...)"

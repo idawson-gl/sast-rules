@@ -6,6 +6,7 @@
 ---
 rules:
 - id: "c/format/rule-snprintf_vsnprintf"
+  primary_identifier: flawfinder.snprintf
   languages:
   - "c"
   message: |

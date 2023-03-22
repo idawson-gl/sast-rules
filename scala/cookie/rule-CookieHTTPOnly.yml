@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "scala/cookie/rule-CookieHTTPOnly"
+  primary_identifier: find_sec_bugs_scala.HTTPONLY_COOKIE
   pattern-either:
   - patterns:
     - pattern: |

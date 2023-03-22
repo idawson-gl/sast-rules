@@ -5,6 +5,7 @@
 ---
 rules:
 - id: "scala/cookie/rule-HttpResponseSplitting"
+  primary_identifier: find_sec_bugs_scala.HTTP_RESPONSE_SPLITTING
   mode: "taint"
   pattern-sources:
   - pattern: "($REQ: HttpServletRequest).getParameter(...)"

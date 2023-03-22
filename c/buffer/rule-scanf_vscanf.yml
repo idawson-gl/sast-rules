@@ -6,6 +6,7 @@
 ---
 rules:
 - id: "c/buffer/rule-scanf_vscanf"
+  primary_identifier: flawfinder.scanf
   languages:
   - "c"
   message: |

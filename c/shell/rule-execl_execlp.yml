@@ -6,6 +6,7 @@
 ---
 rules:
 - id: "c/shell/rule-execl_execlp"
+  primary_identifier: flawfinder.execl
   languages:
   - "c"
   message: |

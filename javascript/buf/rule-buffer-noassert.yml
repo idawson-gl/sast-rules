@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "javascript/buf/rule-buffer-noassert"
+  primary_identifier: eslint.detect-buffer-noassert
   metadata:
     cwe: "CWE-119: Improper Restriction of Operations within the Bounds of a Memory
       Buffer"

@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "java/crypto/rule-InsufficientKeySizeRsa"
+  primary_identifier: find_sec_bugs.RSA_KEY_SIZE
   patterns:
   - pattern-either:
     - patterns:

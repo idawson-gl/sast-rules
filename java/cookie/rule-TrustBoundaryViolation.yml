@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "java/cookie/rule-TrustBoundaryViolation"
+  primary_identifier: find_sec_bugs.TRUST_BOUNDARY_VIOLATION
   patterns:
   - pattern-either:
     - patterns:

@@ -5,6 +5,7 @@
 ---
 rules:
 - id: "go/filesystem/rule-dirtraversal"
+  primary_identifier: gosec.G111
   patterns:
   - pattern-either:
     - pattern: |

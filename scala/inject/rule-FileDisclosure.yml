@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "scala/inject/rule-FileDisclosure"
+  primary_identifier: find_sec_bugs_scala.REQUESTDISPATCHER_FILE_DISCLOSURE
   mode: "taint"
   pattern-sources:
   - pattern: "($VAR: javax.servlet.http.HttpServletRequest).getParameter(...)"

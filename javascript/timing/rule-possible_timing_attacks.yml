@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "javascript/timing/rule-possible_timing_attacks"
+  primary_identifier: eslint.detect-possible-timing-attacks
   patterns:
   - pattern-not: "if ($Z == null) { ... };"
   - pattern-not: "if ($Z === null) { ... };"

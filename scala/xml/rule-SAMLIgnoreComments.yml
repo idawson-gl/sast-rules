@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "scala/xml/rule-SAMLIgnoreComments"
+  primary_identifier: find_sec_bugs_scala.SAML_IGNORE_COMMENTS
   pattern: "($POOL: BasicParserPool).setIgnoreComments(false);"
   languages:
   - "scala"

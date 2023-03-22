@@ -5,6 +5,7 @@
 ---
 rules:
 - id: "scala/inject/rule-PathTraversalOut"
+  primary_identifier: find_sec_bugs_scala.PATH_TRAVERSAL_OUT
   mode: "taint"
   pattern-sources:
   - patterns:

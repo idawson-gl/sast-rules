@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "python/cgi/rule-import_httpoxy"
+  primary_identifier: bandit.B412
   pattern-either:
   - pattern: "wsgiref.handlers.CGIHandler(...)"
   - pattern: "twisted.web.twcgi.CGIDirectory(...)"

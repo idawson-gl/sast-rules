@@ -6,6 +6,7 @@
 ---
 rules:
 - id: "c/misc/rule-cuserid"
+  primary_identifier: flawfinder.cuserid
   languages:
   - "c"
   message: |

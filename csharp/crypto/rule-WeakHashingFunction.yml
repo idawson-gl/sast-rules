@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "csharp/crypto/rule-WeakHashingFunction"
+  primary_identifier: security_code_scan.SCS0006
   patterns:
   - pattern-either:
     - patterns:

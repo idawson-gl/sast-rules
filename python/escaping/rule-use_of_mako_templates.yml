@@ -7,6 +7,7 @@
 ---
 rules:
 - id: "python/escaping/rule-use_of_mako_templates"
+  primary_identifier: bandit.B702
   pattern: "mako.template.Template(...)"
   message: |
     Mako templates do not provide a global HTML escaping mechanism.This means you must escape all

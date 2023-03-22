@@ -6,6 +6,7 @@
 ---
 rules:
 - id: "c/shell/rule-CreateProcessAsUser_CreateProcessWithLogon"
+  primary_identifier: flawfinder.CreateProcessAsUser
   languages:
   - "c"
   message: |

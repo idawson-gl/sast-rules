@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "scala/cookie/rule-CookieUsage"
+  primary_identifier: find_sec_bugs_scala.COOKIE_USAGE
   patterns:
   - pattern-inside: |
       def $FUNC(..., $REQ: HttpServletRequest, ...): $TYPE = {

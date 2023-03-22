@@ -5,6 +5,7 @@
 ---
 rules:
 - id: "java/cookie/rule-HttpResponseSplitting"
+  primary_identifier: find_sec_bugs.HTTP_RESPONSE_SPLITTING
   mode: "taint"
   pattern-sources:
   - pattern: "(javax.servlet.http.HttpServletRequest $REQ).getParameter(...);"

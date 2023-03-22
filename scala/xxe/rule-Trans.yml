@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "scala/xxe/rule-Trans"
+  primary_identifier: find_sec_bugs_scala.XXE_DTD_TRANSFORM_FACTORY
   patterns:
   - pattern-inside: |-
       import javax.xml.transform._; ...

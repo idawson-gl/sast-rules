@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "java/strings/rule-ModifyAfterValidation"
+  primary_identifier: find_sec_bugs.MODIFICATION_AFTER_VALIDATION
   patterns:
   - pattern: |
       (java.util.regex.Pattern $Y).matcher($VAR);

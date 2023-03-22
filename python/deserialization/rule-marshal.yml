@@ -7,6 +7,7 @@
 ---
 rules:
 - id: "python/deserialization/rule-marshal"
+  primary_identifier: bandit.B302
   pattern-either:
   - pattern: "marshal.dump(...)"
   - pattern: "marshal.dumps(...)"

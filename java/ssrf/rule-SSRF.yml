@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "java/ssrf/rule-SSRF"
+  primary_identifier: find_sec_bugs.URLCONNECTION_SSRF_FD
   pattern-either:
   - patterns:
     - pattern: "new URL(...). ... .connect()"

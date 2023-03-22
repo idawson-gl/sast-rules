@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "java/inject/rule-AWSQueryInjection"
+  primary_identifier: find_sec_bugs.AWS_QUERY_INJECTION
   mode: "taint"
   pattern-sources:
   - patterns:

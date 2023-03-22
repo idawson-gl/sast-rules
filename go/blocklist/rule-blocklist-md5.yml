@@ -5,6 +5,7 @@
 ---
 rules:
 - id: "go/blocklist/rule-blocklist-md5"
+  primary_identifier: gosec.G501
   patterns:
   - pattern: |
       import "crypto/md5"

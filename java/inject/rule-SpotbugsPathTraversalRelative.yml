@@ -5,6 +5,7 @@
 ---
 rules:
 - id: "java/inject/rule-SpotbugsPathTraversalRelative"
+  primary_identifier: find_sec_bugs.PT_RELATIVE_PATH_TRAVERSAL
   mode: "taint"
   pattern-sources:
   - patterns:

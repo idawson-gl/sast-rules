@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "scala/strings/rule-ModifyAfterValidation"
+  primary_identifier: find_sec_bugs_scala.MODIFICATION_AFTER_VALIDATION
   patterns:
   - pattern: |
       $Y.matcher($VAR);

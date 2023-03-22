@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "java/xss/rule-XSSServlet"
+  primary_identifier: find_sec_bugs.XSS_SERVLET
   mode: "taint"
   pattern-sources:
   - patterns:

@@ -6,6 +6,7 @@
 ---
 rules:
 - id: "c/buffer/rule-StrCat_StrCatA"
+  primary_identifier: flawfinder.StrCat
   languages:
   - "c"
   message: |

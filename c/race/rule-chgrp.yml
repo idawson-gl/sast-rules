@@ -6,6 +6,7 @@
 ---
 rules:
 - id: "c/race/rule-chgrp"
+  primary_identifier: flawfinder.chgrp
   languages:
   - "c"
   message: |

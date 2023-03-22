@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "java/xpathi/rule-XpathInjection"
+  primary_identifier: find_sec_bugs.XPATH_INJECTION
   patterns:
   - pattern-either:
     - pattern-inside: |-

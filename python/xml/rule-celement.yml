@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "python/xml/rule-celement"
+  primary_identifier: bandit.B313
   pattern-either:
   - patterns:
     - pattern: "xml.etree.cElementTree.fromstring(...)"

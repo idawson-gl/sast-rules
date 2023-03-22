@@ -5,6 +5,7 @@
 ---
 rules:
 - id: "go/filesystem/rule-filereadtaint"
+  primary_identifier: gosec.G304
   patterns:
   - pattern-not-inside: |
       os.OpenFile(filepath.Clean(...), ...)

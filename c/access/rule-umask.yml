@@ -6,6 +6,7 @@
 ---
 rules:
 - id: "c/access/rule-umask"
+  primary_identifier: flawfinder.umask
   languages:
   - "c"
   message: |

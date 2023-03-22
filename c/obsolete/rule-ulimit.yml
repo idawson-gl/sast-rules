@@ -6,6 +6,7 @@
 ---
 rules:
 - id: "c/obsolete/rule-ulimit"
+  primary_identifier: flawfinder.ulimit
   languages:
   - "c"
   message: |

@@ -5,6 +5,7 @@
 ---
 rules:
 - id: "python/log/rule-logging_config_insecure_listen"
+  primary_identifier: bandit.B612
   patterns:
   - pattern: "logging.config.listen(...)"
   message: |

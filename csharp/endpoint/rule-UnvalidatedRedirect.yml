@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "csharp/endpoint/rule-UnvalidatedRedirect"
+  primary_identifier: security_code_scan.SCS0027
   mode: "taint"
   pattern-sources:
   - patterns:

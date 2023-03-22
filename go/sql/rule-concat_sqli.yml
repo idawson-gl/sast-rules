@@ -6,6 +6,7 @@
 ---
 rules:
 - id: "go/sql/rule-concat_sqli"
+  primary_identifier: gosec.G202
   patterns:
   - pattern-inside: |
       import "database/sql"

@@ -5,6 +5,7 @@
 ---
 rules:
 - id: "go/filesystem/rule-tempfiles"
+  primary_identifier: gosec.G303
   patterns:
   - pattern-either:
     - pattern: |

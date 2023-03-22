@@ -6,6 +6,7 @@
 ---
 rules:
 - id: "c/buffer/rule-getopt_getopt_long"
+  primary_identifier: flawfinder.getopt
   languages:
   - "c"
   message: |

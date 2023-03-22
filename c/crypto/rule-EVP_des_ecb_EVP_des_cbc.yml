@@ -6,6 +6,7 @@
 ---
 rules:
 - id: "c/crypto/rule-EVP_des_ecb_EVP_des_cbc"
+  primary_identifier: flawfinder.EVP_des_ecb
   languages:
   - "c"
   message: |

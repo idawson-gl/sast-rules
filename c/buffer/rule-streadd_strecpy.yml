@@ -6,6 +6,7 @@
 ---
 rules:
 - id: "c/buffer/rule-streadd_strecpy"
+  primary_identifier: flawfinder.streadd
   languages:
   - "c"
   message: |

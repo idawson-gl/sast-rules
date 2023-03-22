@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "java/inject/rule-ELInjection"
+  primary_identifier: find_sec_bugs.EL_INJECTION
   patterns:
   - pattern-inside: |
       $FUNC(..., String $EXPR, ...) {

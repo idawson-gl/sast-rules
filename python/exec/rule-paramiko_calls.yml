@@ -7,6 +7,7 @@
 ---
 rules:
 - id: "python/exec/rule-paramiko_calls"
+  primary_identifier: bandit.B601
   patterns:
   - pattern-inside: |
       import paramiko

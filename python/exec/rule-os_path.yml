@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "python/exec/rule-os_path"
+  primary_identifier: bandit.B607
   pattern-either:
   - pattern: "os.system(\"...\", ...)"
   - pattern: "$OS.popen(\"...\", ...)"

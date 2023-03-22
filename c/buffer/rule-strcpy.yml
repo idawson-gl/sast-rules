@@ -6,6 +6,7 @@
 ---
 rules:
 - id: "c/buffer/rule-strcpy"
+  primary_identifier: flawfinder.strcpy
   languages:
   - "c"
   message: |

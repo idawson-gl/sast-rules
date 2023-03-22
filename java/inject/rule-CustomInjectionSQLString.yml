@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "java/inject/rule-CustomInjectionSQLString"
+  primary_identifier: find_sec_bugs.CUSTOM_INJECTION
   patterns:
   - pattern-not-inside: |
       final String $VAR = ...;

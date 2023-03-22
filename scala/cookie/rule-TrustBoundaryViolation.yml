@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "scala/cookie/rule-TrustBoundaryViolation"
+  primary_identifier: find_sec_bugs_scala.TRUST_BOUNDARY_VIOLATION
   patterns:
   - pattern-either:
     - patterns:

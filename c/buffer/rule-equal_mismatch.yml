@@ -6,6 +6,7 @@
 ---
 rules:
 - id: "c/buffer/rule-equal_mismatch"
+  primary_identifier: flawfinder.equal
   languages:
   - "c"
   message: |

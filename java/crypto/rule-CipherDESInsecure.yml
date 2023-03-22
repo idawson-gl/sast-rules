@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "java/crypto/rule-CipherDESInsecure"
+  primary_identifier: find_sec_bugs.DES_USAGE
   patterns:
   - pattern-inside: |-
       javax.crypto.Cipher.getInstance("$ALG")

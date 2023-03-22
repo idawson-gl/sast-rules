@@ -6,6 +6,7 @@
 ---
 rules:
 - id: "c/buffer/rule-memcpy_CopyMemory"
+  primary_identifier: flawfinder.memcpy
   languages:
   - "c"
   message: |

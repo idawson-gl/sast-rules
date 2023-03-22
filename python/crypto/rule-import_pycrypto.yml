@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "python/crypto/rule-import_pycrypto"
+  primary_identifier: bandit.B413
   pattern-either:
   - pattern: "import pycryto"
   - pattern: "import Crypto.Cipher"

@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "java/endpoint/rule-WeakHostNameVerification"
+  primary_identifier: find_sec_bugs.WEAK_HOSTNAME_VERIFIER
   patterns:
   - pattern-either:
     - patterns:

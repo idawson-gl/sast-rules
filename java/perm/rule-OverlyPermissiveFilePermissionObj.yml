@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "java/perm/rule-OverlyPermissiveFilePermissionObj"
+  primary_identifier: find_sec_bugs.OVERLY_PERMISSIVE_FILE_PERMISSION
   patterns:
   - pattern-inside: |
       $PERMS.add($P);

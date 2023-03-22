@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "scala/cookie/rule-CookiePersistent"
+  primary_identifier: find_sec_bugs_scala.COOKIE_PERSISTENT
   patterns:
   - pattern: |
       ($C: Cookie).setMaxAge($AGE)

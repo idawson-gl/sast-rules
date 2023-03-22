@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "java/smtp/rule-InsecureSmtp"
+  primary_identifier: find_sec_bugs.INSECURE_SMTP_SSL
   patterns:
   - pattern-either:
     - pattern-inside: |

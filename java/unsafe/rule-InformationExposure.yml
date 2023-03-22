@@ -5,6 +5,7 @@
 ---
 rules:
 - id: "java/unsafe/rule-InformationExposure"
+  primary_identifier: find_sec_bugs.INFORMATION_EXPOSURE_THROUGH_AN_ERROR_MESSAGE
   pattern-either:
   - pattern: |
       catch(Throwable $E) {

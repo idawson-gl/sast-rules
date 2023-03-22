@@ -6,6 +6,7 @@
 ---
 rules:
 - id: "c/tmpfile/rule-tmpfile"
+  primary_identifier: flawfinder.tmpfile
   languages:
   - "c"
   message: |

@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "csharp/cookies/rule-CookieWithoutSSLFlag"
+  primary_identifier: security_code_scan.SCS0008
   mode: "taint"
   pattern-sources:
   - pattern: |

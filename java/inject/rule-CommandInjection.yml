@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "java/inject/rule-CommandInjection"
+  primary_identifier: find_sec_bugs.COMMAND_INJECTION
   pattern-either:
   - patterns:
     - pattern-inside: |

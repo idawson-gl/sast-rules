@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "csharp/other/rule-AuthorizationBypass"
+  primary_identifier: security_code_scan.SCS0012
   patterns:
   - pattern-inside: |
       using System.Web.Mvc;

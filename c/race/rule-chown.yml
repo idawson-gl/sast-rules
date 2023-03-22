@@ -6,6 +6,7 @@
 ---
 rules:
 - id: "c/race/rule-chown"
+  primary_identifier: flawfinder.chown
   languages:
   - "c"
   message: |

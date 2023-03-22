@@ -6,6 +6,7 @@
 ---
 rules:
 - id: "c/format/rule-printf_vprintf"
+  primary_identifier: flawfinder.printf
   languages:
   - "c"
   message: |

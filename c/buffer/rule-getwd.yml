@@ -6,6 +6,7 @@
 ---
 rules:
 - id: "c/buffer/rule-getwd"
+  primary_identifier: flawfinder.getwd
   languages:
   - "c"
   message: |

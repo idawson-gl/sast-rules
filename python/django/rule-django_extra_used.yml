@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "python/django/rule-django_extra_used"
+  primary_identifier: bandit.B610
   patterns:
   - pattern: "$X.objects. ... .extra(..., $K = $V, ...)"
   - pattern-not-inside: |

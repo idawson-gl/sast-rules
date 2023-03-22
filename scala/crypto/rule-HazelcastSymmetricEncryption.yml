@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "scala/crypto/rule-HazelcastSymmetricEncryption"
+  primary_identifier: find_sec_bugs_scala.HAZELCAST_SYMMETRIC_ENCRYPTION
   patterns:
   - pattern: "new com.hazelcast.config.SymmetricEncryptionConfig()"
   message: |

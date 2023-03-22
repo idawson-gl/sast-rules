@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "python/xml/rule-import_etree"
+  primary_identifier: bandit.B405
   patterns:
   - pattern-either:
     - pattern: "import xml.etree.cElementTree"

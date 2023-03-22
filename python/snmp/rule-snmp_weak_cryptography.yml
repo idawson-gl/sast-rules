@@ -6,6 +6,7 @@
 ---
 rules:
 - id: "python/snmp/rule-snmp_weak_cryptography"
+  primary_identifier: bandit.B509
   pattern-either:
   - pattern: "pysnmp.hlapi.UsmUserData($ARG1, $ARG2)"
   - pattern: "pysnmp.hlapi.UsmUserData($ARG1)"

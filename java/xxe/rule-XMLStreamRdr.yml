@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "java/xxe/rule-XMLStreamRdr"
+  primary_identifier: find_sec_bugs.XXE_XMLSTREAMREADER
   patterns:
   - pattern-inside: |
       $SF = XMLInputFactory.newFactory();

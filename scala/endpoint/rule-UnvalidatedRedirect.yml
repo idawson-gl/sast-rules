@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "scala/endpoint/rule-UnvalidatedRedirect"
+  primary_identifier: find_sec_bugs_scala.UNVALIDATED_REDIRECT
   patterns:
   - pattern-either:
     - patterns:

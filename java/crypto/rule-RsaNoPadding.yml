@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "java/crypto/rule-RsaNoPadding"
+  primary_identifier: find_sec_bugs.RSA_NO_PADDING
   patterns:
   - pattern: "javax.crypto.Cipher.getInstance($ALG,...);"
   - metavariable-regex:

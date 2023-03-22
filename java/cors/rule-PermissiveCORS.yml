@@ -5,6 +5,7 @@
 ---
 rules:
 - id: "java/cors/rule-PermissiveCORS"
+  primary_identifier: find_sec_bugs.PERMISSIVE_CORS
   patterns:
   - pattern-either:
     - pattern: "(HttpServletResponse $RES).setHeader(\"$HEADER\", \"$VAL\")"

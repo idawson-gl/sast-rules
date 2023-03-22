@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "scala/endpoint/rule-WeakHostNameVerification"
+  primary_identifier: find_sec_bugs_scala.WEAK_HOSTNAME_VERIFIER
   patterns:
   - pattern-either:
     - patterns:

@@ -6,6 +6,7 @@
 ---
 rules:
 - id: "go/network/rule-bind_to_all_interfaces"
+  primary_identifier: gosec.G102
   patterns:
   - pattern-either:
     - pattern: "net.Listen(..., \"$ADDR\")"

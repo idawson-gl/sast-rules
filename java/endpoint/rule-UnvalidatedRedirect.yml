@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "java/endpoint/rule-UnvalidatedRedirect"
+  primary_identifier: find_sec_bugs.UNVALIDATED_REDIRECT
   patterns:
   - pattern-either:
     - patterns:

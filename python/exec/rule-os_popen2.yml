@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "python/exec/rule-os_popen2"
+  primary_identifier: bandit.B605
   patterns:
   - pattern-either:
     - pattern: "os.system(...)"

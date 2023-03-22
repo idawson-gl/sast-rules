@@ -5,6 +5,7 @@
 ---
 rules:
 - id: "go/memory/rule-memoryaliasing"
+  primary_identifier: gosec.G601
   patterns:
   - pattern-either:
     - pattern: |

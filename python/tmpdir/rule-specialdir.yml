@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "python/tmpdir/rule-specialdir"
+  primary_identifier: bandit.B108
   patterns:
   - pattern: "open($DIR, ...)"
   - metavariable-regex:

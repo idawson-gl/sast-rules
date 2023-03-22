@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "java/cookie/rule-CookieHTTPOnly"
+  primary_identifier: find_sec_bugs.HTTPONLY_COOKIE
   pattern-either:
   - patterns:
     - pattern: |

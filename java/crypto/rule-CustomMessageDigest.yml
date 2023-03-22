@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "java/crypto/rule-CustomMessageDigest"
+  primary_identifier: find_sec_bugs.CUSTOM_MESSAGE_DIGEST
   patterns:
   - pattern: |
       class $CLAZZ extends java.security.MessageDigest {

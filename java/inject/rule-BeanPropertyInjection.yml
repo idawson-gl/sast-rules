@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "java/inject/rule-BeanPropertyInjection"
+  primary_identifier: find_sec_bugs.BEAN_PROPERTY_INJECTION
   patterns:
   - pattern-inside: |-
       $TYPE $FUNC(..., HttpServletRequest $REQ, ...) { ... }

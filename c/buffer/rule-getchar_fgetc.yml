@@ -6,6 +6,7 @@
 ---
 rules:
 - id: "c/buffer/rule-getchar_fgetc"
+  primary_identifier: flawfinder.getchar
   languages:
   - "c"
   message: |

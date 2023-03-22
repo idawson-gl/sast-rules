@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "python/exec/rule-exec_used"
+  primary_identifier: bandit.B102
   pattern-either:
   - pattern: "exec(...)"
   - pattern: "exec(\"...\")"

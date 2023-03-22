@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "scala/crypto/rule-BlowfishKeySize"
+  primary_identifier: find_sec_bugs_scala.BLOWFISH_KEY_SIZE
   patterns:
   - pattern-inside: |
       $KEYGEN = javax.crypto.KeyGenerator.getInstance("Blowfish", ...);

@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "csharp/injection/rule-XPathInjection"
+  primary_identifier: security_code_scan.SCS0003
   patterns:
   - pattern-inside: |
       using System.Xml;

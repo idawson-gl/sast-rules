@@ -6,6 +6,7 @@
 ---
 rules:
 - id: "c/misc/rule-getpass"
+  primary_identifier: flawfinder.getpass
   languages:
   - "c"
   message: |

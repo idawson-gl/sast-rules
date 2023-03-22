@@ -7,6 +7,7 @@
 ---
 rules:
 - id: "python/ssl/rule-req_no_certvalid"
+  primary_identifier: bandit.B501
   patterns:
   - pattern-either:
     - pattern: "requests.put(..., verify=False, ...)"

@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "python/crypto/rule-import_pyghmi"
+  primary_identifier: bandit.B415
   pattern-either:
   - pattern: "import pyghmi"
   message: |

@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "python/random/rule-random"
+  primary_identifier: bandit.B311
   pattern-either:
   - pattern: "random.random(...)"
   - pattern: "random.randrange(...)"

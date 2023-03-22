@@ -6,6 +6,7 @@
 ---
 rules:
 - id: "c/race/rule-vfork"
+  primary_identifier: flawfinder.vfork
   languages:
   - "c"
   message: |

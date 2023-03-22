@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "scala/ldap/rule-AnonymousLDAP"
+  primary_identifier: find_sec_bugs_scala.LDAP_ANONYMOUS
   patterns:
   - pattern-inside: |
       import javax.naming.Context;

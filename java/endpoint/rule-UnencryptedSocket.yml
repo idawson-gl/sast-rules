@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "java/endpoint/rule-UnencryptedSocket"
+  primary_identifier: find_sec_bugs.UNENCRYPTED_SOCKET
   patterns:
   - pattern: "new java.net.Socket(...)"
   languages:

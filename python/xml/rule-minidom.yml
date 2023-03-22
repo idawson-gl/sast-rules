@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "python/xml/rule-minidom"
+  primary_identifier: bandit.B318
   pattern-either:
   - patterns:
     - pattern: "xml.dom.minidom.parseString(...)"

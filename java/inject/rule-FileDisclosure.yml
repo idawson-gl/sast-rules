@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "java/inject/rule-FileDisclosure"
+  primary_identifier: find_sec_bugs.REQUESTDISPATCHER_FILE_DISCLOSURE
   mode: "taint"
   pattern-sources:
   - pattern: "(javax.servlet.http.HttpServletRequest $VAR).getParameter(...)"

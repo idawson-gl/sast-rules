@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "java/endpoint/rule-InsecureServlet"
+  primary_identifier: find_sec_bugs.SERVLET_PARAMETER
   mode: "taint"
   pattern-sources:
   - pattern-either:

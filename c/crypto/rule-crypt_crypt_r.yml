@@ -6,6 +6,7 @@
 ---
 rules:
 - id: "c/crypto/rule-crypt_crypt_r"
+  primary_identifier: flawfinder.crypt
   languages:
   - "c"
   message: |

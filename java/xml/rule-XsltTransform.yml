@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "java/xml/rule-XsltTransform"
+  primary_identifier: find_sec_bugs.MALICIOUS_XSLT
   mode: "taint"
   pattern-sources:
   - patterns:

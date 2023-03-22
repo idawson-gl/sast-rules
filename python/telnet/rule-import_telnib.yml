@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "python/telnet/rule-import_telnib"
+  primary_identifier: bandit.B401
   patterns:
   - pattern: "import telnetlib"
   message: |

@@ -6,6 +6,7 @@
 ---
 rules:
 - id: "c/shell/rule-CreateProcess"
+  primary_identifier: flawfinder.CreateProcess
   languages:
   - "c"
   message: |

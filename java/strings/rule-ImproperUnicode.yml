@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "java/strings/rule-ImproperUnicode"
+  primary_identifier: find_sec_bugs.IMPROPER_UNICODE
   pattern-either:
   - patterns:
     - pattern-either:

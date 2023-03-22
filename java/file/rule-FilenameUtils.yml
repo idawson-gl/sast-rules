@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "java/file/rule-FilenameUtils"
+  primary_identifier: find_sec_bugs.WEAK_FILENAMEUTILS
   patterns:
   - pattern-inside: |
       import static org.apache.commons.io.FilenameUtils;

@@ -6,6 +6,7 @@
 ---
 rules:
 - id: "c/buffer/rule-getenv_curl_getenv"
+  primary_identifier: flawfinder.getenv
   languages:
   - "c"
   message: |

@@ -7,6 +7,7 @@
 ---
 rules:
 - id: "python/exec/rule-start_process_with_no_shell"
+  primary_identifier: bandit.B606
   patterns:
   - pattern-either:
     - patterns:

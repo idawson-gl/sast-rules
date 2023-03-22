@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "java/strings/rule-FormatStringManipulation"
+  primary_identifier: find_sec_bugs.FORMAT_STRING_MANIPULATION
   patterns:
   - pattern-either:
     - patterns:

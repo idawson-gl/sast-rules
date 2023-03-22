@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "java/file/rule-FileUploadFileName"
+  primary_identifier: find_sec_bugs.FILE_UPLOAD_FILENAME
   patterns:
   - pattern-inside: |
       $FUNC(..., HttpServletRequest $REQ, ... ) {

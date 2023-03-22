@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "scala/inject/rule-SqlInjection"
+  primary_identifier: find_sec_bugs_scala.SQL_INJECTION_SPRING_JDBC
   patterns:
   - pattern-not-inside: |
       val $ARG = "..."

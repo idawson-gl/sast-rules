@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "javascript/react/rule-missing_noopener"
+  primary_identifier: eslint.react-missing-noopener
   pattern-either:
   - patterns:
     - pattern: |

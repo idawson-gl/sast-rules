@@ -6,6 +6,7 @@
 ---
 rules:
 - id: "c/race/rule-chmod"
+  primary_identifier: flawfinder.chmod
   languages:
   - "c"
   message: |

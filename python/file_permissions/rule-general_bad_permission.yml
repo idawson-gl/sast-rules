@@ -7,6 +7,7 @@
 ---
 rules:
 - id: "python/file_permissions/rule-general_bad_permission"
+  primary_identifier: bandit.B103
   patterns:
   - pattern: "os.chmod(...,$MASK)"
   - metavariable-regex:

@@ -5,6 +5,7 @@
 ---
 rules:
 - id: "go/crypto/rule-weakkeystrength"
+  primary_identifier: gosec.G403
   patterns:
   - pattern-either:
     - pattern: |

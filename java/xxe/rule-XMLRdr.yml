@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "java/xxe/rule-XMLRdr"
+  primary_identifier: find_sec_bugs.XXE_XMLREADER
   patterns:
   - pattern-inside: |
       $R = XMLReaderFactory.createXMLReader();

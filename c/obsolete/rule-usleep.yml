@@ -6,6 +6,7 @@
 ---
 rules:
 - id: "c/obsolete/rule-usleep"
+  primary_identifier: flawfinder.usleep
   languages:
   - "c"
   message: |

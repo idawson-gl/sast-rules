@@ -6,6 +6,7 @@
 ---
 rules:
 - id: "c/buffer/rule-gets__getts"
+  primary_identifier: flawfinder.gets
   languages:
   - "c"
   message: |

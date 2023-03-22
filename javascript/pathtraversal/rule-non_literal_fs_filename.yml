@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "javascript/pathtraversal/rule-non_literal_fs_filename"
+  primary_identifier: eslint.detect-non-literal-fs-filename
   patterns:
   - pattern-not: "$MOD.appendFile(\"...\", ...)"
   - pattern-not: "$MOD.appendFileSync(\"...\", ...)"

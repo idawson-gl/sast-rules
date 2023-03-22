@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "csharp/deserialization/rule-InsecureDeserialization"
+  primary_identifier: security_code_scan.SCS0028
   patterns:
   - pattern-not: "$OBJ.Deserialize(\"...\")"
   - pattern-not: "$OBJ.UnsafeDeserialize(\"...\")"

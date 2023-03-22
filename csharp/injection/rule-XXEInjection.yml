@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "csharp/injection/rule-XXEInjection"
+  primary_identifier: security_code_scan.SCS0007
   mode: "taint"
   pattern-sanitizers:
   - pattern: "(XmlReaderSettings $SETTINGS).ProhibitDtd = true;"

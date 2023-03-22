@@ -6,6 +6,7 @@
 ---
 rules:
 - id: "c/buffer/rule-char_TCHAR"
+  primary_identifier: flawfinder.char
   languages:
   - "c"
   message: |

@@ -5,6 +5,7 @@
 ---
 rules:
 - id: "go/filesystem/rule-poorwritepermissions"
+  primary_identifier: gosec.G306
   patterns:
   - pattern-either:
     - pattern: |

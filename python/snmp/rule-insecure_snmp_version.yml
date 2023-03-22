@@ -6,6 +6,7 @@
 ---
 rules:
 - id: "python/snmp/rule-insecure_snmp_version"
+  primary_identifier: bandit.B508
   pattern-either:
   - pattern: "pysnmp.hlapi.CommunityData(..., mpModel=0, ...)"
   - pattern: "pysnmp.hlapi.CommunityData(..., mpModel=1, ...)"

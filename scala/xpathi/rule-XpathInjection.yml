@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "scala/xpathi/rule-XpathInjection"
+  primary_identifier: find_sec_bugs_scala.XPATH_INJECTION
   patterns:
   - pattern-either:
     - pattern-inside: |-

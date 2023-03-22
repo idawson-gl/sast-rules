@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "java/strings/rule-BadHexConversion"
+  primary_identifier: find_sec_bugs.BAD_HEXA_CONVERSION
   patterns:
   - pattern: |
       $B_ARR = (java.security.MessageDigest $MD).digest(...);

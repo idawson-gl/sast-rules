@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "java/xss/rule-RequestWrapper"
+  primary_identifier: find_sec_bugs.XSS_REQUEST_WRAPPER
   patterns:
   - pattern-inside: |
       class $CLASS extends HttpServletRequestWrapper {

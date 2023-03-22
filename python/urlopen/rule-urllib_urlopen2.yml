@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "python/urlopen/rule-urllib_urlopen2"
+  primary_identifier: bandit.B310
   pattern-either:
   - pattern: "urllib.urlopen(...)"
   - pattern: "urllib2.urlopen(...)"

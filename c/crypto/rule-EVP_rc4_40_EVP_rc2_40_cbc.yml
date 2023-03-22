@@ -6,6 +6,7 @@
 ---
 rules:
 - id: "c/crypto/rule-EVP_rc4_40_EVP_rc2_40_cbc"
+  primary_identifier: flawfinder.EVP_rc4_40
   languages:
   - "c"
   message: |

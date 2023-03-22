@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "scala/inject/rule-CommandInjection"
+  primary_identifier: find_sec_bugs_scala.COMMAND_INJECTION
   pattern-either:
   - patterns:
     - pattern-inside: |

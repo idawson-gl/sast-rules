@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "java/smtp/rule-SmtpClient"
+  primary_identifier: find_sec_bugs.SMTP_HEADER_INJECTION
   patterns:
   - pattern-either:
     - patterns:

@@ -6,6 +6,7 @@
 ---
 rules:
 - id: "c/access/rule-RpcImpersonateClient_ImpersonateLoggedOnUser"
+  primary_identifier: flawfinder.RpcImpersonateClient
   languages:
   - "c"
   message: |

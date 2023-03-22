@@ -6,6 +6,7 @@
 ---
 rules:
 - id: "c/race/rule-readlink"
+  primary_identifier: flawfinder.readlink
   languages:
   - "c"
   message: |

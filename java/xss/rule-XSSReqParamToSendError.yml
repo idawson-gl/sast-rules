@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "java/xss/rule-XSSReqParamToSendError"
+  primary_identifier: find_sec_bugs.XSS_REQUEST_PARAMETER_TO_SEND_ERROR
   mode: "taint"
   pattern-sources:
   - patterns:

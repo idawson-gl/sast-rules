@@ -7,6 +7,7 @@
 ---
 rules:
 - id: "python/crypto/rule-crypto_hazmat_cipher_arc4"
+  primary_identifier: bandit.B304
   pattern: "cryptography.hazmat.primitives.ciphers.algorithms.ARC4(...)"
   message: |
     Detected RC4 cipher algorithm which is considered insecure. The algorithm has many known

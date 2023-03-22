@@ -7,6 +7,7 @@
 ---
 rules:
 - id: "python/ssl/rule-ssl_no_version"
+  primary_identifier: bandit.B504
   patterns:
   - pattern: "ssl.wrap_socket()"
   message: |

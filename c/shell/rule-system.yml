@@ -6,6 +6,7 @@
 ---
 rules:
 - id: "c/shell/rule-system"
+  primary_identifier: flawfinder.system
   languages:
   - "c"
   message: |

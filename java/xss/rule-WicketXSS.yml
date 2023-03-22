@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "java/xss/rule-WicketXSS"
+  primary_identifier: find_sec_bugs.WICKET_XSS1
   patterns:
   - pattern: "(org.apache.wicket.markup.html.basic.Label $X).setEscapeModelStrings(false);"
   languages:

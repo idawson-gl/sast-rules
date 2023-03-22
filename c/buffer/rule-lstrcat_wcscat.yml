@@ -6,6 +6,7 @@
 ---
 rules:
 - id: "c/buffer/rule-lstrcat_wcscat"
+  primary_identifier: flawfinder.lstrcat
   languages:
   - "c"
   message: |

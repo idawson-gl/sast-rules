@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "python/xml/rule-import_minidom"
+  primary_identifier: bandit.B408
   patterns:
   - pattern-either:
     - pattern: "import xml.dom.minidom"

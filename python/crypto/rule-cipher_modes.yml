@@ -7,6 +7,7 @@
 ---
 rules:
 - id: "python/crypto/rule-cipher_modes"
+  primary_identifier: bandit.B305
   pattern: "cryptography.hazmat.primitives.ciphers.modes.ECB(...)"
   message: |
     Detected ECB cipher mode which is considered insecure. The algorithm canpotentially leak

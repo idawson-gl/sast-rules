@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "csharp/csrf/rule-Csrf"
+  primary_identifier: security_code_scan.SCS0016
   patterns:
   - pattern: |
       [$HTTPMETHOD]

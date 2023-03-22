@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "java/endpoint/rule-JaxWsEndpoint"
+  primary_identifier: find_sec_bugs.JAXWS_ENDPOINT
   mode: "taint"
   pattern-sources:
   - patterns:

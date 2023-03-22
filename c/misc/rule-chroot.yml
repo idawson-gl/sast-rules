@@ -6,6 +6,7 @@
 ---
 rules:
 - id: "c/misc/rule-chroot"
+  primary_identifier: flawfinder.chroot
   languages:
   - "c"
   message: |

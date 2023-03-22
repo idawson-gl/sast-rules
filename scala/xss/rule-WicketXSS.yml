@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "scala/xss/rule-WicketXSS"
+  primary_identifier: find_sec_bugs_scala.WICKET_XSS1
   patterns:
   - pattern: "($X: Label).setEscapeModelStrings(false);"
   languages:

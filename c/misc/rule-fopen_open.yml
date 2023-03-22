@@ -6,6 +6,7 @@
 ---
 rules:
 - id: "c/misc/rule-fopen_open"
+  primary_identifier: flawfinder.fopen
   languages:
   - "c"
   message: |

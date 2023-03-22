@@ -6,6 +6,7 @@
 ---
 rules:
 - id: "c/integer/rule-atoi_atol"
+  primary_identifier: flawfinder.atoi
   languages:
   - "c"
   message: |

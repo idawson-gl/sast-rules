@@ -6,6 +6,7 @@
 ---
 rules:
 - id: "go/http/rule-slowloris"
+  primary_identifier: gosec.G112
   patterns:
   - pattern-inside: |
       import "net/http"

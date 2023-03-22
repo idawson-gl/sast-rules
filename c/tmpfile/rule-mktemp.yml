@@ -6,6 +6,7 @@
 ---
 rules:
 - id: "c/tmpfile/rule-mktemp"
+  primary_identifier: flawfinder.mktemp
   languages:
   - "c"
   message: |

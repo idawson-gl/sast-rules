@@ -6,6 +6,7 @@
 ---
 rules:
 - id: "c/obsolete/rule-gsignal_ssignal"
+  primary_identifier: flawfinder.gsignal
   languages:
   - "c"
   message: |

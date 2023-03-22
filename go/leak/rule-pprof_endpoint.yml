@@ -6,6 +6,7 @@
 ---
 rules:
 - id: "go/leak/rule-pprof_endpoint"
+  primary_identifier: gosec.G108
   patterns:
   - pattern: |
       import _ "net/http/pprof"

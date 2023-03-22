@@ -6,6 +6,7 @@
 ---
 rules:
 - id: "c/tmpfile/rule-tmpnam_tempnam"
+  primary_identifier: flawfinder.tmpnam
   languages:
   - "c"
   message: |

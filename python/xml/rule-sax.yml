@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "python/xml/rule-sax"
+  primary_identifier: bandit.B317
   pattern-either:
   - pattern: "xml.sax.parse(...)"
   - patterns:

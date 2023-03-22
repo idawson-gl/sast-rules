@@ -6,6 +6,7 @@
 ---
 rules:
 - id: "go/unsafe/rule-unsafe"
+  primary_identifier: gosec.G103
   patterns:
   - pattern-either:
     - pattern: "unsafe.Alignof(...)"

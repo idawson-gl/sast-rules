@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "csharp/cache/rule-OutputCacheConflicts"
+  primary_identifier: security_code_scan.SCS0019
   patterns:
   - pattern-inside: |
       [Authorize]

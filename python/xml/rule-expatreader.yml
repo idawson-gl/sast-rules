@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "python/xml/rule-expatreader"
+  primary_identifier: bandit.B315
   pattern-either:
   - pattern: "xml.dom.expatreader.parse(...)"
   - patterns:

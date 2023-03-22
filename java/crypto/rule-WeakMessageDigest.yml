@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "java/crypto/rule-WeakMessageDigest"
+  primary_identifier: find_sec_bugs.WEAK_MESSAGE_DIGEST_MD5
   patterns:
   - pattern-either:
     - pattern: "MessageDigest.getInstance($ALG, ...)"

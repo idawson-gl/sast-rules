@@ -6,6 +6,7 @@
 ---
 rules:
 - id: "c/format/rule-syslog"
+  primary_identifier: flawfinder.syslog
   languages:
   - "c"
   message: |

@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "scala/perm/rule-DangerousPermissions"
+  primary_identifier: find_sec_bugs_scala.DANGEROUS_PERMISSION_COMBINATION
   pattern-either:
   - pattern: |
       $RUNVAR = new RuntimePermission("createClassLoader");

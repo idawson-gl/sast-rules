@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "scala/inject/rule-LDAPInjection"
+  primary_identifier: find_sec_bugs_scala.LDAP_INJECTION
   patterns:
   - pattern-either:
     - pattern-inside: |

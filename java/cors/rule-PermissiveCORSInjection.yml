@@ -5,6 +5,7 @@
 ---
 rules:
 - id: "java/cors/rule-PermissiveCORSInjection"
+  primary_identifier: find_sec_bugs.PERMISSIVE_CORS
   mode: "taint"
   pattern-sources:
   - pattern: "(HttpServletRequest $REQ).getParamater(...)"

@@ -7,6 +7,7 @@
 ---
 rules:
 - id: "python/crypto/rule-hashlib_new_insecure_functions"
+  primary_identifier: bandit.B324
   patterns:
   - pattern-either:
     - pattern: "hashlib.new(\"=~/[M|m][D|d][4|5]/\", ...)"

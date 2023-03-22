@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "java/cookie/rule-CookiePersistent"
+  primary_identifier: find_sec_bugs.COOKIE_PERSISTENT
   patterns:
   - pattern-inside: |
       (javax.servlet.http.Cookie $C).setMaxAge($AGE);

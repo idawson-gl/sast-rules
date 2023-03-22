@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "java/inject/rule-HttpParameterPollution"
+  primary_identifier: find_sec_bugs.HTTP_PARAMETER_POLLUTION
   mode: "taint"
   pattern-sources:
   - pattern: "(HttpServletRequest $REQ).getParameter(...)"

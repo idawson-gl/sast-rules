@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "python/django/rule-django_rawsql_used"
+  primary_identifier: bandit.B611
   patterns:
   - pattern-either:
     - pattern: "$MODEL.objects.raw($QUERY, ...)"

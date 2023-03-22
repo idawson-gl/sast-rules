@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "csharp/crypto/rule-WeakRNG"
+  primary_identifier: security_code_scan.SCS0005
   patterns:
   - pattern: "(Random $RNG).$METHOD(...);"
   - focus-metavariable: "$RNG"

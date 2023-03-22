@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "csharp/injection/rule-LdapInjection"
+  primary_identifier: security_code_scan.SCS0026
   patterns:
   - pattern-either:
     - patterns:

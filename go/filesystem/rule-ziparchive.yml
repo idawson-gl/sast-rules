@@ -5,6 +5,7 @@
 ---
 rules:
 - id: "go/filesystem/rule-ziparchive"
+  primary_identifier: gosec.G305
   mode: "taint"
   pattern-sources:
   - pattern: "zip.OpenReader(...)"

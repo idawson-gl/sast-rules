@@ -6,6 +6,7 @@
 ---
 rules:
 - id: "python/deserialization/rule-dill"
+  primary_identifier: bandit.B301
   pattern-either:
   - pattern: "dill.$FUNC(...)"
   message: |

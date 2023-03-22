@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "java/inject/rule-CLRFInjectionLogs"
+  primary_identifier: find_sec_bugs.CRLF_INJECTION_LOGS
   patterns:
   - pattern-either:
     - pattern: |

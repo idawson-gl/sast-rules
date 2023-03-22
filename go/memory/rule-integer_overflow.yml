@@ -6,6 +6,7 @@
 ---
 rules:
 - id: "go/memory/rule-integer_overflow"
+  primary_identifier: gosec.G109
   patterns:
   - pattern-either:
     - patterns:

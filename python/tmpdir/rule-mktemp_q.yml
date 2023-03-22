@@ -7,6 +7,7 @@
 ---
 rules:
 - id: "python/tmpdir/rule-mktemp_q"
+  primary_identifier: bandit.B306
   pattern: "tempfile.mktemp(...)"
   message: |
     Use tempfile.NamedTemporaryFile instead. From the official Python documentation: THIS FUNCTION

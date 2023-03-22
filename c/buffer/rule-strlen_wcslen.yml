@@ -6,6 +6,7 @@
 ---
 rules:
 - id: "c/buffer/rule-strlen_wcslen"
+  primary_identifier: flawfinder.strlen
   languages:
   - "c"
   message: |

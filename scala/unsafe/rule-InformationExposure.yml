@@ -5,6 +5,7 @@
 ---
 rules:
 - id: "scala/unsafe/rule-InformationExposure"
+  primary_identifier: find_sec_bugs_scala.INFORMATION_EXPOSURE_THROUGH_AN_ERROR_MESSAGE
   patterns:
   - pattern: "$E.printStackTrace(...)"
   message: |

@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "java/unsafe/rule-ExternalConfigControl"
+  primary_identifier: find_sec_bugs.EXTERNAL_CONFIG_CONTROL
   patterns:
   - pattern: |
       $TAINTED = (HttpServletRequest $REQ).getParameter(...);

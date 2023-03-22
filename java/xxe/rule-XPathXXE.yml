@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "java/xxe/rule-XPathXXE"
+  primary_identifier: find_sec_bugs.XXE_XPATH
   patterns:
   - pattern-inside: |
       $DF = df.newDocumentBuilder();

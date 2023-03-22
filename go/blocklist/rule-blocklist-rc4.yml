@@ -5,6 +5,7 @@
 ---
 rules:
 - id: "go/blocklist/rule-blocklist-rc4"
+  primary_identifier: gosec.G503
   patterns:
   - pattern: |
       import "crypto/rc4"

@@ -6,6 +6,7 @@
 ---
 rules:
 - id: "python/crypto/rule-crypto_encrypt_ec"
+  primary_identifier: bandit.B505
   patterns:
   - pattern-inside: |-
       cryptography.hazmat.primitives.asymmetric.ec.generate_private_key(...)

@@ -6,6 +6,7 @@
 ---
 rules:
 - id: "c/buffer/rule-g_get_home_dir"
+  primary_identifier: flawfinder.g_get_home_dir
   languages:
   - "c"
   message: |

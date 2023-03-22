@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "java/cookie/rule-CookieUsage"
+  primary_identifier: find_sec_bugs.COOKIE_USAGE
   patterns:
   - pattern-inside: |
       $FUNC(..., HttpServletRequest $REQ, ...) {

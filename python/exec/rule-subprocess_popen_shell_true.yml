@@ -7,6 +7,7 @@
 ---
 rules:
 - id: "python/exec/rule-subprocess_popen_shell_true"
+  primary_identifier: bandit.B602
   patterns:
   - pattern-not: "subprocess.$FUNC(..., shell=False, ...)"
   - pattern-not: "subprocess.$FUNC(..., shell=False)"

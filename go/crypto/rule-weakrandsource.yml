@@ -5,6 +5,7 @@
 ---
 rules:
 - id: "go/crypto/rule-weakrandsource"
+  primary_identifier: gosec.G404
   patterns:
   - patterns:
     - pattern-inside: |

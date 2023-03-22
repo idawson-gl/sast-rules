@@ -7,6 +7,7 @@
 ---
 rules:
 - id: "python/crypto/rule-hash_sha1"
+  primary_identifier: bandit.B303
   pattern: "hashlib.sha1(...)"
   message: |
     Detected SHA1 hash algorithm which is considered insecure. SHA1 is not

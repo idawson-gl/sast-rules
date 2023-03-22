@@ -6,6 +6,7 @@
 ---
 rules:
 - id: "c/buffer/rule-realpath"
+  primary_identifier: flawfinder.realpath
   languages:
   - "c"
   message: |

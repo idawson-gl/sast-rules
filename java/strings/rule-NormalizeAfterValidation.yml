@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "java/strings/rule-NormalizeAfterValidation"
+  primary_identifier: find_sec_bugs.NORMALIZATION_AFTER_VALIDATION
   patterns:
   - pattern: |
       $Y = java.util.regex.Pattern.compile("[<>]");

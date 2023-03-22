@@ -6,6 +6,7 @@
 ---
 rules:
 - id: "c/misc/rule-LoadLibrary"
+  primary_identifier: flawfinder.LoadLibrary
   languages:
   - "c"
   message: |

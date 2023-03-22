@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "java/crypto/rule-CipherIntegrity"
+  primary_identifier: find_sec_bugs.CIPHER_INTEGRITY
   patterns:
   - pattern-inside: |-
       javax.crypto.Cipher.getInstance("...")

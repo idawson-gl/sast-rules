@@ -5,6 +5,7 @@
 ---
 rules:
 - id: "java/inject/rule-PathTraversalOut"
+  primary_identifier: find_sec_bugs.PATH_TRAVERSAL_OUT
   mode: "taint"
   pattern-sources:
   - patterns:

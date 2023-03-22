@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "java/inject/rule-SqlInjection"
+  primary_identifier: find_sec_bugs.SQL_INJECTION_SPRING_JDBC
   patterns:
   - pattern-not-inside: |
       final String $ARG = ...;

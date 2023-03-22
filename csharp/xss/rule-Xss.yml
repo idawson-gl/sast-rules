@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "csharp/xss/rule-Xss"
+  primary_identifier: security_code_scan.SCS0029
   mode: "taint"
   pattern-sources:
   - patterns:

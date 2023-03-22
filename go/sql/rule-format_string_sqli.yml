@@ -6,6 +6,7 @@
 ---
 rules:
 - id: "go/sql/rule-format_string_sqli"
+  primary_identifier: gosec.G201
   patterns:
   - pattern-inside: |
       $Q := fmt.Sprintf("$QUERY", ...)

@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "scala/strings/rule-BadHexConversion"
+  primary_identifier: find_sec_bugs_scala.BAD_HEXA_CONVERSION
   pattern-either:
   - pattern: |
       $B_ARR = ($MD: java.security.MessageDigest).digest(...);

@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "python/xml/rule-etree"
+  primary_identifier: bandit.B320
   pattern-either:
   - pattern: "lxml.etree.parse(...)"
   - patterns:

@@ -5,6 +5,7 @@
 ---
 rules:
 - id: "java/crypto/rule-NullCipher"
+  primary_identifier: find_sec_bugs.NULL_CIPHER
   pattern: "new javax.crypto.NullCipher()"
   message: |
     The NullCipher implements the Cipher interface by returning ciphertext identical to the

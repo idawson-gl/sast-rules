@@ -5,6 +5,7 @@
 ---
 rules:
 - id: "java/inject/rule-PathTraversalIn"
+  primary_identifier: find_sec_bugs.PATH_TRAVERSAL_IN
   mode: "taint"
   pattern-sources:
   - patterns:

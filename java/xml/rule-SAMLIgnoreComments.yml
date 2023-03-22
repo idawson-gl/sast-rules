@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "java/xml/rule-SAMLIgnoreComments"
+  primary_identifier: find_sec_bugs.SAML_IGNORE_COMMENTS
   pattern: "(BasicParserPool $POOL).setIgnoreComments(false);"
   languages:
   - "java"

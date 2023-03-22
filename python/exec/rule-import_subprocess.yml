@@ -7,6 +7,7 @@
 ---
 rules:
 - id: "python/exec/rule-import_subprocess"
+  primary_identifier: bandit.B404
   patterns:
   - pattern: "import subprocess"
   message: |

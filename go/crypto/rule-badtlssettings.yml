@@ -5,6 +5,7 @@
 ---
 rules:
 - id: "go/crypto/rule-badtlssettings"
+  primary_identifier: gosec.G402
   patterns:
   - pattern-either:
     - pattern: |

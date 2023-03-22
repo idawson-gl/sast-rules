@@ -7,6 +7,7 @@
 ---
 rules:
 - id: "python/crypto/rule-crypto_cipher_des"
+  primary_identifier: bandit.B304
   patterns:
   - pattern-either:
     - pattern: "Cryptodome.Cipher.DES.new(...)"

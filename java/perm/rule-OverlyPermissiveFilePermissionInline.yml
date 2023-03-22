@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "java/perm/rule-OverlyPermissiveFilePermissionInline"
+  primary_identifier: find_sec_bugs.OVERLY_PERMISSIVE_FILE_PERMISSION
   patterns:
   - pattern-either:
     - pattern: "java.nio.file.Files.setPosixFilePermissions(..., java.nio.file.attribute.PosixFilePermissions.fromString(\"$PERM_STRING\"));"

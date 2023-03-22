@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "csharp/validation/rule-InputValidation"
+  primary_identifier: security_code_scan.SCS0017
   patterns:
   - pattern: |
       [ValidateInput(false)]

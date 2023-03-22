@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "javascript/random/rule-pseudo_random_bytes"
+  primary_identifier: eslint.detect-pseudoRandomBytes
   metadata:
     cwe: "CWE-338: Use of Cryptographically Weak Pseudo-Random Number Generator (PRNG)"
     # yamllint disable

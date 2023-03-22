@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "csharp/crypto/rule-WeakCipherAlgorithm"
+  primary_identifier: security_code_scan.SCS0010
   patterns:
   - pattern-inside: |
       using System.Security.Cryptography;

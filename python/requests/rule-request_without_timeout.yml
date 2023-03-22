@@ -5,6 +5,7 @@
 ---
 rules:
 - id: "python/requests/rule-request_without_timeout"
+  primary_identifier: bandit.B113
   patterns:
   - pattern-either:
     - patterns:

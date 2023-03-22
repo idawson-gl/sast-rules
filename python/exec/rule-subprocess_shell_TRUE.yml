@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "python/exec/rule-subprocess_shell_TRUE"
+  primary_identifier: bandit.B604
   patterns:
   - pattern-not: "subprocess.$FUNC(..., shell=True, ...)"
   - pattern: "$FOO(..., shell=True, ...)"

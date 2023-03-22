@@ -6,6 +6,7 @@
 ---
 rules:
 - id: "c/buffer/rule-MultiByteToWideChar"
+  primary_identifier: flawfinder.MultiByteToWideChar
   languages:
   - "c"
   message: |

@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "python/assert/rule-assert_used"
+  primary_identifier: bandit.B101
   patterns:
   - pattern: "assert(...)"
   - pattern-not-inside: |

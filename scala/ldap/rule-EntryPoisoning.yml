@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "scala/ldap/rule-EntryPoisoning"
+  primary_identifier: find_sec_bugs_scala.LDAP_ENTRY_POISONING
   patterns:
   - pattern: "new javax.naming.directory.SearchControls($SCOPE, $CLIMIT, $TLIMIT,
       $ATTR, true, $DEREF)"

@@ -6,6 +6,7 @@
 ---
 rules:
 - id: "c/misc/rule-getlogin"
+  primary_identifier: flawfinder.getlogin
   languages:
   - "c"
   message: |

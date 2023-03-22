@@ -6,6 +6,7 @@
 ---
 rules:
 - id: "go/subproc/rule-subproc"
+  primary_identifier: gosec.G204
   patterns:
   - pattern-either:
     - patterns:

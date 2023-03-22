@@ -4,6 +4,7 @@
 ---
 rules:
 - id: "java/inject/rule-OgnlInjection"
+  primary_identifier: find_sec_bugs.OGNL_INJECTION
   mode: "taint"
   pattern-sources:
   - patterns:
