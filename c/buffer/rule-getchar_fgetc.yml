@@ -11,6 +11,7 @@ rules:
   message: |
     CWE-20: Check buffer boundaries if used in a loop including recursive loops
   metadata:
+    shortDescription: ""
     cwe: "CWE-20: Check buffer boundaries if used in a loop including recursive loops
       (CWE-120, CWE-20)"
   pattern-either:

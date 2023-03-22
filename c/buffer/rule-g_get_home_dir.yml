@@ -11,9 +11,12 @@ rules:
   message: |
     This function is synonymous with `getenv("HOME")` and should be treated
     as untrusted input as it could be modified by an attacker. Possible risks
-    include the value being too large and causing buffer overflows, or the directory
-    used in reading files which may allow for access to contents within the
-    attackers control.
+    include:
+    
+    - The value being too large and causing buffer overflows
+    - Files under the attackers control being used maliciously
+    - Files outside of an attackers control becoming accessible depending on
+    access privileges.
   metadata:
     shortDescription: "Possible use of untrusted environment variable"
     cwe: "CWE-20"

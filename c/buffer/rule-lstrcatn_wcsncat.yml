@@ -9,10 +9,14 @@ rules:
   languages:
   - "c"
   message: |
-    Consider strcat_s, strlcat, or automatically resizing strings.
+    Consider using more secure alternatives such as `snprintf`, instead of the
+    `wcsncat` family of functions. For more information on secure replacements
+    for these functions, see: 
+    
+    https://learn.microsoft.com/en-us/cpp/c-runtime-library/security-features-in-the-crt?view=msvc-170.
   metadata:
-    cwe: "CWE-120: Easily used incorrectly (e.g., incorrectly computing the correct
-      maximum size to add) [MS-banned] (CWE-120)"
+    shortDescription: "Easily misused string processing functions"
+    cwe: "CWE-120"
   pattern-either:
   - pattern: "lstrcatn(...)"
   - pattern: "wcsncat(...)"

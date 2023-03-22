@@ -9,9 +9,13 @@ rules:
   languages:
   - "c"
   message: |
-    Use fgets() instead.
+    The gets() function reads a line from stdin into the provided buffer
+    until either a terminating newline or EOF. This terminating newline or
+    EOF is replaced with a null byte `'\0'`. No check for buffer overruns are 
+    performed so it is recommended to use `fgets()` instead.
   metadata:
-    cwe: "CWE-120: Does not check for buffer overflows (CWE-120, CWE-20)"
+    shortDescription: "Use of deprecated function (gets)"
+    cwe: "CWE-120"
   pattern-either:
   - pattern: "gets(...)"
   - pattern: "_getts(...)"

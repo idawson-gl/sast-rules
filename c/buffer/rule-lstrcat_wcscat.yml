@@ -9,10 +9,12 @@ rules:
   languages:
   - "c"
   message: |
-    Buffer overflows is not checked
+    The `strcat` family of functions are unable to limit how many bytes are copied
+    to the destination buffer. It is recommended secure alternatives such as 
+    `snprintf`.
   metadata:
-    cwe: "CWE-120: Does not check for buffer overflows when concatenating to destination
-      [MS-banned] (CWE-120)"
+    shortDescription: "Insecure functions unable to limit / check buffer sizes"
+    cwe: "CWE-120"
   pattern-either:
   - pattern: "lstrcat(...)"
   - pattern: "wcscat(...)"

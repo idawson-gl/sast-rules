@@ -9,8 +9,11 @@ rules:
   languages:
   - "c"
   message: |
-    Use getcwd instead.
+    `getwd` does not contain a parameter to limit how many characters can be copied into the
+    destionation buffer. For portability and security reasons `getwd` has been deprecated in 
+    favor of `getcwd`.
   metadata:
+    shortDescription: "Use of deprecated function (getwd)"
     cwe: "CWE-120: This does not protect against buffer overflows by itself, so use
       with caution (CWE-120, CWE-20)"
   pattern: "getwd(...)"
