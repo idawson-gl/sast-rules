@@ -27,12 +27,12 @@ void main() {
   char week[10];
   int day, year;
   char weekday[10], month[12];
-  file = fopen("file.txt", "r");
+  fp = fopen("file.txt", "r");
   sscanf(foo, "%s", week);
-  while (fscanf(file, "%s", buff) != EOF) {
+  while (fscanf(fp, "%s", buff) != EOF) {
     printf("%s ", buff);
   }
-  fclose(file);
+  fclose(fp);
 
   sfind("Saturday April 18 1987", "%s %s %d %d", weekday, month, & day, & year);
   printf("\n%s, %s %d, %d\n", weekday, month, day, year);
