@@ -19,7 +19,7 @@ rules:
       sscanf(str, "%10s", &buf); // buf = AAAAAAAAAA\0
     ```
   metadata:
-    shortDescription: "sscanf() functions may allow for format string based overflows"
+    shortDescription: "sscanf() functions may allow format string based overflows"
     cwe: "CWE-120"
   pattern-either:
   - pattern: "fscanf(...)"

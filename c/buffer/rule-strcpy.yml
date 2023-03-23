@@ -9,7 +9,13 @@ rules:
   languages:
   - "c"
   message: |
-    Consider using snprintf, strcpy_s, or strlcpy (warning: strncpy easily misused).
+    The `lstrcpy` family of functions do not provide the ability to limit or check buffer
+    sizes before copying to a destination buffer. This can lead to buffer overflows. Consider 
+    using more secure alternatives such as `strncpy` and provide the correct limit to the
+    destination buffer. 
+    
+    If developing for C Runtime Library (CRT), more secure versions of these functions should be used, see: 
+    https://learn.microsoft.com/en-us/cpp/c-runtime-library/reference/strncpy-s-strncpy-s-l-wcsncpy-s-wcsncpy-s-l-mbsncpy-s-mbsncpy-s-l?view=msvc-170
   metadata:
     cwe: "CWE-120: Does not check for buffer overflows when copying to destination
       [MS-banned] (CWE-120)"

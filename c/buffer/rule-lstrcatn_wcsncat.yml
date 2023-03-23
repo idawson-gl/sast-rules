@@ -10,10 +10,10 @@ rules:
   - "c"
   message: |
     Consider using more secure alternatives such as `snprintf`, instead of the
-    `wcsncat` family of functions. For more information on secure replacements
-    for these functions, see: 
+    `wcsncat` family of functions. 
     
-    https://learn.microsoft.com/en-us/cpp/c-runtime-library/security-features-in-the-crt?view=msvc-170.
+    If developing for C Runtime Library (CRT), more secure versions of these functions should be used, see: 
+    https://learn.microsoft.com/en-us/cpp/c-runtime-library/reference/strncat-strncat-l-wcsncat-wcsncat-l-mbsncat-mbsncat-l?view=msvc-170
   metadata:
     shortDescription: "Easily misused string processing functions"
     cwe: "CWE-120"

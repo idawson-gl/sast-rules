@@ -19,7 +19,7 @@ void ffind(FILE * fp, char * format, ...) {
   va_end(arglist);
 }
 
-void main() {
+int main() {
   FILE * fp;
   int i;
   char buff[255];
@@ -38,5 +38,5 @@ void main() {
   printf("\n%s, %s %d, %d\n", weekday, month, day, year);
   ffind(stdin, "%s %s %d %d", weekday, month, & day, & year);
   printf("\n%s, %s %d, %d\n", weekday, month, day, year);
-
+  return 0;
 }
