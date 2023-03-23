@@ -9,9 +9,14 @@ rules:
   languages:
   - "c"
   message: |
-    Use a different patent-free encryption algorithm with a larger keysize, such as 3DES or AES.
+    The RC4 algorithm is vulnerable to many attacks and should no longer be used for encrypting data streams.
+
+    Consider using libsodium's `crypto_secretstream_xchacha20poly1305` stream cipher encryption 
+    functions instead. For more information please see: 
+    https://libsodium.gitbook.io/doc/secret-key_cryptography/secretstream
   metadata:
-    cwe: "CWE-327: These keysizes are too small given today's computers (CWE-327)"
+    shortDescription: "Insecure stream cipher (RC4)"
+    cwe: "CWE-327"
   pattern-either:
   - pattern: "EVP_rc4_40(...)"
   - pattern: "EVP_rc2_40_cbc(...)"

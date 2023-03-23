@@ -9,10 +9,14 @@ rules:
   languages:
   - "c"
   message: |
-    Use a different patent-free encryption algorithm with a larger keysize, such as 3DES or AES.
+    The DES algorithm has not been recommended for over 15 years and has been withdrawn from
+    NIST (FIPS 46-3) in 2005.
+
+    Consider using libsodium's `crypto_secretbox_easy` authenticated encryption functions instead.
+    For more information please see: https://libsodium.gitbook.io/doc/secret-key_cryptography/secretbox
   metadata:
-    cwe: "CWE-327: DES only supports a 56-bit keysize, which is too small given today's
-      computers (CWE-327)"
+    shortDescription: "Insecure encryption algorithm (DES)"
+    cwe: "CWE-327"
   pattern-either:
   - pattern: "EVP_des_ecb(...)"
   - pattern: "EVP_des_cbc(...)"
