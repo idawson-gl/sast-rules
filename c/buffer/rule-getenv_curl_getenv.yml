@@ -17,7 +17,7 @@ rules:
     - Files outside of an attackers control becoming accessible depending on
     access privileges.
   metadata:
-  shortDescription: "Possible use of untrusted environment variable"
+    shortDescription: "Possible use of untrusted environment variable"
     cwe: "CWE-20"
   pattern-either:
   - pattern: "getenv(...)"

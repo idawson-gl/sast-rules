@@ -9,14 +9,12 @@ rules:
   languages:
   - "c"
   message: |
-    Use posix_memalign instead (defined in POSIX's 1003.1d).  Don't switch to valloc(); it is
-    marked as obsolete in BSD 4.3, as legacy in SUSv2, and is no longer defined in SUSv3.  In some
-    cases, malloc()'s alignment may be sufficient.
+    The `memalign` function may not check that the alignment argument is correct. Calling
+    free (on non linux-based systems) may fail and in certain circumstances this failure
+    may be exploitable. This function has been deprecated in favour of `posix_memalign`.
   metadata:
-    cwe: "CWE-676: On some systems (though not Linux-based systems) an attempt to
-      free() results from memalign() may fail. This may, on a few systems, be exploitable.
-      \ Also note that memalign() may not check that the boundary parameter is correct
-      (CWE-676)"
+    shortDescription: "Use of deprecated function (memalign)"
+    cwe: "CWE-676"
   pattern-either:
   - pattern: "memalign(...)"
   - pattern-regex: "(void)\\s\\*(\\s|)(memalign)\\;"

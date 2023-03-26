@@ -30,9 +30,9 @@
                 "title": "cwe string",
                 "$id": "#/properties/rules/id/metadata/cwe",
                 "examples": [
-                  "CWE-123: a cwe"
+                  "CWE-123"
                 ],
-                "pattern": "^CWE-\\d{1,4}:.+$"
+                "pattern": "^CWE-\\d{1,4}"
               }
             }
           }
