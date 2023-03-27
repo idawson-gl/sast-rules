@@ -9,10 +9,12 @@ rules:
   languages:
   - "c"
   message: |
-    The `strccpy` and `strcadd` functions do not allow the caller to check that the destination size
+    The `strccpy` and `strcadd` functions do not allow the caller to check that the destination
+    size
     of the buffer will fit the input buffer prior to copying.
 
-    For more information please see: https://docs.oracle.com/cd/E18752_01/html/816-5172/streadd-3gen.html
+    For more information please see:
+    https://docs.oracle.com/cd/E18752_01/html/816-5172/streadd-3gen.html
   metadata:
     shortDescription: "Insecure string processing functions"
     cwe: "CWE-120: Subject to buffer overflow if buffer is not as big as claimed (CWE-120)"

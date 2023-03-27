@@ -13,7 +13,8 @@ rules:
     NIST (FIPS 46-3) in 2005.
 
     Consider using libsodium's `crypto_secretbox_easy` authenticated encryption functions instead.
-    For more information please see: https://libsodium.gitbook.io/doc/secret-key_cryptography/secretbox.
+    For more information please see:
+    https://libsodium.gitbook.io/doc/secret-key_cryptography/secretbox.
 
     If you must be FIPs compliant, consider using OpenSSLs AES or 3DES ciphers.
   metadata:

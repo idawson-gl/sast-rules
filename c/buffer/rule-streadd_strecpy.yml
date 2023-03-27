@@ -8,11 +8,9 @@ rules:
 - id: "c/buffer/rule-streadd_strecpy"
   languages:
   - "c"
-  message: |
-    The `strecpy` and `streadd` functions requires that the destination buffer size be at least four 
-    times the size of the source due to each character potentially becoming a `\` and 3 digits.
-
-    For more information please see: https://docs.oracle.com/cd/E18752_01/html/816-5172/streadd-3gen.html
+  message: "The `strecpy` and `streadd` functions requires that the destination buffer
+    size be at least\nfour \ntimes the size of the source due to each character potentially
+    becoming a `\\` and 3 digits.\n\nFor more information please see:\nhttps://docs.oracle.com/cd/E18752_01/html/816-5172/streadd-3gen.html\n"
   metadata:
     shortDescription: "Insecure string processing functions"
     cwe: "CWE-120"

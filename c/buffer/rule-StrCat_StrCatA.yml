@@ -8,11 +8,10 @@ rules:
 - id: "c/buffer/rule-StrCat_StrCatA"
   languages:
   - "c"
-  message: |
-    The `StrCat` family of functions do not guarantee the final string to be null terminated.
-    Consider using one of the following alternatives: `StringCbCat`, `StringCbCatEx`, 
-    `StringCbCatN`, `StringCbCatNEx`, `StringCchCat`, `StringCchCatEx`, `StringCchCatN`, or 
-    `StringCchCatNEx`. 
+  message: "The `StrCat` family of functions do not guarantee the final string to
+    be null terminated.\nConsider using one of the following alternatives: `StringCbCat`,
+    `StringCbCatEx`, \n`StringCbCatN`, `StringCbCatNEx`, `StringCchCat`, `StringCchCatEx`,
+    `StringCchCatN`, or \n`StringCchCatNEx`. \n"
   metadata:
     shortDescription: "Insecure string processing function"
     cwe: "CWE-120"

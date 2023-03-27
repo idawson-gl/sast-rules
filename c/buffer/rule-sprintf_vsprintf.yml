@@ -8,13 +8,11 @@ rules:
 - id: "c/buffer/rule-sprintf_vsprintf"
   languages:
   - "c"
-  message: |
-    Use sprintf_s, snprintf, or vsnprintf.
-    The `sprintf` family of functions do not allow callers to set limits on how many bytes
-    the destination buffer can hold. Consider using more secure alternatives such as `snprintf`.
-
-    If developing for C Runtime Library (CRT), more secure versions of these functions should be used, see: 
-    https://learn.microsoft.com/en-us/cpp/c-runtime-library/reference/sprintf-s-sprintf-s-l-swprintf-s-swprintf-s-l?view=msvc-170
+  message: "Use sprintf_s, snprintf, or vsnprintf.\nThe `sprintf` family of functions
+    do not allow callers to set limits on how many bytes\nthe destination buffer can
+    hold. Consider using more secure alternatives such as `snprintf`.\n\nIf developing
+    for C Runtime Library (CRT), more secure versions of these functions should be\nused,
+    see: \nhttps://learn.microsoft.com/en-us/cpp/c-runtime-library/reference/sprintf-s-sprintf-s-l-swprint\nf-s-swprintf-s-l?view=msvc-170\n"
   metadata:
     shortDescription: "Insecure function unable to limit / check buffer sizes"
     cwe: "CWE-120"

@@ -8,13 +8,11 @@ rules:
 - id: "c/buffer/rule-lstrcpy_wcscpy"
   languages:
   - "c"
-  message: |
-    The `lstrcpy` family of functions do not provide the ability to limit or check buffer
-    sizes before copying to a destination buffer. This can lead to buffer overflows. Consider 
-    using more secure alternatives such as `strncpy_s`. 
-    
-    If developing for C Runtime Library (CRT), more secure versions of these functions should be used, see: 
-    https://learn.microsoft.com/en-us/cpp/c-runtime-library/reference/strncpy-s-strncpy-s-l-wcsncpy-s-wcsncpy-s-l-mbsncpy-s-mbsncpy-s-l?view=msvc-170
+  message: "The `lstrcpy` family of functions do not provide the ability to limit
+    or check buffer\nsizes before copying to a destination buffer. This can lead to
+    buffer overflows. Consider \nusing more secure alternatives such as `strncpy_s`.
+    \n\nIf developing for C Runtime Library (CRT), more secure versions of these functions
+    should be\nused, see: \nhttps://learn.microsoft.com/en-us/cpp/c-runtime-library/reference/strncpy-s-strncpy-s-l-wcsncpy\n-s-wcsncpy-s-l-mbsncpy-s-mbsncpy-s-l?view=msvc-170\n"
   metadata:
     shortDescription: "Insecure functions unable to limit / check buffer sizes"
     cwe: "CWE-120"

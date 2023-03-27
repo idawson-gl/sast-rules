@@ -12,7 +12,7 @@ rules:
     This function is synonymous with `getenv("HOME")` and should be treated
     as untrusted input as it could be modified by an attacker. Possible risks
     include:
-    
+
     - The value being too large and causing buffer overflows
     - Files under the attackers control being used maliciously
     - Files outside of an attackers control becoming accessible depending on

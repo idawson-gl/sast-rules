@@ -8,13 +8,10 @@ rules:
 - id: "c/buffer/rule-strlen_wcslen"
   languages:
   - "c"
-  message: |
-    The `strlen` family of functions does not handle strings that are not null
-    terminated. This can lead to buffer over reads and cause the application to 
-    crash by accessing unintended memory locations. 
-
-    If developing for C Runtime Library (CRT), more secure versions of these functions should be used, see: 
-    https://learn.microsoft.com/en-us/cpp/c-runtime-library/reference/strnlen-strnlen-s?view=msvc-170
+  message: "The `strlen` family of functions does not handle strings that are not
+    null\nterminated. This can lead to buffer over reads and cause the application
+    to \ncrash by accessing unintended memory locations. \n\nIf developing for C Runtime
+    Library (CRT), more secure versions of these functions should be\nused, see: \nhttps://learn.microsoft.com/en-us/cpp/c-runtime-library/reference/strnlen-strnlen-s?view=msvc-1\n70\n"
   metadata:
     shortDescription: "Function does not handle null terminated strings properly"
     cwe: "CWE-126"

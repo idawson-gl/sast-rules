@@ -8,12 +8,10 @@ rules:
 - id: "c/format/rule-snprintf_vsnprintf"
   languages:
   - "c"
-  message: |
-    Do not allow users or un-validated input to provide the format specification. 
-    Consider using a constant for the format specification, or strip all format
-    specifiers from the input prior to calling the `sprintf` family of functions.
-
-    Note that some variations of this function do not always null terminate the strings.
+  message: "Do not allow users or un-validated input to provide the format specification.
+    \nConsider using a constant for the format specification, or strip all format\nspecifiers
+    from the input prior to calling the `sprintf` family of functions.\n\nNote that
+    some variations of this function do not always null terminate the strings.\n"
   metadata:
     shortDescription: "Potential format string vulnerability"
     cwe: "CWE-134"

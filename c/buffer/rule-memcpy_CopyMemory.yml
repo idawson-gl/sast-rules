@@ -8,13 +8,11 @@ rules:
 - id: "c/buffer/rule-memcpy_CopyMemory"
   languages:
   - "c"
-  message: |
-    The `memcpy` family of functions require the developer to validate that the destination buffer
-    is the same size or larger than the source buffer. Buffer overflows could be introduced if care 
-    is not taken to validate buffer sizes.
-    
-    If developing for C Runtime Library (CRT), more secure versions of these functions should be used, see: 
-    https://learn.microsoft.com/en-us/cpp/c-runtime-library/reference/memcpy-s-wmemcpy-s?view=msvc-170
+  message: "The `memcpy` family of functions require the developer to validate that
+    the destination buffer\nis the same size or larger than the source buffer. Buffer
+    overflows could be introduced if care\n\nis not taken to validate buffer sizes.\n\nIf
+    developing for C Runtime Library (CRT), more secure versions of these functions
+    should be\nused, see: \nhttps://learn.microsoft.com/en-us/cpp/c-runtime-library/reference/memcpy-s-wmemcpy-s?view=msvc-\n170\n"
   metadata:
     shortDescription: "Function does not check for buffer overflows when copying"
     cwe: "CWE-120"

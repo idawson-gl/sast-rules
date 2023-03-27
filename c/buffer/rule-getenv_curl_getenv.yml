@@ -8,14 +8,11 @@ rules:
 - id: "c/buffer/rule-getenv_curl_getenv"
   languages:
   - "c"
-  message: |
-    This function's return value should be treated as untrusted input as it could be 
-    modified by an attacker. Possible risks include:
-    
-    - The value being too large and causing buffer overflows
-    - Files under the attackers control being used maliciously
-    - Files outside of an attackers control becoming accessible depending on
-    access privileges.
+  message: "This function's return value should be treated as untrusted input as it
+    could be \nmodified by an attacker. Possible risks include:\n\n- The value being
+    too large and causing buffer overflows\n- Files under the attackers control being
+    used maliciously\n- Files outside of an attackers control becoming accessible
+    depending on\naccess privileges.\n"
   metadata:
     shortDescription: "Possible use of untrusted environment variable"
     cwe: "CWE-20"

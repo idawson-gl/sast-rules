@@ -8,10 +8,9 @@ rules:
 - id: "c/buffer/rule-getwd"
   languages:
   - "c"
-  message: |
-    `getwd` does not contain a parameter to limit how many characters can be copied into the
-    destionation buffer. For portability and security reasons `getwd` has been deprecated in 
-    favor of `getcwd`.
+  message: "`getwd` does not contain a parameter to limit how many characters can
+    be copied into the\ndestionation buffer. For portability and security reasons
+    `getwd` has been deprecated in \nfavor of `getcwd`.\n"
   metadata:
     shortDescription: "Use of deprecated function (getwd)"
     cwe: "CWE-120: This does not protect against buffer overflows by itself, so use

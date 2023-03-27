@@ -8,16 +8,15 @@ rules:
 - id: "c/buffer/rule-lstrcpyn_wcsncpy"
   languages:
   - "c"
-  message: |
-    The `lstrcpyn` family of functions do not always check for invalid pointers or check if there
-    is sufficient space prior to copying. The count argument limits the number of characters copied
-    but does validate it the count will fit within the size of the destination buffer, leading to
-    potential overflows. 
-    
-    If developing for C Runtime Library (CRT), more secure versions of these functions should be used, see: 
-    https://learn.microsoft.com/en-us/cpp/c-runtime-library/reference/strncpy-s-strncpy-s-l-wcsncpy-s-wcsncpy-s-l-mbsncpy-s-mbsncpy-s-l?view=msvc-170
+  message: "The `lstrcpyn` family of functions do not always check for invalid pointers
+    or check if there\nis sufficient space prior to copying. The count argument limits
+    the number of characters copied\nbut does validate it the count will fit within
+    the size of the destination buffer, leading to\npotential overflows. \n\nIf developing
+    for C Runtime Library (CRT), more secure versions of these functions should be\nused,
+    see: \nhttps://learn.microsoft.com/en-us/cpp/c-runtime-library/reference/strncpy-s-strncpy-s-l-wcsncpy\n-s-wcsncpy-s-l-mbsncpy-s-mbsncpy-s-l?view=msvc-170\n"
   metadata:
-    shortDescription: "Insecure functions do not always null terminate or check invalid pointers"
+    shortDescription: "Insecure functions do not always null terminate or check invalid
+      pointers"
     cwe: "CWE-120"
   pattern-either:
   - pattern: "lstrcpyn(...)"
