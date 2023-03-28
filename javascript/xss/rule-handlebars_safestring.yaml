@@ -16,5 +16,5 @@ rules:
   - "javascript"
   severity: "ERROR"
   metadata:
-    owasp-web: a1
+    owasp: A1:2017-Injection
     cwe: cwe-79
