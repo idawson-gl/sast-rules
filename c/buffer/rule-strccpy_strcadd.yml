@@ -17,7 +17,7 @@ rules:
     https://docs.oracle.com/cd/E18752_01/html/816-5172/streadd-3gen.html
   metadata:
     shortDescription: "Insecure string processing functions"
-    cwe: "CWE-120: Subject to buffer overflow if buffer is not as big as claimed (CWE-120)"
+    cwe: "CWE-120"
   pattern-either:
   - pattern: "strccpy(...)"
   - pattern: "strcadd(...)"

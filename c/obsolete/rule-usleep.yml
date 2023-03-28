@@ -9,7 +9,7 @@ rules:
   languages:
   - "c"
   message: |
-    The `usleep` function has been deprecated use `nanosleep(2)` or `setitimer(2)` instead.
+    The `usleep` function has been deprecated, use `nanosleep` or `setitimer` instead.
   metadata:
     shortDescription: "Usage of deprecated function (usleep)"
     cwe: "CWE-676"

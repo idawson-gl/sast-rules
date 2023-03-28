@@ -14,7 +14,7 @@ rules:
     more information please see: https://libsodium.gitbook.io/doc/password_hashing.\n"
   metadata:
     shortDescription: "Insecure hashing algorithm"
-    cwe: "CWE-327: (CWE-327)"
+    cwe: "CWE-327"
   pattern-either:
   - pattern: "crypt(...)"
   - pattern: "crypt_r(...)"

@@ -18,7 +18,7 @@ rules:
     please see:\nhttps://wiki.sei.cmu.edu/confluence/pages/viewpage.action?pageId=87152425\n"
   metadata:
     shortDescription: "Potential time of check time of use vulnerability (tmpnam/tempnam)"
-    cwe: "CWE-377: Temporary file race condition (CWE-377)"
+    cwe: "CWE-377"
   pattern-either:
   - pattern: "tmpnam(...)"
   - pattern: "tempnam(...)"

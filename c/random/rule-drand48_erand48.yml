@@ -17,8 +17,7 @@ rules:
     numbers please see: \nhttps://wiki.openssl.org/index.php/Random_Numbers\n"
   metadata:
     shortDescription: "Usage of insufficient random number generators"
-    cwe: "CWE-327: This function is not sufficiently random for security-related functions
-      such as key and nonce creation (CWE-327)"
+    cwe: "CWE-327"
   pattern-either:
   - pattern: "drand48(...)"
   - pattern: "erand48(...)"
