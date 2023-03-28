@@ -6,8 +6,20 @@ require 'fileutils'
 
 module AutoFormat
   def self.wrap(txt, col = 95)
-    txt.gsub(/(.{1,#{col}})( +|$\n?)|(.{1,#{col}}(?<=\s))/,
-               "\\1\\3\n").gsub(/^ *$/, '') # allow long (urls) to not be split
+    # Regular expression to split long lines of text into multiple lines of shorter length
+    # while preserving word boundaries.
+    txt.gsub(
+      # Capture group 1: Match between 1 and col characters (where col is the desired line length)
+      # Capture group 2: Match one or more spaces or a line break, or match the end of the line (if there are no spaces left)
+      # OR
+      # Capture group 3: Match between 1 and col characters, only if the last character is a space (lookbehind assertion)
+      # Replace with group 1, group 3 (if matched), and a line break
+      /(.{1,#{col}})( +|$\n?)|(.{1,#{col}}(?<=\s))/, "\\1\\3\n"
+    ).gsub(
+      # Match lines consisting only of zero or more spaces
+      /^ *$/,
+      ''
+    )
   end
 
   def self.reformat_yaml(id, yaml_dict)
