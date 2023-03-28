@@ -50,7 +50,7 @@ rulecheck-availability:
   image: ruby:3-alpine
   before_script:
     - apk add --no-cache yaml-dev alpine-sdk
-    - gem install psych yaml fileutils
+    - gem install psych yaml fileutils word_wrap
   script:
     - ./ci/availability.rb
   rules:
@@ -63,7 +63,7 @@ assemble:
   stage: prepare
   before_script:
     - apk add --no-cache yaml-dev alpine-sdk bash
-    - gem install psych yaml fileutils
+    - gem install psych yaml fileutils word_wrap
   script:
     - ./ci/join.rb
   artifacts:
