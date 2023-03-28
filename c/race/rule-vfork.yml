@@ -15,7 +15,7 @@ rules:
     parent process. As\na result a user may be able to cause a denial of service against
     the privileged process.\n\nUse `fork` instead and be aware of other potential
     Time Of Check Time Of Use (TOCTOU)\nvulnerabilities.\n\nFor more information please
-    see: \nhttps://wiki.sei.cmu.edu/confluence/display/c/POS38-C.+Beware+of+race+conditions+when+using+for\nk+and+file+descriptors\n"
+    see: \nhttps://wiki.sei.cmu.edu/confluence/display/c/POS38-C.+Beware+of+race+conditions+when+using+fork+and+file+descriptors\n"
   metadata:
     shortDescription: "Potential time of check time of use vulnerability (vfork)"
     cwe: "CWE-362"
