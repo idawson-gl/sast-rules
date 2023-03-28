@@ -20,7 +20,7 @@ rulecheck-quality:
   stage: verify 
   image: ruby:3-alpine
   before_script:
-    - apk add --no-cache yaml-dev alpine-sdk bash
+    - apk add --no-cache yaml-dev alpine-sdk bash word_wrap
     - gem install psych yaml fileutils json-schema
   script:
     - ./ci/schema.rb .
