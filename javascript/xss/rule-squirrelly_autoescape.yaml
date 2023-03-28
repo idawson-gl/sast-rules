@@ -1,0 +1,17 @@
+# yamllint disable
+# License: MIT (c) GitLab Inc.
+# source (original): https://github.com/ajinabraham/njsscan/blob/master/njsscan/rules/semantic_grep/xss/xss_templates.yaml
+# hash: e7a0a61
+# yamllint enable
+---
+:rules:
+- id: javascript/xss/rule-squirrelly_autoescape
+  pattern: "$X.autoEscaping(false)"
+  message: Handlebars SafeString will not escape the data passed through it. Untrusted
+    user input passing through SafeString can cause XSS.
+  languages:
+  - javascript
+  severity: ERROR
+  metadata:
+    owasp-web: a1
+    cwe: cwe-79
