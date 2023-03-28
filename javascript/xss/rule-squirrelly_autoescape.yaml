@@ -8,11 +8,10 @@ rules:
 - id: "javascript/xss/rule-squirrelly_autoescape"
   pattern: "$X.autoEscaping(false)"
   message: |
-    Handlebars SafeString will not escape the data passed through it. Untrusted
-    user input passing through SafeString can cause XSS.
+    Handlebars SafeString will not escape the data passed through it. Untrusted user input passing through SafeString can cause XSS.
   languages:
   - "javascript"
   severity: "ERROR"
   metadata:
-    owasp: A1:2017-Injection
-    cwe: cwe-79
+    owasp: "A1:2017-Injection"
+    cwe: "CWE-79: Failure to Preserve Web Page Structure (Cross-site Scripting)"

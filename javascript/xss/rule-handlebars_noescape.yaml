@@ -9,11 +9,10 @@ rules:
   patterns:
   - pattern: "$X.compile(..., {noEscape: true}, ...)\n"
   message: |
-    Disabling Escaping in Handlebars is not a secure behaviour. This can introduce
-    XSS vulnerabilties.
+    Disabling Escaping in Handlebars is not a secure behaviour. This can introduce XSS vulnerabilties.
   languages:
   - "javascript"
   severity: "ERROR"
   metadata:
-    owasp: A1:2017-Injection
-    cwe: cwe-80
+    owasp: "A1:2017-Injection"
+    cwe: "CWE-80: Improper Sanitization of Script-Related HTML Tags in a Web Page (Basic XSS)"
