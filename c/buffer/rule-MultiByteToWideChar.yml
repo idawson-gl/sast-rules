@@ -8,10 +8,14 @@ rules:
 - id: "c/buffer/rule-MultiByteToWideChar"
   languages:
   - "c"
-  message: "The input buffer is the number of bytes in the string, but the size\nof
-    the output buffer is the number of characters. To avoid overflows, the\napplication
-    must determine the correct buffer size which depends on the data type \nthe buffer
-    receives.\n\nFor more information see:\nhttps://learn.microsoft.com/en-us/windows/win32/intl/security-considerations--international-features\n"
+  message: |
+    The input buffer is the number of bytes in the string, but the size
+    of the output buffer is the number of characters. To avoid overflows, the
+    application must determine the correct buffer size which depends on the data type
+    the buffer receives.
+
+    For more information see:
+    https://learn.microsoft.com/en-us/windows/win32/intl/security-considerations--international-features
   metadata:
     shortDescription: "Easily misused function may lead to buffer overflows"
     cwe: "CWE-120"

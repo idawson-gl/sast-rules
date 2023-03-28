@@ -8,10 +8,10 @@ rules:
 - id: "c/integer/rule-atoi_atol"
   languages:
   - "c"
-  message: "The `atoi` family of functions can potentially over or underflow integer
-    values. Consider using\n`size_t` when sizes are being used, or unsigned values
-    if values are only supposed to be \npositive. In all cases ensure the value is
-    with in both minimum and maximum ranges expected.\n"
+  message: |
+    The `atoi` family of functions can potentially over or underflow integer values. Consider using
+    `size_t` when sizes are being used, or unsigned values if values are only supposed to be
+    positive. In all cases ensure the value is with in both minimum and maximum ranges expected.
   metadata:
     shortDescription: "Possible integer over or underflow"
     cwe: "CWE-190"

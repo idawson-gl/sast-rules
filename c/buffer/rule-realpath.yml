@@ -8,15 +8,27 @@ rules:
 - id: "c/buffer/rule-realpath"
   languages:
   - "c"
-  message: "The `realpath` function should not be called with a destination buffer
-    as it could\nlead to overflowing if the path is greater than PATH_LEN. It is instead
-    recommended\nto call `realpath` with the destination buffer set to NULL and use
-    the return value\nas the resolved path. Be sure to free the returned pointer as
-    realpath will allocate\nthe buffer internally using `malloc`. \n\nFor more information
-    see: https://man7.org/linux/man-pages/man3/realpath.3.html.\n\nExample:\n\n```\nchar
-    const *symlink_path = \"/tmp/symlink\";\nchar *resolved_path = NULL;\n\nresolved_path
-    = realpath(symlink_path, NULL);\nif (errno == 0) {\n  // ... use resolved_path...\n
-    \ free(resolved_path);\n}\n``` \n"
+  message: |
+    The `realpath` function should not be called with a destination buffer as it could
+    lead to overflowing if the path is greater than PATH_LEN. It is instead recommended
+    to call `realpath` with the destination buffer set to NULL and use the return value
+    as the resolved path. Be sure to free the returned pointer as realpath will allocate
+    the buffer internally using `malloc`.
+
+    For more information see: https://man7.org/linux/man-pages/man3/realpath.3.html.
+
+    Example:
+
+    ```
+    char const *symlink_path = "/tmp/symlink";
+    char *resolved_path = NULL;
+
+    resolved_path = realpath(symlink_path, NULL);
+    if (errno == 0) {
+      // ... use resolved_path...
+      free(resolved_path);
+    }
+    ```
   metadata:
     shortDescription: "Function does not ensure destination buffer length is sufficient
       before copying"

@@ -8,9 +8,13 @@ rules:
 - id: "c/buffer/rule-lstrcatn_wcsncat"
   languages:
   - "c"
-  message: "Consider using more secure alternatives such as `snprintf`, instead of
-    the\n`wcsncat` family of functions. \n\nIf developing for C Runtime Library (CRT),
-    more secure versions of these functions should be\nused, see: \nhttps://learn.microsoft.com/en-us/cpp/c-runtime-library/reference/strncat-strncat-l-wcsncat-wcsncat-l-mbsncat-mbsncat-l?view=msvc-170\n"
+  message: |
+    Consider using more secure alternatives such as `snprintf`, instead of the
+    `wcsncat` family of functions.
+
+    If developing for C Runtime Library (CRT), more secure versions of these functions should be
+    used, see:
+    https://learn.microsoft.com/en-us/cpp/c-runtime-library/reference/strncat-strncat-l-wcsncat-wcsncat-l-mbsncat-mbsncat-l?view=msvc-170
   metadata:
     shortDescription: "Easily misused string processing functions"
     cwe: "CWE-120"

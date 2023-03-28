@@ -8,11 +8,13 @@ rules:
 - id: "c/misc/rule-getlogin"
   languages:
   - "c"
-  message: "The `getlogin` function suffers from many bugs or unknown behaviors depending
-    on the\nsystem. Often, it gives only the first 8 characters of the login name.
-    The user \ncurrently logged in on the controlling tty of our program does not
-    necessarily mean\nit is the user who started the process.\n\nUse getpwuid(geteuid())
-    and extract the desired information instead.\n"
+  message: |
+    The `getlogin` function suffers from many bugs or unknown behaviors depending on the
+    system. Often, it gives only the first 8 characters of the login name. The user
+    currently logged in on the controlling tty of our program does not necessarily mean
+    it is the user who started the process.
+
+    Use getpwuid(geteuid()) and extract the desired information instead.
   metadata:
     shortDescription: "Usage of deprecated function (getlogin)"
     cwe: "CWE-807"

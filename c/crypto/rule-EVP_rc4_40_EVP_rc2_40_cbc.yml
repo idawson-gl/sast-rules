@@ -8,11 +8,15 @@ rules:
 - id: "c/crypto/rule-EVP_rc4_40_EVP_rc2_40_cbc"
   languages:
   - "c"
-  message: "The RC4 algorithm is vulnerable to many attacks and should no longer be
-    used for encrypting\ndata streams.\n\nConsider using libsodium's `crypto_secretstream_xchacha20poly1305`
-    stream cipher encryption \nfunctions instead. For more information please see:
-    \nhttps://libsodium.gitbook.io/doc/secret-key_cryptography/secretstream\n\nIf
-    you must be FIPs compliant, consider using OpenSSLs AES or 3DES ciphers.\n"
+  message: |
+    The RC4 algorithm is vulnerable to many attacks and should no longer be used for encrypting
+    data streams.
+
+    Consider using libsodium's `crypto_secretstream_xchacha20poly1305` stream cipher encryption
+    functions instead. For more information please see:
+    https://libsodium.gitbook.io/doc/secret-key_cryptography/secretstream
+
+    If you must be FIPs compliant, consider using OpenSSLs AES or 3DES ciphers.
   metadata:
     shortDescription: "Insecure stream cipher (RC4)"
     cwe: "CWE-327"
