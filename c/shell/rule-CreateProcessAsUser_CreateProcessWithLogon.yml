@@ -9,10 +9,19 @@ rules:
   languages:
   - "c"
   message: |
-    Especially watch out for embedded spaces.
+    Due to how `CreateProcess` parses spaces, an attacker may be able to exploit this function
+    by creating a binary with the same name that is loaded first, depending on the search path
+    order. 
+
+    Ensure that quotation marks around the executable path are used, such as:
+    ```
+    CreateProcessAsUser(hToken, NULL, "\"C:\\Program Files\\MyApp.exe\"", ...)
+    ```
+    For more information, please see MSDNs documentation at:
+    https://learn.microsoft.com/en-us/windows/win32/api/processthreadsapi/nf-processthreadsapi-createprocessasusera#security-remarks
   metadata:
-    cwe: "CWE-78: This causes a new process to execute and is difficult to use safely
-      (CWE-78)"
+    shortDescription: "Possible executable path hijacking (CreateProcessAsUser/CreateProcessWithLogon)"
+    cwe: "CWE-78"
   pattern-either:
   - pattern: "CreateProcessAsUser(...)"
   - pattern: "CreateProcessWithLogon(...)"

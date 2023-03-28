@@ -16,8 +16,7 @@ rules:
     if the application should\ncontinue to operate. \n"
   metadata:
     shortDescription: "Ensure return values are checked when attempting to drop privileges"
-    cwe: "CWE-250: If this call fails, the program could fail to drop heightened privileges
-      (CWE-250)"
+    cwe: "CWE-250"
   pattern-either:
   - pattern: "RpcImpersonateClient(...)"
   - pattern: "ImpersonateLoggedOnUser(...)"
