@@ -8,12 +8,14 @@ rules:
 - id: "c/buffer/rule-getenv_curl_getenv"
   languages:
   - "c"
-  message: |
-    Check environment variables carefully before using them.
+  message: "This function's return value should be treated as untrusted input as it
+    could be \nmodified by an attacker. Possible risks include:\n\n- The value being
+    too large and causing buffer overflows\n- Files under the attackers control being
+    used maliciously\n- Files outside of an attackers control becoming accessible
+    depending on\naccess privileges.\n"
   metadata:
-    cwe: "CWE-20: Environment variables are untrustable input if they can be set by
-      an attacker.  They can have any content and length, and the same variable can
-      be set more than once (CWE-807, CWE-20)"
+    shortDescription: "Possible use of untrusted environment variable"
+    cwe: "CWE-20"
   pattern-either:
   - pattern: "getenv(...)"
   - pattern: "curl_getenv(...)"

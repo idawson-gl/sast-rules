@@ -8,11 +8,18 @@ rules:
 - id: "c/race/rule-readlink"
   languages:
   - "c"
-  message: |
-    Reconsider approach.
+  message: "Usage of the `readlink` function call hints at a potential Time Of Check
+    Time Of Use (TOCTOU)\nvulnerability. An attacker may be able to modify the file
+    being specified by the `readlink`\nfunction prior to the `readlink` function being
+    called. Additionally, care must be taken\nthat the buffer provided is large enough
+    to hold the contents of the file. \n\nInstead of using `readlink`, use `lstat`
+    prior to opening the file and confirm the attributes\nare correct. Then use `open`
+    to get a file descriptor to this file. Call `fstat` on the \n`open` file descriptor
+    to confirm that `st_dev` and `st_ino` are equal between the two. \nIf they are,
+    it is safe to read and operate on the files contents.\n\nFor more information
+    please see:\nhttps://wiki.sei.cmu.edu/confluence/display/c/FIO45-C.+Avoid+TOCTOU+race+conditions+while+accessing+files\n"
   metadata:
-    cwe: "CWE-20: This accepts filename arguments; if an attacker can move those files
-      or change the link content, a race condition results.  Also, it does not terminate
-      with ASCII NUL. (CWE-362, CWE-20)"
+    shortDescription: "Potential time of check time of use vulnerability (readlink)"
+    cwe: "CWE-20"
   pattern: "readlink(...)"
   severity: "ERROR"

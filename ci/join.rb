@@ -10,6 +10,7 @@ rulefiles.sort!.uniq!
 
 # Combine all semgrep rules into a single file to speed up the evaluation
 rulefiles.each do |rfil|
+  puts rfil
   rulefiledict = YAML.load(File.read(rfil))
   rulefromfile = rulefiledict['rules'].first
   rulefromfile['id'] = rfil

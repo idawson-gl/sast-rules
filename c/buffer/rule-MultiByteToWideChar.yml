@@ -8,9 +8,12 @@ rules:
 - id: "c/buffer/rule-MultiByteToWideChar"
   languages:
   - "c"
-  message: |
-    The software does not properly handle when an input contains Unicode encoding.
+  message: "The input buffer is the number of bytes in the string, but the size\nof
+    the output buffer is the number of characters. To avoid overflows, the\napplication
+    must determine the correct buffer size which depends on the data type \nthe buffer
+    receives.\n\nFor more information see:\nhttps://learn.microsoft.com/en-us/windows/win32/intl/security-considerations--international-features\n"
   metadata:
-    cwe: "CWE-120: Requires maximum length in CHARACTERS, not bytes (CWE-120)"
+    shortDescription: "Easily misused function may lead to buffer overflows"
+    cwe: "CWE-120"
   pattern: "MultiByteToWideChar(...)"
   severity: "INFO"

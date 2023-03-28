@@ -8,11 +8,13 @@ rules:
 - id: "c/access/rule-umask"
   languages:
   - "c"
-  message: |
-    Ensure that umask is given most restrictive possible setting (e.g.,
-    066 or 077)
+  message: "The umask function call sets the process's file mode creation mask. umask
+    values determine \nwhat permissions a file should be created with and who can
+    read or write to these files. \nEnsure that umask is given most restrictive possible
+    setting depending on the context, \nusually 066 or 077, for more information see
+    https://en.wikipedia.org/wiki/Umask#Mask_effect.\n"
   metadata:
-    cwe: "CWE-732: Ensure that umask is given most restrictive possible setting (e.g.,
-      066 or 077) (CWE-732)"
+    shortDescription: "Ensure restrictive umask values"
+    cwe: "CWE-732"
   pattern: "umask(...)"
   severity: "INFO"

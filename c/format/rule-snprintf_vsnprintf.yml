@@ -8,11 +8,13 @@ rules:
 - id: "c/format/rule-snprintf_vsnprintf"
   languages:
   - "c"
-  message: |
-    Use a constant for the format specification.
+  message: "Do not allow users or un-validated input to provide the format specification.
+    \nConsider using a constant for the format specification, or strip all format\nspecifiers
+    from the input prior to calling the `sprintf` family of functions.\n\nNote that
+    some variations of this function do not always null terminate the strings.\n"
   metadata:
-    cwe: "CWE-134: If format strings can be influenced by an attacker, they can be
-      exploited, and note that sprintf variations do not always \\0-terminate (CWE-134)"
+    shortDescription: "Potential format string vulnerability"
+    cwe: "CWE-134"
   pattern-either:
   - patterns:
     - pattern: "snprintf($BUF,$SIZ,$FMT,...)"

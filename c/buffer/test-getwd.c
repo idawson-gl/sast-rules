@@ -4,9 +4,10 @@
 
 #include <unistd.h>
 
-void main() {
+int main() {
   char * buf;
   char * ptr;
 
   ptr = getwd(buf);
+  return 0;
 }

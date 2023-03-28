@@ -8,11 +8,13 @@ rules:
 - id: "c/shell/rule-CreateProcess"
   languages:
   - "c"
-  message: |
-    Specify the application path in the first argument, NOT as part of the second, or embedded
-    spaces could allow an attacker to force a different program to run.
+  message: "Due to how `CreateProcess` parses spaces, an attacker may be able to exploit
+    this function\nby creating a binary with the same name that is loaded first, depending
+    on the search path\norder. \n\nEnsure that quotation marks around the executable
+    path are used, such as:\n```\nCreateProcessA(NULL, \"\\\"C:\\\\Program Files\\\\MyApp.exe\\\"\",
+    ...)\n```\nFor more information, please see MSDNs documentation at:\nhttps://learn.microsoft.com/en-us/windows/win32/api/processthreadsapi/nf-processthreadsapi-createprocessa#security-remarks\n"
   metadata:
-    cwe: "CWE-78: This causes a new process to execute and is difficult to use safely
-      (CWE-78)"
+    shortDescription: "Possible executable path hijacking (CreateProcess)"
+    cwe: "CWE-78"
   pattern: "CreateProcess(...)"
   severity: "WARNING"

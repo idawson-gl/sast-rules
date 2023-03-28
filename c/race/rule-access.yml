@@ -8,11 +8,20 @@ rules:
 - id: "c/race/rule-access"
   languages:
   - "c"
-  message: |
-    Set up the correct permissions (e.g., using setuid()) and try to open the file directly.
+  message: "Usage of the `access` function call hints at a potential Time Of Check
+    Time Of Use (TOCTOU)\nvulnerability. Using the `access` function to check if a
+    file exists and is readable before \nopening it, an attacker can create a race
+    condition between the `access` call and  \nopening the file. The attacker could
+    replace the file with a different one or modify its \ncontent between the time
+    the `access` function is called and the file is opened, thus \nbypassing the permission
+    check.\n\nCall `setuid` to drop privileges on the process prior to opening any
+    files. Instead of using \n`access`, use `lstat` prior to opening the file and
+    confirm the attributes are correct. Then \nuse `open` to get a file descriptor
+    to this file. Call `fstat` on the `open` file descriptor \nto confirm that `st_dev`
+    and `st_ino` are equal between the two. If they are, it is safe to \nread and
+    operate on the files contents.\n\nFor more information please see:\nhttps://wiki.sei.cmu.edu/confluence/display/c/FIO45-C.+Avoid+TOCTOU+race+conditions+while+accessing+files\n"
   metadata:
-    cwe: "CWE-362: This usually indicates a security flaw.  If an attacker can change
-      anything along the path between the call to access() and the file's actual use
-      (e.g., by moving files), the attacker can exploit the race condition (CWE-362/CWE-367!)"
+    shortDescription: "Potential time of check time of use vulnerability (access)"
+    cwe: "CWE-362"
   pattern: "access(...)"
   severity: "ERROR"

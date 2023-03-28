@@ -3,6 +3,7 @@
 
 int main() {
   printf("Hello!");
+  return 0;
 }
 void demo2() {
   char d[20];

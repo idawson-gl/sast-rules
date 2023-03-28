@@ -9,8 +9,12 @@ rules:
   languages:
   - "c"
   message: |
-    Ensure that destination is at least as long as the source.
+    This function is easy to mis-use by not accounting for the space necessary when transforming
+    strings. Ensure that the destination buffer is large enough to fit the transformed output.
+
+    For more details please see: https://docs.oracle.com/cd/E36784_01/html/E36877/strtrns-3gen.html
   metadata:
-    cwe: "CWE-120: This function does not protect against buffer overflows (CWE-120)"
+    shortDescription: "Insecure string processing function"
+    cwe: "CWE-120"
   pattern: "strtrns(...)"
   severity: "WARNING"

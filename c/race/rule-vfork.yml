@@ -8,10 +8,16 @@ rules:
 - id: "c/race/rule-vfork"
   languages:
   - "c"
-  message: |
-    Use fork() instead.
+  message: "The `vfork` function is suffers from portability issues and is not recommended.
+    In\nsome linux systems `vfork` is vulnerable to a race condition while the child
+    process\nis running as the user's UID but hasn't executed `execve`. The user maybe
+    able to send\nsignals to this process, which in `vfork` would not be sent to the
+    parent process. As\na result a user may be able to cause a denial of service against
+    the privileged process.\n\nUse `fork` instead and be aware of other potential
+    Time Of Check Time Of Use (TOCTOU)\nvulnerabilities.\n\nFor more information please
+    see: \nhttps://wiki.sei.cmu.edu/confluence/display/c/POS38-C.+Beware+of+race+conditions+when+using+fork+and+file+descriptors\n"
   metadata:
-    cwe: "CWE-362: On some old systems, vfork() permits race conditions, and it's
-      very difficult to use correctly (CWE-362)"
+    shortDescription: "Potential time of check time of use vulnerability (vfork)"
+    cwe: "CWE-362"
   pattern: "vfork(...)"
   severity: "INFO"

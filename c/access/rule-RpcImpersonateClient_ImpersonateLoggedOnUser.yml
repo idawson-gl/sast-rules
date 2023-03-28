@@ -8,11 +8,15 @@ rules:
 - id: "c/access/rule-RpcImpersonateClient_ImpersonateLoggedOnUser"
   languages:
   - "c"
-  message: |
-    Make sure the return value is checked, and do not continue if a failure is reported.
+  message: "These functions may be used to either drop or change account privileges.
+    If the calls\nfail, the process will continue to run with the privileges assigned
+    to it on start. Depending\non\nthe logic of the application, this may allow attackers
+    to abuse the system due to privileges\nnever\nbeing changed to a different access
+    level.\n\nAlways ensure return values of this function are checked to determine
+    if the application should\ncontinue to operate. \n"
   metadata:
-    cwe: "CWE-250: If this call fails, the program could fail to drop heightened privileges
-      (CWE-250)"
+    shortDescription: "Ensure return values are checked when attempting to drop privileges"
+    cwe: "CWE-250"
   pattern-either:
   - pattern: "RpcImpersonateClient(...)"
   - pattern: "ImpersonateLoggedOnUser(...)"

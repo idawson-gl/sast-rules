@@ -8,12 +8,18 @@ rules:
 - id: "c/buffer/rule-realpath"
   languages:
   - "c"
-  message: |
-    Ensure that the destination buffer is at least of size MAXPATHLEN, andto protect against
-    implementation problems, the input argument should also be checked to ensure it is no larger
-    than MAXPATHLEN.
+  message: "The `realpath` function should not be called with a destination buffer
+    as it could\nlead to overflowing if the path is greater than PATH_LEN. It is instead
+    recommended\nto call `realpath` with the destination buffer set to NULL and use
+    the return value\nas the resolved path. Be sure to free the returned pointer as
+    realpath will allocate\nthe buffer internally using `malloc`. \n\nFor more information
+    see: https://man7.org/linux/man-pages/man3/realpath.3.html.\n\nExample:\n\n```\nchar
+    const *symlink_path = \"/tmp/symlink\";\nchar *resolved_path = NULL;\n\nresolved_path
+    = realpath(symlink_path, NULL);\nif (errno == 0) {\n  // ... use resolved_path...\n
+    \ free(resolved_path);\n}\n``` \n"
   metadata:
-    cwe: "CWE-120: This function does not protect against buffer overflows, and some
-      implementations can overflow internally (CWE-120/CWE-785!)"
+    shortDescription: "Function does not ensure destination buffer length is sufficient
+      before copying"
+    cwe: "CWE-120"
   pattern: "realpath(...)"
   severity: "WARNING"

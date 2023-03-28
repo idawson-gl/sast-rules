@@ -8,12 +8,13 @@ rules:
 - id: "c/tmpfile/rule-mkstemp"
   languages:
   - "c"
-  message: |
-    Some older Unix-like systems create temp files with permission to write by
-    all by default, so be sure to set the umask to override this. Also, some older
-    Unix systems might fail to use O_EXCL when opening the file, so make sure that
-    O_EXCL is used by the library.
+  message: "Some older Unix-like systems, `mkstemp` would create temp files with 0666
+    permissions,\nmeaning the file created would be read/write access for all users.
+    \n\nEnsure the process has called the `umask` function with restricted permissions
+    prior\nto calling `mkstemp` and validate the permissions prior to using the file
+    descriptor. \n\nFor more information on temporary files please see:\nhttps://wiki.sei.cmu.edu/confluence/pages/viewpage.action?pageId=87152425\n"
   metadata:
-    cwe: "CWE-377: Potential for temporary file vulnerability in some circumstances."
+    shortDescription: "Potential file permissions issue (mkstemp)"
+    cwe: "CWE-377"
   pattern: "mkstemp(...)"
   severity: "INFO"

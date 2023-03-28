@@ -12,5 +12,5 @@ int main() {
   static char b[50] = {};
   static TCHAR c[20];
   static TCHAR d[20] = {};
-
+  return 0;
 }

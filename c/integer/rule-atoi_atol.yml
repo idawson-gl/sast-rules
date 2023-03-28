@@ -8,13 +8,13 @@ rules:
 - id: "c/integer/rule-atoi_atol"
   languages:
   - "c"
-  message: |
-    If source untrusted, check both minimum and maximum, even if the input had no minus sign (large
-    numbers can roll over into negative number; consider saving to an unsigned value if that is
-    intended).
+  message: "The `atoi` family of functions can potentially over or underflow integer
+    values. Consider using\n`size_t` when sizes are being used, or unsigned values
+    if values are only supposed to be \npositive. In all cases ensure the value is
+    with in both minimum and maximum ranges expected.\n"
   metadata:
-    cwe: "CWE-190: Unless checked, the resulting number can exceed the expected range
-      (CWE-190)"
+    shortDescription: "Possible integer over or underflow"
+    cwe: "CWE-190"
   pattern-either:
   - pattern: "atoi(...)"
   - pattern: "atol(...)"

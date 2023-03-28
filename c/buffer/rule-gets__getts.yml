@@ -8,10 +8,13 @@ rules:
 - id: "c/buffer/rule-gets__getts"
   languages:
   - "c"
-  message: |
-    Use fgets() instead.
+  message: "The gets() function reads a line from stdin into the provided buffer\nuntil
+    either a terminating newline or EOF. This terminating newline or\nEOF is replaced
+    with a null byte `'\\0'`. No check for buffer overruns are \nperformed so it is
+    recommended to use `fgets()` instead.\n"
   metadata:
-    cwe: "CWE-120: Does not check for buffer overflows (CWE-120, CWE-20)"
+    shortDescription: "Use of deprecated function (gets)"
+    cwe: "CWE-120"
   pattern-either:
   - pattern: "gets(...)"
   - pattern: "_getts(...)"

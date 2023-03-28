@@ -3,11 +3,11 @@
 
 #include <stdio.h>
 
-void main() {
+int main() {
 
   char * symlinkpath = "/tmp/symlink/file";
   char * actualpath;
 
   actualpath = realpath(symlinkpath, NULL);
-
+  return 0;
 }

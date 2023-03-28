@@ -8,11 +8,13 @@ rules:
 - id: "c/buffer/rule-StrCat_StrCatA"
   languages:
   - "c"
-  message: |
-    Buffer overflow is not checked.
+  message: "The `StrCat` family of functions do not guarantee the final string to
+    be null terminated.\nConsider using one of the following alternatives: `StringCbCat`,
+    `StringCbCatEx`, \n`StringCbCatN`, `StringCbCatNEx`, `StringCchCat`, `StringCchCatEx`,
+    `StringCchCatN`, or \n`StringCchCatNEx`. \n"
   metadata:
-    cwe: "CWE-120: Does not check for buffer overflows when concatenating to destination
-      [MS-banned] (CWE-120)"
+    shortDescription: "Insecure string processing function"
+    cwe: "CWE-120"
   pattern-either:
   - pattern: "StrCat(...)"
   - pattern: "StrCatA(...)"

@@ -8,10 +8,15 @@ rules:
 - id: "c/tmpfile/rule-GetTempFileName"
   languages:
   - "c"
-  message: |
-    Temporary file race condition in certain cases.
+  message: "The `GetTempFileName` function works by generating a randomly named file,
+    creating the file \n(if it does not exist) and then closing it. An application
+    wishing to use this temp file \nwill need to re-open this file to begin working
+    with it. This leads to a potential \nTime Of Check Time Of Use (TOCTOU) vulnerability,
+    as an attacker could replace or modify\nthe contents of the file prior to it being
+    used by the application. \n\nConsider generating a random filename and opening
+    the file directly in a single `CreateFile`\nor `OpenFile` call. \n"
   metadata:
-    cwe: "CWE-377: Temporary file race condition in certain cases (e.g., if run as
-      SYSTEM in many versions of Windows) (CWE-377)"
+    shortDescription: "Potential time of check time of use vulnerability (GetTempFileName)"
+    cwe: "CWE-377"
   pattern: "GetTempFileName(...)"
   severity: "WARNING"
