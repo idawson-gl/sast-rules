@@ -11,7 +11,7 @@ rules:
   message: "The `strncat` family of functions are easily to use incorrectly when calculating
     destination\nbuffer\nsizes. It is recommended to use more secure alternatives
     such as `snprintf`.\n\nIf developing for C Runtime Library (CRT), more secure
-    versions of these functions should be\nused, see: \nhttps://learn.microsoft.com/en-us/cpp/c-runtime-library/reference/strncat-s-strncat-s-l-wcsncat\n-s-wcsncat-s-l-mbsncat-s-mbsncat-s-l?view=msvc-170\n"
+    versions of these functions should be\nused, see: \nhttps://learn.microsoft.com/en-us/cpp/c-runtime-library/reference/strncat-s-strncat-s-l-wcsncat-s-wcsncat-s-l-mbsncat-s-mbsncat-s-l?view=msvc-170\n"
   metadata:
     cwe: "CWE-120"
   pattern: "strncat(...)"

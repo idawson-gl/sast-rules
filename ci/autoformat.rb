@@ -6,8 +6,8 @@ require 'fileutils'
 
 module AutoFormat
   def self.wrap(txt, col = 95)
-    txt.gsub(/(.{1,#{col}})( +|$\n?)|(.{1,#{col}})/,
-             "\\1\\3\n").gsub(/^ *$/, '')
+    txt.gsub(/(.{1,#{col}})( +|$\n?)|(.{1,#{col}}(?<=\s))/,
+               "\\1\\3\n").gsub(/^ *$/, '') # allow long (urls) to not be split
   end
 
   def self.reformat_yaml(id, yaml_dict)

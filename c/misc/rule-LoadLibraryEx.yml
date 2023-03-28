@@ -19,7 +19,7 @@ rules:
     \ functions to modify the list of directories.\n- Only use `SearchPath` if the
     `SetSearchPathMode` function is called with \n  `BASE_SEARCH_PATH_ENABLE_SAFE_SEARCHMODE`.
     (Note: this only moves the current directory to\n  the end of the SearchPath search
-    list.)\n\nFor more information see the security remarks section of the MSDN documentation:\nhttps://learn.microsoft.com/en-us/windows/win32/api/libloaderapi/nf-libloaderapi-loadlibrarya#s\necurity-remarks\n\nFor
+    list.)\n\nFor more information see the security remarks section of the MSDN documentation:\nhttps://learn.microsoft.com/en-us/windows/win32/api/libloaderapi/nf-libloaderapi-loadlibrarya#security-remarks\n\nFor
     general information securely loading dynamic link libraries, see the MSDN documentation:\nhttps://learn.microsoft.com/en-us/windows/win32/dlls/dynamic-link-library-security\n"
   metadata:
     shortDescription: "Potential for DLL-Hijacking (LoadLibraryEx)"

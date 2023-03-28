@@ -11,7 +11,7 @@ rules:
   message: "The `strlen` family of functions does not handle strings that are not
     null\nterminated. This can lead to buffer over reads and cause the application
     to \ncrash by accessing unintended memory locations. \n\nIf developing for C Runtime
-    Library (CRT), more secure versions of these functions should be\nused, see: \nhttps://learn.microsoft.com/en-us/cpp/c-runtime-library/reference/strnlen-strnlen-s?view=msvc-1\n70\n"
+    Library (CRT), more secure versions of these functions should be\nused, see: \nhttps://learn.microsoft.com/en-us/cpp/c-runtime-library/reference/strnlen-strnlen-s?view=msvc-170\n"
   metadata:
     shortDescription: "Function does not handle null terminated strings properly"
     cwe: "CWE-126"

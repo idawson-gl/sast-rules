@@ -11,7 +11,7 @@ rules:
   message: "The `strcat` family of functions are unable to limit how many bytes are
     copied\nto the destination buffer. It is recommended to use more secure alternatives
     such as \n`snprintf`.\n\nIf developing for C Runtime Library (CRT), more secure
-    versions of these functions should be\nused, see: \nhttps://learn.microsoft.com/en-us/cpp/c-runtime-library/reference/strcat-s-wcscat-s-mbscat-s?vi\new=msvc-170\n"
+    versions of these functions should be\nused, see: \nhttps://learn.microsoft.com/en-us/cpp/c-runtime-library/reference/strcat-s-wcscat-s-mbscat-s?view=msvc-170\n"
   metadata:
     shortDescription: "Insecure functions unable to limit / check buffer sizes"
     cwe: "CWE-120"
