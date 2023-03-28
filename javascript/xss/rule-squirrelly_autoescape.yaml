@@ -4,14 +4,14 @@
 # hash: e7a0a61
 # yamllint enable
 ---
-:rules:
-- id: javascript/xss/rule-squirrelly_autoescape
+rules:
+- id: "javascript/xss/rule-squirrelly_autoescape"
   pattern: "$X.autoEscaping(false)"
   message: Handlebars SafeString will not escape the data passed through it. Untrusted
     user input passing through SafeString can cause XSS.
   languages:
-  - javascript
-  severity: ERROR
+  - "javascript"
+  severity: "ERROR"
   metadata:
     owasp-web: a1
     cwe: cwe-79
