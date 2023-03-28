@@ -8,18 +8,14 @@ rules:
 - id: "c/misc/rule-fopen_open"
   languages:
   - "c"
-  message: |
-    Usage of the `open` family of functions may hint at a potential Time Of Check Time Of Use (TOCTOU)
-    vulnerability. An attacker may be able to modify the file being specified by the `open`
-    function prior to the `open` function being called.
-    
-    Prior to calling `open`, use `lstat` to open the file and confirm the attributes
-    are correct. Then use `open` to get a file descriptor to this file. Call `fstat` on the 
-    `open` file descriptor to confirm that `st_dev` and `st_ino` are equal between the two. 
-    If they are, it is safe to read and operate on the files contents.
-
-    For more information please see:
-    https://wiki.sei.cmu.edu/confluence/display/c/FIO45-C.+Avoid+TOCTOU+race+conditions+while+accessing+files
+  message: "Usage of the `open` family of functions may hint at a potential Time Of
+    Check Time Of Use\n(TOCTOU)\nvulnerability. An attacker may be able to modify
+    the file being specified by the `open`\nfunction prior to the `open` function
+    being called.\n\nPrior to calling `open`, use `lstat` to open the file and confirm
+    the attributes\nare correct. Then use `open` to get a file descriptor to this
+    file. Call `fstat` on the \n`open` file descriptor to confirm that `st_dev` and
+    `st_ino` are equal between the two. \nIf they are, it is safe to read and operate
+    on the files contents.\n\nFor more information please see:\nhttps://wiki.sei.cmu.edu/confluence/display/c/FIO45-C.+Avoid+TOCTOU+race+conditions+while+acces\nsing+files\n"
   metadata:
     shortDescription: "Potential time of check time of use vulnerability (open/fopen)"
     cwe: "CWE-362"

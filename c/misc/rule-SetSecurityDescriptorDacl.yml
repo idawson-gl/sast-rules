@@ -8,15 +8,14 @@ rules:
 - id: "c/misc/rule-SetSecurityDescriptorDacl"
   languages:
   - "c"
-  message: |
-    When `SetSecurityDescriptorDacl` is called with a null `pDacl` parameter and the 
-    `bDaclPresent` flag is `TRUE`, all access to the object is allowed. Meaning an attacker
-    could set the object to Deny all, which would include even the Administrator user(s).
-
-    Either call `SetSecurityDescriptorDacl` with bDaclPresent as `FALSE`, or supply a valid 
-    non-null `pDacl parameter value.
+  message: "When `SetSecurityDescriptorDacl` is called with a null `pDacl` parameter
+    and the \n`bDaclPresent` flag is `TRUE`, all access to the object is allowed.
+    Meaning an attacker\ncould set the object to Deny all, which would include even
+    the Administrator user(s).\n\nEither call `SetSecurityDescriptorDacl` with bDaclPresent
+    as `FALSE`, or supply a valid \nnon-null `pDacl parameter value.\n"
   metadata:
-    shortDescription: "Null ACL when calling SetSecurityDescriptorDacl may allow all access to objects"
+    shortDescription: "Null ACL when calling SetSecurityDescriptorDacl may allow all
+      access to objects"
     cwe: "CWE-732"
   pattern: "SetSecurityDescriptorDacl(...)"
   severity: "ERROR"

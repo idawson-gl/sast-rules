@@ -8,9 +8,8 @@ rules:
 - id: "c/obsolete/rule-ulimit"
   languages:
   - "c"
-  message: |
-    The ulimit function is obsolute and no longer recommended. Use `getrlimit(2)`, 
-    `setrlimit(2)`, or `sysconf(3)` instead.
+  message: "The ulimit function is obsolute and no longer recommended. Use `getrlimit(2)`,
+    \n`setrlimit(2)`, or `sysconf(3)` instead.\n"
   metadata:
     shortDescription: "Usage of deprecated function (ulimit)"
     cwe: "CWE-676: This C routine is considered obsolete (as opposed to the shell
