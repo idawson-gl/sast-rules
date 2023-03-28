@@ -8,7 +8,8 @@ rules:
 - id: "javascript/xss/rule-handlebars_noescape"
   patterns:
   - pattern: "$X.compile(..., {noEscape: true}, ...)\n"
-  message: Disabling Escaping in Handlebars is not a secure behaviour. This can introduce
+  message: |
+    Disabling Escaping in Handlebars is not a secure behaviour. This can introduce
     XSS vulnerabilties.
   languages:
   - "javascript"

@@ -9,7 +9,8 @@ rules:
   pattern-either:
   - pattern: "$X.SafeString(...)"
   - pattern: new Handlebars.SafeString(...)
-  message: Handlebars SafeString will not escape the data passed through it. Untrusted
+  message: |
+    Handlebars SafeString will not escape the data passed through it. Untrusted
     user input passing through SafeString can cause XSS.
   languages:
   - "javascript"

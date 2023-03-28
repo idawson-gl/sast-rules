@@ -7,7 +7,8 @@
 rules:
 - id: "javascript/xss/rule-squirrelly_autoescape"
   pattern: "$X.autoEscaping(false)"
-  message: Handlebars SafeString will not escape the data passed through it. Untrusted
+  message: |
+    Handlebars SafeString will not escape the data passed through it. Untrusted
     user input passing through SafeString can cause XSS.
   languages:
   - "javascript"
