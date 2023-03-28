@@ -9,8 +9,16 @@ rules:
   languages:
   - "c"
   message: |
-    Use fchmod( ) instead.
+    Usage of the `chmod` function call hints at a potential Time Of Check Time Of Use (TOCTOU)
+    vulnerability. An attacker may be able to modify the file being specified by the `chmod`
+    function prior to the `chmod` function being called. Since `chmod` will resolve symbolic links,
+    an attacker may be able to exploit this fact to have files outside of their control modified.
+
+    It is recommended that the `fchmod` function be used instead since this function takes
+    a file descriptor instead of a file. Ensure the opened file descriptor is pointing to 
+    the correct file or directory prior to executing `fchmod` or any other file based operations.
   metadata:
+    shortDescription: "Potential time of check time of use vulnerability (chmod)"
     cwe: "CWE-362: This accepts filename arguments; if an attacker can move those
       files, a race condition results. (CWE-362)"
   pattern: "chmod(...)"
