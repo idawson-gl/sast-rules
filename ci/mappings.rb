@@ -11,7 +11,7 @@ module MappingCheck
       mappings[base]['mappings'].each do |mp|
         id = mp['id']
         mp['rules'].each do |rule|
-          fname = "#{rule}.yml"
+          fname = "#{rule['path']}.yml"
 
           unless File.exist?(fname)
             puts("#{fname} that corresponds to #{id} does not exist")

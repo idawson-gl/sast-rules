@@ -12,400 +12,400 @@ find_sec_bugs:
   # random
   - id: "PREDICTABLE_RANDOM"
     rules:
-    - "java/random/rule-PseudoRandom"
+    - path: "java/random/rule-PseudoRandom"
 
   # XXE
   - id: "XXE_SAXPARSER"
     rules:
-    - "java/xxe/rule-SaxParserXXE"
+    - path: "java/xxe/rule-SaxParserXXE"
   - id: "XXE_XMLREADER"
     rules:
-    - "java/xxe/rule-XMLRdr"
+    - path: "java/xxe/rule-XMLRdr"
   - id: "XXE_XMLSTREAMREADER"
     rules:
-    - "java/xxe/rule-XMLStreamRdr"
+    - path: "java/xxe/rule-XMLStreamRdr"
   - id: "XXE_XPATH"
     rules:
-    - "java/xxe/rule-XPathXXE"
+    - path: "java/xxe/rule-XPathXXE"
   - id: "XXE_DOCUMENT"
     rules:
-    - "java/xxe/rule-XPathXXE"
+    - path: "java/xxe/rule-XPathXXE"
   - id: "XXE_DTD_TRANSFORM_FACTORY"
     rules:
-    - "java/xxe/rule-Trans"
+    - path: "java/xxe/rule-Trans"
   - id: "XXE_XSLT_TRANSFORM_FACTORY"
     rules:
-    - "java/xxe/rule-Trans"
+    - path: "java/xxe/rule-Trans"
 
   # XSS
   - id: "XSS_SERVLET"
     rules:
-    - "java/xss/rule-XSSServlet"
-    - "java/xss/rule-XSSServletParameter"
+    - path: "java/xss/rule-XSSServlet"
+    - path: "java/xss/rule-XSSServletParameter"
   - id: "XSS_SERVLET_PARAMETER"
     rules:
-    - "java/xss/rule-XSSServletParameter"
+    - path: "java/xss/rule-XSSServletParameter"
   - id: "XSS_REQUEST_PARAMETER_TO_SERVLET_WRITER"
     rules:
-    - "java/xss/rule-XSSReqParamToServletWriter"
+    - path: "java/xss/rule-XSSReqParamToServletWriter"
   - id: "XSS_REQUEST_PARAMETER_TO_SEND_ERROR"
     rules:
-    - "java/xss/rule-XSSReqParamToSendError"
+    - path: "java/xss/rule-XSSReqParamToSendError"
   - id: "WICKET_XSS1"
     rules:
-    - "java/xss/rule-WicketXSS"
+    - path: "java/xss/rule-WicketXSS"
   - id: "XSS_REQUEST_WRAPPER"
     rules:
-    - "java/xss/rule-RequestWrapper"
+    - path: "java/xss/rule-RequestWrapper"
 
   # SQLI
   - id: "SQL_INJECTION_SPRING_JDBC"
     rules:
-    - "java/inject/rule-SqlInjection"
+    - path: "java/inject/rule-SqlInjection"
   - id: "SQL_INJECTION_JPA"
     rules:
-    - "java/inject/rule-SqlInjection"
+    - path: "java/inject/rule-SqlInjection"
   - id: "SQL_INJECTION_JDO"
     rules:
-    - "java/inject/rule-SqlInjection"
+    - path: "java/inject/rule-SqlInjection"
   - id: "SQL_INJECTION_JDBC"
     rules:
-    - "java/inject/rule-SqlInjection"
+    - path: "java/inject/rule-SqlInjection"
   - id: "SQL_NONCONSTANT_STRING_PASSED_TO_EXECUTE"
     rules:
-    - "java/inject/rule-SqlInjection"
+    - path: "java/inject/rule-SqlInjection"
   - id: "SQL_INJECTION"
     rules:
-    - "java/inject/rule-SqlInjection"
+    - path: "java/inject/rule-SqlInjection"
   - id: "SQL_INJECTION_HIBERNATE"
     rules:
-    - "java/inject/rule-SqlInjection"
+    - path: "java/inject/rule-SqlInjection"
   - id: "SQL_INJECTION_VERTX"
     rules:
-    - "java/inject/rule-SqlInjection"
+    - path: "java/inject/rule-SqlInjection"
   - id: "SQL_PREPARED_STATEMENT_GENERATED_FROM_NONCONSTANT_STRING"
     rules:
-    - "java/inject/rule-SqlInjection"
+    - path: "java/inject/rule-SqlInjection"
 
     # XPATHI
   - id: "XPATH_INJECTION"
     rules:
-    - "java/xpathi/rule-XpathInjection"
+    - path: "java/xpathi/rule-XpathInjection"
 
   # Strings
   - id: "NORMALIZATION_AFTER_VALIDATION"
     rules:
-    - "java/strings/rule-NormalizeAfterValidation"
+    - path: "java/strings/rule-NormalizeAfterValidation"
   - id: "MODIFICATION_AFTER_VALIDATION"
     rules:
-    - "java/strings/rule-ModifyAfterValidation"
+    - path: "java/strings/rule-ModifyAfterValidation"
   - id: "IMPROPER_UNICODE"
     rules:
-    - "java/strings/rule-ImproperUnicode"
+    - path: "java/strings/rule-ImproperUnicode"
   - id: "BAD_HEXA_CONVERSION"
     rules:
-    - "java/strings/rule-BadHexConversion"
+    - path: "java/strings/rule-BadHexConversion"
 
   # Permissions
   - id: "DANGEROUS_PERMISSION_COMBINATION"
     rules:
-    - "java/perm/rule-DangerousPermissions"
+    - path: "java/perm/rule-DangerousPermissions"
   - id: "OVERLY_PERMISSIVE_FILE_PERMISSION"
     rules:
-    - "java/perm/rule-OverlyPermissiveFilePermissionInline"
-    - "java/perm/rule-OverlyPermissiveFilePermissionObj"
+    - path: "java/perm/rule-OverlyPermissiveFilePermissionInline"
+    - path: "java/perm/rule-OverlyPermissiveFilePermissionObj"
   - id: "FORMAT_STRING_MANIPULATION"
     rules:
-    - "java/strings/rule-FormatStringManipulation"
+    - path: "java/strings/rule-FormatStringManipulation"
 
   # Form
   - id: "STRUTS_FORM_VALIDATION"
     rules:
-    - "java/form/rule-FormValidate"
+    - path: "java/form/rule-FormValidate"
 
   # XML
   - id: "SAML_IGNORE_COMMENTS"
     rules:
-    - "java/xml/rule-SAMLIgnoreComments"
+    - path: "java/xml/rule-SAMLIgnoreComments"
   - id: "RPC_ENABLED_EXTENSIONS"
     rules:
-    - "java/xml/rule-ApacheXmlRpc"
+    - path: "java/xml/rule-ApacheXmlRpc"
   - id: "XML_DECODER"
     rules:
-    - "java/xml/rule-XmlDecoder"
+    - path: "java/xml/rule-XmlDecoder"
 
   # SMTP
   - id: "SMTP_HEADER_INJECTION"
     rules:
-    - "java/smtp/rule-SmtpClient"
+    - path: "java/smtp/rule-SmtpClient"
   - id: "INSECURE_SMTP_SSL"
     rules:
-    - "java/smtp/rule-InsecureSmtp"
+    - path: "java/smtp/rule-InsecureSmtp"
 
   - id: "TEMPLATE_INJECTION_PEBBLE"
     rules:
-    - "java/templateinjection/rule-TemplateInjection"
+    - path: "java/templateinjection/rule-TemplateInjection"
 
   - id: "TEMPLATE_INJECTION_FREEMARKER"
     rules:
-    - "java/templateinjection/rule-TemplateInjection"
+    - path: "java/templateinjection/rule-TemplateInjection"
 
   - id: "TEMPLATE_INJECTION_VELOCITY"
     rules:
-    - "java/templateinjection/rule-TemplateInjection"
+    - path: "java/templateinjection/rule-TemplateInjection"
   - id: "MALICIOUS_XSLT"
     rules:
-    - "java/xml/rule-XsltTransform"
+    - path: "java/xml/rule-XsltTransform"
 
   # Injections
   - id: "AWS_QUERY_INJECTION"
     rules:
-    - "java/inject/rule-AWSQueryInjection"
+    - path: "java/inject/rule-AWSQueryInjection"
   - id: "BEAN_PROPERTY_INJECTION"
     rules:
-    - "java/inject/rule-BeanPropertyInjection"
+    - path: "java/inject/rule-BeanPropertyInjection"
   - id: "COMMAND_INJECTION"
     rules:
-    - "java/inject/rule-CommandInjection"
+    - path: "java/inject/rule-CommandInjection"
   - id: "CRLF_INJECTION_LOGS"
     rules:
-    - "java/inject/rule-CLRFInjectionLogs"
+    - path: "java/inject/rule-CLRFInjectionLogs"
   - id: "CUSTOM_INJECTION"
     rules:
-    - "java/inject/rule-CustomInjection"
-    - "java/inject/rule-CustomInjectionSQLString"
+    - path: "java/inject/rule-CustomInjection"
+    - path: "java/inject/rule-CustomInjectionSQLString"
   - id: "EL_INJECTION"
     rules:
-    - "java/inject/rule-ELInjection"
+    - path: "java/inject/rule-ELInjection"
   - id: "REQUESTDISPATCHER_FILE_DISCLOSURE"
     rules:
-    - "java/inject/rule-FileDisclosure"
+    - path: "java/inject/rule-FileDisclosure"
   - id: "STRUTS_FILE_DISCLOSURE"
     rules:
-    - "java/inject/rule-FileDisclosure"
+    - path: "java/inject/rule-FileDisclosure"
   - id: "SPRING_FILE_DISCLOSURE"
     rules:
-    - "java/inject/rule-FileDisclosure"
+    - path: "java/inject/rule-FileDisclosure"
   - id: "LDAP_INJECTION"
     rules:
-    - "java/inject/rule-LDAPInjection"
+    - path: "java/inject/rule-LDAPInjection"
   - id: "PATH_TRAVERSAL_IN"
     rules:
-    - "java/inject/rule-PathTraversalIn"
+    - path: "java/inject/rule-PathTraversalIn"
   - id: "PATH_TRAVERSAL_OUT"
     rules:
-    - "java/inject/rule-PathTraversalOut"
+    - path: "java/inject/rule-PathTraversalOut"
   - id: "PATH_TRAVERSAL_OUT"
     rules:
-    - "java/inject/rule-PathTraversalOut"
+    - path: "java/inject/rule-PathTraversalOut"
   - id: "PT_RELATIVE_PATH_TRAVERSAL"
     rules:
-    - "java/inject/rule-SpotbugsPathTraversalRelative"
+    - path: "java/inject/rule-SpotbugsPathTraversalRelative"
   - id: "PT_ABSOLUTE_PATH_TRAVERSAL"
     rules:
-    - "java/inject/rule-SpotbugsPathTraversalAbsolute"
+    - path: "java/inject/rule-SpotbugsPathTraversalAbsolute"
   - id: "OGNL_INJECTION"
     rules:
-    - "java/inject/rule-OgnlInjection"
+    - path: "java/inject/rule-OgnlInjection"
 
   # Cryptography
   - id: "BLOWFISH_KEY_SIZE"
     rules:
-    - "java/crypto/rule-BlowfishKeySize"
+    - path: "java/crypto/rule-BlowfishKeySize"
   - id: "CIPHER_INTEGRITY"
     rules:
-    - "java/crypto/rule-CipherIntegrity"
+    - path: "java/crypto/rule-CipherIntegrity"
   - id: "ECB_MODE"
     rules:
-    - "java/crypto/rule-CipherECBMode"
+    - path: "java/crypto/rule-CipherECBMode"
   - id: "PADDING_ORACLE"
     rules:
-    - "java/crypto/rule-CipherPaddingOracle"
+    - path: "java/crypto/rule-CipherPaddingOracle"
   - id: "CUSTOM_MESSAGE_DIGEST"
     rules:
-    - "java/crypto/rule-CustomMessageDigest"
+    - path: "java/crypto/rule-CustomMessageDigest"
   - id: "DEFAULT_HTTP_CLIENT"
     rules:
-    - "java/crypto/rule-DefaultHTTPClient"
+    - path: "java/crypto/rule-DefaultHTTPClient"
   - id: "DES_USAGE"
     rules:
-    - "java/crypto/rule-CipherDESInsecure"
+    - path: "java/crypto/rule-CipherDESInsecure"
   - id: "TDES_USAGE"
     rules:
-    - "java/crypto/rule-CipherDESedeInsecure"
+    - path: "java/crypto/rule-CipherDESedeInsecure"
   - id: "HAZELCAST_SYMMETRIC_ENCRYPTION"
     rules:
-    - "java/crypto/rule-HazelcastSymmetricEncryption"
+    - path: "java/crypto/rule-HazelcastSymmetricEncryption"
   - id: "RSA_KEY_SIZE"
     rules:
-    - "java/crypto/rule-InsufficientKeySizeRsa"
+    - path: "java/crypto/rule-InsufficientKeySizeRsa"
   - id: "RSA_NO_PADDING"
     rules:
-    - "java/crypto/rule-RsaNoPadding"
+    - path: "java/crypto/rule-RsaNoPadding"
   - id: "SSL_CONTEXT"
     rules:
-    - "java/crypto/rule-WeakTLSProtocol"
+    - path: "java/crypto/rule-WeakTLSProtocol"
   - id: "WEAK_MESSAGE_DIGEST_MD5"
     rules:
-    - "java/crypto/rule-WeakMessageDigest"
+    - path: "java/crypto/rule-WeakMessageDigest"
   - id: "WEAK_MESSAGE_DIGEST_SHA1"
     rules:
-    - "java/crypto/rule-WeakMessageDigest"
+    - path: "java/crypto/rule-WeakMessageDigest"
   - id: "NULL_CIPHER"
     rules:
-    - "java/crypto/rule-NullCipher"
+    - path: "java/crypto/rule-NullCipher"
 
   # Cookie
   - id: "COOKIE_PERSISTENT"
     rules:
-    - "java/cookie/rule-CookiePersistent"
+    - path: "java/cookie/rule-CookiePersistent"
   - id: "INSECURE_COOKIE"
     rules:
-    - "java/cookie/rule-CookieInsecure"
+    - path: "java/cookie/rule-CookieInsecure"
   - id: "HTTPONLY_COOKIE"
     rules:
-    - "java/cookie/rule-CookieHTTPOnly"
+    - path: "java/cookie/rule-CookieHTTPOnly"
   - id: "COOKIE_USAGE"
     rules:
-    - "java/cookie/rule-CookieUsage"
+    - path: "java/cookie/rule-CookieUsage"
   - id: "HTTP_RESPONSE_SPLITTING"
     rules:
-    - "java/cookie/rule-HttpResponseSplitting"
+    - path: "java/cookie/rule-HttpResponseSplitting"
   - id: "HRS_REQUEST_PARAMETER_TO_COOKIE"
     rules:
-    - "java/cookie/rule-RequestParamToCookie"
+    - path: "java/cookie/rule-RequestParamToCookie"
   - id: "TRUST_BOUNDARY_VIOLATION"
     rules:
-    - "java/cookie/rule-TrustBoundaryViolation"
+    - path: "java/cookie/rule-TrustBoundaryViolation"
   - id: "HRS_REQUEST_PARAMETER_TO_HTTP_HEADER"
     rules:
-    - "java/cookie/rule-RequestParamToHeader"
+    - path: "java/cookie/rule-RequestParamToHeader"
 
   # Password
   - id: "DMI_EMPTY_DB_PASSWORD"
     rules:
-    - "java/password/rule-EmptyDBPassword"
+    - path: "java/password/rule-EmptyDBPassword"
   - id: "DMI_CONSTANT_DB_PASSWORD"
     rules:
-    - "java/password/rule-ConstantDBPassword"
+    - path: "java/password/rule-ConstantDBPassword"
   - id: "HARD_CODE_PASSWORD"
     rules:
-    - "java/password/rule-HardcodePassword"
-    - "java/password/rule-EmptyDBPassword"
-    - "java/password/rule-ConstantDBPassword"
+    - path: "java/password/rule-HardcodePassword"
+    - path: "java/password/rule-EmptyDBPassword"
+    - path: "java/password/rule-ConstantDBPassword"
 
   # Unsafe
   - id: "EXTERNAL_CONFIG_CONTROL"
     rules:
-    - "java/unsafe/rule-ExternalConfigControl"
+    - path: "java/unsafe/rule-ExternalConfigControl"
   - id: "INFORMATION_EXPOSURE_THROUGH_AN_ERROR_MESSAGE"
     rules:
-    - "java/unsafe/rule-InformationExposure"
+    - path: "java/unsafe/rule-InformationExposure"
 
   # File
   - id: "FILE_UPLOAD_FILENAME"
     rules:
-    - "java/file/rule-FileUploadFileName"
+    - path: "java/file/rule-FileUploadFileName"
   - id: "WEAK_FILENAMEUTILS"
     rules:
-    - "java/file/rule-FilenameUtils"
+    - path: "java/file/rule-FilenameUtils"
 
   # SSRF
   - id: "URLCONNECTION_SSRF_FD"
     rules:
-    - "java/ssrf/rule-SSRF"
+    - path: "java/ssrf/rule-SSRF"
 
   # HTTP_PARAMETER_POLLUTION
   - id: "HTTP_PARAMETER_POLLUTION"
     rules:
-    - "java/inject/rule-HttpParameterPollution"
+    - path: "java/inject/rule-HttpParameterPollution"
 
   # LDAP
   - id: "LDAP_ANONYMOUS"
     rules:
-    - "java/ldap/rule-AnonymousLDAP"
+    - path: "java/ldap/rule-AnonymousLDAP"
   - id: "LDAP_ENTRY_POISONING"
     rules:
-    - "java/ldap/rule-EntryPoisoning"
+    - path: "java/ldap/rule-EntryPoisoning"
 
   # Script
   - id: "SCRIPT_ENGINE_INJECTION"
     rules:
-    - "java/script/rule-ScriptInjection"
-    - "java/script/rule-SpelView"
+    - path: "java/script/rule-ScriptInjection"
+    - path: "java/script/rule-SpelView"
 
   - id: "SPEL_INJECTION"
     rules:
-    - "java/script/rule-ScriptInjection"
+    - path: "java/script/rule-ScriptInjection"
 
   - id: "EL_INJECTION"
     rules:
-    - "java/script/rule-ScriptInjection"
+    - path: "java/script/rule-ScriptInjection"
 
   - id: "SEAM_LOG_INJECTION"
     rules:
-    - "java/script/rule-ScriptInjection"
+    - path: "java/script/rule-ScriptInjection"
 
   # Servlet
   - id: "SERVLET_PARAMETER"
     rules:
-    - "java/endpoint/rule-InsecureServlet"
+    - path: "java/endpoint/rule-InsecureServlet"
   - id: "SERVLET_CONTENT_TYPE"
     rules:
-    - "java/endpoint/rule-InsecureServlet"
+    - path: "java/endpoint/rule-InsecureServlet"
   - id: "SERVLET_SERVER_NAME"
     rules:
-    - "java/endpoint/rule-InsecureServlet"
+    - path: "java/endpoint/rule-InsecureServlet"
   - id: "SERVLET_SESSION_ID"
     rules:
-    - "java/endpoint/rule-InsecureServlet"
+    - path: "java/endpoint/rule-InsecureServlet"
   - id: "SERVLET_QUERY_STRING"
     rules:
-    - "java/endpoint/rule-InsecureServlet"
+    - path: "java/endpoint/rule-InsecureServlet"
   - id: "SERVLET_HEADER"
     rules:
-    - "java/endpoint/rule-InsecureServlet"
+    - path: "java/endpoint/rule-InsecureServlet"
   - id: "SERVLET_HEADER_REFERER"
     rules:
-    - "java/endpoint/rule-InsecureServlet"
+    - path: "java/endpoint/rule-InsecureServlet"
   - id: "SERVLET_HEADER_USER_AGENT"
     rules:
-    - "java/endpoint/rule-InsecureServlet"
+    - path: "java/endpoint/rule-InsecureServlet"
   - id: "UNENCRYPTED_SOCKET"
     rules:
-    - "java/endpoint/rule-UnencryptedSocket"
+    - path: "java/endpoint/rule-UnencryptedSocket"
   - id: "UNENCRYPTED_SERVER_SOCKET"
     rules:
-    - "java/endpoint/rule-UnencryptedSocket"
+    - path: "java/endpoint/rule-UnencryptedSocket"
   - id: "UNVALIDATED_REDIRECT"
     rules:
-    - "java/endpoint/rule-UnvalidatedRedirect"
+    - path: "java/endpoint/rule-UnvalidatedRedirect"
   - id: "URL_REWRITING"
     rules:
-    - "java/endpoint/rule-UnvalidatedRedirect"
+    - path: "java/endpoint/rule-UnvalidatedRedirect"
   - id: "WEAK_HOSTNAME_VERIFIER"
     rules:
-    - "java/endpoint/rule-WeakHostNameVerification"
+    - path: "java/endpoint/rule-WeakHostNameVerification"
   - id: "WEAK_TRUST_MANAGER"
     rules:
-    - "java/endpoint/rule-WeakHostNameVerification"
+    - path: "java/endpoint/rule-WeakHostNameVerification"
 
   # Endpoint
   - id: "JAXWS_ENDPOINT"
     rules:
-    - "java/endpoint/rule-JaxWsEndpoint"
+    - path: "java/endpoint/rule-JaxWsEndpoint"
 
   - id: "JAXRS_ENDPOINT"
     rules:
-    - "java/endpoint/rule-JaxRsEndpoint"
+    - path: "java/endpoint/rule-JaxRsEndpoint"
 
   # Cors
   - id: "PERMISSIVE_CORS"
     rules:
-    - "java/cors/rule-PermissiveCORS"
-    - "java/cors/rule-PermissiveCORSInjection"
+    - path: "java/cors/rule-PermissiveCORS"
+    - path: "java/cors/rule-PermissiveCORSInjection"
 
   # CSRF
   - id: "SPRING_CSRF_PROTECTION_DISABLED"
     rules:
-    - "java/csrf/rule-SpringCSRFDisabled"
+    - path: "java/csrf/rule-SpringCSRFDisabled"

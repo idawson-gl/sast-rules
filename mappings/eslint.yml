@@ -11,44 +11,44 @@ eslint:
   mappings:
   - id: "react-dangerouslysetinnerhtml"
     rules:
-    - "javascript/react/rule-dangerouslysetinnerhtml"
+    - path: "javascript/react/rule-dangerouslysetinnerhtml"
   - id: "react-missing-noopener"
     rules:
-    - "javascript/react/rule-missing_noopener"
+    - path: "javascript/react/rule-missing_noopener"
   - id: "detect-no-csrf-before-method-override"
     rules:
-    - "javascript/csrf/rule-no_csrf_before_method_override"
+    - path: "javascript/csrf/rule-no_csrf_before_method_override"
   - id: "detect-eval-with-expression"
     rules:
-    - "javascript/eval/rule-eval_with_expression"
+    - path: "javascript/eval/rule-eval_with_expression"
   - id: "detect-child-process"
     rules:
-    - "javascript/exec/rule-child_process"
+    - path: "javascript/exec/rule-child_process"
   - id: "detect-pseudoRandomBytes"
     rules:
-    - "javascript/random/rule-pseudo_random_bytes"
+    - path: "javascript/random/rule-pseudo_random_bytes"
   - id: "detect-disable-mustache-escape"
     rules:
-    - "javascript/xss/rule-mustache_escape"
+    - path: "javascript/xss/rule-mustache_escape"
   - id: "detect-non-literal-require"
     rules:
-    - "javascript/require/rule-non_literal_require"
+    - path: "javascript/require/rule-non_literal_require"
   - id: "detect-buffer-noassert"
     rules:
-    - "javascript/buf/rule-buffer-noassert"
+    - path: "javascript/buf/rule-buffer-noassert"
   - id: "detect-possible-timing-attacks"
     rules:
-    - "javascript/timing/rule-possible_timing_attacks"
+    - path: "javascript/timing/rule-possible_timing_attacks"
   - id: "detect-non-literal-regexp"
     rules:
-    - "javascript/dos/rule-non_literal_regexp"
+    - path: "javascript/dos/rule-non_literal_regexp"
   - id: "detect-non-literal-fs-filename"
     rules:
-    - "javascript/pathtraversal/rule-non_literal_fs_filename"
+    - path: "javascript/pathtraversal/rule-non_literal_fs_filename"
   - id: "detect-object-injection"
     rules:
-    - "javascript/protinjection/rule-object_injection"
+    - path: "javascript/protinjection/rule-object_injection"
   - id: "detect-new-buffer"
     rules:
-    - "javascript/buf/rule-detect-new-buffer"
+    - path: "javascript/buf/rule-detect-new-buffer"
 

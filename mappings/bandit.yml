@@ -11,240 +11,240 @@ bandit:
   mappings:
   - id: "B101"
     rules:
-    - "python/assert/rule-assert_used"
+    - path: "python/assert/rule-assert_used"
   - id: "B102"
     rules:
-    - "python/exec/rule-exec_used"
+    - path: "python/exec/rule-exec_used"
   - id: "B103"
     rules:
-    - "python/file_permissions/rule-general_bad_permission"
+    - path: "python/file_permissions/rule-general_bad_permission"
   - id: "B104"
     rules:
-    - "python/bind_all_interfaces/rule-general_bindall_interfaces"
+    - path: "python/bind_all_interfaces/rule-general_bindall_interfaces"
   - id: "B105"
     rules:
-    - "python/secrets/rule-hardcoded_password_string"
+    - path: "python/secrets/rule-hardcoded_password_string"
   - id: "B106"
     rules:
-    - "python/secrets/rule-hardcoded_password_funcarg"
+    - path: "python/secrets/rule-hardcoded_password_funcarg"
   - id: "B107"
     rules:
-    - "python/secrets/rule-hardcoded_password_default"
+    - path: "python/secrets/rule-hardcoded_password_default"
   - id: "B108"
     rules:
-    - "python/tmpdir/rule-specialdir"
-    - "python/tmpdir/rule-hardcodedtmp"
+    - path: "python/tmpdir/rule-specialdir"
+    - path: "python/tmpdir/rule-hardcodedtmp"
   - id: "B110"
     rules:
-    - "python/exception/rule-try_except_pass"
+    - path: "python/exception/rule-try_except_pass"
   - id: "B112"
     rules:
-    - "python/exception/rule-try_except_continue"
+    - path: "python/exception/rule-try_except_continue"
   - id: "B113"
     rules:
-    - "python/requests/rule-request_without_timeout"
+    - path: "python/requests/rule-request_without_timeout"
   - id: "B201"
     rules:
-    - "python/flask/rule-app_debug"
+    - path: "python/flask/rule-app_debug"
   - id: "B202"
     rules:
-    - "python/files/rule-tarfile_unsafe_members"
+    - path: "python/files/rule-tarfile_unsafe_members"
   - id: "B301"
     rules:
-    - "python/deserialization/rule-cpickle"
-    - "python/deserialization/rule-shelve"
-    - "python/deserialization/rule-pickle"
-    - "python/deserialization/rule-dill"
+    - path: "python/deserialization/rule-cpickle"
+    - path: "python/deserialization/rule-shelve"
+    - path: "python/deserialization/rule-pickle"
+    - path: "python/deserialization/rule-dill"
   - id: "B302"
     rules:
-    - "python/deserialization/rule-marshal"
+    - path: "python/deserialization/rule-marshal"
   - id: "B303"
     rules:
-    - "python/crypto/rule-hash_md2"
-    - "python/crypto/rule-crypto.hazmat_hash_md5"
-    - "python/crypto/rule-crypto_hash_md5"
-    - "python/crypto/rule-crypto.hazmat_hash_sha1"
-    - "python/crypto/rule-hash_md5"
-    - "python/crypto/rule-crypto_hash_sha1"
-    - "python/crypto/rule-hash_md4"
-    - "python/crypto/rule-hash_sha1"
+    - path: "python/crypto/rule-hash_md2"
+    - path: "python/crypto/rule-crypto.hazmat_hash_md5"
+    - path: "python/crypto/rule-crypto_hash_md5"
+    - path: "python/crypto/rule-crypto.hazmat_hash_sha1"
+    - path: "python/crypto/rule-hash_md5"
+    - path: "python/crypto/rule-crypto_hash_sha1"
+    - path: "python/crypto/rule-hash_md4"
+    - path: "python/crypto/rule-hash_sha1"
   - id: "B304"
     rules:
-    - "python/crypto/rule-crypto_cipher_xor"
-    - "python/crypto/rule-crypto_hazmat_cipher_arc4"
-    - "python/crypto/rule-crypto_hazmat_cipher_idea"
-    - "python/crypto/rule-crypto_hazmat_cipher_blowfish"
-    - "python/crypto/rule-crypto_cipher_rc2"
-    - "python/crypto/rule-crypto_cipher_des"
-    - "python/crypto/rule-crypto_cipher_blowfish"
-    - "python/crypto/rule-crypto_cipher_rc4"
+    - path: "python/crypto/rule-crypto_cipher_xor"
+    - path: "python/crypto/rule-crypto_hazmat_cipher_arc4"
+    - path: "python/crypto/rule-crypto_hazmat_cipher_idea"
+    - path: "python/crypto/rule-crypto_hazmat_cipher_blowfish"
+    - path: "python/crypto/rule-crypto_cipher_rc2"
+    - path: "python/crypto/rule-crypto_cipher_des"
+    - path: "python/crypto/rule-crypto_cipher_blowfish"
+    - path: "python/crypto/rule-crypto_cipher_rc4"
   - id: "B305"
     rules:
-    - "python/crypto/rule-cipher_modes"
+    - path: "python/crypto/rule-cipher_modes"
   - id: "B306"
     rules:
-    - "python/tmpdir/rule-mktemp_q"
+    - path: "python/tmpdir/rule-mktemp_q"
   - id: "B307"
     rules:
-    - "python/eval/rule-eval"
+    - path: "python/eval/rule-eval"
   - id: "B309"
     rules:
-    - "python/https/rule-httpsconnection"
+    - path: "python/https/rule-httpsconnection"
   - id: "B310"
     rules:
-    - "python/urlopen/rule-urllib_urlopen1"
-    - "python/urlopen/rule-urllib_urlopen2"
+    - path: "python/urlopen/rule-urllib_urlopen1"
+    - path: "python/urlopen/rule-urllib_urlopen2"
   - id: "B311"
     rules:
-    - "python/random/rule-random"
+    - path: "python/random/rule-random"
   - id: "B312"
     rules:
-    - "python/telnet/rule-telnetlib"
+    - path: "python/telnet/rule-telnetlib"
   - id: "B313"
     rules:
-    - "python/xml/rule-celement"
+    - path: "python/xml/rule-celement"
   - id: "B314"
     rules:
-    - "python/xml/rule-element"
+    - path: "python/xml/rule-element"
   - id: "B315"
     rules:
-    - "python/xml/rule-expatreader"
+    - path: "python/xml/rule-expatreader"
   - id: "B316"
     rules:
-    - "python/xml/rule-expatbuilder"
+    - path: "python/xml/rule-expatbuilder"
   - id: "B317"
     rules:
-    - "python/xml/rule-sax"
+    - path: "python/xml/rule-sax"
   - id: "B318"
     rules:
-    - "python/xml/rule-minidom"
+    - path: "python/xml/rule-minidom"
   - id: "B319"
     rules:
-    - "python/xml/rule-pulldom"
+    - path: "python/xml/rule-pulldom"
   - id: "B320"
     rules:
-    - "python/xml/rule-etree"
+    - path: "python/xml/rule-etree"
   - id: "B321"
     rules:
-    - "python/ftp/rule-ftplib"
+    - path: "python/ftp/rule-ftplib"
   - id: "B323"
     rules:
-    - "python/ssl/rule-unverified_context"
+    - path: "python/ssl/rule-unverified_context"
   - id: "B324"
     rules:
-    - "python/crypto/rule-hashlib_new_insecure_functions"
+    - path: "python/crypto/rule-hashlib_new_insecure_functions"
   - id: "B325"
     rules:
-    - "python/tmpdir/rule-tempnam"
+    - path: "python/tmpdir/rule-tempnam"
   - id: "B401"
     rules:
-    - "python/telnet/rule-import_telnib"
+    - path: "python/telnet/rule-import_telnib"
   - id: "B402"
     rules:
-    - "python/ftp/rule-import_ftplib"
+    - path: "python/ftp/rule-import_ftplib"
   - id: "B403"
     rules:
-    - "python/xml/rule-import_pickle"
+    - path: "python/xml/rule-import_pickle"
   - id: "B404"
     rules:
-    - "python/exec/rule-import_subprocess"
+    - path: "python/exec/rule-import_subprocess"
   - id: "B405"
     rules:
-    - "python/xml/rule-import_etree"
+    - path: "python/xml/rule-import_etree"
   - id: "B406"
     rules:
-    - "python/xml/rule-import_sax"
+    - path: "python/xml/rule-import_sax"
   - id: "B407"
     rules:
-    - "python/xml/rule-import_expat"
+    - path: "python/xml/rule-import_expat"
   - id: "B408"
     rules:
-    - "python/xml/rule-import_minidom"
+    - path: "python/xml/rule-import_minidom"
   - id: "B409"
     rules:
-    - "python/xml/rule-import_pulldom"
+    - path: "python/xml/rule-import_pulldom"
   - id: "B410"
     rules:
-    - "python/xml/rule-import_lxml"
+    - path: "python/xml/rule-import_lxml"
   - id: "B411"
     rules:
-    - "python/xml/rule-import_xmlrpclib"
+    - path: "python/xml/rule-import_xmlrpclib"
   - id: "B412"
     rules:
-    - "python/cgi/rule-import_httpoxy"
+    - path: "python/cgi/rule-import_httpoxy"
   - id: "B413"
     rules:
-    - "python/crypto/rule-import_pycrypto"
+    - path: "python/crypto/rule-import_pycrypto"
   - id: "B415"
     rules:
-    - "python/crypto/rule-import_pyghmi"
+    - path: "python/crypto/rule-import_pyghmi"
   - id: "B501"
     rules:
-    - "python/ssl/rule-req_no_certvalid"
+    - path: "python/ssl/rule-req_no_certvalid"
   - id: "B502"
     rules:
-    - "python/ssl/rule-ssl_with_bad_version"
+    - path: "python/ssl/rule-ssl_with_bad_version"
   - id: "B504"
     rules:
-    - "python/ssl/rule-ssl_no_version"
+    - path: "python/ssl/rule-ssl_no_version"
   - id: "B505"
     rules:
-    - "python/crypto/rule-crypto_encrypt_dsa_rsa"
-    - "python/crypto/rule-crypto_encrypt_ec"
+    - path: "python/crypto/rule-crypto_encrypt_dsa_rsa"
+    - path: "python/crypto/rule-crypto_encrypt_ec"
   - id: "B506"
     rules:
-    - "python/deserialization/rule-yaml_load"
+    - path: "python/deserialization/rule-yaml_load"
   - id: "B507"
     rules:
-    - "python/ssh/rule-ssl_nohost_key_verification"
+    - path: "python/ssh/rule-ssl_nohost_key_verification"
   - id: "B508"
     rules:
-    - "python/snmp/rule-insecure_snmp_version"
+    - path: "python/snmp/rule-insecure_snmp_version"
   - id: "B509"
     rules:
-    - "python/snmp/rule-snmp_weak_cryptography"
+    - path: "python/snmp/rule-snmp_weak_cryptography"
   - id: "B601"
     rules:
-    - "python/exec/rule-paramiko_calls"
+    - path: "python/exec/rule-paramiko_calls"
   - id: "B602"
     rules:
-    - "python/exec/rule-subprocess_popen_shell_true"
+    - path: "python/exec/rule-subprocess_popen_shell_true"
   - id: "B603"
     rules:
-    - "python/exec/rule-subprocess_call"
+    - path: "python/exec/rule-subprocess_call"
   - id: "B604"
     rules:
-    - "python/exec/rule-subprocess_shell_TRUE"
+    - path: "python/exec/rule-subprocess_shell_TRUE"
   - id: "B605"
     rules:
-    - "python/exec/rule-os_popen2"
+    - path: "python/exec/rule-os_popen2"
   - id: "B606"
     rules:
-    - "python/exec/rule-start_process_with_no_shell"
+    - path: "python/exec/rule-start_process_with_no_shell"
   - id: "B607"
     rules:
-    - "python/exec/rule-os_path"
+    - path: "python/exec/rule-os_path"
   - id: "B608"
     rules:
-    - "python/sql/rule-hardcoded_sql_expression"
+    - path: "python/sql/rule-hardcoded_sql_expression"
   - id: "B609"
     rules:
-    - "python/exec/rule-linux_command_wildcard_injection"
+    - path: "python/exec/rule-linux_command_wildcard_injection"
   - id: "B610"
     rules:
-    - "python/django/rule-django_extra_used"
+    - path: "python/django/rule-django_extra_used"
   - id: "B611"
     rules:
-    - "python/django/rule-django_rawsql_used"
+    - path: "python/django/rule-django_rawsql_used"
   - id: "B612"
     rules:
-    - "python/log/rule-logging_config_insecure_listen"
+    - path: "python/log/rule-logging_config_insecure_listen"
   - id: "B701"
     rules:
-    - "python/escaping/rule-jinja2_autoescape_false"
+    - path: "python/escaping/rule-jinja2_autoescape_false"
   - id: "B702"
     rules:
-    - "python/escaping/rule-use_of_mako_templates"
+    - path: "python/escaping/rule-use_of_mako_templates"
   - id: "B703"
     rules:
-    - "python/escaping/rule-mark_safe"
+    - path: "python/escaping/rule-mark_safe"

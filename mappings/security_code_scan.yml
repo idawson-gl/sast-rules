@@ -12,79 +12,79 @@ security_code_scan:
   # injection
   - id: "SCS0001"
     rules:
-    - "csharp/injection/rule-CommandInjection"
+    - path: "csharp/injection/rule-CommandInjection"
   - id: "SCS0002"
     rules:
-    - "csharp/injection/rule-SQLInjection"
+    - path: "csharp/injection/rule-SQLInjection"
   - id: "SCS0003"
     rules:
-    - "csharp/injection/rule-XPathInjection"
+    - path: "csharp/injection/rule-XPathInjection"
   - id: "SCS0007"
     rules:
-    - "csharp/injection/rule-XXEInjection"
+    - path: "csharp/injection/rule-XXEInjection"
   # crypto
   - id: "SCS0004"
     rules:
-    - "csharp/crypto/rule-CertificateValidationDisabled"
+    - path: "csharp/crypto/rule-CertificateValidationDisabled"
   - id: "SCS0005"
     rules:
-    - "csharp/crypto/rule-WeakRNG"
+    - path: "csharp/crypto/rule-WeakRNG"
   - id: "SCS0006"
     rules:
-    - "csharp/crypto/rule-WeakHashingFunction"
+    - path: "csharp/crypto/rule-WeakHashingFunction"
   - id: "SCS0010"
     rules:
-    - "csharp/crypto/rule-WeakCipherAlgorithm"
+    - path: "csharp/crypto/rule-WeakCipherAlgorithm"
   - id: "SCS0013"
     rules:
-    - "csharp/crypto/rule-WeakCipherMode"
+    - path: "csharp/crypto/rule-WeakCipherMode"
   # cookies
   - id: "SCS0008"
     rules:
-    - "csharp/cookies/rule-CookieWithoutSSLFlag"
+    - path: "csharp/cookies/rule-CookieWithoutSSLFlag"
   - id: "SCS0009"
     rules:
-    - "csharp/cookies/rule-CookieWithoutHttpOnlyFlag"
+    - path: "csharp/cookies/rule-CookieWithoutHttpOnlyFlag"
   # other
   - id: "SCS0011"
     rules:
-    - "csharp/other/rule-UnsafeXSLTSettingUsed"
+    - path: "csharp/other/rule-UnsafeXSLTSettingUsed"
   - id: "SCS0012"
     rules:
-    - "csharp/other/rule-AuthorizationBypass"
+    - path: "csharp/other/rule-AuthorizationBypass"
   - id: "SCS0018"
     rules:
-    - "csharp/path/rule-PathTraversal"
+    - path: "csharp/path/rule-PathTraversal"
   - id: "SCS0016"
     rules:
-    - "csharp/csrf/rule-Csrf"
+    - path: "csharp/csrf/rule-Csrf"
   - id: "SCS0017"
     rules:
-    - "csharp/validation/rule-InputValidation"
+    - path: "csharp/validation/rule-InputValidation"
   - id: "SCS0019"
     rules:
-    - "csharp/cache/rule-OutputCacheConflicts"
+    - path: "csharp/cache/rule-OutputCacheConflicts"
   - id: "SCS0026"
     rules:
-    - "csharp/injection/rule-LdapInjection"
+    - path: "csharp/injection/rule-LdapInjection"
   - id: "SCS0031"
     rules:
-    - "csharp/injection/rule-LdapInjection"
+    - path: "csharp/injection/rule-LdapInjection"
   - id: "SCS0027"
     rules:
-    - "csharp/endpoint/rule-UnvalidatedRedirect"
+    - path: "csharp/endpoint/rule-UnvalidatedRedirect"
   - id: "SCS0028"
     rules:
-    - "csharp/deserialization/rule-InsecureDeserialization"
+    - path: "csharp/deserialization/rule-InsecureDeserialization"
   - id: "SCS0029"
     rules:
-    - "csharp/xss/rule-Xss"
+    - path: "csharp/xss/rule-Xss"
   - id: "SCS0032"
     rules:
-    - "csharp/password/rule-PasswordComplexity"
+    - path: "csharp/password/rule-PasswordComplexity"
   - id: "SCS0033"
     rules:
-    - "csharp/password/rule-PasswordComplexity"
+    - path: "csharp/password/rule-PasswordComplexity"
   - id: "SCS0034"
     rules:
-    - "csharp/password/rule-PasswordComplexity"
+    - path: "csharp/password/rule-PasswordComplexity"
