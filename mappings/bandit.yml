@@ -33,7 +33,6 @@ bandit:
   - id: "B108"
     rules:
     - path: "python/tmpdir/rule-specialdir"
-      primary_identifier: "bandit.B108-2"
     - path: "python/tmpdir/rule-hardcodedtmp"
   - id: "B110"
     rules:
