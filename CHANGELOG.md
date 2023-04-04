@@ -1,5 +1,8 @@
 sast-rules changelog
 
+## v1.3.1
+- Add `security` to `eslint` `secondary_identifiers` (!133)
+
 ## v1.3.0
 - Add missing OWASP Top10 2017 Categories to C rulesets (!123)
 - Fix java/scala OWASP Categories to include missing numerical identifier (!123)
