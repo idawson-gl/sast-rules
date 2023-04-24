@@ -93,7 +93,6 @@ class SQLInjection
         cmd.ExecuteReader();
     }
 
-#region DbBatchCommand
     static void QueryWithUserInputNpgsqlBatch(string input)
     {
         var cmd = new NpgsqlBatchCommand("SELECT * FROM Users WHERE username = '" + input + "' and role='user'");
@@ -108,5 +107,4 @@ class SQLInjection
         var mySqlCmd = new MySqlBatchCommand();
         mySqlCmd.CommandText = "SELECT * FROM Users WHERE username = '" + input + "' and role='user'";
     }
-#endregion
 }
