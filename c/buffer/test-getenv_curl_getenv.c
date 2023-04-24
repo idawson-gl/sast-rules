@@ -9,5 +9,5 @@ int main() {
   printf("HOME : %s\n", getenv("HOME"));
   printf("ROOT : %s\n", getenv("ROOT"));
 
-  return (0);
+  return 0;
 }

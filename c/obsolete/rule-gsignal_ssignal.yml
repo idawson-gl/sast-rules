@@ -9,12 +9,13 @@ rules:
   languages:
   - "c"
   message: |
-    Switch to raise/signal, or some other signalling approach.
+    The `gsignal` and `ssignal` functions are obsolete and no longer recommended. Consider
+    using the `raise` or `sigaction` functions instead for process signalling.
+
+    For more information please see: https://linux.die.net/man/3/sigaction
   metadata:
-    cwe: "CWE-676: These functions are considered obsolete on most systems, and very
-      non-portable (Linux-based systems handle them radically different, basically
-      if gsignal/ssignal were the same as raise/signal respectively, while System
-      V considers them a separate set and obsolete) (CWE-676)"
+    shortDescription: "Deprecated function calls (ssignal/gsignal)"
+    cwe: "CWE-676"
   pattern-either:
   - pattern: "gsignal(...)"
   - pattern: "ssignal(...)"

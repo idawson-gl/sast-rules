@@ -31,8 +31,8 @@ rules:
       - pattern: "(javax.jdo.Query $Q).setGrouping($ARG)"
       - pattern-not: "(javax.jdo.Query $Q).setGrouping(\"...\")"
     - patterns:
-      - pattern: "(org.hibernate.criterion.Restrictions $H).sqlRestriction($ARG, ...)"
-      - pattern-not: "(org.hibernate.criterion.Restrictions $H).sqlRestriction(\"...\",
+      - pattern: "org.hibernate.criterion.Restrictions.sqlRestriction($ARG, ...)"
+      - pattern-not: "org.hibernate.criterion.Restrictions.sqlRestriction(\"...\",
           ...)"
     - patterns:
       - pattern: "(org.hibernate.Session $S).createQuery((String $ARG), ...)"

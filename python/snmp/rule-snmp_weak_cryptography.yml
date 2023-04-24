@@ -1,0 +1,20 @@
+# yamllint disable
+# License: MIT (c) GitLab Inc.
+# source (original): https://bandit.readthedocs.io/en/latest/plugins/b508_snmp_insecure_version.html
+# hash: acdabdb
+# yamllint enable
+---
+rules:
+- id: "python/snmp/rule-snmp_weak_cryptography"
+  pattern-either:
+  - pattern: "pysnmp.hlapi.UsmUserData($ARG1, $ARG2)"
+  - pattern: "pysnmp.hlapi.UsmUserData($ARG1)"
+  - pattern: "pysnmp.hlapi.UsmUserData(...,'noAuthNoPriv',...)"
+  - pattern: "pysnmp.hlapi.UsmUserData(...,'authNoPriv',...)"
+  message: |
+    You should not use SNMPv3 without encryption. noAuthNoPriv & authNoPriv is insecure
+  metadata:
+    cwe: "CWE-319: Cleartext Transmission of Sensitive Information"
+  severity: "WARNING"
+  languages:
+  - "python"

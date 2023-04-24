@@ -1,5 +1,35 @@
 sast-rules changelog
 
+## v1.3.1
+- Enhance C ruleset descriptions and titles (!128)
+- Add shortDescription titles to C rulesets (!128)
+- Add valdiation to confirm that either cwe tag contains title, or shortDescription is defined (!128)
+
+## v1.3.0
+- Add missing OWASP Top10 2017 Categories to C rulesets (!123)
+- Fix java/scala OWASP Categories to include missing numerical identifier (!123)
+- Add owasp metadata validation to schema (!123)
+
+## v1.2.8
+- Improve B608 to work with control flow (!126)
+
+## v1.2.7
+- Fix Bandit B113 positional arguments FPs (!122)
+
+## v1.2.6
+- Synchronize bandit upstream rules in the ruleset (!119)
+
+## v1.2.5
+- Synchronize new upstream rules in the ruleset (!112)
+
+## v1.2.4
+- Adjust bandit severity (!116)
+
+## v1.2.3
+- Rule refinements for Go (!115)
+
+## v1.2.2
+- Rule refinements for Scala (!113)
 
 ## v1.2.1
 - Support Oracle, Postgres and MySql in .net (community contribution from @masakura) (!107)

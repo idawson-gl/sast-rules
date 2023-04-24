@@ -9,12 +9,16 @@ rules:
   languages:
   - "c"
   message: |
+    The `getlogin` function suffers from many bugs or unknown behaviors depending on the
+    system. Often, it gives only the first 8 characters of the login name. The user
+    currently logged in on the controlling TTY of our program does not necessarily mean
+    it is the user who started the process.
+
     Use getpwuid(geteuid()) and extract the desired information instead.
+
+    For more information please see: https://linux.die.net/man/3/getpwuid
   metadata:
-    cwe: "CWE-807: It's often easy to fool getlogin.  Sometimes it does not work at
-      all, because some program messed up the utmp file.  Often, it gives only the
-      first 8 characters of the login name. The user currently logged in on the controlling
-      tty of our program need not be the user who started it.  Avoid getlogin() for
-      security-related purposes (CWE-807)"
+    shortDescription: "Usage of deprecated function (getlogin)"
+    cwe: "CWE-807"
   pattern: "getlogin(...)"
   severity: "ERROR"

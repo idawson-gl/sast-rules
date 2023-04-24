@@ -9,13 +9,17 @@ rules:
   languages:
   - "c"
   message: |
-    Use getpwuid(geteuid()) and extract the desired information instead.
+    `cuserid()` is poorly defined (e.g., some systems use the effective
+    UID, like Linux, while others like System V use the real UID). Therefore, you can't trust
+    what it does. The cuserid function was included in the 1988 version of POSIX, but removed
+    from the 1990 version.  Also, if passed a non-null parameter, there's a risk of a buffer
+    overflow if the passed-in buffer is not at least `L_cuserid` characters long.
+
+    Use `getpwuid(geteuid())` and extract the desired information instead.
+
+    For more information please see: https://linux.die.net/man/3/getpwuid
   metadata:
-    cwe: "CWE-120: Exactly what cuserid() does is poorly defined (e.g., some systems
-      use the effective uid, like Linux, while others like System V use the real uid).
-      Thus, you can't trust what it does. It's certainly not portable (The cuserid
-      function was included in the 1988 version of POSIX, but removed from the 1990
-      version).  Also, if passed a non-null parameter, there's a risk of a buffer
-      overflow if the passed-in buffer is not at least L_cuserid characters long (CWE-120)"
+    shortDescription: "Usage of deprecated function (cuserid)"
+    cwe: "CWE-120"
   pattern: "cuserid(...)"
   severity: "ERROR"

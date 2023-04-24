@@ -39,6 +39,6 @@ rules:
   metadata:
     category: "security"
     cwe: "CWE-20: Improper Input Validation"
-    owasp: "OWASP: Cross-Site Request Forgery"
+    owasp: "A07:2017 - Cross-Site Scripting (XSS)"
     technology:
     - "java"

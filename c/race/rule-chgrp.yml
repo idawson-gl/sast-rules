@@ -13,5 +13,6 @@ rules:
   metadata:
     cwe: "CWE-362: This accepts filename arguments; if an attacker can move those
       files, a race condition results. (CWE-362)"
+    owasp: "A05:2017 - Broken Access Control"
   pattern: "chgrp(...)"
   severity: "ERROR"

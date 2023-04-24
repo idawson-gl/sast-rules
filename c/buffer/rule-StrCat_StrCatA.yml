@@ -9,10 +9,16 @@ rules:
   languages:
   - "c"
   message: |
-    Buffer overflow is not checked.
+    The `StrCat` family of functions do not guarantee the final string to be null terminated.
+    Consider using one of the following alternatives: `StringCbCat`, `StringCbCatEx`,
+    `StringCbCatN`, `StringCbCatNEx`, `StringCchCat`, `StringCchCatEx`, `StringCchCatN`, or
+    `StringCchCatNEx`.
+
+    For more information please see: https://learn.microsoft.com/en-us/windows/win32/api/strsafe/
   metadata:
-    cwe: "CWE-120: Does not check for buffer overflows when concatenating to destination
-      [MS-banned] (CWE-120)"
+    shortDescription: "Insecure string processing function"
+    cwe: "CWE-120"
+    owasp: "A01:2017 - Injection"
   pattern-either:
   - pattern: "StrCat(...)"
   - pattern: "StrCatA(...)"

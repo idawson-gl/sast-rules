@@ -16,25 +16,25 @@ class TrustBoundaryViolation { //Taint input
   }
 
   //Unknown source
-  def setSessionAttributeNameUnknownSource(req: HttpServletRequest, input: Nothing): Unit = {
+  def setSessionAttributeNameUnknownSource(req: HttpServletRequest, input: String): Unit = {
     req.getSession.setAttribute(input, "true")
   }
 
-  def setSessionAttributeValueUnknownSource(req: HttpServletRequest, input: Nothing): Unit = {
+  def setSessionAttributeValueUnknownSource(req: HttpServletRequest, input: String): Unit = {
     req.getSession.setAttribute("user", input) //Reported as low
   }
 
   //Legacy api
-  def setSessionAttributeNameUnknownSourceLegacy(req: HttpServletRequest, input: Nothing): Unit = {
+  def setSessionAttributeNameUnknownSourceLegacy(req: HttpServletRequest, input: String): Unit = {
     req.getSession.putValue(input, "true")
   }
 
-  def setSessionAttributeValueUnknownSourceLegacy(req: HttpServletRequest, input: Nothing): Unit = {
+  def setSessionAttributeValueUnknownSourceLegacy(req: HttpServletRequest, input: String): Unit = {
     req.getSession.putValue("user", input)
   }
 
   //Safe
-  def setSessionAttributeSafe(req: HttpServletRequest, input: Nothing): Unit = {
+  def setSessionAttributeSafe(req: HttpServletRequest, input: String): Unit = {
     if ("enable".equals(input)) req.getSession.setAttribute("user", "true")
     else req.getSession.setAttribute("user", "false")
   }

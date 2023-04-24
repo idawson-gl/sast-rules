@@ -13,6 +13,6 @@ rules:
     cwe: "CWE-78: Improper Neutralization of Special Elements used in an OS Command
       ('OS Command Injection')"
     owasp: "A1: Injection"
-  severity: "INFO"
+  severity: "WARNING"
   languages:
   - "python"

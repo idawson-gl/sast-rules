@@ -9,9 +9,12 @@ rules:
   languages:
   - "c"
   message: |
-    Use getrlimit(2), setrlimit(2), and sysconf(3) instead.
+    The ulimit function is obsolete and no longer recommended. Use `getrlimit(2)`,
+    `setrlimit`, or `sysconf` instead.
+
+    For more information please see: https://linux.die.net/man/3/setrlimit
   metadata:
-    cwe: "CWE-676: This C routine is considered obsolete (as opposed to the shell
-      command by the same name, which is NOT obsolete) (CWE-676)"
+    shortDescription: "Usage of deprecated function (ulimit)"
+    cwe: "CWE-676"
   pattern: "ulimit(...)"
   severity: "INFO"

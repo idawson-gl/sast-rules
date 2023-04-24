@@ -9,9 +9,18 @@ rules:
   languages:
   - "c"
   message: |
-    Consider using strcat_s, strncat, strlcat, or snprintf (warning: strncat is easily misused).
+    The `strcat` family of functions are unable to limit how many bytes are copied
+    to the destination buffer. It is recommended to use more secure alternatives such as
+    `snprintf`.
+
+    For more information please see: https://linux.die.net/man/3/snprintf
+
+    If developing for C Runtime Library (CRT), more secure versions of these functions should be
+    used, see:
+    https://learn.microsoft.com/en-us/cpp/c-runtime-library/reference/strcat-s-wcscat-s-mbscat-s?view=msvc-170
   metadata:
-    cwe: "CWE-120: Does not check for buffer overflows when concatenating to destination
-      [MS-banned] (CWE-120)"
+    shortDescription: "Insecure string processing function"
+    cwe: "CWE-120"
+    owasp: "A01:2017 - Injection"
   pattern: "strcat(...)"
   severity: "ERROR"

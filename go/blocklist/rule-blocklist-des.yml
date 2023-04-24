@@ -8,8 +8,9 @@ rules:
   patterns:
   - pattern: |
       import "crypto/des"
-  message: "Usage of a cryptographically broken primitive has been detected. It is
-    recommended that \nChaCha20 or Advanced Encryption Standard (AES) be used instead.\n"
+  message: |
+    Usage of a cryptographically broken primitive has been detected. It is recommended that
+    ChaCha20 or Advanced Encryption Standard (AES) be used instead.
   metadata:
     cwe: "CWE-327: Use of a Broken or Risky Cryptographic Algorithm"
     owasp: "A9: Using Components with Known Vulnerabilities"

@@ -9,10 +9,18 @@ rules:
   languages:
   - "c"
   message: |
-    Consider using snprintf, strcpy_s, or strlcpy (warning: strncpy easily misused).
+    The `StrCpy` family of functions do not guarantee the final string to be null terminated.
+    Consider
+    using one of the following alternatives `StringCbCopy`, `StringCbCopyEx`, `StringCbCopyN`,
+    `StringCbCopyNEx`, `StringCchCopy`, `StringCchCopyEx`, `StringCchCopyN`, or `StringCchCopyNEx`.
+
+    If developing for C Runtime Library (CRT), more secure versions of these functions should be
+    used, see:
+    https://learn.microsoft.com/en-us/cpp/c-runtime-library/reference/strncpy-s-strncpy-s-l-wcsncpy-s-wcsncpy-s-l-mbsncpy-s-mbsncpy-s-l?view=msvc-170
   metadata:
-    cwe: "CWE-120: Does not check for buffer overflows when copying to destination
-      [MS-banned] (CWE-120)"
+    shortDescription: "Insecure string processing function"
+    cwe: "CWE-120"
+    owasp: "A01:2017 - Injection"
   pattern-either:
   - pattern: "strcpyA(...)"
   - pattern: "strcpyW(...)"

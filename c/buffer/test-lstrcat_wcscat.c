@@ -2,7 +2,7 @@
 #include <stdio.h>
 
 
-void main() {
+int main() {
   char * ptr = NULL;
   wchar_t display[10];
   unsigned char another[10];
@@ -11,5 +11,5 @@ void main() {
   ptr = lstrcat(fstr, str2);
   wcscat(display, L " ");
   _mbscat(another, T " ");
-
+  return 0;
 }

@@ -9,10 +9,24 @@ rules:
   languages:
   - "c"
   message: |
-    Specify a limit to %s, or use a different input function.
+    Format specifiers can take optional field widths, which should be
+    used to limit how many characters are copied into the target buffer.
+
+    For more information please see: https://linux.die.net/man/3/scanf
+
+    Example:
+    ```
+      char buf[11] = {0};
+      scanf("%10s", &buf); // buf = AAAAAAAAAA\0
+    ```
+
+    If developing for C Runtime Library (CRT), more secure versions of these functions should be
+    used, see:
+    https://learn.microsoft.com/en-us/cpp/c-runtime-library/reference/scanf-s-scanf-s-l-wscanf-s-wscanf-s-l?view=msvc-170
   metadata:
-    cwe: "CWE-120: The scanf() family's %s operation, without a limit specification,
-      permits buffer overflows (CWE-120, CWE-20)"
+    shortDescription: "scanf() functions may allow format string based overflows"
+    cwe: "CWE-120"
+    owasp: "A01:2017 - Injection"
   pattern-either:
   - patterns:
     - pattern: "scanf($FMT, ...)"

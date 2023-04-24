@@ -2,6 +2,9 @@
 # The ruleset is generated from flawfinder official rule repository hosted on github.
 # License: GPL 2.0 (c) 1989, 1991 Free Software Foundation, Inc.
 # source: https://github.com/david-a-wheeler/flawfinder/blob/e0d8827c3b714a883ce8036edc832721f4619524/flawfinder.py
+#
+# For OWASP 2010 this would fall under "Cryptographic Failures", which is a bit more accurate/broader
+#
 # yamllint enable
 ---
 rules:
@@ -9,12 +12,15 @@ rules:
   languages:
   - "c"
   message: |
-    Use a different algorithm, such as SHA-256, with a larger, non-repeating salt.
+    The crypt functions are not recommended due to the significantly small
+    key space. Modern hardware can crack crypt produced passwords relatively quickly.
+
+    Consider using the Argon2id password hashing algorithm provided by libsodium.
+    For more information please see: https://libsodium.gitbook.io/doc/password_hashing.
   metadata:
-    cwe: "CWE-327: The crypt functions use a poor one-way hashing algorithm; since
-      they only accept passwords of 8 characters or fewer and only a two-byte salt,
-      they are excessively vulnerable to dictionary attacks given today's faster computing
-      equipment (CWE-327)"
+    shortDescription: "Insecure hashing algorithm"
+    cwe: "CWE-327"
+    owasp: "A03:2017 - Sensitive Data Exposure"
   pattern-either:
   - pattern: "crypt(...)"
   - pattern: "crypt_r(...)"

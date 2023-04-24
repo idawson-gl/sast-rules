@@ -9,11 +9,16 @@ rules:
   languages:
   - "c"
   message: |
-    Use getpwuid() instead.
+    The getpw() function is dangerous as it may overflow the provided
+    buffer when reading from the `/etc/passwd` file.  While the passwd file
+    is not generally writeable, there are no protections offered by this function
+    to protect from reading past the bounds of the destination buffer. This function
+    is obsoleted by `getpwuid`.
+
+    For more information please see: https://linux.die.net/man/3/getpwuid
   metadata:
-    cwe: "CWE-120: This function is dangerous; it may overflow the provided buffer.
-      It extracts data from a 'protected' area, but most systems have many commands
-      to let users modify the protected area, and it's not always clear what their
-      limits are.  Best to avoid using this function altogether (CWE-676, CWE-120)"
+    shortDescription: "Use of deprecated function (getpwd)"
+    cwe: "CWE-120"
+    owasp: "A01:2017 - Injection"
   pattern: "getpw(...)"
   severity: "ERROR"

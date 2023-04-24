@@ -9,14 +9,20 @@ rules:
   languages:
   - "c"
   message: |
-    Make the specific calls to do exactly what you want.  If you continue to use it, or write your
-    own, be sure to zero the password as soon as possible to avoid leaving the cleartext password
-    visible in the process' address space.
+    This function is obsolete and not portable. It was in SUSv2 but removed by POSIX.2. What
+    it does exactly varies considerably between systems, particularly in where its prompt is
+    displayed and where it gets its data. Some systems will write to stderr instead of stdout.
+    Some will read from stdin if it can not be read from /dev/tty. In some systems the
+    buffer is static and limited to 127 characters, meaning the full password may not be returned
+    properly.
+
+    If you want to read input without terminal echoing enabled, see the description of the ECHO
+    flag
+    in the termios manual pager. If you ever read passwords from a terminal, be sure to zero the
+    password as soon as possible, to avoid leaving the cleartext password visible in the
+    process' address space.
   metadata:
-    cwe: "CWE-20: This function is obsolete and not portable. It was in SUSv2 but
-      removed by POSIX.2.  What it does exactly varies considerably between systems,
-      particularly in where its prompt is displayed and where it gets its data (e.g.,
-      /dev/tty, stdin, stderr, etc.). In addition, some implementations overflow buffers.
-      (CWE-676, CWE-120, CWE-20)"
+    shortDescription: "Usage of deprecated function (getpass)"
+    cwe: "CWE-20"
   pattern: "getpass(...)"
   severity: "ERROR"

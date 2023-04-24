@@ -9,11 +9,17 @@ rules:
   languages:
   - "c"
   message: |
-    Check environment variables carefully before using them.
+    This function's return value should be treated as untrusted input as it could be
+    modified by an attacker. Possible risks include:
+
+    - The value being too large and causing buffer overflows
+    - Files under the attacker's control being used maliciously
+    - Files outside of an attacker's control becoming accessible, depending on
+    access privileges.
   metadata:
-    cwe: "CWE-20: Environment variables are untrustable input if they can be set by
-      an attacker.  They can have any content and length, and the same variable can
-      be set more than once (CWE-807, CWE-20)"
+    shortDescription: "Possible use of untrusted environment variable"
+    cwe: "CWE-20"
+    owasp: "A01:2017 - Injection"
   pattern-either:
   - pattern: "getenv(...)"
   - pattern: "curl_getenv(...)"

@@ -9,10 +9,20 @@ rules:
   languages:
   - "c"
   message: |
-    Does not handle strings that are not \\0-terminated.
+    The `strlen` family of functions does not handle strings that are not null
+    terminated. This can lead to buffer over reads and cause the application to
+    crash by accessing unintended memory locations. It is recommended that `strnlen`
+    be used instead as a `maxlen` value can be provided.
+
+    For more information please see: https://linux.die.net/man/3/strnlen
+
+    If developing for C Runtime Library (CRT), more secure versions of these functions should be
+    used, see:
+    https://learn.microsoft.com/en-us/cpp/c-runtime-library/reference/strnlen-strnlen-s?view=msvc-170
   metadata:
-    cwe: "CWE-126: Does not handle strings that are not \\0-terminated; if given one
-      it may perform an over-read (it could cause a crash if unprotected) (CWE-126)"
+    shortDescription: "Function does not handle null terminated strings properly"
+    cwe: "CWE-126"
+    owasp: "A01:2017 - Injection"
   pattern-either:
   - pattern: "strlen(...)"
   - pattern: "wcslen(...)"

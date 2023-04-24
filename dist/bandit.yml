@@ -1,5 +1,5 @@
 # yamllint disable
-# rule-set version: v1.2.1
+# rule-set version: v1.3.1
 # yamllint enable
 ---
 rules:
@@ -259,7 +259,7 @@ rules:
     - name: "Bandit Test ID B505"
       type: "bandit_test_id"
       value: "B505"
-  severity: "WARNING"
+  severity: "ERROR"
   languages:
   - "python"
 - id: "bandit.B505-2"
@@ -277,7 +277,7 @@ rules:
     - name: "Bandit Test ID B505"
       type: "bandit_test_id"
       value: "B505"
-  severity: "WARNING"
+  severity: "ERROR"
   languages:
   - "python"
 - id: "bandit.B303-3"
@@ -488,6 +488,22 @@ rules:
   severity: "ERROR"
   languages:
   - "python"
+- id: "bandit.B415-1"
+  pattern-either:
+  - pattern: "import pyghmi"
+  message: |
+    An IPMI-related module is being imported. IPMI is considered insecure. Use an encrypted
+    protocol.
+  metadata:
+    cisa: "https://www.cisa.gov/uscert/ncas/alerts/TA13-207A"
+    primary_identifier: "bandit.B415"
+    secondary_identifiers:
+    - name: "Bandit Test ID B415"
+      type: "bandit_test_id"
+      value: "B415"
+  severity: "ERROR"
+  languages:
+  - "python"
 - id: "bandit.B301-1"
   pattern: "cPickle.$FUNC(...)"
   message: |
@@ -634,7 +650,7 @@ rules:
     - name: "Bandit Test ID B610"
       type: "bandit_test_id"
       value: "B610"
-  severity: "ERROR"
+  severity: "WARNING"
   languages:
   - "python"
 - id: "bandit.B611-1"
@@ -723,7 +739,7 @@ rules:
     - name: "Bandit Test ID B702"
       type: "bandit_test_id"
       value: "B702"
-  severity: "INFO"
+  severity: "WARNING"
   languages:
   - "python"
 - id: "bandit.B307-1"
@@ -1265,7 +1281,7 @@ rules:
     - name: "Bandit Test ID B604"
       type: "bandit_test_id"
       value: "B604"
-  severity: "INFO"
+  severity: "WARNING"
   languages:
   - "python"
 - id: "bandit.B103-1"
@@ -1285,6 +1301,37 @@ rules:
       type: "bandit_test_id"
       value: "B103"
   severity: "WARNING"
+  languages:
+  - "python"
+- id: "bandit.B202-1"
+  patterns:
+  - pattern-inside: |
+      import tarfile
+      ...
+  - pattern-either:
+    - patterns:
+      - pattern-inside: |
+          $TAR = tarfile.open(...)
+          ...
+      - pattern-either:
+        - pattern: "$TAR.extractall(...)"
+        - pattern: "tarfile.extractall(..., members=$TAR)"
+        - pattern: "$TAR.extractall(..., members=[])"
+    - patterns:
+      - pattern: "tarfile.extractall(...)"
+      - pattern: "tarfile.extractall(..., members=[])"
+  message: |
+    tarfile.extractall used without any validation. You should check members and discard dangerous
+    ones.
+  metadata:
+    cwe: "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path
+      Traversal')"
+    primary_identifier: "bandit.B202"
+    secondary_identifiers:
+    - name: "Bandit Test ID B202"
+      type: "bandit_test_id"
+      value: "B202"
+  severity: "ERROR"
   languages:
   - "python"
 - id: "bandit.B201-1"
@@ -1367,6 +1414,27 @@ rules:
   severity: "WARNING"
   languages:
   - "python"
+- id: "bandit.B612-1"
+  patterns:
+  - pattern: "logging.config.listen(...)"
+  message: |
+    The logging.config.listen function provides the ability to listen for external configuration
+    files on a socket server. Because portions of the configuration are passed through eval(), use
+    of this function may open its users to a security risk. While the function only binds to a
+    socket on localhost, and so does not accept connections from remote machines, there are
+    scenarios where untrusted code could be run under the account of the process which calls
+    listen(). logging.config.listen provides the ability to verify bytes received across the socket
+    with signature verification or encryption/decryption.
+  metadata:
+    cwe: "CWE-94: Improper Control of Generation of Code ('Code Injection')"
+    primary_identifier: "bandit.B612"
+    secondary_identifiers:
+    - name: "Bandit Test ID B612"
+      type: "bandit_test_id"
+      value: "B612"
+  severity: "WARNING"
+  languages:
+  - "python"
 - id: "bandit.B311-1"
   pattern-either:
   - pattern: "random.random(...)"
@@ -1386,6 +1454,39 @@ rules:
       type: "bandit_test_id"
       value: "B311"
   severity: "INFO"
+  languages:
+  - "python"
+- id: "bandit.B113-1"
+  patterns:
+  - pattern-either:
+    - patterns:
+      - pattern: "requests.$METHOD('...', timeout=$VAL)"
+      - metavariable-comparison:
+          metavariable: "$VAL"
+          comparison: "$VAL <= 0"
+    - patterns:
+      - pattern: "requests.$METHOD('...', timeout=$VAL)"
+      - metavariable-regex:
+          metavariable: "$VAL"
+          regex: "(^None)"
+    - patterns:
+      - pattern-not: "requests.$METHOD('...', timeout=$VAL, ...)"
+      - pattern-either:
+        - pattern: "requests.$METHOD('...', ...)"
+        - pattern: "requests.$METHOD('...')"
+  - metavariable-regex:
+      metavariable: "$METHOD"
+      regex: "(get|put|delete|post|options|head|patch)"
+  message: |
+    Requests call without timeout can cause your program to hang indefinitely.
+  metadata:
+    cwe: "CWE-400: Uncontrolled Resource Consumption"
+    primary_identifier: "bandit.B113"
+    secondary_identifiers:
+    - name: "Bandit Test ID B113"
+      type: "bandit_test_id"
+      value: "B113"
+  severity: "WARNING"
   languages:
   - "python"
 - id: "bandit.B107-1"
@@ -1423,7 +1524,7 @@ rules:
     - name: "Bandit Test ID B106"
       type: "bandit_test_id"
       value: "B106"
-  severity: "INFO"
+  severity: "WARNING"
   languages:
   - "python"
 - id: "bandit.B105-1"
@@ -1445,7 +1546,41 @@ rules:
     - name: "Bandit Test ID B105"
       type: "bandit_test_id"
       value: "B105"
-  severity: "INFO"
+  severity: "WARNING"
+  languages:
+  - "python"
+- id: "bandit.B508-1"
+  pattern-either:
+  - pattern: "pysnmp.hlapi.CommunityData(..., mpModel=0, ...)"
+  - pattern: "pysnmp.hlapi.CommunityData(..., mpModel=1, ...)"
+  message: |
+    The use of SNMPv1 and SNMPv2 is insecure. You should use SNMPv3 if able.
+  metadata:
+    cwe: "CWE-319: Cleartext Transmission of Sensitive Information"
+    primary_identifier: "bandit.B508"
+    secondary_identifiers:
+    - name: "Bandit Test ID B508"
+      type: "bandit_test_id"
+      value: "B508"
+  severity: "WARNING"
+  languages:
+  - "python"
+- id: "bandit.B509-1"
+  pattern-either:
+  - pattern: "pysnmp.hlapi.UsmUserData($ARG1, $ARG2)"
+  - pattern: "pysnmp.hlapi.UsmUserData($ARG1)"
+  - pattern: "pysnmp.hlapi.UsmUserData(...,'noAuthNoPriv',...)"
+  - pattern: "pysnmp.hlapi.UsmUserData(...,'authNoPriv',...)"
+  message: |
+    You should not use SNMPv3 without encryption. noAuthNoPriv & authNoPriv is insecure
+  metadata:
+    cwe: "CWE-319: Cleartext Transmission of Sensitive Information"
+    primary_identifier: "bandit.B509"
+    secondary_identifiers:
+    - name: "Bandit Test ID B509"
+      type: "bandit_test_id"
+      value: "B509"
+  severity: "WARNING"
   languages:
   - "python"
 - id: "bandit.B608-1"
@@ -1458,12 +1593,19 @@ rules:
     - patterns:
       - pattern-either:
         - pattern-inside: |
+            ...
             $SQL = "..." % ...
             ...
         - pattern-inside: |
+            ...
+            $SQL = $SQL + "..." % ...
+            ...
+        - pattern-inside: |
+            ...
             $SQL = "...".format(...)
             ...
         - pattern-inside: |
+            ...
             $SQL = f"...{$X}..."
             ...
       - pattern: "$DB.execute($SQL)"
@@ -1503,7 +1645,7 @@ rules:
     - name: "Bandit Test ID B507"
       type: "bandit_test_id"
       value: "B507"
-  severity: "WARNING"
+  severity: "ERROR"
   languages:
   - "python"
 - id: "bandit.B501-1"
@@ -1545,7 +1687,7 @@ rules:
     - name: "Bandit Test ID B504"
       type: "bandit_test_id"
       value: "B504"
-  severity: "INFO"
+  severity: "WARNING"
   languages:
   - "python"
 - id: "bandit.B502-1"
@@ -1572,7 +1714,7 @@ rules:
     - name: "Bandit Test ID B502"
       type: "bandit_test_id"
       value: "B502"
-  severity: "WARNING"
+  severity: "ERROR"
   languages:
   - "python"
 - id: "bandit.B323-1"

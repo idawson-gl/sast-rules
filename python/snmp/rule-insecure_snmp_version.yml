@@ -1,0 +1,18 @@
+# yamllint disable
+# License: MIT (c) GitLab Inc.
+# source(original): https://bandit.readthedocs.io/en/latest/plugins/b509_snmp_weak_cryptography.html
+# hash: acdabdb
+# yamllint enable
+---
+rules:
+- id: "python/snmp/rule-insecure_snmp_version"
+  pattern-either:
+  - pattern: "pysnmp.hlapi.CommunityData(..., mpModel=0, ...)"
+  - pattern: "pysnmp.hlapi.CommunityData(..., mpModel=1, ...)"
+  message: |
+    The use of SNMPv1 and SNMPv2 is insecure. You should use SNMPv3 if able.
+  metadata:
+    cwe: "CWE-319: Cleartext Transmission of Sensitive Information"
+  severity: "WARNING"
+  languages:
+  - "python"

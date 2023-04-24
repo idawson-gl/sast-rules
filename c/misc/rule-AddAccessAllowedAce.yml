@@ -13,5 +13,6 @@ rules:
   metadata:
     cwe: "CWE-732: This doesn't set the inheritance bits in the access control entry
       (ACE) header (CWE-732)"
+    owasp: "A05:2017 - Broken Access Control"
   pattern: "AddAccessAllowedAce(...)"
   severity: "WARNING"

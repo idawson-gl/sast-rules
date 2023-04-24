@@ -12,6 +12,7 @@ rules:
     Make sure input data is filtered, especially if an attacker could manipulate it.
   metadata:
     cwe: "CWE-20: Function accepts input from outside program (CWE-20)"
+    owasp: "A01:2017 - Injection"
   pattern-either:
   - pattern: "recv(...)"
   - pattern: "recvfrom(...)"

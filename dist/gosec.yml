@@ -1,5 +1,5 @@
 # yamllint disable
-# rule-set version: v1.2.1
+# rule-set version: v1.3.1
 # yamllint enable
 ---
 rules:
@@ -24,8 +24,9 @@ rules:
   patterns:
   - pattern: |
       import "crypto/des"
-  message: "Usage of a cryptographically broken primitive has been detected. It is
-    recommended that \nChaCha20 or Advanced Encryption Standard (AES) be used instead.\n"
+  message: |
+    Usage of a cryptographically broken primitive has been detected. It is recommended that
+    ChaCha20 or Advanced Encryption Standard (AES) be used instead.
   metadata:
     cwe: "CWE-327: Use of a Broken or Risky Cryptographic Algorithm"
     owasp: "A9: Using Components with Known Vulnerabilities"
@@ -112,8 +113,9 @@ rules:
         (?!tls.TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305)|(?!tls.TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256)|
         (?!tls.TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305)|(?!tls.TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256)|
         (?!tls.TLS_DHE_RSA_WITH_AES_128_GCM_SHA256)|(?!tls.TLS_DHE_RSA_WITH_AES_256_GCM_SHA384))"
-  message: "Usage of a cryptographically insecure cipher suite has been detected.
-    It is recommended that \nalternative ciphers be used instead.\n"
+  message: |
+    Usage of a cryptographically insecure cipher suite has been detected. It is recommended that
+    alternative ciphers be used instead.
   metadata:
     cwe: "CWE-327: Use of a Broken or Risky Cryptographic Algorithm"
     owasp: "A9: Using Components with Known Vulnerabilities"
@@ -267,7 +269,7 @@ rules:
     - pattern: "os.MkdirAll(...,$MASK)"
   - metavariable-comparison:
       metavariable: "$MASK"
-      comparison: "$MASK > 0o600 and $MASK != 0o750"
+      comparison: "$MASK > 0o750"
       base: 8
   message: |
     Poor file permissions used when creating a directory
@@ -307,6 +309,29 @@ rules:
     - name: "Gosec Rule ID G110"
       type: "gosec_rule_id"
       value: "G110"
+  severity: "WARNING"
+  languages:
+  - "go"
+- id: "gosec.G111-1"
+  patterns:
+  - pattern-either:
+    - pattern: |
+        import $NET "net/http"
+        ...
+        $NET.Dir("/")
+    - pattern: |
+        import "net/http"
+        ...
+        http.Dir("/")
+  message: |
+    Potential directory traversal
+  metadata:
+    cwe: "CWE-23: Relative Path Traversal"
+    primary_identifier: "gosec.G111"
+    secondary_identifiers:
+    - name: "Gosec Rule ID G111"
+      type: "gosec_rule_id"
+      value: "G111"
   severity: "WARNING"
   languages:
   - "go"
@@ -426,6 +451,76 @@ rules:
   severity: "WARNING"
   languages:
   - "go"
+- id: "gosec.G114-1"
+  patterns:
+  - pattern-inside: |
+      import "net/http"
+      ...
+  - pattern-either:
+    - pattern: "http.ListenAndServe(...)"
+    - pattern: "http.ListenAndServeTLS(...)"
+    - pattern: "http.Serve(...)"
+    - pattern: "http.ServeTLS(...)"
+  message: |
+    The use of net/http serve functions without support for setting timeouts are susceptible to the
+    Slowloris class of attacks.
+  metadata:
+    cwe: "CWE-400: Uncontrolled Resource Consumption"
+    primary_identifier: "gosec.G114"
+    secondary_identifiers:
+    - name: "Gosec Rule ID G114"
+      type: "gosec_rule_id"
+      value: "G114"
+  severity: "WARNING"
+  languages:
+  - "go"
+- id: "gosec.G112-1"
+  patterns:
+  - pattern-inside: |
+      import "net/http"
+      ...
+  - pattern-either:
+    - patterns:
+      - pattern-not-inside: |
+          &http.Server{
+            ...,
+            ReadHeaderTimeout: ...,
+            ...,
+          }
+      - pattern-not-inside: |
+          &http.Server{
+            ...,
+            ReadTimeout: ...,
+            ...,
+          }
+      - pattern-not-inside: |
+          $S = &http.Server{
+            ...,
+          }
+          $S.ReadHeaderTimeout = ...
+          ...
+      - pattern-not-inside: |
+          $S = &http.Server{
+            ...,
+          }
+          $S.ReadTimeout = ...
+          ...
+      - pattern: |
+          &http.Server{
+            ...,
+          }
+  message: |
+    Potential Slowloris Attack because ReadHeaderTimeout is not configured in the http.Server
+  metadata:
+    cwe: "CWE-400: Uncontrolled Resource Consumption"
+    primary_identifier: "gosec.G112"
+    secondary_identifiers:
+    - name: "Gosec Rule ID G112"
+      type: "gosec_rule_id"
+      value: "G112"
+  severity: "WARNING"
+  languages:
+  - "go"
 - id: "gosec.G107-1"
   patterns:
   - pattern-either:
@@ -537,6 +632,28 @@ rules:
     - name: "Gosec Rule ID G109"
       type: "gosec_rule_id"
       value: "G109"
+  severity: "ERROR"
+  languages:
+  - "go"
+- id: "gosec.G113-1"
+  patterns:
+  - pattern-inside: |
+      import "math/big"
+      ...
+  - pattern-inside: |
+      $R = big.Rat{...}
+      ...
+  - pattern: |
+      $R.SetString(...)
+  message: |
+    Potential Integer overflow made by strconv.Atoi result conversion to int16/32
+  metadata:
+    cwe: "CWE-190: Integer Overflow or Wraparound"
+    primary_identifier: "gosec.G113"
+    secondary_identifiers:
+    - name: "Gosec Rule ID G113"
+      type: "gosec_rule_id"
+      value: "G113"
   severity: "ERROR"
   languages:
   - "go"

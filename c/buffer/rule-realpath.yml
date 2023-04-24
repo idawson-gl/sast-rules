@@ -9,11 +9,30 @@ rules:
   languages:
   - "c"
   message: |
-    Ensure that the destination buffer is at least of size MAXPATHLEN, andto protect against
-    implementation problems, the input argument should also be checked to ensure it is no larger
-    than MAXPATHLEN.
+    The `realpath` function should not be called with a destination buffer as it could
+    lead to overflowing if the path is greater than PATH_LEN. It is instead recommended
+    to call `realpath` with the destination buffer set to NULL and use the return value
+    as the resolved path. Be sure to free the returned pointer as realpath will allocate
+    the buffer internally using `malloc`.
+
+    For more information see: https://linux.die.net/man/3/realpath
+
+    Example:
+
+    ```
+    char const *symlink_path = "/tmp/symlink";
+    char *resolved_path = NULL;
+
+    resolved_path = realpath(symlink_path, NULL);
+    if (errno == 0) {
+      // ... use resolved_path...
+      free(resolved_path);
+    }
+    ```
   metadata:
-    cwe: "CWE-120: This function does not protect against buffer overflows, and some
-      implementations can overflow internally (CWE-120/CWE-785!)"
+    shortDescription: "Function does not ensure destination buffer length is sufficient
+      before copying"
+    cwe: "CWE-120"
+    owasp: "A01:2017 - Injection"
   pattern: "realpath(...)"
   severity: "WARNING"

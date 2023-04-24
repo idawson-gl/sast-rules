@@ -27,12 +27,27 @@ def validate_mutually_exclusive_versions(yaml_dict)
   errors
 end
 
+def validate_short_description_or_cwe(yaml_dict)
+  errors = []
+  cwe = yaml_dict["rules"][0]["metadata"]["cwe"]
+  short = yaml_dict["rules"][0]["metadata"]["shortDescription"]
+  
+  if cwe.nil? 
+    return errors
+  end
+
+  if (!cwe.include?(":") and short.nil?)
+    errors << "#{yaml_dict["rules"][0]["id"]} is missing CWE based title (CWE-XXX: title) or shortDescription title"
+  end
+  errors
+end
+
 def validation_errors(yaml_file, semantic = false)
   errors = []
   begin
     yaml_dict = YAML.load_file(yaml_file)
     errors = JSON::Validator.fully_validate($schema, yaml_dict.to_json)
-
+    errors += validate_short_description_or_cwe(yaml_dict)
     errors += validate_semantics(yaml_dict) if semantic
   rescue StandardError => e
     errors << e.message

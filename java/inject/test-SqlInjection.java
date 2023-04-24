@@ -1,7 +1,12 @@
 // License: LGPL-3.0 License (c) find-sec-bugs
 package injection;
 
+import org.hibernate.Criteria;
 import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Restrictions;
+import org.hibernate.type.StandardBasicTypes;
+import org.hibernate.type.Type;
 
 import javax.jdo.Extent;
 import javax.jdo.JDOHelper;
@@ -11,6 +16,13 @@ import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import java.util.ArrayList;
 import org.springframework.jdbc.core.JdbcTemplate;
+import io.vertx.sqlclient.SqlClient;
+import io.vertx.sqlclient.SqlConnection;
+
+import java.sql.Statement;
+import java.sql.SQLException;
+import java.sql.PreparedStatement;
+
 
 public class SqlInjection {
     private static final String CLIENT_FIELDS = "client_id, client_secret, resource_ids, scope, "
@@ -84,15 +96,74 @@ public class SqlInjection {
 
     }
 
-    public void testHibernate(String input) {
-        Session session = null;
+    public void testHibernate(SessionFactory sessionFactory, String input) {
+        Session session = sessionFactory.openSession();
+        String instring = String.format("%s", input);
+
         CriteriaBuilder cb = session.getCriteriaBuilder();
         CriteriaQuery<Object> query = null;
         // should not be reported
         session.createQuery(query);
         // should be reported
-        session.createQuery(input);
+        session.createQuery(instring);
         CriteriaQuery<Object> cq = cb.createQuery(Object.class);
+
+
+        Criteria criteria = session.createCriteria(UserEntity.class);
+
+        //The following would need to be audited
+
+        criteria.add(Restrictions.sqlRestriction("test=1234" + instring));
+
+        session.createQuery("select t from UserEntity t where id = " + instring);
+
+
+        //More sqlRestriction signatures
+
+        criteria.add(Restrictions.sqlRestriction("param1  = ? and param2 = " + instring,instring, StandardBasicTypes.STRING));
+        criteria.add(Restrictions.sqlRestriction("param1  = ? and param2 = " + instring,new String[] {instring}, new Type[] {StandardBasicTypes.STRING}));
+
+        //OK nothing risky here..
+
+        criteria.add(Restrictions.sqlRestriction("test=1234"));
+
+        final String localSafe = "where id=1337";
+
+        session.createQuery("select t from UserEntity t " + localSafe);
+
+        final String localSql = "select * from TestEntity " + localSafe;
+
+        session.createSQLQuery(localSql);
+
+        //More sqlRestriction signatures (with safe binding)
+
+        criteria.add(Restrictions.sqlRestriction("param1  = ?",instring, StandardBasicTypes.STRING));
+        criteria.add(Restrictions.sqlRestriction("param1  = ? and param2 = ?", new String[] {instring}, new Type[] {StandardBasicTypes.STRING}));
+
+    }
+
+    public void testVertx(SqlConnection conn, SqlClient client, String injection) {
+        // true positives
+        client.query(injection);
+        client.preparedQuery(injection);
+        conn.prepare(injection);
+
+        // false positives
+        String constantValue = "SELECT * FROM test";
+        client.query(constantValue);
+        conn.query(constantValue);
+    }
+
+    public void testPreparedStmt(PreparedStatement stmt, String input) throws SQLException {
+        stmt.execute("select * from users where email = " + input);
+        stmt.execute("select * from users where email = " + input, Statement.RETURN_GENERATED_KEYS);
+        stmt.execute("select * from users where email = " + input, new int[]{Statement.RETURN_GENERATED_KEYS});
+        stmt.execute("select * from users where email = " + input, new int[]{Statement.RETURN_GENERATED_KEYS});
+        stmt.executeQuery("select * from users where email = " + input);
+        stmt.executeQuery("select * from users where email = '" + input +"' AND name != NULL");
+        stmt.executeUpdate("update from users set email = '" + input +"' where name != NULL");
+        stmt.executeLargeUpdate("update from users set email = '" + input +"' where name != NULL");
+        stmt.addBatch("update from users set email = '" + input +"' where name != NULL");
     }
 
     public void good(String clientDetails) {

@@ -13,6 +13,7 @@ rules:
   metadata:
     cwe: "CWE-20: Check buffer boundaries if used in a loop including recursive loops
       (CWE-120, CWE-20)"
+    owasp: "A01:2017 - Injection"
   pattern-either:
   - pattern: "getchar(...)"
   - pattern: "fgetc(...)"

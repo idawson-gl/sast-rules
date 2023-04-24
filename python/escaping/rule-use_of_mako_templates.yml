@@ -17,6 +17,6 @@ rules:
     cwe: "CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site
       Scripting')"
     owasp: "A7: Cross-Site Scripting (XSS)"
-  severity: "INFO"
+  severity: "WARNING"
   languages:
   - "python"

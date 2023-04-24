@@ -9,10 +9,22 @@ rules:
   languages:
   - "c"
   message: |
-    Use a constant for the format specification.
+    Format string vulnerabilities allow an attacker to read or in some cases,
+    potentially write data to
+    and from locations in the processes' memory. To prevent against format
+    string attacks, do not allow
+    users or un-validated input to provide the format specification.
+    Consider using a constant for the format specification, or only allow specific
+    characters to be provided to the format argument for the `fprintf` family of functions.
+
+    For more information please see: https://linux.die.net/man/3/fprintf
+
+    For more information on format string attacks please see OWASP's attack
+    guide: https://owasp.org/www-community/attacks/Format_string_attack
   metadata:
-    cwe: "CWE-134: If format strings can be influenced by an attacker, they can be
-      exploited (CWE-134)"
+    shortDescription: "Potential format string vulnerability"
+    cwe: "CWE-134"
+    owasp: "A01:2017 - Injection"
   pattern-either:
   - patterns:
     - pattern: "fprintf($FD, $FMT, ...)"

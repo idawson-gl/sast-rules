@@ -40,9 +40,15 @@ bandit:
   - id: "B112"
     rules:
     - "python/exception/rule-try_except_continue"
+  - id: "B113"
+    rules:
+    - "python/requests/rule-request_without_timeout"
   - id: "B201"
     rules:
     - "python/flask/rule-app_debug"
+  - id: "B202"
+    rules:
+    - "python/files/rule-tarfile_unsafe_members"
   - id: "B301"
     rules:
     - "python/deserialization/rule-cpickle"
@@ -169,6 +175,9 @@ bandit:
   - id: "B413"
     rules:
     - "python/crypto/rule-import_pycrypto"
+  - id: "B415"
+    rules:
+    - "python/crypto/rule-import_pyghmi"
   - id: "B501"
     rules:
     - "python/ssl/rule-req_no_certvalid"
@@ -188,6 +197,12 @@ bandit:
   - id: "B507"
     rules:
     - "python/ssh/rule-ssl_nohost_key_verification"
+  - id: "B508"
+    rules:
+    - "python/snmp/rule-insecure_snmp_version"
+  - id: "B509"
+    rules:
+    - "python/snmp/rule-snmp_weak_cryptography"
   - id: "B601"
     rules:
     - "python/exec/rule-paramiko_calls"
@@ -221,6 +236,9 @@ bandit:
   - id: "B611"
     rules:
     - "python/django/rule-django_rawsql_used"
+  - id: "B612"
+    rules:
+    - "python/log/rule-logging_config_insecure_listen"
   - id: "B701"
     rules:
     - "python/escaping/rule-jinja2_autoescape_false"

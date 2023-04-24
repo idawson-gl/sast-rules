@@ -13,6 +13,7 @@ rules:
   metadata:
     cwe: "CWE-120: Some older implementations do not protect against internal buffer
       overflows (CWE-120, CWE-20)"
+    owasp: "A01:2017 - Injection"
   pattern-either:
   - pattern: "getopt(...)"
   - pattern: "getopt_long(...)"

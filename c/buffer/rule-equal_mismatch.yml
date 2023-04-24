@@ -10,11 +10,14 @@ rules:
   - "c"
   message: |
     This function is often discouraged by most C++ coding standards in favor of its safer
-    alternatives provided since C++14. Consider using a form of this function that checks the
-    second iterator before potentially overflowing it.
+    alternatives provided since C++14. Consider using a form of this function:
+    (std::equal, std::mismatch or std::is_permutation) that checks the second iterator
+    before potentially reading past its bounds.
+
+    For more information please see: https://en.cppreference.com/w/cpp/algorithm
   metadata:
-    cwe: "CWE-126: Function does not check the second iterator for over-read conditions
-      (CWE-126)"
+    shortDescription: "Function does not check the second iterator for over-read conditions"
+    cwe: "CWE-126"
   pattern-either:
   - pattern: "equal(...)"
   - pattern: "mismatch(...)"

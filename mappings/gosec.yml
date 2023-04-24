@@ -33,6 +33,18 @@ gosec:
   - id: "G110"
     rules:
     - "go/filesystem/rule-decompression_bomb"
+  - id: "G111"
+    rules:
+    - "go/filesystem/rule-dirtraversal"
+  - id: "G112"
+    rules:
+    - "go/http/rule-slowloris"
+  - id: "G113"
+    rules:
+    - "go/memory/rule-math_big_rat"
+  - id: "G114"
+    rules:
+    - "go/http/rule-http_serve"
   - id: "G201"
     rules:
     - "go/sql/rule-format_string_sqli"

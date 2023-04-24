@@ -9,10 +9,24 @@ rules:
   languages:
   - "c"
   message: |
-    Use a constant for the format specification.
+    Format string vulnerabilities allow an attacker to read or in some cases, potentially write
+    data to
+    and from locations in the processes' memory. To prevent against format string attacks, do not
+    allow
+    users or un-validated input to provide the format specification.
+    Consider using a constant for the format specification, or strip all format
+    specifiers from the input prior to calling the `snprintf` family of functions.
+
+    Note that some variations of this function do not always null terminate the strings.
+
+    For more information on using snprintf please see: https://linux.die.net/man/3/snprintf
+
+    For more information on format string attacks please see OWASP's attack guide:
+    https://owasp.org/www-community/attacks/Format_string_attack
   metadata:
-    cwe: "CWE-134: If format strings can be influenced by an attacker, they can be
-      exploited, and note that sprintf variations do not always \\0-terminate (CWE-134)"
+    shortDescription: "Potential format string vulnerability"
+    cwe: "CWE-134"
+    owasp: "A01:2017 - Injection"
   pattern-either:
   - patterns:
     - pattern: "snprintf($BUF,$SIZ,$FMT,...)"

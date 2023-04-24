@@ -3,11 +3,11 @@
 require 'psych'
 require 'yaml'
 require 'fileutils'
+require 'word_wrap'
 
 module AutoFormat
-  def self.wrap(txt, col = 95)
-    txt.gsub(/(.{1,#{col}})( +|$\n?)|(.{1,#{col}})/,
-             "\\1\\3\n").gsub(/^ *$/, '')
+  def self.wrap(txt, col_limit = 95)
+    WordWrap.ww(txt, 95, false)
   end
 
   def self.reformat_yaml(id, yaml_dict)
@@ -65,7 +65,6 @@ module AutoFormat
       id = File.join(File.dirname(file), File.basename(file, '.yml'))
       ff = File.read(file)
       yaml_dict = YAML.safe_load(ff)
-
       unless yaml_dict.key?('rules')
         puts "#{file}: no rules key"
         exit(1)

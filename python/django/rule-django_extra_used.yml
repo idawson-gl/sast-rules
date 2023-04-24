@@ -27,6 +27,6 @@ rules:
     cwe: "CWE-89: Improper Neutralization of Special Elements used in an SQL Command
       ('SQL Injection')"
     owasp: "A1: Injection"
-  severity: "ERROR"
+  severity: "WARNING"
   languages:
   - "python"

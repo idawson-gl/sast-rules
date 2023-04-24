@@ -1,0 +1,31 @@
+# yamllint disable
+# License: MIT (c) GitLab Inc.
+# yamllint enable
+---
+rules:
+- id: "python/files/rule-tarfile_unsafe_members"
+  patterns:
+  - pattern-inside: |
+      import tarfile
+      ...
+  - pattern-either:
+    - patterns:
+      - pattern-inside: |
+          $TAR = tarfile.open(...)
+          ...
+      - pattern-either:
+        - pattern: "$TAR.extractall(...)"
+        - pattern: "tarfile.extractall(..., members=$TAR)"
+        - pattern: "$TAR.extractall(..., members=[])"
+    - patterns:
+      - pattern: "tarfile.extractall(...)"
+      - pattern: "tarfile.extractall(..., members=[])"
+  message: |
+    tarfile.extractall used without any validation. You should check members and discard dangerous
+    ones.
+  metadata:
+    cwe: "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path
+      Traversal')"
+  severity: "ERROR"
+  languages:
+  - "python"

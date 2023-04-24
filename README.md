@@ -42,11 +42,11 @@ The structure above follows the pattern:
 `<language>/<ruleclass>/{rule-<rulename>.yml, test-<rulename>\..*}` where
 `language` denotes the target programming language, `<ruleclass>` is a
 descriptive name for the class of issues the rule aims to detect and
-`<rulename>` is a descriptive name for the actual rule. 
+`<rulename>` is a descriptive name for the actual rule.
 
 We can have multiple test cases per rule (all prefixed with `test-`) and rule
 files `rule-<rulename>.yml` that are prefixed with `rule-`; a rule file
-contains a single semgrep rule.  
+contains a single semgrep rule.
 
 The `mappings` and `dist` directories include the rule-pack configuration which
 define the rules that should included into rule-packs and the resulting,
@@ -71,11 +71,11 @@ installing the gems `psych yaml fileutils` with `gem install psych yaml fileutil
 
 ## Mappings
 
-The mappings directory in this repository contains YAML configuration files 
+The mappings directory in this repository contains YAML configuration files
 that map native analyzer ids to the corresponding semgrep rules. These mappings
-are digested by the [testing framework](https://gitlab.com/gitlab-org/secure/gsoc-sast-vulnerability-rules/rule-testing-framework/rule-testing)
+are digested by the [testing framework](https://gitlab.com/gitlab-org/security-products/sast-rule-testing-framework/rule-testing)
 to perform an automated gap analysis; the goal of this analysis is to check
-whether there is an unexpected deviation between semgrep (with the rules in this repository) 
+whether there is an unexpected deviation between semgrep (with the rules in this repository)
 and a given analyzer.
 
 In addition to that mappings are also used to automatically assemble
@@ -115,18 +115,18 @@ sources listed below:
 1. https://github.com/david-a-wheeler/flawfinder/blob/master/flawfinder.py
 
 The details are listed in the headers of all the rule end test-files including
-the licensing information and proper attribution. 
+the licensing information and proper attribution.
 
 ## Contributing
 
 If you know about a pattern that isn't present in this repo or refinements that
 could be applied to the rules in this repository, you can contribute by opening
 an issue, or even submit an improvement to the rule files/test cases in this
-repository. 
+repository.
 
 ## Contribution instructions
 
-After making changes to rules or mappings, make sure to run `./ci/deploy.sh <semantic version>` 
+After making changes to rules or mappings, make sure to run `./ci/deploy.sh <semantic version>`
 and commit your updates to the `/dist` directory where `<semantic version>`
 should correspond to the latest pusblished version in [CHANGELOG.md](./CHANGELOG.md)>
 
@@ -138,14 +138,15 @@ We apply the following semantic versioning scheme to this repository:
 1. minor version increment: backwards-compatible YAML schema changes (e.g., adding/removing optional fields).
 1. major version increment: non-backwards-compatible YAML schema changes (e.g., adding/removing required fields)
 
-## Credits 
+## Credits
 
 We would like to thank the following authors very much for their valuable
 contributions.
 
-| Author         | MRs/Issues            |
-| -------------- | --------------------- |
-| @masakura      | !99, !107             |
+| Author            | MRs/Issues |
+| ----------------- | ---------- |
+| @masakura         | !99, !107  |
+| @gregory.mcdaniel | #32        |
 
 
 ## Rule deployment
@@ -156,11 +157,23 @@ contributions.
 
 #### Excluded patterns (1)
 - B308: [django.utils.safestring.mark_safe](https://bandit.readthedocs.io/en/1.7.1/blacklists/blacklist_calls.html#b308-mark-safe) This rule is basically redundant with [B703](https://bandit.readthedocs.io/en/latest/plugins/b703_django_mark_safe.html)
+- B109: [password_config_option_not_marked_secret](https://bandit.readthedocs.io/en/latest/plugins/b109_password_config_option_not_marked_secret.html) Not supported anymore since the plugin was removed
+- B111: [execute_with_run_as_root_equals_true](https://bandit.readthedocs.io/en/latest/plugins/b111_execute_with_run_as_root_equals_true.html) Not supported anymore since the plugin was removed
+- B322: [input](https://bandit.readthedocs.io/en/latest/blacklists/blacklist_calls.html#b322-input) Not supported anymore since the plugin was removed
+- B414: [import_pycryptodome](https://bandit.readthedocs.io/en/latest/blacklists/blacklist_imports.html#b414-import-pycryptodome) Not supported anymore since the plugin was removed
+
 
 #### Adusted patterns (3)
 - B503: [ssl_with_bad_defaults](https://bandit.readthedocs.io/en/latest/plugins/b503_ssl_with_bad_defaults.html) Our semgrep pattern captures both B503 and B502 because they are very similar and are both practically capturing insecure setting using outdated versions of encryption algorithms.
 - B110: [try_except_pass](https://bandit.readthedocs.io/en/latest/plugins/b110_try_except_pass.html) The Semgrep rule checks the whole try except block whereas bandit reports every except case. The semgrep rule approximates the original rule behaviour looking at various permutations of except pass cases embedded in a try ... except block.
 - B112: [try_except_continue](https://bandit.readthedocs.io/en/latest/plugins/b112_try_except_continue.html) The Semgrep rule checks the whole try except block whereas bandit reports every except case. The semgrep rule approximates the original rule behaviour looking at various permutations of except continue cases embedded in a try ... except block.
+
+### ESLint
+
+#### Patterns we were unable to migrate (1)
+
+- `detect-unsafe-regex`: [Detects potentially unsafe regular expressions, which may take a very long time to run, blocking the event loop](https://github.com/eslint-community/eslint-plugin-security/blob/main/docs/rules/detect-unsafe-regex.md): This problem is solved by applying set of conditional logic on each character of a target string. This cannot be accomplished in Semgrep.
+
 
 ### Gosec
 
@@ -177,95 +190,109 @@ Java, Scala
 
 Out of scope patterns w.r.t. https://gitlab.com/gitlab-org/gitlab/-/issues/354762#rules-with-completion-status are all those patterns that are unrelated to Java.
 
-| Rule ID | Description | Status | Comment  |
-| ------- | ----------- | ------ | ---------|
-| `PREDICTABLE_RANDOM_SCALA` | [Predictable pseudorandom number generator (Scala)](https://find-sec-bugs.github.io/bugs.html#PREDICTABLE_RANDOM_SCALA) | :x: | Scala not supported |
-| `SCALA_COMMAND_INJECTION` | [Potential Command Injection (Scala)](https://find-sec-bugs.github.io/bugs.html#SCALA_COMMAND_INJECTION) | :x: | Scala not supported |
-| `SCALA_PATH_TRAVERSAL_IN` | [Potential Path Traversal using Scala API (file read)](https://find-sec-bugs.github.io/bugs.html#SCALA_PATH_TRAVERSAL_IN) | :x: | Scala not supported  |
-| `SCALA_PLAY_SSRF` | [Scala Play Server-Side Request Forgery (SSRF)](https://find-sec-bugs.github.io/bugs.html#SCALA_PLAY_SSRF) | :x: | Scala not supported |
-| `SCALA_SENSITIVE_DATA_EXPOSURE` | [Potential information leakage in Scala Play](https://find-sec-bugs.github.io/bugs.html#SCALA_SENSITIVE_DATA_EXPOSURE) | :x: | Scala not supported |
-| `SCALA_SQL_INJECTION_ANORM` | [Potential Scala Anorm Injection](https://find-sec-bugs.github.io/bugs.html#SCALA_SQL_INJECTION_ANORM) | :x: | Scala not supported |
-| `SCALA_SQL_INJECTION_SLICK` | [Potential Scala Slick Injection](https://find-sec-bugs.github.io/bugs.html#SCALA_SQL_INJECTION_SLICK) | :x: | Scala not supported |
-| `SCALA_XSS_MVC_API` | [Potential XSS in Scala MVC API engine](https://find-sec-bugs.github.io/bugs.html#SCALA_XSS_MVC_API) | :x: | Scala not supported |
-| `SCALA_XSS_TWIRL` | [Potential XSS in Scala Twirl template engine](https://find-sec-bugs.github.io/bugs.html#SCALA_XSS_TWIRL) | :x: | Scala not supported |
-| `PLAY_UNVALIDATED_REDIRECT` | [Unvalidated Redirect (Play Framework)](https://find-sec-bugs.github.io/bugs.html#PLAY_UNVALIDATED_REDIRECT) | :x: | Scala not supported |
-| `ANDROID_BROADCAST` | [Broadcast (Android)](https://find-sec-bugs.github.io/bugs.html#ANDROID_BROADCAST) | :x: | Android not supported |
-| `ANDROID_EXTERNAL_FILE_ACCESS` | [External file access (Android)](https://find-sec-bugs.github.io/bugs.html#ANDROID_EXTERNAL_FILE_ACCESS) | :x: | Android not supported |
-| `ANDROID_GEOLOCATION` | [WebView with geolocation activated (Android)](https://find-sec-bugs.github.io/bugs.html#ANDROID_GEOLOCATION) | :x: | Android not supported |
-| `ANDROID_WEB_VIEW_JAVASCRIPT_INTERFACE` | [WebView with JavaScript interface (Android)](https://find-sec-bugs.github.io/bugs.html#ANDROID_WEB_VIEW_JAVASCRIPT_INTERFACE) | :x: | Android not supported |
-| `ANDROID_WEB_VIEW_JAVASCRIPT` | [WebView with JavaScript enabled (Android)](https://find-sec-bugs.github.io/bugs.html#ANDROID_WEB_VIEW_JAVASCRIPT) | :x: | Android not supported |
-| `ANDROID_WORLD_WRITABLE` | [World writable file (Android)](https://find-sec-bugs.github.io/bugs.html#ANDROID_WORLD_WRITABLE) | :x: | Android not supported |
-| `SQL_INJECTION_ANDROID` | [Potential Android SQL Injection](https://find-sec-bugs.github.io/bugs.html#SQL_INJECTION_ANDROID) | :x: | Android not supported |
-| `GROOVY_SHELL` | [Potential code injection when using GroovyShell](https://find-sec-bugs.github.io/bugs.html#GROOVY_SHELL) | :x: | Groovy not supported |
-| `JSP_INCLUDE` | [Dynamic JSP inclusion](https://find-sec-bugs.github.io/bugs.html#JSP_INCLUDE) | :x: | JSP not supported |
-| `JSP_JSTL_OUT` | [Escaping of special XML characters is disabled](https://find-sec-bugs.github.io/bugs.html#JSP_JSTL_OUT) | :x: | JSP not supported |
-| `JSP_SPRING_EVAL` | [Dynamic variable in Spring expression](https://find-sec-bugs.github.io/bugs.html#JSP_SPRING_EVAL) | :x:| JSP not supported |
-| `JSP_XSLT` | [A malicious XSLT could be provided to the JSP tag](https://find-sec-bugs.github.io/bugs.html#JSP_XSLT) | :x: | JSP not supported |
-| `XSS_JSP_PRINT` | [Potential XSS in JSP](https://find-sec-bugs.github.io/bugs.html#XSS_JSP_PRINT) | :x: | JSP not supported|
-| `XSS_REQUEST_PARAMETER_TO_JSP_WRITER` | [XSS: Servlet reflected cross site scripting vulnerability](https://spotbugs.readthedocs.io/en/latest/bugDescriptions.html#xss-servlet-reflected-cross-site-scripting-vulnerability-xss-request-parameter-to-servlet-writer) | :x: | JSP not supported |
-| `REQUESTDISPATCHER_FILE_DISCLOSURE` | [RequestDispatcher File Disclosure](https://find-sec-bugs.github.io/bugs.html#REQUESTDISPATCHER_FILE_DISCLOSURE) | :x: | JSP not supported |
+| Rule ID                                 | Description                                                                                                                                                                                                                  | Status | Comment               |
+| --------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------ | --------------------- |
+| `PREDICTABLE_RANDOM_SCALA`              | [Predictable pseudorandom number generator (Scala)](https://find-sec-bugs.github.io/bugs.html#PREDICTABLE_RANDOM_SCALA)                                                                                                      | :x:    | Scala not supported   |
+| `SCALA_COMMAND_INJECTION`               | [Potential Command Injection (Scala)](https://find-sec-bugs.github.io/bugs.html#SCALA_COMMAND_INJECTION)                                                                                                                     | :x:    | Scala not supported   |
+| `SCALA_PATH_TRAVERSAL_IN`               | [Potential Path Traversal using Scala API (file read)](https://find-sec-bugs.github.io/bugs.html#SCALA_PATH_TRAVERSAL_IN)                                                                                                    | :x:    | Scala not supported   |
+| `SCALA_PLAY_SSRF`                       | [Scala Play Server-Side Request Forgery (SSRF)](https://find-sec-bugs.github.io/bugs.html#SCALA_PLAY_SSRF)                                                                                                                   | :x:    | Scala not supported   |
+| `SCALA_SENSITIVE_DATA_EXPOSURE`         | [Potential information leakage in Scala Play](https://find-sec-bugs.github.io/bugs.html#SCALA_SENSITIVE_DATA_EXPOSURE)                                                                                                       | :x:    | Scala not supported   |
+| `SCALA_SQL_INJECTION_ANORM`             | [Potential Scala Anorm Injection](https://find-sec-bugs.github.io/bugs.html#SCALA_SQL_INJECTION_ANORM)                                                                                                                       | :x:    | Scala not supported   |
+| `SCALA_SQL_INJECTION_SLICK`             | [Potential Scala Slick Injection](https://find-sec-bugs.github.io/bugs.html#SCALA_SQL_INJECTION_SLICK)                                                                                                                       | :x:    | Scala not supported   |
+| `SCALA_XSS_MVC_API`                     | [Potential XSS in Scala MVC API engine](https://find-sec-bugs.github.io/bugs.html#SCALA_XSS_MVC_API)                                                                                                                         | :x:    | Scala not supported   |
+| `SCALA_XSS_TWIRL`                       | [Potential XSS in Scala Twirl template engine](https://find-sec-bugs.github.io/bugs.html#SCALA_XSS_TWIRL)                                                                                                                    | :x:    | Scala not supported   |
+| `PLAY_UNVALIDATED_REDIRECT`             | [Unvalidated Redirect (Play Framework)](https://find-sec-bugs.github.io/bugs.html#PLAY_UNVALIDATED_REDIRECT)                                                                                                                 | :x:    | Scala not supported   |
+| `ANDROID_BROADCAST`                     | [Broadcast (Android)](https://find-sec-bugs.github.io/bugs.html#ANDROID_BROADCAST)                                                                                                                                           | :x:    | Android not supported |
+| `ANDROID_EXTERNAL_FILE_ACCESS`          | [External file access (Android)](https://find-sec-bugs.github.io/bugs.html#ANDROID_EXTERNAL_FILE_ACCESS)                                                                                                                     | :x:    | Android not supported |
+| `ANDROID_GEOLOCATION`                   | [WebView with geolocation activated (Android)](https://find-sec-bugs.github.io/bugs.html#ANDROID_GEOLOCATION)                                                                                                                | :x:    | Android not supported |
+| `ANDROID_WEB_VIEW_JAVASCRIPT_INTERFACE` | [WebView with JavaScript interface (Android)](https://find-sec-bugs.github.io/bugs.html#ANDROID_WEB_VIEW_JAVASCRIPT_INTERFACE)                                                                                               | :x:    | Android not supported |
+| `ANDROID_WEB_VIEW_JAVASCRIPT`           | [WebView with JavaScript enabled (Android)](https://find-sec-bugs.github.io/bugs.html#ANDROID_WEB_VIEW_JAVASCRIPT)                                                                                                           | :x:    | Android not supported |
+| `ANDROID_WORLD_WRITABLE`                | [World writable file (Android)](https://find-sec-bugs.github.io/bugs.html#ANDROID_WORLD_WRITABLE)                                                                                                                            | :x:    | Android not supported |
+| `SQL_INJECTION_ANDROID`                 | [Potential Android SQL Injection](https://find-sec-bugs.github.io/bugs.html#SQL_INJECTION_ANDROID)                                                                                                                           | :x:    | Android not supported |
+| `GROOVY_SHELL`                          | [Potential code injection when using GroovyShell](https://find-sec-bugs.github.io/bugs.html#GROOVY_SHELL)                                                                                                                    | :x:    | Groovy not supported  |
+| `JSP_INCLUDE`                           | [Dynamic JSP inclusion](https://find-sec-bugs.github.io/bugs.html#JSP_INCLUDE)                                                                                                                                               | :x:    | JSP not supported     |
+| `JSP_JSTL_OUT`                          | [Escaping of special XML characters is disabled](https://find-sec-bugs.github.io/bugs.html#JSP_JSTL_OUT)                                                                                                                     | :x:    | JSP not supported     |
+| `JSP_SPRING_EVAL`                       | [Dynamic variable in Spring expression](https://find-sec-bugs.github.io/bugs.html#JSP_SPRING_EVAL)                                                                                                                           | :x:    | JSP not supported     |
+| `JSP_XSLT`                              | [A malicious XSLT could be provided to the JSP tag](https://find-sec-bugs.github.io/bugs.html#JSP_XSLT)                                                                                                                      | :x:    | JSP not supported     |
+| `XSS_JSP_PRINT`                         | [Potential XSS in JSP](https://find-sec-bugs.github.io/bugs.html#XSS_JSP_PRINT)                                                                                                                                              | :x:    | JSP not supported     |
+| `XSS_REQUEST_PARAMETER_TO_JSP_WRITER`   | [XSS: Servlet reflected cross site scripting vulnerability](https://spotbugs.readthedocs.io/en/latest/bugDescriptions.html#xss-servlet-reflected-cross-site-scripting-vulnerability-xss-request-parameter-to-servlet-writer) | :x:    | JSP not supported     |
+| `REQUESTDISPATCHER_FILE_DISCLOSURE`     | [RequestDispatcher File Disclosure](https://find-sec-bugs.github.io/bugs.html#REQUESTDISPATCHER_FILE_DISCLOSURE)                                                                                                             | :x:    | JSP not supported     |
 
 #### Excluded patterns (6)
 
 We excluded the patterns below because they are overly verbose; they are triggered by existing entry-points and do not indicate any vulnerability.
 
-| Rule ID | Description | Status | Comment  |
-| ------- | ----------- | ------ | ---------|
-| `STRUTS1_ENDPOINT` | [Found Struts 1 endpoint](https://find-sec-bugs.github.io/bugs.html#STRUTS1_ENDPOINT) | :no_entry_sign: | the endpoint rules only provide general information about potential security issue which seems noisy -- I think we can skip them |
-| `STRUTS2_ENDPOINT` | [Found Struts 2 endpoint](https://find-sec-bugs.github.io/bugs.html#STRUTS2_ENDPOINT) | :no_entry_sign: | the endpoint rules only provide general information about potential security issue which seems noisy -- I think we can skip them |
-| `SPRING_ENDPOINT` | [Found Spring endpoint](https://find-sec-bugs.github.io/bugs.html#SPRING_ENDPOINT) |  :no_entry_sign: | We cannot cope with annotations; in addition endpoints should probably not end up in the final security report anyway |
-| `TAPESTRY_ENDPOINT` | [Found Tapestry page](https://find-sec-bugs.github.io/bugs.html#TAPESTRY_ENDPOINT) | :no_entry_sign: | We cannot cope with annotations; in addition endpoints should probably not end up in the final security report anyway. |
-| `JAXRS_ENDPOINT` | [Found JAX-RS REST endpoint](https://find-sec-bugs.github.io/bugs.html#JAXRS_ENDPOINT) | :no_entry_sign: |  the endpoint rules only provide general information about potential security issue which seems noisy -- I think we can skip them|
-| `JAXWS_ENDPOINT` | [Found JAX-WS SOAP endpoint](https://find-sec-bugs.github.io/bugs.html#JAXWS_ENDPOINT) | :no_entry_sign:| the endpoint rules only provide general information about potential security issue which seems noisy -- I think we can skip them |
-| `HARD_CODE_KEY` | Secret detection rule | :no_entry_sign:| Secret Detection is taken care of by a dedicated [analyzer](https://docs.gitlab.com/ee/user/application_security/secret_detection/)|
+| Rule ID             | Description                                                                            | Status          | Comment                                                                                                                             |
+| ------------------- | -------------------------------------------------------------------------------------- | --------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| `STRUTS1_ENDPOINT`  | [Found Struts 1 endpoint](https://find-sec-bugs.github.io/bugs.html#STRUTS1_ENDPOINT)  | :no_entry_sign: | the endpoint rules only provide general information about potential security issue which seems noisy -- I think we can skip them    |
+| `STRUTS2_ENDPOINT`  | [Found Struts 2 endpoint](https://find-sec-bugs.github.io/bugs.html#STRUTS2_ENDPOINT)  | :no_entry_sign: | the endpoint rules only provide general information about potential security issue which seems noisy -- I think we can skip them    |
+| `SPRING_ENDPOINT`   | [Found Spring endpoint](https://find-sec-bugs.github.io/bugs.html#SPRING_ENDPOINT)     | :no_entry_sign: | We cannot cope with annotations; in addition endpoints should probably not end up in the final security report anyway               |
+| `TAPESTRY_ENDPOINT` | [Found Tapestry page](https://find-sec-bugs.github.io/bugs.html#TAPESTRY_ENDPOINT)     | :no_entry_sign: | We cannot cope with annotations; in addition endpoints should probably not end up in the final security report anyway.              |
+| `JAXRS_ENDPOINT`    | [Found JAX-RS REST endpoint](https://find-sec-bugs.github.io/bugs.html#JAXRS_ENDPOINT) | :no_entry_sign: | the endpoint rules only provide general information about potential security issue which seems noisy -- I think we can skip them    |
+| `JAXWS_ENDPOINT`    | [Found JAX-WS SOAP endpoint](https://find-sec-bugs.github.io/bugs.html#JAXWS_ENDPOINT) | :no_entry_sign: | the endpoint rules only provide general information about potential security issue which seems noisy -- I think we can skip them    |
+| `HARD_CODE_KEY`     | Secret detection rule                                                                  | :no_entry_sign: | Secret Detection is taken care of by a dedicated [analyzer](https://docs.gitlab.com/ee/user/application_security/secret_detection/) |
 
 #### Patterns we were unable to migrate (12)
 
 The patterns below could not be migrated, because they required features not supported by semgrep. See https://gitlab.com/gitlab-org/gitlab/-/issues/357679 for more information.
 
-| Rule ID | Description | Status | Comment  |
-| ------- | ----------- | ------ | ---------|
-| `SPRING_CSRF_UNRESTRICTED_REQUEST_MAPPING` | [Spring CSRF unrestricted RequestMapping](https://find-sec-bugs.github.io/bugs.html#SPRING_CSRF_UNRESTRICTED_REQUEST_MAPPING) | :no_entry_sign: | No support for parsing annotations |
-| `SPRING_UNVALIDATED_REDIRECT` | [Spring Unvalidated Redirect](https://find-sec-bugs.github.io/bugs.html#SPRING_UNVALIDATED_REDIRECT) |:no_entry_sign:| No support for annotations |
-| `WICKET_ENDPOINT` | [Found Wicket WebPage](https://find-sec-bugs.github.io/bugs.html#WICKET_ENDPOINT) | :no_entry_sign:| the endpoint rules only provide general information about potential security issue which seems noisy -- I think we can skip them |
-| `UNSAFE_HASH_EQUALS` | [Unsafe hash equals](https://find-sec-bugs.github.io/bugs.html#UNSAFE_HASH_EQUALS) | :no_entry_sign: | this rule is highly prone to FPs -- it checks for unsecure hash functions by looking for keywords (e.g., sha) in variable or parameter names. As we are already covered by secret detection, we can probably omit this particular rule. |
-| `STATIC_IV` | [Static IV](https://find-sec-bugs.github.io/bugs.html#STATIC_IV) | :no_entry_sign: | https://gitlab.com/gitlab-org/gitlab/-/issues/357679#note_905023485 |
-| `DESERIALIZATION_GADGET` | [This class could be used as deserialization gadget](https://find-sec-bugs.github.io/bugs.html#DESERIALIZATION_GADGET) | :no_entry_sign:  | Multiple logical flows involved. Cannot be achieved in Semgrep. |
-| `ENTITY_LEAK` | [Unexpected property leak](https://find-sec-bugs.github.io/bugs.html#ENTITY_LEAK) | :no_entry_sign: | Annonations of classes are processed to determine the result. This cannot be achieved in Semgrep. |
-| `ENTITY_MASS_ASSIGNMENT` | [Mass assignment](https://find-sec-bugs.github.io/bugs.html#ENTITY_MASS_ASSIGNMENT) | :no_entry_sign: | Annonations of classes are processed to determine the result. This cannot be achieved in Semgrep. |
-| `ESAPI_ENCRYPTOR` | [Use of ESAPI Encryptor](https://find-sec-bugs.github.io/bugs.html#ESAPI_ENCRYPTOR) | :no_entry_sign: | Config files related. We currently support only files with `.java` extensions. |
-| `JACKSON_UNSAFE_DESERIALIZATION` | [Unsafe Jackson deserialization configuration](https://find-sec-bugs.github.io/bugs.html#JACKSON_UNSAFE_DESERIALIZATION) | :no_entry_sign: | [Reason](https://gitlab.com/gitlab-org/gitlab/-/issues/357679#note_905594086) |
-| `OBJECT_DESERIALIZATION` | [Object deserialization is used](https://find-sec-bugs.github.io/bugs.html#OBJECT_DESERIALIZATION) | :no_entry_sign: | This problem is solved by determining Interface supersets and Annotation metadata. This cannot be accomplished in Semgrep |
-| `REDOS` | [Regex DOS (ReDOS)](https://find-sec-bugs.github.io/bugs.html#REDOS) | :no_entry_sign: | This problem is solved by applying set of conditional logic on each character of a target string. This cannot be accomplished in Semgrep |
+| Rule ID                                    | Description                                                                                                                   | Status          | Comment                                                                                                                                                                                                                                 |
+| ------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------- | --------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `SPRING_CSRF_UNRESTRICTED_REQUEST_MAPPING` | [Spring CSRF unrestricted RequestMapping](https://find-sec-bugs.github.io/bugs.html#SPRING_CSRF_UNRESTRICTED_REQUEST_MAPPING) | :no_entry_sign: | No support for parsing annotations                                                                                                                                                                                                      |
+| `SPRING_UNVALIDATED_REDIRECT`              | [Spring Unvalidated Redirect](https://find-sec-bugs.github.io/bugs.html#SPRING_UNVALIDATED_REDIRECT)                          | :no_entry_sign: | No support for annotations                                                                                                                                                                                                              |
+| `WICKET_ENDPOINT`                          | [Found Wicket WebPage](https://find-sec-bugs.github.io/bugs.html#WICKET_ENDPOINT)                                             | :no_entry_sign: | the endpoint rules only provide general information about potential security issue which seems noisy -- I think we can skip them                                                                                                        |
+| `UNSAFE_HASH_EQUALS`                       | [Unsafe hash equals](https://find-sec-bugs.github.io/bugs.html#UNSAFE_HASH_EQUALS)                                            | :no_entry_sign: | this rule is highly prone to FPs -- it checks for unsecure hash functions by looking for keywords (e.g., sha) in variable or parameter names. As we are already covered by secret detection, we can probably omit this particular rule. |
+| `STATIC_IV`                                | [Static IV](https://find-sec-bugs.github.io/bugs.html#STATIC_IV)                                                              | :no_entry_sign: | https://gitlab.com/gitlab-org/gitlab/-/issues/357679#note_905023485                                                                                                                                                                     |
+| `DESERIALIZATION_GADGET`                   | [This class could be used as deserialization gadget](https://find-sec-bugs.github.io/bugs.html#DESERIALIZATION_GADGET)        | :no_entry_sign: | Multiple logical flows involved. Cannot be achieved in Semgrep.                                                                                                                                                                         |
+| `ENTITY_LEAK`                              | [Unexpected property leak](https://find-sec-bugs.github.io/bugs.html#ENTITY_LEAK)                                             | :no_entry_sign: | Annonations of classes are processed to determine the result. This cannot be achieved in Semgrep.                                                                                                                                       |
+| `ENTITY_MASS_ASSIGNMENT`                   | [Mass assignment](https://find-sec-bugs.github.io/bugs.html#ENTITY_MASS_ASSIGNMENT)                                           | :no_entry_sign: | Annonations of classes are processed to determine the result. This cannot be achieved in Semgrep.                                                                                                                                       |
+| `ESAPI_ENCRYPTOR`                          | [Use of ESAPI Encryptor](https://find-sec-bugs.github.io/bugs.html#ESAPI_ENCRYPTOR)                                           | :no_entry_sign: | Config files related. We currently support only files with `.java` extensions.                                                                                                                                                          |
+| `JACKSON_UNSAFE_DESERIALIZATION`           | [Unsafe Jackson deserialization configuration](https://find-sec-bugs.github.io/bugs.html#JACKSON_UNSAFE_DESERIALIZATION)      | :no_entry_sign: | [Reason](https://gitlab.com/gitlab-org/gitlab/-/issues/357679#note_905594086)                                                                                                                                                           |
+| `OBJECT_DESERIALIZATION`                   | [Object deserialization is used](https://find-sec-bugs.github.io/bugs.html#OBJECT_DESERIALIZATION)                            | :no_entry_sign: | This problem is solved by determining Interface supersets and Annotation metadata. This cannot be accomplished in Semgrep                                                                                                               |
+| `REDOS`                                    | [Regex DOS (ReDOS)](https://find-sec-bugs.github.io/bugs.html#REDOS)                                                          | :no_entry_sign: | This problem is solved by applying set of conditional logic on each character of a target string. This cannot be accomplished in Semgrep                                                                                                |
 
 ### security-code-scan
 
 #### Modified patterns (1)
 
-| Rule ID | Description | Comment  |
-| ------- | ----------- | ------ |
+| Rule ID   | Description                                                     | Comment                                                                                                                |
+| --------- | --------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
 | `SCS0018` | [Path Traversal](https://security-code-scan.github.io/#SCS0018) | We adapted the pattern to not cover arguments passed to `Main` as sources because this often lead to FPs for CLI apps. |
 
 #### Excluded patterns (1)
 
 We excluded the patterns below because they are overly verbose.
 
-| Rule ID | Description | Status | Comment  |
-| ------- | ----------- | ------ | ---------|
+| Rule ID   | Description                                                         | Status          | Comment                                                                                                                |
+| --------- | ------------------------------------------------------------------- | --------------- | ---------------------------------------------------------------------------------------------------------------------- |
 | `SCS0015` | [Hardcoded Password](https://security-code-scan.github.io/#SCS0015) | :no_entry_sign: | This is better served by Secrets Detection as there are a multitude of ways that hardcoded passwords can be specified. |
 
 #### Patterns we were unable to migrate (5)
 
 The patterns below could not be migrated, because they required features not supported by semgrep.
 
-| Rule ID | Description | Status | Comment  |
-| ------- | ----------- | ------ | ---------|
-| `SCS0021` | [Request Validation Disabled (Configuration File)](https://security-code-scan.github.io/#SCS0021) | :no_entry_sign: | XML configuration file. |
-| `SCS0022` | [Event Validation Disabled](https://security-code-scan.github.io/#SCS0022) | :no_entry_sign:  | XML configuration file.|
-| `SCS0023` | [View State Not Encrypted](https://security-code-scan.github.io/#ViewState) | :no_entry_sign:  | XML configuration file. |
-| `SCS0024` | [View State MAC Disabled](https://security-code-scan.github.io/#SCS0024) | :no_entry_sign:  | XML configuration file. |
-| `SCS0008` | [Cookie Without SSL Flag](https://security-code-scan.github.io/#SCS0008) | :no_entry_sign: | The SCS rule also detects vulnerabilities in ASP.NET config files which is not supported by Semgrep. We also haven't been able to detect these with SCS within the `gapanalysis` job as the `HttpCookie` class requires .NET Framework. |
-| `SCS0009` | [Cookie Without HttpOnly Flag](https://security-code-scan.github.io/#SCS0009) | :no_entry_sign: | The SCS rule also detects vulnerabilities in ASP.NET config files which is not supported by Semgrep. We also haven't been able to detect these with SCS within the `gapanalysis` job as the `HttpCookie` class requires .NET Framework. |
-| `SCS0002` | [SQL Injection](https://security-code-scan.github.io/#SCS0002) | :no_entry_sign: | The SCS rule also detects vulnerabilities in ASP.NET UI code, which Semgrep does not support. |
-| `SCS0003` | [XPath Injection](https://security-code-scan.github.io/#SCS0003) | :no_entry_sign: | The SCS rule also detects vulnerabilities in ASP.NET UI code, which Semgrep does not support. |
-| `SCS0003` | [XPath Injection](https://security-code-scan.github.io/#SCS0003) | :no_entry_sign: | The SCS rule also detects vulnerabilities in ASP.NET UI code, which Semgrep does not support. |
+| Rule ID   | Description                                                                                                        | Status          | Comment                                                                                                                                                                                                                                 |
+| --------- | ------------------------------------------------------------------------------------------------------------------ | --------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `SCS0021` | [Request Validation Disabled (Configuration File)](https://security-code-scan.github.io/#SCS0021)                  | :no_entry_sign: | XML configuration file.                                                                                                                                                                                                                 |
+| `SCS0022` | [Event Validation Disabled](https://security-code-scan.github.io/#SCS0022)                                         | :no_entry_sign: | XML configuration file.                                                                                                                                                                                                                 |
+| `SCS0023` | [View State Not Encrypted](https://security-code-scan.github.io/#ViewState)                                        | :no_entry_sign: | XML configuration file.                                                                                                                                                                                                                 |
+| `SCS0024` | [View State MAC Disabled](https://security-code-scan.github.io/#SCS0024)                                           | :no_entry_sign: | XML configuration file.                                                                                                                                                                                                                 |
+| `SCS0008` | [Cookie Without SSL Flag](https://security-code-scan.github.io/#SCS0008)                                           | :no_entry_sign: | The SCS rule also detects vulnerabilities in ASP.NET config files which is not supported by Semgrep. We also haven't been able to detect these with SCS within the `gapanalysis` job as the `HttpCookie` class requires .NET Framework. |
+| `SCS0009` | [Cookie Without HttpOnly Flag](https://security-code-scan.github.io/#SCS0009)                                      | :no_entry_sign: | The SCS rule also detects vulnerabilities in ASP.NET config files which is not supported by Semgrep. We also haven't been able to detect these with SCS within the `gapanalysis` job as the `HttpCookie` class requires .NET Framework. |
+| `SCS0002` | [SQL Injection](https://security-code-scan.github.io/#SCS0002)                                                     | :no_entry_sign: | The SCS rule also detects vulnerabilities in ASP.NET UI code, which Semgrep does not support.                                                                                                                                           |
+| `SCS0003` | [XPath Injection](https://security-code-scan.github.io/#SCS0003)                                                   | :no_entry_sign: | The SCS rule also detects vulnerabilities in ASP.NET UI code, which Semgrep does not support.                                                                                                                                           |
+| `SCS0003` | [XPath Injection](https://security-code-scan.github.io/#SCS0003)                                                   | :no_entry_sign: | The SCS rule also detects vulnerabilities in ASP.NET UI code, which Semgrep does not support.                                                                                                                                           |
+| `SCS0030` | [Request validation is enabled only for pages (Configuration File)](https://security-code-scan.github.io/#SCS0030) | :no_entry_sign: | This rule relates to changes in the Configuration File(XML) format. Semgrep does not have GA support for HTML/XML format.                                                                                                               |
+
+## Rule synchronization from Upstream scanners
+
+Semgrep rules should be kept in-sync with upstream scanners regularly; here's the process:
+
+- Pull the newly added rules from the analyzer's Upstream source (excluding the rules which could not be translated due to Semgrep limitations - see above).
+- Translate newly identified rules into Semgrep-equivalent rules
+- [Map](https://gitlab.com/gitlab-org/secure/gsoc-sast-vulnerability-rules/playground/sast-rules#mappings) them against native analyzer's IDs in this repository.
+- Generate a new ruleset distribution using the instructions described [above](https://gitlab.com/gitlab-org/secure/gsoc-sast-vulnerability-rules/playground/sast-rules#contribution-instructions).
+- Add all the un-translatable rules into this file along with the reason against the downstream analyzer/
+- Copy over the new ruleset distribution into [`Semgrep/rules`](https://gitlab.com/gitlab-org/security-products/analyzers/semgrep/-/tree/main/rules) to reflect rule changes in the Analyzer.
+
+For better tracking purposes, create a dedicated issue on rule synchronization cadence and create a sub-task for each semgrep-translated analyzer. The subtask should contain all the new rules that should be synchronized. Here's an example [issue](https://gitlab.com/gitlab-org/gitlab/-/issues/373117) that has followed the mentioned process.

@@ -10,6 +10,9 @@ rules:
   - pattern-either:
     - pattern-regex: "(/CBC/PKCS5Padding)"
     - pattern-regex: "(AES|DES(ede)?)(/ECB/*)"
+    - pattern-regex: "(AES|DES(ede)?)(/CBC/*)"
+    - pattern-regex: "(AES|DES(ede)?)(/OFB/*)"
+    - pattern-regex: "(AES|DES(ede)?)(/CTR/*)"
   - pattern-not-regex: ".*/(CCM|CWC|OCB|EAX|GCM)/.*"
   - pattern-not-regex: "^(RSA)/.*"
   - pattern-not-regex: "^(ECIES)$"

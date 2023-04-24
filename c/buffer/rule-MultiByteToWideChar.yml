@@ -9,8 +9,16 @@ rules:
   languages:
   - "c"
   message: |
-    The software does not properly handle when an input contains Unicode encoding.
+    The input buffer is the number of bytes in the string, but the size
+    of the output buffer is the number of characters. To avoid overflows, the
+    application must determine the correct buffer size which depends on the data type
+    the buffer receives.
+
+    For more information see:
+    https://learn.microsoft.com/en-us/windows/win32/intl/security-considerations--international-features
   metadata:
-    cwe: "CWE-120: Requires maximum length in CHARACTERS, not bytes (CWE-120)"
+    shortDescription: "Easily misused function may lead to buffer overflows"
+    cwe: "CWE-120"
+    owasp: "A01:2017 - Injection"
   pattern: "MultiByteToWideChar(...)"
   severity: "INFO"

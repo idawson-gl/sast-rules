@@ -1,0 +1,25 @@
+# yamllint disable
+# License: Apache 2.0 (c) gosec
+# source (original): https://github.com/securego/gosec/blob/master/rules/http_serve.go
+# hash: c6e10af
+# yamllint enable
+---
+rules:
+- id: "go/http/rule-http_serve"
+  patterns:
+  - pattern-inside: |
+      import "net/http"
+      ...
+  - pattern-either:
+    - pattern: "http.ListenAndServe(...)"
+    - pattern: "http.ListenAndServeTLS(...)"
+    - pattern: "http.Serve(...)"
+    - pattern: "http.ServeTLS(...)"
+  message: |
+    The use of net/http serve functions without support for setting timeouts are susceptible to the
+    Slowloris class of attacks.
+  metadata:
+    cwe: "CWE-400: Uncontrolled Resource Consumption"
+  severity: "WARNING"
+  languages:
+  - "go"

@@ -9,9 +9,16 @@ rules:
   languages:
   - "c"
   message: |
-    Ensure the destination has 4 times the size of the source, to leave room for expansion.
+    The `strecpy` and `streadd` functions require that the destination buffer size be at least
+    four
+    times the size of the source due to each character potentially becoming a `\` and 3 digits.
+
+    For more information please see:
+    https://docs.oracle.com/cd/E18752_01/html/816-5172/streadd-3gen.html
   metadata:
-    cwe: "CWE-120: This function does not protect against buffer overflows (CWE-120)"
+    shortDescription: "Insecure string processing functions"
+    cwe: "CWE-120"
+    owasp: "A01:2017 - Injection"
   pattern-either:
   - pattern: "streadd(...)"
   - pattern: "strecpy(...)"

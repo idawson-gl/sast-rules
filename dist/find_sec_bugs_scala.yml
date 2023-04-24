@@ -1,5 +1,5 @@
 # yamllint disable
-# rule-set version: v1.2.1
+# rule-set version: v1.3.1
 # yamllint enable
 ---
 rules:
@@ -453,6 +453,9 @@ rules:
   - pattern-either:
     - pattern-regex: "(/CBC/PKCS5Padding)"
     - pattern-regex: "(AES|DES(ede)?)(/ECB/*)"
+    - pattern-regex: "(AES|DES(ede)?)(/CBC/*)"
+    - pattern-regex: "(AES|DES(ede)?)(/OFB/*)"
+    - pattern-regex: "(AES|DES(ede)?)(/CTR/*)"
   - pattern-not-regex: ".*/(CCM|CWC|OCB|EAX|GCM)/.*"
   - pattern-not-regex: "^(RSA)/.*"
   - pattern-not-regex: "^(ECIES)$"
@@ -730,7 +733,7 @@ rules:
   metadata:
     category: "security"
     cwe: "CWE-20: Improper Input Validation"
-    owasp: "OWASP: Cross-Site Request Forgery"
+    owasp: "A07:2017 - Cross-Site Scripting (XSS)"
     technology:
     - "scala"
     primary_identifier: "find_sec_bugs_scala.JAXWS_ENDPOINT"

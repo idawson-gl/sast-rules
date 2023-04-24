@@ -8,12 +8,12 @@ find_sec_bugs:
     type: "find_sec_bugs_type"
     name: "Find Security Bugs-$ID"
     value: "$ID"
-  mappings:  
+  mappings:
   # random
   - id: "PREDICTABLE_RANDOM"
     rules:
     - "java/random/rule-PseudoRandom"
-  
+
   # XXE
   - id: "XXE_SAXPARSER"
     rules:
@@ -48,6 +48,9 @@ find_sec_bugs:
   - id: "XSS_REQUEST_PARAMETER_TO_SERVLET_WRITER"
     rules:
     - "java/xss/rule-XSSReqParamToServletWriter"
+  - id: "XSS_REQUEST_PARAMETER_TO_SEND_ERROR"
+    rules:
+    - "java/xss/rule-XSSReqParamToSendError"
   - id: "WICKET_XSS1"
     rules:
     - "java/xss/rule-WicketXSS"
@@ -57,19 +60,31 @@ find_sec_bugs:
 
   # SQLI
   - id: "SQL_INJECTION_SPRING_JDBC"
-    rules: 
+    rules:
     - "java/inject/rule-SqlInjection"
   - id: "SQL_INJECTION_JPA"
-    rules: 
+    rules:
     - "java/inject/rule-SqlInjection"
   - id: "SQL_INJECTION_JDO"
-    rules: 
+    rules:
     - "java/inject/rule-SqlInjection"
   - id: "SQL_INJECTION_JDBC"
-    rules: 
+    rules:
     - "java/inject/rule-SqlInjection"
   - id: "SQL_NONCONSTANT_STRING_PASSED_TO_EXECUTE"
-    rules: 
+    rules:
+    - "java/inject/rule-SqlInjection"
+  - id: "SQL_INJECTION"
+    rules:
+    - "java/inject/rule-SqlInjection"
+  - id: "SQL_INJECTION_HIBERNATE"
+    rules:
+    - "java/inject/rule-SqlInjection"
+  - id: "SQL_INJECTION_VERTX"
+    rules:
+    - "java/inject/rule-SqlInjection"
+  - id: "SQL_PREPARED_STATEMENT_GENERATED_FROM_NONCONSTANT_STRING"
+    rules:
     - "java/inject/rule-SqlInjection"
 
     # XPATHI
@@ -90,8 +105,8 @@ find_sec_bugs:
   - id: "BAD_HEXA_CONVERSION"
     rules:
     - "java/strings/rule-BadHexConversion"
-  
-  # Permissions 
+
+  # Permissions
   - id: "DANGEROUS_PERMISSION_COMBINATION"
     rules:
     - "java/perm/rule-DangerousPermissions"
@@ -108,7 +123,7 @@ find_sec_bugs:
     rules:
     - "java/form/rule-FormValidate"
 
-  # XML 
+  # XML
   - id: "SAML_IGNORE_COMMENTS"
     rules:
     - "java/xml/rule-SAMLIgnoreComments"
@@ -142,87 +157,87 @@ find_sec_bugs:
     rules:
     - "java/xml/rule-XsltTransform"
 
-  # Injections    
+  # Injections
   - id: "AWS_QUERY_INJECTION"
-    rules: 
+    rules:
     - "java/inject/rule-AWSQueryInjection"
   - id: "BEAN_PROPERTY_INJECTION"
-    rules: 
+    rules:
     - "java/inject/rule-BeanPropertyInjection"
   - id: "COMMAND_INJECTION"
-    rules: 
+    rules:
     - "java/inject/rule-CommandInjection"
   - id: "CRLF_INJECTION_LOGS"
-    rules: 
+    rules:
     - "java/inject/rule-CLRFInjectionLogs"
   - id: "CUSTOM_INJECTION"
-    rules: 
+    rules:
     - "java/inject/rule-CustomInjection"
     - "java/inject/rule-CustomInjectionSQLString"
   - id: "EL_INJECTION"
-    rules: 
+    rules:
     - "java/inject/rule-ELInjection"
   - id: "REQUESTDISPATCHER_FILE_DISCLOSURE"
-    rules: 
+    rules:
     - "java/inject/rule-FileDisclosure"
   - id: "STRUTS_FILE_DISCLOSURE"
-    rules: 
+    rules:
     - "java/inject/rule-FileDisclosure"
   - id: "SPRING_FILE_DISCLOSURE"
-    rules: 
+    rules:
     - "java/inject/rule-FileDisclosure"
   - id: "LDAP_INJECTION"
-    rules: 
+    rules:
     - "java/inject/rule-LDAPInjection"
   - id: "PATH_TRAVERSAL_IN"
-    rules: 
+    rules:
     - "java/inject/rule-PathTraversalIn"
   - id: "PATH_TRAVERSAL_OUT"
-    rules: 
+    rules:
     - "java/inject/rule-PathTraversalOut"
   - id: "PATH_TRAVERSAL_OUT"
-    rules: 
+    rules:
     - "java/inject/rule-PathTraversalOut"
   - id: "PT_RELATIVE_PATH_TRAVERSAL"
-    rules: 
+    rules:
     - "java/inject/rule-SpotbugsPathTraversalRelative"
   - id: "PT_ABSOLUTE_PATH_TRAVERSAL"
-    rules: 
+    rules:
     - "java/inject/rule-SpotbugsPathTraversalAbsolute"
   - id: "OGNL_INJECTION"
     rules:
     - "java/inject/rule-OgnlInjection"
-  
+
   # Cryptography
   - id: "BLOWFISH_KEY_SIZE"
-    rules: 
+    rules:
     - "java/crypto/rule-BlowfishKeySize"
   - id: "CIPHER_INTEGRITY"
-    rules: 
+    rules:
     - "java/crypto/rule-CipherIntegrity"
   - id: "ECB_MODE"
-    rules: 
+    rules:
     - "java/crypto/rule-CipherECBMode"
   - id: "PADDING_ORACLE"
-    rules: 
+    rules:
     - "java/crypto/rule-CipherPaddingOracle"
   - id: "CUSTOM_MESSAGE_DIGEST"
-    rules: 
+    rules:
     - "java/crypto/rule-CustomMessageDigest"
   - id: "DEFAULT_HTTP_CLIENT"
-    rules: 
+    rules:
     - "java/crypto/rule-DefaultHTTPClient"
   - id: "DES_USAGE"
-    rules: 
+    rules:
     - "java/crypto/rule-CipherDESInsecure"
   - id: "TDES_USAGE"
-    rules: 
+    rules:
     - "java/crypto/rule-CipherDESedeInsecure"
   - id: "HAZELCAST_SYMMETRIC_ENCRYPTION"
-    rules: 
+    rules:
     - "java/crypto/rule-HazelcastSymmetricEncryption"
   - id: "RSA_KEY_SIZE"
-    rules: 
+    rules:
     - "java/crypto/rule-InsufficientKeySizeRsa"
   - id: "RSA_NO_PADDING"
     rules:
@@ -239,33 +254,33 @@ find_sec_bugs:
   - id: "NULL_CIPHER"
     rules:
     - "java/crypto/rule-NullCipher"
-  
+
   # Cookie
   - id: "COOKIE_PERSISTENT"
-    rules: 
+    rules:
     - "java/cookie/rule-CookiePersistent"
   - id: "INSECURE_COOKIE"
-    rules: 
+    rules:
     - "java/cookie/rule-CookieInsecure"
   - id: "HTTPONLY_COOKIE"
-    rules: 
+    rules:
     - "java/cookie/rule-CookieHTTPOnly"
   - id: "COOKIE_USAGE"
-    rules: 
+    rules:
     - "java/cookie/rule-CookieUsage"
   - id: "HTTP_RESPONSE_SPLITTING"
-    rules: 
+    rules:
     - "java/cookie/rule-HttpResponseSplitting"
   - id: "HRS_REQUEST_PARAMETER_TO_COOKIE"
-    rules: 
+    rules:
     - "java/cookie/rule-RequestParamToCookie"
   - id: "TRUST_BOUNDARY_VIOLATION"
-    rules: 
+    rules:
     - "java/cookie/rule-TrustBoundaryViolation"
   - id: "HRS_REQUEST_PARAMETER_TO_HTTP_HEADER"
-    rules: 
+    rules:
     - "java/cookie/rule-RequestParamToHeader"
-  
+
   # Password
   - id: "DMI_EMPTY_DB_PASSWORD"
     rules:
@@ -294,7 +309,7 @@ find_sec_bugs:
   - id: "WEAK_FILENAMEUTILS"
     rules:
     - "java/file/rule-FilenameUtils"
-  
+
   # SSRF
   - id: "URLCONNECTION_SSRF_FD"
     rules:
@@ -332,7 +347,7 @@ find_sec_bugs:
     - "java/script/rule-ScriptInjection"
 
   # Servlet
-  - id: "SERVLET_PARAMETER" 
+  - id: "SERVLET_PARAMETER"
     rules:
     - "java/endpoint/rule-InsecureServlet"
   - id: "SERVLET_CONTENT_TYPE"
@@ -341,16 +356,16 @@ find_sec_bugs:
   - id: "SERVLET_SERVER_NAME"
     rules:
     - "java/endpoint/rule-InsecureServlet"
-  - id: "SERVLET_SESSION_ID" 
+  - id: "SERVLET_SESSION_ID"
     rules:
     - "java/endpoint/rule-InsecureServlet"
-  - id: "SERVLET_QUERY_STRING" 
+  - id: "SERVLET_QUERY_STRING"
     rules:
     - "java/endpoint/rule-InsecureServlet"
   - id: "SERVLET_HEADER"
     rules:
     - "java/endpoint/rule-InsecureServlet"
-  - id: "SERVLET_HEADER_REFERER"  
+  - id: "SERVLET_HEADER_REFERER"
     rules:
     - "java/endpoint/rule-InsecureServlet"
   - id: "SERVLET_HEADER_USER_AGENT"
@@ -379,13 +394,18 @@ find_sec_bugs:
   - id: "JAXWS_ENDPOINT"
     rules:
     - "java/endpoint/rule-JaxWsEndpoint"
-  
+
   - id: "JAXRS_ENDPOINT"
     rules:
     - "java/endpoint/rule-JaxRsEndpoint"
 
   # Cors
   - id: "PERMISSIVE_CORS"
-    rules: 
+    rules:
     - "java/cors/rule-PermissiveCORS"
     - "java/cors/rule-PermissiveCORSInjection"
+
+  # CSRF
+  - id: "SPRING_CSRF_PROTECTION_DISABLED"
+    rules:
+    - "java/csrf/rule-SpringCSRFDisabled"
