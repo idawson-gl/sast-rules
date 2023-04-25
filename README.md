@@ -145,7 +145,7 @@ contributions.
 
 | Author            | MRs/Issues |
 | ----------------- | ---------- |
-| @masakura         | !99, !107  |
+| @masakura         | !99, !107, !135  |
 | @gregory.mcdaniel | #32        |
 
 
