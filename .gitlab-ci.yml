@@ -118,6 +118,7 @@ gapanalysis:
   stage: gapanalysis
   trigger:
     project: gitlab-org/security-products/sast-rule-testing-framework/rule-testing
+    branch: craigmsmith-fix-broken-consolidation
   rules:
     - if: $CI_COMMIT_TAG
       when: never
