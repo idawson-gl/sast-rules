@@ -106,8 +106,6 @@ bandit:
 
 ## Datasources
 
-Trigger Pipeline
-
 The rules and test-cases in this repository are partially sourced from the
 sources listed below:
 1. https://github.com/returntocorp/semgrep-rules
