@@ -1,7 +1,3 @@
-# yamllint disable
-# maps spotbugs rule ids to semgrep rules
-# License: MIT (c) GitLab Inc.
-# yamllint enable
 ---
 find_sec_bugs_scala:
   native_analyzer: "find_sec_bugs"
@@ -10,400 +6,463 @@ find_sec_bugs_scala:
     name: "Find Security Bugs-$ID"
     value: "$ID"
   mappings:
-  # random
   - id: "PREDICTABLE_RANDOM"
     rules:
     - path: "scala/random/rule-PseudoRandom"
+      primary_id: "find_sec_bugs.PREDICTABLE_RANDOM"
   - id: "PREDICTABLE_RANDOM_SCALA"
     rules:
     - path: "scala/random/rule-PseudoRandom"
-
-  # XXE
+      primary_id: "find_sec_bugs.PREDICTABLE_RANDOM_SCALA"
   - id: "XXE_SAXPARSER"
     rules:
     - path: "scala/xxe/rule-SaxParserXXE"
+      primary_id: "find_sec_bugs.XXE_SAXPARSER"
   - id: "XXE_XMLREADER"
     rules:
     - path: "scala/xxe/rule-XMLRdr"
+      primary_id: "find_sec_bugs.XXE_XMLREADER"
   - id: "XXE_XMLSTREAMREADER"
     rules:
     - path: "scala/xxe/rule-XMLStreamRdr"
+      primary_id: "find_sec_bugs.XXE_XMLSTREAMREADER"
   - id: "XXE_XPATH"
     rules:
     - path: "scala/xxe/rule-XPathXXE"
+      primary_id: "find_sec_bugs.XXE_XPATH"
   - id: "XXE_DOCUMENT"
     rules:
     - path: "scala/xxe/rule-Document"
+      primary_id: "find_sec_bugs.XXE_DOCUMENT"
   - id: "XXE_DTD_TRANSFORM_FACTORY"
     rules:
     - path: "scala/xxe/rule-Trans"
+      primary_id: "find_sec_bugs.XXE_DTD_TRANSFORM_FACTORY"
   - id: "XXE_XSLT_TRANSFORM_FACTORY"
     rules:
     - path: "scala/xxe/rule-Trans"
-
-  # XSS
+      primary_id: "find_sec_bugs.XXE_XSLT_TRANSFORM_FACTORY"
   - id: "XSS_SERVLET"
     rules:
     - path: "scala/xss/rule-XSSServlet"
+      primary_id: "find_sec_bugs.XSS_SERVLET"
   - id: "XSS_REQUEST_PARAMETER_TO_SERVLET_WRITER"
     rules:
     - path: "scala/xss/rule-XSSReqParamToServletWriter"
+      primary_id: "find_sec_bugs.XSS_REQUEST_PARAMETER_TO_SERVLET_WRITER"
   - id: "WICKET_XSS1"
     rules:
     - path: "scala/xss/rule-WicketXSS"
+      primary_id: "find_sec_bugs.WICKET_XSS1"
   - id: "XSS_REQUEST_WRAPPER"
     rules:
     - path: "scala/xss/rule-RequestWrapper"
+      primary_id: "find_sec_bugs.XSS_REQUEST_WRAPPER"
   - id: "SCALA_XSS_MVC_API"
     rules:
     - path: "scala/xss/rule-MVCApi"
-
-  # Servlet
+      primary_id: "find_sec_bugs.SCALA_XSS_MVC_API"
   - id: "SERVLET_PARAMETER"
     rules:
     - path: "scala/endpoint/rule-InsecureServlet"
+      primary_id: "find_sec_bugs.SERVLET_PARAMETER"
   - id: "SERVLET_CONTENT_TYPE"
     rules:
     - path: "scala/endpoint/rule-InsecureServlet"
+      primary_id: "find_sec_bugs.SERVLET_CONTENT_TYPE"
   - id: "SERVLET_SERVER_NAME"
     rules:
     - path: "scala/endpoint/rule-InsecureServlet"
+      primary_id: "find_sec_bugs.SERVLET_SERVER_NAME"
   - id: "SERVLET_SESSION_ID"
     rules:
     - path: "scala/endpoint/rule-InsecureServlet"
+      primary_id: "find_sec_bugs.SERVLET_SESSION_ID"
   - id: "SERVLET_QUERY_STRING"
     rules:
     - path: "scala/endpoint/rule-InsecureServlet"
+      primary_id: "find_sec_bugs.SERVLET_QUERY_STRING"
   - id: "SERVLET_HEADER"
     rules:
     - path: "scala/endpoint/rule-InsecureServlet"
+      primary_id: "find_sec_bugs.SERVLET_HEADER"
   - id: "SERVLET_HEADER_REFERER"
     rules:
     - path: "scala/endpoint/rule-InsecureServlet"
+      primary_id: "find_sec_bugs.SERVLET_HEADER_REFERER"
   - id: "SERVLET_HEADER_USER_AGENT"
     rules:
     - path: "scala/endpoint/rule-InsecureServlet"
-
-  # SQLI
+      primary_id: "find_sec_bugs.SERVLET_HEADER_USER_AGENT"
   - id: "SQL_INJECTION_SPRING_JDBC"
     rules:
     - path: "scala/inject/rule-SqlInjection"
+      primary_id: "find_sec_bugs.SQL_INJECTION_SPRING_JDBC"
   - id: "SQL_INJECTION_JPA"
     rules:
     - path: "scala/inject/rule-SqlInjection"
+      primary_id: "find_sec_bugs.SQL_INJECTION_JPA"
   - id: "SQL_INJECTION_JDO"
     rules:
     - path: "scala/inject/rule-SqlInjection"
+      primary_id: "find_sec_bugs.SQL_INJECTION_JDO"
   - id: "SQL_INJECTION_JDBC"
     rules:
     - path: "scala/inject/rule-SqlInjection"
+      primary_id: "find_sec_bugs.SQL_INJECTION_JDBC"
   - id: "SQL_NONCONSTANT_STRING_PASSED_TO_EXECUTE"
     rules:
     - path: "scala/inject/rule-SqlInjection"
+      primary_id: "find_sec_bugs.SQL_NONCONSTANT_STRING_PASSED_TO_EXECUTE"
   - id: "SCALA_SQL_INJECTION_SLICK"
     rules:
     - path: "scala/inject/rule-SqlInjection"
-
-    # XPATHI
+      primary_id: "find_sec_bugs.SCALA_SQL_INJECTION_SLICK"
   - id: "XPATH_INJECTION"
     rules:
     - path: "scala/xpathi/rule-XpathInjection"
-
-  # Strings
+      primary_id: "find_sec_bugs.XPATH_INJECTION"
   - id: "NORMALIZATION_AFTER_VALIDATION"
     rules:
     - path: "scala/strings/rule-NormalizeAfterValidation"
+      primary_id: "find_sec_bugs.NORMALIZATION_AFTER_VALIDATION"
   - id: "MODIFICATION_AFTER_VALIDATION"
     rules:
     - path: "scala/strings/rule-ModifyAfterValidation"
+      primary_id: "find_sec_bugs.MODIFICATION_AFTER_VALIDATION"
   - id: "IMPROPER_UNICODE"
     rules:
     - path: "scala/strings/rule-ImproperUnicode"
+      primary_id: "find_sec_bugs.IMPROPER_UNICODE"
   - id: "BAD_HEXA_CONVERSION"
     rules:
     - path: "scala/strings/rule-BadHexConversion"
-
-  # Permissions
+      primary_id: "find_sec_bugs.BAD_HEXA_CONVERSION"
   - id: "DANGEROUS_PERMISSION_COMBINATION"
     rules:
     - path: "scala/perm/rule-DangerousPermissions"
+      primary_id: "find_sec_bugs.DANGEROUS_PERMISSION_COMBINATION"
   - id: "OVERLY_PERMISSIVE_FILE_PERMISSION"
     rules:
     - path: "scala/perm/rule-OverlyPermissiveFilePermissionInline"
+      primary_id: "find_sec_bugs.OVERLY_PERMISSIVE_FILE_PERMISSION"
     - path: "scala/perm/rule-OverlyPermissiveFilePermissionObj"
+      primary_id: "find_sec_bugs.OVERLY_PERMISSIVE_FILE_PERMISSION"
   - id: "FORMAT_STRING_MANIPULATION"
     rules:
     - path: "scala/strings/rule-FormatStringManipulation"
-
-  # Form
+      primary_id: "find_sec_bugs.FORMAT_STRING_MANIPULATION"
   - id: "STRUTS_FORM_VALIDATION"
     rules:
     - path: "scala/form/rule-FormValidate"
-
-  # XML
+      primary_id: "find_sec_bugs.STRUTS_FORM_VALIDATION"
   - id: "SAML_IGNORE_COMMENTS"
     rules:
     - path: "scala/xml/rule-SAMLIgnoreComments"
+      primary_id: "find_sec_bugs.SAML_IGNORE_COMMENTS"
   - id: "RPC_ENABLED_EXTENSIONS"
     rules:
     - path: "scala/xml/rule-ApacheXmlRpc"
+      primary_id: "find_sec_bugs.RPC_ENABLED_EXTENSIONS"
   - id: "XML_DECODER"
     rules:
     - path: "scala/xml/rule-XmlDecoder"
-
-  # SMTP
+      primary_id: "find_sec_bugs.XML_DECODER"
   - id: "SMTP_HEADER_INJECTION"
     rules:
     - path: "scala/smtp/rule-SmtpClient"
+      primary_id: "find_sec_bugs.SMTP_HEADER_INJECTION"
   - id: "INSECURE_SMTP_SSL"
     rules:
     - path: "scala/smtp/rule-InsecureSmtp"
-
+      primary_id: "find_sec_bugs.INSECURE_SMTP_SSL"
   - id: "TEMPLATE_INJECTION_PEBBLE"
     rules:
     - path: "scala/templateinjection/rule-TemplateInjection"
-
+      primary_id: "find_sec_bugs.TEMPLATE_INJECTION_PEBBLE"
   - id: "TEMPLATE_INJECTION_FREEMARKER"
     rules:
     - path: "scala/templateinjection/rule-TemplateInjection"
-
+      primary_id: "find_sec_bugs.TEMPLATE_INJECTION_FREEMARKER"
   - id: "TEMPLATE_INJECTION_VELOCITY"
     rules:
     - path: "scala/templateinjection/rule-TemplateInjection"
+      primary_id: "find_sec_bugs.TEMPLATE_INJECTION_VELOCITY"
   - id: "MALICIOUS_XSLT"
     rules:
     - path: "scala/xml/rule-XsltTransform"
-
-  # Injections
+      primary_id: "find_sec_bugs.MALICIOUS_XSLT"
   - id: "AWS_QUERY_INJECTION"
     rules:
     - path: "scala/inject/rule-AWSQueryInjection"
+      primary_id: "find_sec_bugs.AWS_QUERY_INJECTION"
   - id: "BEAN_PROPERTY_INJECTION"
     rules:
     - path: "scala/inject/rule-BeanPropertyInjection"
+      primary_id: "find_sec_bugs.BEAN_PROPERTY_INJECTION"
   - id: "COMMAND_INJECTION"
     rules:
     - path: "scala/inject/rule-CommandInjection"
+      primary_id: "find_sec_bugs.COMMAND_INJECTION"
   - id: "SCALA_COMMAND_INJECTION"
     rules:
     - path: "scala/inject/rule-CommandInjection"
+      primary_id: "find_sec_bugs.SCALA_COMMAND_INJECTION"
   - id: "CRLF_INJECTION_LOGS"
     rules:
     - path: "scala/inject/rule-CLRFInjectionLogs"
+      primary_id: "find_sec_bugs.CRLF_INJECTION_LOGS"
   - id: "CUSTOM_INJECTION"
     rules:
     - path: "scala/inject/rule-CustomInjection"
+      primary_id: "find_sec_bugs.CUSTOM_INJECTION"
     - path: "scala/inject/rule-CustomInjectionSQLString"
+      primary_id: "find_sec_bugs.CUSTOM_INJECTION"
   - id: "EL_INJECTION"
     rules:
     - path: "scala/inject/rule-ELInjection"
+      primary_id: "find_sec_bugs.EL_INJECTION"
   - id: "REQUESTDISPATCHER_FILE_DISCLOSURE"
     rules:
     - path: "scala/inject/rule-FileDisclosure"
+      primary_id: "find_sec_bugs.REQUESTDISPATCHER_FILE_DISCLOSURE"
   - id: "STRUTS_FILE_DISCLOSURE"
     rules:
     - path: "scala/inject/rule-FileDisclosure"
+      primary_id: "find_sec_bugs.STRUTS_FILE_DISCLOSURE"
   - id: "SPRING_FILE_DISCLOSURE"
     rules:
     - path: "scala/inject/rule-FileDisclosure"
+      primary_id: "find_sec_bugs.SPRING_FILE_DISCLOSURE"
   - id: "LDAP_INJECTION"
     rules:
     - path: "scala/inject/rule-LDAPInjection"
+      primary_id: "find_sec_bugs.LDAP_INJECTION"
   - id: "PATH_TRAVERSAL_IN"
     rules:
     - path: "scala/inject/rule-PathTraversalIn"
+      primary_id: "find_sec_bugs.PATH_TRAVERSAL_IN"
   - id: "SCALA_PATH_TRAVERSAL_IN"
     rules:
     - path: "scala/inject/rule-PathTraversalIn"
+      primary_id: "find_sec_bugs.SCALA_PATH_TRAVERSAL_IN"
   - id: "PATH_TRAVERSAL_OUT"
     rules:
     - path: "scala/inject/rule-PathTraversalOut"
+      primary_id: "find_sec_bugs.PATH_TRAVERSAL_OUT"
   - id: "PT_RELATIVE_PATH_TRAVERSAL"
     rules:
     - path: "scala/inject/rule-SpotbugsPathTraversalRelative"
+      primary_id: "find_sec_bugs.PT_RELATIVE_PATH_TRAVERSAL"
   - id: "PT_ABSOLUTE_PATH_TRAVERSAL"
     rules:
     - path: "scala/inject/rule-SpotbugsPathTraversalAbsolute"
+      primary_id: "find_sec_bugs.PT_ABSOLUTE_PATH_TRAVERSAL"
   - id: "OGNL_INJECTION"
     rules:
     - path: "scala/inject/rule-OgnlInjection"
-
-  # Cryptography
+      primary_id: "find_sec_bugs.OGNL_INJECTION"
   - id: "BLOWFISH_KEY_SIZE"
     rules:
     - path: "scala/crypto/rule-BlowfishKeySize"
+      primary_id: "find_sec_bugs.BLOWFISH_KEY_SIZE"
   - id: "CIPHER_INTEGRITY"
     rules:
     - path: "scala/crypto/rule-CipherIntegrity"
+      primary_id: "find_sec_bugs.CIPHER_INTEGRITY"
   - id: "ECB_MODE"
     rules:
     - path: "scala/crypto/rule-CipherECBMode"
+      primary_id: "find_sec_bugs.ECB_MODE"
   - id: "PADDING_ORACLE"
     rules:
     - path: "scala/crypto/rule-CipherPaddingOracle"
+      primary_id: "find_sec_bugs.PADDING_ORACLE"
   - id: "CUSTOM_MESSAGE_DIGEST"
     rules:
     - path: "scala/crypto/rule-CustomMessageDigest"
+      primary_id: "find_sec_bugs.CUSTOM_MESSAGE_DIGEST"
   - id: "DEFAULT_HTTP_CLIENT"
     rules:
     - path: "scala/crypto/rule-DefaultHTTPClient"
+      primary_id: "find_sec_bugs.DEFAULT_HTTP_CLIENT"
   - id: "DES_USAGE"
     rules:
     - path: "scala/crypto/rule-CipherDESInsecure"
+      primary_id: "find_sec_bugs.DES_USAGE"
   - id: "TDES_USAGE"
     rules:
     - path: "scala/crypto/rule-CipherDESedeInsecure"
+      primary_id: "find_sec_bugs.TDES_USAGE"
   - id: "HAZELCAST_SYMMETRIC_ENCRYPTION"
     rules:
     - path: "scala/crypto/rule-HazelcastSymmetricEncryption"
+      primary_id: "find_sec_bugs.HAZELCAST_SYMMETRIC_ENCRYPTION"
   - id: "RSA_KEY_SIZE"
     rules:
     - path: "scala/crypto/rule-InsufficientKeySizeRsa"
+      primary_id: "find_sec_bugs.RSA_KEY_SIZE"
   - id: "RSA_NO_PADDING"
     rules:
     - path: "scala/crypto/rule-RsaNoPadding"
+      primary_id: "find_sec_bugs.RSA_NO_PADDING"
   - id: "SSL_CONTEXT"
     rules:
     - path: "scala/crypto/rule-WeakTLSProtocol"
+      primary_id: "find_sec_bugs.SSL_CONTEXT"
   - id: "WEAK_MESSAGE_DIGEST_MD5"
     rules:
     - path: "scala/crypto/rule-WeakMessageDigest"
+      primary_id: "find_sec_bugs.WEAK_MESSAGE_DIGEST_MD5"
   - id: "WEAK_MESSAGE_DIGEST_SHA1"
     rules:
     - path: "scala/crypto/rule-WeakMessageDigest"
+      primary_id: "find_sec_bugs.WEAK_MESSAGE_DIGEST_SHA1"
   - id: "NULL_CIPHER"
     rules:
     - path: "scala/crypto/rule-NullCipher"
-
-  # Cookie
+      primary_id: "find_sec_bugs.NULL_CIPHER"
   - id: "COOKIE_PERSISTENT"
     rules:
     - path: "scala/cookie/rule-CookiePersistent"
+      primary_id: "find_sec_bugs.COOKIE_PERSISTENT"
   - id: "INSECURE_COOKIE"
     rules:
     - path: "scala/cookie/rule-CookieInsecure"
+      primary_id: "find_sec_bugs.INSECURE_COOKIE"
   - id: "HTTPONLY_COOKIE"
     rules:
     - path: "scala/cookie/rule-CookieHTTPOnly"
+      primary_id: "find_sec_bugs.HTTPONLY_COOKIE"
   - id: "COOKIE_USAGE"
     rules:
     - path: "scala/cookie/rule-CookieUsage"
+      primary_id: "find_sec_bugs.COOKIE_USAGE"
   - id: "HTTP_RESPONSE_SPLITTING"
     rules:
     - path: "scala/cookie/rule-HttpResponseSplitting"
+      primary_id: "find_sec_bugs.HTTP_RESPONSE_SPLITTING"
   - id: "HRS_REQUEST_PARAMETER_TO_COOKIE"
     rules:
     - path: "scala/cookie/rule-RequestParamToCookie"
+      primary_id: "find_sec_bugs.HRS_REQUEST_PARAMETER_TO_COOKIE"
   - id: "TRUST_BOUNDARY_VIOLATION"
     rules:
     - path: "scala/cookie/rule-TrustBoundaryViolation"
+      primary_id: "find_sec_bugs.TRUST_BOUNDARY_VIOLATION"
   - id: "HRS_REQUEST_PARAMETER_TO_HTTP_HEADER"
     rules:
     - path: "scala/cookie/rule-RequestParamToHeader"
-
-  # Password
+      primary_id: "find_sec_bugs.HRS_REQUEST_PARAMETER_TO_HTTP_HEADER"
   - id: "DMI_EMPTY_DB_PASSWORD"
     rules:
     - path: "scala/password/rule-EmptyDBPassword"
+      primary_id: "find_sec_bugs.DMI_EMPTY_DB_PASSWORD"
   - id: "DMI_CONSTANT_DB_PASSWORD"
     rules:
     - path: "scala/password/rule-ConstantDBPassword"
+      primary_id: "find_sec_bugs.DMI_CONSTANT_DB_PASSWORD"
   - id: "HARD_CODE_PASSWORD"
     rules:
     - path: "scala/password/rule-HardcodePassword"
+      primary_id: "find_sec_bugs.HARD_CODE_PASSWORD"
     - path: "scala/password/rule-EmptyDBPassword"
+      primary_id: "find_sec_bugs.HARD_CODE_PASSWORD"
     - path: "scala/password/rule-ConstantDBPassword"
-
-  # Unsafe
+      primary_id: "find_sec_bugs.HARD_CODE_PASSWORD"
   - id: "EXTERNAL_CONFIG_CONTROL"
     rules:
     - path: "scala/unsafe/rule-ExternalConfigControl"
+      primary_id: "find_sec_bugs.EXTERNAL_CONFIG_CONTROL"
   - id: "INFORMATION_EXPOSURE_THROUGH_AN_ERROR_MESSAGE"
     rules:
     - path: "scala/unsafe/rule-InformationExposure"
+      primary_id: "find_sec_bugs.INFORMATION_EXPOSURE_THROUGH_AN_ERROR_MESSAGE"
   - id: "SCALA_SENSITIVE_DATA_EXPOSURE"
     rules:
     - path: "scala/unsafe/rule-SensitiveDataExposure"
-
-
-  # File
+      primary_id: "find_sec_bugs.SCALA_SENSITIVE_DATA_EXPOSURE"
   - id: "FILE_UPLOAD_FILENAME"
     rules:
     - path: "scala/file/rule-FileUploadFileName"
+      primary_id: "find_sec_bugs.FILE_UPLOAD_FILENAME"
   - id: "WEAK_FILENAMEUTILS"
     rules:
     - path: "scala/file/rule-FilenameUtils"
-
-  # SSRF
+      primary_id: "find_sec_bugs.WEAK_FILENAMEUTILS"
   - id: "URLCONNECTION_SSRF_FD"
     rules:
     - path: "scala/ssrf/rule-SSRF"
+      primary_id: "find_sec_bugs.URLCONNECTION_SSRF_FD"
   - id: "SCALA_PLAY_SSRF"
     rules:
     - path: "scala/ssrf/rule-PlaySSRF"
-
-  # HTTP_PARAMETER_POLLUTION
+      primary_id: "find_sec_bugs.SCALA_PLAY_SSRF"
   - id: "HTTP_PARAMETER_POLLUTION"
     rules:
     - path: "scala/inject/rule-HttpParameterPollution"
-
-  # LDAP
+      primary_id: "find_sec_bugs.HTTP_PARAMETER_POLLUTION"
   - id: "LDAP_ANONYMOUS"
     rules:
     - path: "scala/ldap/rule-AnonymousLDAP"
+      primary_id: "find_sec_bugs.LDAP_ANONYMOUS"
   - id: "LDAP_ENTRY_POISONING"
     rules:
     - path: "scala/ldap/rule-EntryPoisoning"
-
-  # Script
+      primary_id: "find_sec_bugs.LDAP_ENTRY_POISONING"
   - id: "SCRIPT_ENGINE_INJECTION"
     rules:
     - path: "scala/script/rule-ScriptInjection"
+      primary_id: "find_sec_bugs.SCRIPT_ENGINE_INJECTION"
     - path: "scala/script/rule-SpelView"
-
+      primary_id: "find_sec_bugs.SCRIPT_ENGINE_INJECTION"
   - id: "SPEL_INJECTION"
     rules:
     - path: "scala/script/rule-ScriptInjection"
-
+      primary_id: "find_sec_bugs.SPEL_INJECTION"
   - id: "EL_INJECTION"
     rules:
     - path: "scala/script/rule-ScriptInjection"
-
+      primary_id: "find_sec_bugs.EL_INJECTION"
   - id: "SEAM_LOG_INJECTION"
     rules:
     - path: "scala/script/rule-ScriptInjection"
-
-  # Servlet
+      primary_id: "find_sec_bugs.SEAM_LOG_INJECTION"
   - id: "UNENCRYPTED_SOCKET"
     rules:
     - path: "scala/endpoint/rule-UnencryptedSocket"
+      primary_id: "find_sec_bugs.UNENCRYPTED_SOCKET"
   - id: "UNENCRYPTED_SERVER_SOCKET"
     rules:
     - path: "scala/endpoint/rule-UnencryptedSocket"
+      primary_id: "find_sec_bugs.UNENCRYPTED_SERVER_SOCKET"
   - id: "UNVALIDATED_REDIRECT"
     rules:
     - path: "scala/endpoint/rule-UnvalidatedRedirect"
+      primary_id: "find_sec_bugs.UNVALIDATED_REDIRECT"
   - id: "URL_REWRITING"
     rules:
     - path: "scala/endpoint/rule-UnvalidatedRedirect"
+      primary_id: "find_sec_bugs.URL_REWRITING"
   - id: "WEAK_HOSTNAME_VERIFIER"
     rules:
     - path: "scala/endpoint/rule-WeakHostNameVerification"
+      primary_id: "find_sec_bugs.WEAK_HOSTNAME_VERIFIER"
   - id: "WEAK_TRUST_MANAGER"
     rules:
     - path: "scala/endpoint/rule-WeakHostNameVerification"
-
-  # Endpoint
+      primary_id: "find_sec_bugs.WEAK_TRUST_MANAGER"
   - id: "JAXWS_ENDPOINT"
     rules:
     - path: "scala/endpoint/rule-JaxWsEndpoint"
-
+      primary_id: "find_sec_bugs.JAXWS_ENDPOINT"
   - id: "JAXRS_ENDPOINT"
     rules:
     - path: "scala/endpoint/rule-JaxRsEndpoint"
-
-  # Cors
+      primary_id: "find_sec_bugs.JAXRS_ENDPOINT"
   - id: "PERMISSIVE_CORS"
     rules:
     - path: "scala/cors/rule-PermissiveCORS"
+      primary_id: "find_sec_bugs.PERMISSIVE_CORS"
     - path: "scala/cors/rule-PermissiveCORSInjection"
+      primary_id: "find_sec_bugs.PERMISSIVE_CORS"

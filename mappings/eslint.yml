@@ -1,7 +1,3 @@
-# yamllint disable
-# maps eslint rule ids to semgrep rules
-# License: MIT (c) GitLab Inc.
-# yamllint enable
 ---
 eslint:
   native_id:
@@ -12,40 +8,52 @@ eslint:
   - id: "react-dangerouslysetinnerhtml"
     rules:
     - path: "javascript/react/rule-dangerouslysetinnerhtml"
+      primary_id: "eslint.react-dangerouslysetinnerhtml"
   - id: "react-missing-noopener"
     rules:
     - path: "javascript/react/rule-missing_noopener"
+      primary_id: "eslint.react-missing-noopener"
   - id: "detect-no-csrf-before-method-override"
     rules:
     - path: "javascript/csrf/rule-no_csrf_before_method_override"
+      primary_id: "eslint.detect-no-csrf-before-method-override"
   - id: "detect-eval-with-expression"
     rules:
     - path: "javascript/eval/rule-eval_with_expression"
+      primary_id: "eslint.detect-eval-with-expression"
   - id: "detect-child-process"
     rules:
     - path: "javascript/exec/rule-child_process"
+      primary_id: "eslint.detect-child-process"
   - id: "detect-pseudoRandomBytes"
     rules:
     - path: "javascript/random/rule-pseudo_random_bytes"
+      primary_id: "eslint.detect-pseudoRandomBytes"
   - id: "detect-disable-mustache-escape"
     rules:
     - path: "javascript/xss/rule-mustache_escape"
+      primary_id: "eslint.detect-disable-mustache-escape"
   - id: "detect-non-literal-require"
     rules:
     - path: "javascript/require/rule-non_literal_require"
+      primary_id: "eslint.detect-non-literal-require"
   - id: "detect-buffer-noassert"
     rules:
     - path: "javascript/buf/rule-buffer-noassert"
+      primary_id: "eslint.detect-buffer-noassert"
   - id: "detect-possible-timing-attacks"
     rules:
     - path: "javascript/timing/rule-possible_timing_attacks"
+      primary_id: "eslint.detect-possible-timing-attacks"
   - id: "detect-non-literal-regexp"
     rules:
     - path: "javascript/dos/rule-non_literal_regexp"
+      primary_id: "eslint.detect-non-literal-regexp"
   - id: "detect-non-literal-fs-filename"
     rules:
     - path: "javascript/pathtraversal/rule-non_literal_fs_filename"
+      primary_id: "eslint.detect-non-literal-fs-filename"
   - id: "detect-new-buffer"
     rules:
     - path: "javascript/buf/rule-detect-new-buffer"
-
+      primary_id: "eslint.detect-new-buffer"

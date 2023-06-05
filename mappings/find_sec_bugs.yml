@@ -1,7 +1,3 @@
-# yamllint disable
-# maps spotbugs rule ids to semgrep rules
-# License: MIT (c) GitLab Inc.
-# yamllint enable
 ---
 find_sec_bugs:
   native_analyzer: "find_sec_bugs"
@@ -10,403 +6,469 @@ find_sec_bugs:
     name: "Find Security Bugs-$ID"
     value: "$ID"
   mappings:
-  # random
   - id: "PREDICTABLE_RANDOM"
     rules:
     - path: "java/random/rule-PseudoRandom"
-
-  # XXE
+      primary_id: "find_sec_bugs.PREDICTABLE_RANDOM-1"
   - id: "XXE_SAXPARSER"
     rules:
     - path: "java/xxe/rule-SaxParserXXE"
+      primary_id: "find_sec_bugs.XXE_SAXPARSER-1"
   - id: "XXE_XMLREADER"
     rules:
     - path: "java/xxe/rule-XMLRdr"
+      primary_id: "find_sec_bugs.XXE_XMLREADER-1"
   - id: "XXE_XMLSTREAMREADER"
     rules:
     - path: "java/xxe/rule-XMLStreamRdr"
+      primary_id: "find_sec_bugs.XXE_XMLSTREAMREADER-1"
   - id: "XXE_XPATH"
     rules:
     - path: "java/xxe/rule-XPathXXE"
+      primary_id: "find_sec_bugs.XXE_XPATH-1"
   - id: "XXE_DOCUMENT"
     rules:
     - path: "java/xxe/rule-XPathXXE"
+      primary_id: "find_sec_bugs.XXE_DOCUMENT-1"
   - id: "XXE_DTD_TRANSFORM_FACTORY"
     rules:
     - path: "java/xxe/rule-Trans"
+      primary_id: "find_sec_bugs.XXE_DTD_TRANSFORM_FACTORY-1"
   - id: "XXE_XSLT_TRANSFORM_FACTORY"
     rules:
     - path: "java/xxe/rule-Trans"
-
-  # XSS
+      primary_id: "find_sec_bugs.XXE_XSLT_TRANSFORM_FACTORY-1"
   - id: "XSS_SERVLET"
     rules:
     - path: "java/xss/rule-XSSServlet"
+      primary_id: "find_sec_bugs.XSS_SERVLET-1"
     - path: "java/xss/rule-XSSServletParameter"
+      primary_id: "find_sec_bugs.XSS_SERVLET-2"
   - id: "XSS_SERVLET_PARAMETER"
     rules:
     - path: "java/xss/rule-XSSServletParameter"
+      primary_id: "find_sec_bugs.XSS_SERVLET_PARAMETER-1"
   - id: "XSS_REQUEST_PARAMETER_TO_SERVLET_WRITER"
     rules:
     - path: "java/xss/rule-XSSReqParamToServletWriter"
+      primary_id: "find_sec_bugs.XSS_REQUEST_PARAMETER_TO_SERVLET_WRITER-1"
   - id: "XSS_REQUEST_PARAMETER_TO_SEND_ERROR"
     rules:
     - path: "java/xss/rule-XSSReqParamToSendError"
+      primary_id: "find_sec_bugs.XSS_REQUEST_PARAMETER_TO_SEND_ERROR-1"
   - id: "WICKET_XSS1"
     rules:
     - path: "java/xss/rule-WicketXSS"
+      primary_id: "find_sec_bugs.WICKET_XSS1-1"
   - id: "XSS_REQUEST_WRAPPER"
     rules:
     - path: "java/xss/rule-RequestWrapper"
-
-  # SQLI
+      primary_id: "find_sec_bugs.XSS_REQUEST_WRAPPER-1"
   - id: "SQL_INJECTION_SPRING_JDBC"
     rules:
     - path: "java/inject/rule-SqlInjection"
+      primary_id: "find_sec_bugs.SQL_INJECTION_SPRING_JDBC-1"
   - id: "SQL_INJECTION_JPA"
     rules:
     - path: "java/inject/rule-SqlInjection"
+      primary_id: "find_sec_bugs.SQL_INJECTION_JPA-1"
   - id: "SQL_INJECTION_JDO"
     rules:
     - path: "java/inject/rule-SqlInjection"
+      primary_id: "find_sec_bugs.SQL_INJECTION_JDO-1"
   - id: "SQL_INJECTION_JDBC"
     rules:
     - path: "java/inject/rule-SqlInjection"
+      primary_id: "find_sec_bugs.SQL_INJECTION_JDBC-1"
   - id: "SQL_NONCONSTANT_STRING_PASSED_TO_EXECUTE"
     rules:
     - path: "java/inject/rule-SqlInjection"
+      primary_id: "find_sec_bugs.SQL_NONCONSTANT_STRING_PASSED_TO_EXECUTE-1"
   - id: "SQL_INJECTION"
     rules:
     - path: "java/inject/rule-SqlInjection"
+      primary_id: "find_sec_bugs.SQL_INJECTION-1"
   - id: "SQL_INJECTION_HIBERNATE"
     rules:
     - path: "java/inject/rule-SqlInjection"
+      primary_id: "find_sec_bugs.SQL_INJECTION_HIBERNATE-1"
   - id: "SQL_INJECTION_VERTX"
     rules:
     - path: "java/inject/rule-SqlInjection"
+      primary_id: "find_sec_bugs.SQL_INJECTION_VERTX-1"
   - id: "SQL_PREPARED_STATEMENT_GENERATED_FROM_NONCONSTANT_STRING"
     rules:
     - path: "java/inject/rule-SqlInjection"
-
-    # XPATHI
+      primary_id: "find_sec_bugs.SQL_PREPARED_STATEMENT_GENERATED_FROM_NONCONSTANT_STRING-1"
   - id: "XPATH_INJECTION"
     rules:
     - path: "java/xpathi/rule-XpathInjection"
-
-  # Strings
+      primary_id: "find_sec_bugs.XPATH_INJECTION-1"
   - id: "NORMALIZATION_AFTER_VALIDATION"
     rules:
     - path: "java/strings/rule-NormalizeAfterValidation"
+      primary_id: "find_sec_bugs.NORMALIZATION_AFTER_VALIDATION-1"
   - id: "MODIFICATION_AFTER_VALIDATION"
     rules:
     - path: "java/strings/rule-ModifyAfterValidation"
+      primary_id: "find_sec_bugs.MODIFICATION_AFTER_VALIDATION-1"
   - id: "IMPROPER_UNICODE"
     rules:
     - path: "java/strings/rule-ImproperUnicode"
+      primary_id: "find_sec_bugs.IMPROPER_UNICODE-1"
   - id: "BAD_HEXA_CONVERSION"
     rules:
     - path: "java/strings/rule-BadHexConversion"
-
-  # Permissions
+      primary_id: "find_sec_bugs.BAD_HEXA_CONVERSION-1"
   - id: "DANGEROUS_PERMISSION_COMBINATION"
     rules:
     - path: "java/perm/rule-DangerousPermissions"
+      primary_id: "find_sec_bugs.DANGEROUS_PERMISSION_COMBINATION-1"
   - id: "OVERLY_PERMISSIVE_FILE_PERMISSION"
     rules:
     - path: "java/perm/rule-OverlyPermissiveFilePermissionInline"
+      primary_id: "find_sec_bugs.OVERLY_PERMISSIVE_FILE_PERMISSION-1"
     - path: "java/perm/rule-OverlyPermissiveFilePermissionObj"
+      primary_id: "find_sec_bugs.OVERLY_PERMISSIVE_FILE_PERMISSION-2"
   - id: "FORMAT_STRING_MANIPULATION"
     rules:
     - path: "java/strings/rule-FormatStringManipulation"
-
-  # Form
+      primary_id: "find_sec_bugs.FORMAT_STRING_MANIPULATION-1"
   - id: "STRUTS_FORM_VALIDATION"
     rules:
     - path: "java/form/rule-FormValidate"
-
-  # XML
+      primary_id: "find_sec_bugs.STRUTS_FORM_VALIDATION-1"
   - id: "SAML_IGNORE_COMMENTS"
     rules:
     - path: "java/xml/rule-SAMLIgnoreComments"
+      primary_id: "find_sec_bugs.SAML_IGNORE_COMMENTS-1"
   - id: "RPC_ENABLED_EXTENSIONS"
     rules:
     - path: "java/xml/rule-ApacheXmlRpc"
+      primary_id: "find_sec_bugs.RPC_ENABLED_EXTENSIONS-1"
   - id: "XML_DECODER"
     rules:
     - path: "java/xml/rule-XmlDecoder"
-
-  # SMTP
+      primary_id: "find_sec_bugs.XML_DECODER-1"
   - id: "SMTP_HEADER_INJECTION"
     rules:
     - path: "java/smtp/rule-SmtpClient"
+      primary_id: "find_sec_bugs.SMTP_HEADER_INJECTION-1"
   - id: "INSECURE_SMTP_SSL"
     rules:
     - path: "java/smtp/rule-InsecureSmtp"
-
+      primary_id: "find_sec_bugs.INSECURE_SMTP_SSL-1"
   - id: "TEMPLATE_INJECTION_PEBBLE"
     rules:
     - path: "java/templateinjection/rule-TemplateInjection"
-
+      primary_id: "find_sec_bugs.TEMPLATE_INJECTION_PEBBLE-1"
   - id: "TEMPLATE_INJECTION_FREEMARKER"
     rules:
     - path: "java/templateinjection/rule-TemplateInjection"
-
+      primary_id: "find_sec_bugs.TEMPLATE_INJECTION_FREEMARKER-1"
   - id: "TEMPLATE_INJECTION_VELOCITY"
     rules:
     - path: "java/templateinjection/rule-TemplateInjection"
+      primary_id: "find_sec_bugs.TEMPLATE_INJECTION_VELOCITY-1"
   - id: "MALICIOUS_XSLT"
     rules:
     - path: "java/xml/rule-XsltTransform"
-
-  # Injections
+      primary_id: "find_sec_bugs.MALICIOUS_XSLT-1"
   - id: "AWS_QUERY_INJECTION"
     rules:
     - path: "java/inject/rule-AWSQueryInjection"
+      primary_id: "find_sec_bugs.AWS_QUERY_INJECTION-1"
   - id: "BEAN_PROPERTY_INJECTION"
     rules:
     - path: "java/inject/rule-BeanPropertyInjection"
+      primary_id: "find_sec_bugs.BEAN_PROPERTY_INJECTION-1"
   - id: "COMMAND_INJECTION"
     rules:
     - path: "java/inject/rule-CommandInjection"
+      primary_id: "find_sec_bugs.COMMAND_INJECTION-1"
   - id: "CRLF_INJECTION_LOGS"
     rules:
     - path: "java/inject/rule-CLRFInjectionLogs"
+      primary_id: "find_sec_bugs.CRLF_INJECTION_LOGS-1"
   - id: "CUSTOM_INJECTION"
     rules:
     - path: "java/inject/rule-CustomInjection"
+      primary_id: "find_sec_bugs.CUSTOM_INJECTION-1"
     - path: "java/inject/rule-CustomInjectionSQLString"
+      primary_id: "find_sec_bugs.CUSTOM_INJECTION-2"
   - id: "EL_INJECTION"
     rules:
     - path: "java/inject/rule-ELInjection"
+      primary_id: "find_sec_bugs.EL_INJECTION-1"
   - id: "REQUESTDISPATCHER_FILE_DISCLOSURE"
     rules:
     - path: "java/inject/rule-FileDisclosure"
+      primary_id: "find_sec_bugs.REQUESTDISPATCHER_FILE_DISCLOSURE-1"
   - id: "STRUTS_FILE_DISCLOSURE"
     rules:
     - path: "java/inject/rule-FileDisclosure"
+      primary_id: "find_sec_bugs.STRUTS_FILE_DISCLOSURE-1"
   - id: "SPRING_FILE_DISCLOSURE"
     rules:
     - path: "java/inject/rule-FileDisclosure"
+      primary_id: "find_sec_bugs.SPRING_FILE_DISCLOSURE-1"
   - id: "LDAP_INJECTION"
     rules:
     - path: "java/inject/rule-LDAPInjection"
+      primary_id: "find_sec_bugs.LDAP_INJECTION-1"
   - id: "PATH_TRAVERSAL_IN"
     rules:
     - path: "java/inject/rule-PathTraversalIn"
+      primary_id: "find_sec_bugs.PATH_TRAVERSAL_IN-1"
   - id: "PATH_TRAVERSAL_OUT"
     rules:
     - path: "java/inject/rule-PathTraversalOut"
+      primary_id: "find_sec_bugs.PATH_TRAVERSAL_OUT-1"
   - id: "PATH_TRAVERSAL_OUT"
     rules:
     - path: "java/inject/rule-PathTraversalOut"
+      primary_id: "find_sec_bugs.PATH_TRAVERSAL_OUT-1"
   - id: "PT_RELATIVE_PATH_TRAVERSAL"
     rules:
     - path: "java/inject/rule-SpotbugsPathTraversalRelative"
+      primary_id: "find_sec_bugs.PT_RELATIVE_PATH_TRAVERSAL-1"
   - id: "PT_ABSOLUTE_PATH_TRAVERSAL"
     rules:
     - path: "java/inject/rule-SpotbugsPathTraversalAbsolute"
+      primary_id: "find_sec_bugs.PT_ABSOLUTE_PATH_TRAVERSAL-1"
   - id: "OGNL_INJECTION"
     rules:
     - path: "java/inject/rule-OgnlInjection"
-
-  # Cryptography
+      primary_id: "find_sec_bugs.OGNL_INJECTION-1"
   - id: "BLOWFISH_KEY_SIZE"
     rules:
     - path: "java/crypto/rule-BlowfishKeySize"
+      primary_id: "find_sec_bugs.BLOWFISH_KEY_SIZE-1"
   - id: "CIPHER_INTEGRITY"
     rules:
     - path: "java/crypto/rule-CipherIntegrity"
+      primary_id: "find_sec_bugs.CIPHER_INTEGRITY-1"
   - id: "ECB_MODE"
     rules:
     - path: "java/crypto/rule-CipherECBMode"
+      primary_id: "find_sec_bugs.ECB_MODE-1"
   - id: "PADDING_ORACLE"
     rules:
     - path: "java/crypto/rule-CipherPaddingOracle"
+      primary_id: "find_sec_bugs.PADDING_ORACLE-1"
   - id: "CUSTOM_MESSAGE_DIGEST"
     rules:
     - path: "java/crypto/rule-CustomMessageDigest"
+      primary_id: "find_sec_bugs.CUSTOM_MESSAGE_DIGEST-1"
   - id: "DEFAULT_HTTP_CLIENT"
     rules:
     - path: "java/crypto/rule-DefaultHTTPClient"
+      primary_id: "find_sec_bugs.DEFAULT_HTTP_CLIENT-1"
   - id: "DES_USAGE"
     rules:
     - path: "java/crypto/rule-CipherDESInsecure"
+      primary_id: "find_sec_bugs.DES_USAGE-1"
   - id: "TDES_USAGE"
     rules:
     - path: "java/crypto/rule-CipherDESedeInsecure"
+      primary_id: "find_sec_bugs.TDES_USAGE-1"
   - id: "HAZELCAST_SYMMETRIC_ENCRYPTION"
     rules:
     - path: "java/crypto/rule-HazelcastSymmetricEncryption"
+      primary_id: "find_sec_bugs.HAZELCAST_SYMMETRIC_ENCRYPTION-1"
   - id: "RSA_KEY_SIZE"
     rules:
     - path: "java/crypto/rule-InsufficientKeySizeRsa"
+      primary_id: "find_sec_bugs.RSA_KEY_SIZE-1"
   - id: "RSA_NO_PADDING"
     rules:
     - path: "java/crypto/rule-RsaNoPadding"
+      primary_id: "find_sec_bugs.RSA_NO_PADDING-1"
   - id: "SSL_CONTEXT"
     rules:
     - path: "java/crypto/rule-WeakTLSProtocol"
+      primary_id: "find_sec_bugs.SSL_CONTEXT-1"
   - id: "WEAK_MESSAGE_DIGEST_MD5"
     rules:
     - path: "java/crypto/rule-WeakMessageDigest"
+      primary_id: "find_sec_bugs.WEAK_MESSAGE_DIGEST_MD5-1"
   - id: "WEAK_MESSAGE_DIGEST_SHA1"
     rules:
     - path: "java/crypto/rule-WeakMessageDigest"
+      primary_id: "find_sec_bugs.WEAK_MESSAGE_DIGEST_SHA1-1"
   - id: "NULL_CIPHER"
     rules:
     - path: "java/crypto/rule-NullCipher"
-
-  # Cookie
+      primary_id: "find_sec_bugs.NULL_CIPHER-1"
   - id: "COOKIE_PERSISTENT"
     rules:
     - path: "java/cookie/rule-CookiePersistent"
+      primary_id: "find_sec_bugs.COOKIE_PERSISTENT-1"
   - id: "INSECURE_COOKIE"
     rules:
     - path: "java/cookie/rule-CookieInsecure"
+      primary_id: "find_sec_bugs.INSECURE_COOKIE-1"
   - id: "HTTPONLY_COOKIE"
     rules:
     - path: "java/cookie/rule-CookieHTTPOnly"
+      primary_id: "find_sec_bugs.HTTPONLY_COOKIE-1"
   - id: "COOKIE_USAGE"
     rules:
     - path: "java/cookie/rule-CookieUsage"
+      primary_id: "find_sec_bugs.COOKIE_USAGE-1"
   - id: "HTTP_RESPONSE_SPLITTING"
     rules:
     - path: "java/cookie/rule-HttpResponseSplitting"
+      primary_id: "find_sec_bugs.HTTP_RESPONSE_SPLITTING-1"
   - id: "HRS_REQUEST_PARAMETER_TO_COOKIE"
     rules:
     - path: "java/cookie/rule-RequestParamToCookie"
+      primary_id: "find_sec_bugs.HRS_REQUEST_PARAMETER_TO_COOKIE-1"
   - id: "TRUST_BOUNDARY_VIOLATION"
     rules:
     - path: "java/cookie/rule-TrustBoundaryViolation"
+      primary_id: "find_sec_bugs.TRUST_BOUNDARY_VIOLATION-1"
   - id: "HRS_REQUEST_PARAMETER_TO_HTTP_HEADER"
     rules:
     - path: "java/cookie/rule-RequestParamToHeader"
-
-  # Password
+      primary_id: "find_sec_bugs.HRS_REQUEST_PARAMETER_TO_HTTP_HEADER-1"
   - id: "DMI_EMPTY_DB_PASSWORD"
     rules:
     - path: "java/password/rule-EmptyDBPassword"
+      primary_id: "find_sec_bugs.DMI_EMPTY_DB_PASSWORD-1"
   - id: "DMI_CONSTANT_DB_PASSWORD"
     rules:
     - path: "java/password/rule-ConstantDBPassword"
+      primary_id: "find_sec_bugs.DMI_CONSTANT_DB_PASSWORD-1"
   - id: "HARD_CODE_PASSWORD"
     rules:
     - path: "java/password/rule-HardcodePassword"
+      primary_id: "find_sec_bugs.HARD_CODE_PASSWORD-1"
     - path: "java/password/rule-EmptyDBPassword"
+      primary_id: "find_sec_bugs.HARD_CODE_PASSWORD-2"
     - path: "java/password/rule-ConstantDBPassword"
-
-  # Unsafe
+      primary_id: "find_sec_bugs.HARD_CODE_PASSWORD-3"
   - id: "EXTERNAL_CONFIG_CONTROL"
     rules:
     - path: "java/unsafe/rule-ExternalConfigControl"
+      primary_id: "find_sec_bugs.EXTERNAL_CONFIG_CONTROL-1"
   - id: "INFORMATION_EXPOSURE_THROUGH_AN_ERROR_MESSAGE"
     rules:
     - path: "java/unsafe/rule-InformationExposure"
-
-  # File
+      primary_id: "find_sec_bugs.INFORMATION_EXPOSURE_THROUGH_AN_ERROR_MESSAGE-1"
   - id: "FILE_UPLOAD_FILENAME"
     rules:
     - path: "java/file/rule-FileUploadFileName"
+      primary_id: "find_sec_bugs.FILE_UPLOAD_FILENAME-1"
   - id: "WEAK_FILENAMEUTILS"
     rules:
     - path: "java/file/rule-FilenameUtils"
-
-  # SSRF
+      primary_id: "find_sec_bugs.WEAK_FILENAMEUTILS-1"
   - id: "URLCONNECTION_SSRF_FD"
     rules:
     - path: "java/ssrf/rule-SSRF"
-
-  # HTTP_PARAMETER_POLLUTION
+      primary_id: "find_sec_bugs.URLCONNECTION_SSRF_FD-1"
   - id: "HTTP_PARAMETER_POLLUTION"
     rules:
     - path: "java/inject/rule-HttpParameterPollution"
-
-  # LDAP
+      primary_id: "find_sec_bugs.HTTP_PARAMETER_POLLUTION-1"
   - id: "LDAP_ANONYMOUS"
     rules:
     - path: "java/ldap/rule-AnonymousLDAP"
+      primary_id: "find_sec_bugs.LDAP_ANONYMOUS-1"
   - id: "LDAP_ENTRY_POISONING"
     rules:
     - path: "java/ldap/rule-EntryPoisoning"
-
-  # Script
+      primary_id: "find_sec_bugs.LDAP_ENTRY_POISONING-1"
   - id: "SCRIPT_ENGINE_INJECTION"
     rules:
     - path: "java/script/rule-ScriptInjection"
+      primary_id: "find_sec_bugs.SCRIPT_ENGINE_INJECTION-1"
     - path: "java/script/rule-SpelView"
-
+      primary_id: "find_sec_bugs.SCRIPT_ENGINE_INJECTION-2"
   - id: "SPEL_INJECTION"
     rules:
     - path: "java/script/rule-ScriptInjection"
-
+      primary_id: "find_sec_bugs.SPEL_INJECTION-1"
   - id: "EL_INJECTION"
     rules:
     - path: "java/script/rule-ScriptInjection"
-
+      primary_id: "find_sec_bugs.EL_INJECTION-1"
   - id: "SEAM_LOG_INJECTION"
     rules:
     - path: "java/script/rule-ScriptInjection"
-
-  # Servlet
+      primary_id: "find_sec_bugs.SEAM_LOG_INJECTION-1"
   - id: "SERVLET_PARAMETER"
     rules:
     - path: "java/endpoint/rule-InsecureServlet"
+      primary_id: "find_sec_bugs.SERVLET_PARAMETER-1"
   - id: "SERVLET_CONTENT_TYPE"
     rules:
     - path: "java/endpoint/rule-InsecureServlet"
+      primary_id: "find_sec_bugs.SERVLET_CONTENT_TYPE-1"
   - id: "SERVLET_SERVER_NAME"
     rules:
     - path: "java/endpoint/rule-InsecureServlet"
+      primary_id: "find_sec_bugs.SERVLET_SERVER_NAME-1"
   - id: "SERVLET_SESSION_ID"
     rules:
     - path: "java/endpoint/rule-InsecureServlet"
+      primary_id: "find_sec_bugs.SERVLET_SESSION_ID-1"
   - id: "SERVLET_QUERY_STRING"
     rules:
     - path: "java/endpoint/rule-InsecureServlet"
+      primary_id: "find_sec_bugs.SERVLET_QUERY_STRING-1"
   - id: "SERVLET_HEADER"
     rules:
     - path: "java/endpoint/rule-InsecureServlet"
+      primary_id: "find_sec_bugs.SERVLET_HEADER-1"
   - id: "SERVLET_HEADER_REFERER"
     rules:
     - path: "java/endpoint/rule-InsecureServlet"
+      primary_id: "find_sec_bugs.SERVLET_HEADER_REFERER-1"
   - id: "SERVLET_HEADER_USER_AGENT"
     rules:
     - path: "java/endpoint/rule-InsecureServlet"
+      primary_id: "find_sec_bugs.SERVLET_HEADER_USER_AGENT-1"
   - id: "UNENCRYPTED_SOCKET"
     rules:
     - path: "java/endpoint/rule-UnencryptedSocket"
+      primary_id: "find_sec_bugs.UNENCRYPTED_SOCKET-1"
   - id: "UNENCRYPTED_SERVER_SOCKET"
     rules:
     - path: "java/endpoint/rule-UnencryptedSocket"
+      primary_id: "find_sec_bugs.UNENCRYPTED_SERVER_SOCKET-1"
   - id: "UNVALIDATED_REDIRECT"
     rules:
     - path: "java/endpoint/rule-UnvalidatedRedirect"
+      primary_id: "find_sec_bugs.UNVALIDATED_REDIRECT-1"
   - id: "URL_REWRITING"
     rules:
     - path: "java/endpoint/rule-UnvalidatedRedirect"
+      primary_id: "find_sec_bugs.URL_REWRITING-1"
   - id: "WEAK_HOSTNAME_VERIFIER"
     rules:
     - path: "java/endpoint/rule-WeakHostNameVerification"
+      primary_id: "find_sec_bugs.WEAK_HOSTNAME_VERIFIER-1"
   - id: "WEAK_TRUST_MANAGER"
     rules:
     - path: "java/endpoint/rule-WeakHostNameVerification"
-
-  # Endpoint
+      primary_id: "find_sec_bugs.WEAK_TRUST_MANAGER-1"
   - id: "JAXWS_ENDPOINT"
     rules:
     - path: "java/endpoint/rule-JaxWsEndpoint"
-
+      primary_id: "find_sec_bugs.JAXWS_ENDPOINT-1"
   - id: "JAXRS_ENDPOINT"
     rules:
     - path: "java/endpoint/rule-JaxRsEndpoint"
-
-  # Cors
+      primary_id: "find_sec_bugs.JAXRS_ENDPOINT-1"
   - id: "PERMISSIVE_CORS"
     rules:
     - path: "java/cors/rule-PermissiveCORS"
+      primary_id: "find_sec_bugs.PERMISSIVE_CORS-1"
     - path: "java/cors/rule-PermissiveCORSInjection"
-
-  # CSRF
+      primary_id: "find_sec_bugs.PERMISSIVE_CORS-2"
   - id: "SPRING_CSRF_PROTECTION_DISABLED"
     rules:
     - path: "java/csrf/rule-SpringCSRFDisabled"
+      primary_id: "find_sec_bugs.SPRING_CSRF_PROTECTION_DISABLED-1"

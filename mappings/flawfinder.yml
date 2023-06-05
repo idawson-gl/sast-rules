@@ -1,7 +1,3 @@
-# yamllint disable
-# maps flawfinder rule ids to semgrep rules
-# License: MIT (c) GitLab Inc.
-# yamllint enable
 ---
 flawfinder:
   native_id:
@@ -12,666 +8,868 @@ flawfinder:
   - id: "strcpy"
     rules:
     - path: "c/buffer/rule-strcpy"
+      primary_id: "flawfinder.strcpy"
   - id: "strcpyA"
     rules:
     - path: "c/buffer/rule-strcpyA_strcpyW"
+      primary_id: "flawfinder.strcpyA"
   - id: "strcpyW"
     rules:
     - path: "c/buffer/rule-strcpyA_strcpyW"
+      primary_id: "flawfinder.strcpyW"
   - id: "StrCpy"
     rules:
     - path: "c/buffer/rule-strcpyA_strcpyW"
+      primary_id: "flawfinder.StrCpy"
   - id: "StrCpyA"
     rules:
     - path: "c/buffer/rule-strcpyA_strcpyW"
+      primary_id: "flawfinder.StrCpyA"
   - id: "lstrcpyA"
     rules:
     - path: "c/buffer/rule-strcpyA_strcpyW"
+      primary_id: "flawfinder.lstrcpyA"
   - id: "lstrcpyW"
     rules:
     - path: "c/buffer/rule-strcpyA_strcpyW"
+      primary_id: "flawfinder.lstrcpyW"
   - id: "_tccpy"
     rules:
     - path: "c/buffer/rule-strcpyA_strcpyW"
+      primary_id: "flawfinder._tccpy"
   - id: "_mbccpy"
     rules:
     - path: "c/buffer/rule-strcpyA_strcpyW"
+      primary_id: "flawfinder._mbccpy"
   - id: "_ftcscpy"
     rules:
     - path: "c/buffer/rule-strcpyA_strcpyW"
+      primary_id: "flawfinder._ftcscpy"
   - id: "_mbsncpy"
     rules:
     - path: "c/buffer/rule-strcpyA_strcpyW"
+      primary_id: "flawfinder._mbsncpy"
   - id: "StrCpyN"
     rules:
     - path: "c/buffer/rule-strcpyA_strcpyW"
+      primary_id: "flawfinder.StrCpyN"
   - id: "StrCpyNA"
     rules:
     - path: "c/buffer/rule-strcpyA_strcpyW"
+      primary_id: "flawfinder.StrCpyNA"
   - id: "StrCpyNW"
     rules:
     - path: "c/buffer/rule-strcpyA_strcpyW"
+      primary_id: "flawfinder.StrCpyNW"
   - id: "StrNCpy"
     rules:
     - path: "c/buffer/rule-strcpyA_strcpyW"
+      primary_id: "flawfinder.StrNCpy"
   - id: "strcpynA"
     rules:
     - path: "c/buffer/rule-strcpyA_strcpyW"
+      primary_id: "flawfinder.strcpynA"
   - id: "StrNCpyA"
     rules:
     - path: "c/buffer/rule-strcpyA_strcpyW"
+      primary_id: "flawfinder.StrNCpyA"
   - id: "StrNCpyW"
     rules:
     - path: "c/buffer/rule-strcpyA_strcpyW"
+      primary_id: "flawfinder.StrNCpyW"
   - id: "lstrcpynA"
     rules:
     - path: "c/buffer/rule-strcpyA_strcpyW"
+      primary_id: "flawfinder.lstrcpynA"
   - id: "lstrcpynW"
     rules:
     - path: "c/buffer/rule-strcpyA_strcpyW"
+      primary_id: "flawfinder.lstrcpynW"
   - id: "lstrcpy"
     rules:
     - path: "c/buffer/rule-lstrcpy_wcscpy"
+      primary_id: "flawfinder.lstrcpy"
   - id: "wcscpy"
     rules:
     - path: "c/buffer/rule-lstrcpy_wcscpy"
+      primary_id: "flawfinder.wcscpy"
   - id: "_tcscpy"
     rules:
     - path: "c/buffer/rule-lstrcpy_wcscpy"
+      primary_id: "flawfinder._tcscpy"
   - id: "_mbscpy"
     rules:
     - path: "c/buffer/rule-lstrcpy_wcscpy"
+      primary_id: "flawfinder._mbscpy"
   - id: "memcpy"
     rules:
     - path: "c/buffer/rule-memcpy_CopyMemory"
+      primary_id: "flawfinder.memcpy"
   - id: "CopyMemory"
     rules:
     - path: "c/buffer/rule-memcpy_CopyMemory"
+      primary_id: "flawfinder.CopyMemory"
   - id: "bcopy"
     rules:
     - path: "c/buffer/rule-memcpy_CopyMemory"
+      primary_id: "flawfinder.bcopy"
   - id: "strcat"
     rules:
     - path: "c/buffer/rule-strcat"
+      primary_id: "flawfinder.strcat"
   - id: "lstrcat"
     rules:
     - path: "c/buffer/rule-lstrcat_wcscat"
+      primary_id: "flawfinder.lstrcat"
   - id: "wcscat"
     rules:
     - path: "c/buffer/rule-lstrcat_wcscat"
+      primary_id: "flawfinder.wcscat"
   - id: "_tcscat"
     rules:
     - path: "c/buffer/rule-lstrcat_wcscat"
+      primary_id: "flawfinder._tcscat"
   - id: "_mbscat"
     rules:
     - path: "c/buffer/rule-lstrcat_wcscat"
+      primary_id: "flawfinder._mbscat"
   - id: "StrCat"
     rules:
     - path: "c/buffer/rule-StrCat_StrCatA"
+      primary_id: "flawfinder.StrCat"
   - id: "StrCatA"
     rules:
     - path: "c/buffer/rule-StrCat_StrCatA"
+      primary_id: "flawfinder.StrCatA"
   - id: "StrcatW"
     rules:
     - path: "c/buffer/rule-StrCat_StrCatA"
+      primary_id: "flawfinder.StrcatW"
   - id: "lstrcatA"
     rules:
     - path: "c/buffer/rule-StrCat_StrCatA"
+      primary_id: "flawfinder.lstrcatA"
   - id: "lstrcatW"
     rules:
     - path: "c/buffer/rule-StrCat_StrCatA"
+      primary_id: "flawfinder.lstrcatW"
   - id: "strCatBuff"
     rules:
     - path: "c/buffer/rule-StrCat_StrCatA"
+      primary_id: "flawfinder.strCatBuff"
   - id: "StrCatBuffA"
     rules:
     - path: "c/buffer/rule-StrCat_StrCatA"
+      primary_id: "flawfinder.StrCatBuffA"
   - id: "StrCatBuffW"
     rules:
     - path: "c/buffer/rule-StrCat_StrCatA"
+      primary_id: "flawfinder.StrCatBuffW"
   - id: "StrCatChainW"
     rules:
     - path: "c/buffer/rule-StrCat_StrCatA"
+      primary_id: "flawfinder.StrCatChainW"
   - id: "_tccat"
     rules:
     - path: "c/buffer/rule-StrCat_StrCatA"
+      primary_id: "flawfinder._tccat"
   - id: "_mbccat"
     rules:
     - path: "c/buffer/rule-StrCat_StrCatA"
+      primary_id: "flawfinder._mbccat"
   - id: "_ftcscat"
     rules:
     - path: "c/buffer/rule-StrCat_StrCatA"
+      primary_id: "flawfinder._ftcscat"
   - id: "StrCatN"
     rules:
     - path: "c/buffer/rule-StrCat_StrCatA"
+      primary_id: "flawfinder.StrCatN"
   - id: "StrCatNA"
     rules:
     - path: "c/buffer/rule-StrCat_StrCatA"
+      primary_id: "flawfinder.StrCatNA"
   - id: "StrCatNW"
     rules:
     - path: "c/buffer/rule-StrCat_StrCatA"
+      primary_id: "flawfinder.StrCatNW"
   - id: "StrNCat"
     rules:
     - path: "c/buffer/rule-StrCat_StrCatA"
+      primary_id: "flawfinder.StrNCat"
   - id: "StrNCatA"
     rules:
     - path: "c/buffer/rule-StrCat_StrCatA"
+      primary_id: "flawfinder.StrNCatA"
   - id: "StrNCatW"
     rules:
     - path: "c/buffer/rule-StrCat_StrCatA"
+      primary_id: "flawfinder.StrNCatW"
   - id: "lstrncat"
     rules:
     - path: "c/buffer/rule-StrCat_StrCatA"
+      primary_id: "flawfinder.lstrncat"
   - id: "lstrcatnA"
     rules:
     - path: "c/buffer/rule-StrCat_StrCatA"
+      primary_id: "flawfinder.lstrcatnA"
   - id: "lstrcatnW"
     rules:
     - path: "c/buffer/rule-StrCat_StrCatA"
+      primary_id: "flawfinder.lstrcatnW"
   - id: "strncpy"
     rules:
     - path: "c/buffer/rule-strncpy"
+      primary_id: "flawfinder.strncpy"
   - id: "lstrcpyn"
     rules:
     - path: "c/buffer/rule-lstrcpyn_wcsncpy"
+      primary_id: "flawfinder.lstrcpyn"
   - id: "wcsncpy"
     rules:
     - path: "c/buffer/rule-lstrcpyn_wcsncpy"
+      primary_id: "flawfinder.wcsncpy"
   - id: "_tcsncpy"
     rules:
     - path: "c/buffer/rule-lstrcpyn_wcsncpy"
+      primary_id: "flawfinder._tcsncpy"
   - id: "_mbsnbcpy"
     rules:
     - path: "c/buffer/rule-lstrcpyn_wcsncpy"
+      primary_id: "flawfinder._mbsnbcpy"
   - id: "strncat"
     rules:
     - path: "c/buffer/rule-strncat"
+      primary_id: "flawfinder.strncat"
   - id: "lstrcatn"
     rules:
     - path: "c/buffer/rule-lstrcatn_wcsncat"
+      primary_id: "flawfinder.lstrcatn"
   - id: "wcsncat"
     rules:
     - path: "c/buffer/rule-lstrcatn_wcsncat"
+      primary_id: "flawfinder.wcsncat"
   - id: "_tcsncat"
     rules:
     - path: "c/buffer/rule-lstrcatn_wcsncat"
+      primary_id: "flawfinder._tcsncat"
   - id: "_mbsnbcat"
     rules:
     - path: "c/buffer/rule-lstrcatn_wcsncat"
+      primary_id: "flawfinder._mbsnbcat"
   - id: "strccpy"
     rules:
     - path: "c/buffer/rule-strccpy_strcadd"
+      primary_id: "flawfinder.strccpy"
   - id: "strcadd"
     rules:
     - path: "c/buffer/rule-strccpy_strcadd"
+      primary_id: "flawfinder.strcadd"
   - id: "char"
     rules:
     - path: "c/buffer/rule-char_TCHAR"
+      primary_id: "flawfinder.char"
   - id: "TCHAR"
     rules:
     - path: "c/buffer/rule-char_TCHAR"
+      primary_id: "flawfinder.TCHAR"
   - id: "wchar_t"
     rules:
     - path: "c/buffer/rule-char_TCHAR"
+      primary_id: "flawfinder.wchar_t"
   - id: "gets"
     rules:
     - path: "c/buffer/rule-gets__getts"
+      primary_id: "flawfinder.gets"
   - id: "_getts"
     rules:
     - path: "c/buffer/rule-gets__getts"
+      primary_id: "flawfinder._getts"
   - id: "sprintf"
     rules:
     - path: "c/buffer/rule-sprintf_vsprintf"
+      primary_id: "flawfinder.sprintf"
   - id: "vsprintf"
     rules:
     - path: "c/buffer/rule-sprintf_vsprintf"
+      primary_id: "flawfinder.vsprintf"
   - id: "swprintf"
     rules:
     - path: "c/buffer/rule-sprintf_vsprintf"
+      primary_id: "flawfinder.swprintf"
   - id: "vswprintf"
     rules:
     - path: "c/buffer/rule-sprintf_vsprintf"
+      primary_id: "flawfinder.vswprintf"
   - id: "_stprintf"
     rules:
     - path: "c/buffer/rule-sprintf_vsprintf"
+      primary_id: "flawfinder._stprintf"
   - id: "_vstprintf"
     rules:
     - path: "c/buffer/rule-sprintf_vsprintf"
+      primary_id: "flawfinder._vstprintf"
   - id: "printf"
     rules:
     - path: "c/format/rule-printf_vprintf"
+      primary_id: "flawfinder.printf"
   - id: "vprintf"
     rules:
     - path: "c/format/rule-printf_vprintf"
+      primary_id: "flawfinder.vprintf"
   - id: "vwprintf"
     rules:
     - path: "c/format/rule-printf_vprintf"
+      primary_id: "flawfinder.vwprintf"
   - id: "vfwprintf"
     rules:
     - path: "c/format/rule-printf_vprintf"
+      primary_id: "flawfinder.vfwprintf"
   - id: "_vtprintf"
     rules:
     - path: "c/format/rule-printf_vprintf"
+      primary_id: "flawfinder._vtprintf"
   - id: "wprintf"
     rules:
     - path: "c/format/rule-printf_vprintf"
+      primary_id: "flawfinder.wprintf"
   - id: "fprintf"
     rules:
     - path: "c/format/rule-fprintf_vfprintf"
+      primary_id: "flawfinder.fprintf"
   - id: "vfprintf"
     rules:
     - path: "c/format/rule-fprintf_vfprintf"
+      primary_id: "flawfinder.vfprintf"
   - id: "_ftprintf"
     rules:
     - path: "c/format/rule-fprintf_vfprintf"
+      primary_id: "flawfinder._ftprintf"
   - id: "_vftprintf"
     rules:
     - path: "c/format/rule-fprintf_vfprintf"
+      primary_id: "flawfinder._vftprintf"
   - id: "fwprintf"
     rules:
     - path: "c/format/rule-fprintf_vfprintf"
+      primary_id: "flawfinder.fwprintf"
   - id: "fvwprintf"
     rules:
     - path: "c/format/rule-fprintf_vfprintf"
+      primary_id: "flawfinder.fvwprintf"
   - id: "syslog"
     rules:
     - path: "c/format/rule-syslog"
+      primary_id: "flawfinder.syslog"
   - id: "snprintf"
     rules:
     - path: "c/format/rule-snprintf_vsnprintf"
+      primary_id: "flawfinder.snprintf"
   - id: "vsnprintf"
     rules:
     - path: "c/format/rule-snprintf_vsnprintf"
+      primary_id: "flawfinder.vsnprintf"
   - id: "_snprintf"
     rules:
     - path: "c/format/rule-snprintf_vsnprintf"
+      primary_id: "flawfinder._snprintf"
   - id: "_sntprintf"
     rules:
     - path: "c/format/rule-snprintf_vsnprintf"
+      primary_id: "flawfinder._sntprintf"
   - id: "_vsntprintf"
     rules:
     - path: "c/format/rule-snprintf_vsnprintf"
+      primary_id: "flawfinder._vsntprintf"
   - id: "scanf"
     rules:
     - path: "c/buffer/rule-scanf_vscanf"
+      primary_id: "flawfinder.scanf"
   - id: "vscanf"
     rules:
     - path: "c/buffer/rule-scanf_vscanf"
+      primary_id: "flawfinder.vscanf"
   - id: "wscanf"
     rules:
     - path: "c/buffer/rule-scanf_vscanf"
+      primary_id: "flawfinder.wscanf"
   - id: "_tscanf"
     rules:
     - path: "c/buffer/rule-scanf_vscanf"
+      primary_id: "flawfinder._tscanf"
   - id: "vwscanf"
     rules:
     - path: "c/buffer/rule-scanf_vscanf"
+      primary_id: "flawfinder.vwscanf"
   - id: "fscanf"
     rules:
     - path: "c/buffer/rule-fscanf_sscanf"
+      primary_id: "flawfinder.fscanf"
   - id: "sscanf"
     rules:
     - path: "c/buffer/rule-fscanf_sscanf"
+      primary_id: "flawfinder.sscanf"
   - id: "vsscanf"
     rules:
     - path: "c/buffer/rule-fscanf_sscanf"
+      primary_id: "flawfinder.vsscanf"
   - id: "vfscanf"
     rules:
     - path: "c/buffer/rule-fscanf_sscanf"
+      primary_id: "flawfinder.vfscanf"
   - id: "_ftscanf"
     rules:
     - path: "c/buffer/rule-fscanf_sscanf"
+      primary_id: "flawfinder._ftscanf"
   - id: "fwscanf"
     rules:
     - path: "c/buffer/rule-fscanf_sscanf"
+      primary_id: "flawfinder.fwscanf"
   - id: "vfwscanf"
     rules:
     - path: "c/buffer/rule-fscanf_sscanf"
+      primary_id: "flawfinder.vfwscanf"
   - id: "vswscanf"
     rules:
     - path: "c/buffer/rule-fscanf_sscanf"
+      primary_id: "flawfinder.vswscanf"
   - id: "strlen"
     rules:
     - path: "c/buffer/rule-strlen_wcslen"
+      primary_id: "flawfinder.strlen"
   - id: "wcslen"
     rules:
     - path: "c/buffer/rule-strlen_wcslen"
+      primary_id: "flawfinder.wcslen"
   - id: "_tcslen"
     rules:
     - path: "c/buffer/rule-strlen_wcslen"
+      primary_id: "flawfinder._tcslen"
   - id: "_mbslen"
     rules:
     - path: "c/buffer/rule-strlen_wcslen"
+      primary_id: "flawfinder._mbslen"
   - id: "MultiByteToWideChar"
     rules:
     - path: "c/buffer/rule-MultiByteToWideChar"
+      primary_id: "flawfinder.MultiByteToWideChar"
   - id: "streadd"
     rules:
     - path: "c/buffer/rule-streadd_strecpy"
+      primary_id: "flawfinder.streadd"
   - id: "strecpy"
     rules:
     - path: "c/buffer/rule-streadd_strecpy"
+      primary_id: "flawfinder.strecpy"
   - id: "strtrns"
     rules:
     - path: "c/buffer/rule-strtrns"
+      primary_id: "flawfinder.strtrns"
   - id: "realpath"
     rules:
     - path: "c/buffer/rule-realpath"
+      primary_id: "flawfinder.realpath"
   - id: "getopt"
     rules:
     - path: "c/buffer/rule-getopt_getopt_long"
+      primary_id: "flawfinder.getopt"
   - id: "getopt_long"
     rules:
     - path: "c/buffer/rule-getopt_getopt_long"
+      primary_id: "flawfinder.getopt_long"
   - id: "getwd"
     rules:
     - path: "c/buffer/rule-getwd"
+      primary_id: "flawfinder.getwd"
   - id: "getchar"
     rules:
     - path: "c/buffer/rule-getchar_fgetc"
+      primary_id: "flawfinder.getchar"
   - id: "fgetc"
     rules:
     - path: "c/buffer/rule-getchar_fgetc"
+      primary_id: "flawfinder.fgetc"
   - id: "getc"
     rules:
     - path: "c/buffer/rule-getchar_fgetc"
+      primary_id: "flawfinder.getc"
   - id: "read"
     rules:
     - path: "c/buffer/rule-getchar_fgetc"
+      primary_id: "flawfinder.read"
   - id: "_gettc"
     rules:
     - path: "c/buffer/rule-getchar_fgetc"
+      primary_id: "flawfinder._gettc"
   - id: "access"
     rules:
     - path: "c/race/rule-access"
+      primary_id: "flawfinder.access"
   - id: "chown"
     rules:
     - path: "c/race/rule-chown"
+      primary_id: "flawfinder.chown"
   - id: "chgrp"
     rules:
     - path: "c/race/rule-chgrp"
+      primary_id: "flawfinder.chgrp"
   - id: "chmod"
     rules:
     - path: "c/race/rule-chmod"
+      primary_id: "flawfinder.chmod"
   - id: "vfork"
     rules:
     - path: "c/race/rule-vfork"
+      primary_id: "flawfinder.vfork"
   - id: "readlink"
     rules:
     - path: "c/race/rule-readlink"
+      primary_id: "flawfinder.readlink"
   - id: "tmpfile"
     rules:
     - path: "c/tmpfile/rule-tmpfile"
+      primary_id: "flawfinder.tmpfile"
   - id: "tmpnam"
     rules:
     - path: "c/tmpfile/rule-tmpnam_tempnam"
+      primary_id: "flawfinder.tmpnam"
   - id: "tempnam"
     rules:
     - path: "c/tmpfile/rule-tmpnam_tempnam"
+      primary_id: "flawfinder.tempnam"
   - id: "mktemp"
     rules:
     - path: "c/tmpfile/rule-mktemp"
+      primary_id: "flawfinder.mktemp"
   - id: "mkstemp"
     rules:
     - path: "c/tmpfile/rule-mkstemp"
+      primary_id: "flawfinder.mkstemp"
   - id: "fopen"
     rules:
     - path: "c/misc/rule-fopen_open"
+      primary_id: "flawfinder.fopen"
   - id: "open"
     rules:
     - path: "c/misc/rule-fopen_open"
+      primary_id: "flawfinder.open"
   - id: "umask"
     rules:
     - path: "c/access/rule-umask"
+      primary_id: "flawfinder.umask"
   - id: "GetTempFileName"
     rules:
     - path: "c/tmpfile/rule-GetTempFileName"
+      primary_id: "flawfinder.GetTempFileName"
   - id: "execl"
     rules:
     - path: "c/shell/rule-execl_execlp"
+      primary_id: "flawfinder.execl"
   - id: "execlp"
     rules:
     - path: "c/shell/rule-execl_execlp"
+      primary_id: "flawfinder.execlp"
   - id: "execle"
     rules:
     - path: "c/shell/rule-execl_execlp"
+      primary_id: "flawfinder.execle"
   - id: "execv"
     rules:
     - path: "c/shell/rule-execl_execlp"
+      primary_id: "flawfinder.execv"
   - id: "execvp"
     rules:
     - path: "c/shell/rule-execl_execlp"
+      primary_id: "flawfinder.execvp"
   - id: "popen"
     rules:
     - path: "c/shell/rule-execl_execlp"
+      primary_id: "flawfinder.popen"
   - id: "WinExec"
     rules:
     - path: "c/shell/rule-execl_execlp"
+      primary_id: "flawfinder.WinExec"
   - id: "ShellExecute"
     rules:
     - path: "c/shell/rule-execl_execlp"
+      primary_id: "flawfinder.ShellExecute"
   - id: "system"
     rules:
     - path: "c/shell/rule-system"
+      primary_id: "flawfinder.system"
   - id: "CreateProcessAsUser"
     rules:
     - path: "c/shell/rule-CreateProcessAsUser_CreateProcessWithLogon"
+      primary_id: "flawfinder.CreateProcessAsUser"
   - id: "CreateProcessWithLogon"
     rules:
     - path: "c/shell/rule-CreateProcessAsUser_CreateProcessWithLogon"
+      primary_id: "flawfinder.CreateProcessWithLogon"
   - id: "CreateProcess"
     rules:
     - path: "c/shell/rule-CreateProcess"
+      primary_id: "flawfinder.CreateProcess"
   - id: "atoi"
     rules:
     - path: "c/integer/rule-atoi_atol"
+      primary_id: "flawfinder.atoi"
   - id: "atol"
     rules:
     - path: "c/integer/rule-atoi_atol"
+      primary_id: "flawfinder.atol"
   - id: "_wtoi"
     rules:
     - path: "c/integer/rule-atoi_atol"
+      primary_id: "flawfinder._wtoi"
   - id: "_wtoi64"
     rules:
     - path: "c/integer/rule-atoi_atol"
+      primary_id: "flawfinder._wtoi64"
   - id: "drand48"
     rules:
     - path: "c/random/rule-drand48_erand48"
+      primary_id: "flawfinder.drand48"
   - id: "erand48"
     rules:
     - path: "c/random/rule-drand48_erand48"
+      primary_id: "flawfinder.erand48"
   - id: "jrand48"
     rules:
     - path: "c/random/rule-drand48_erand48"
+      primary_id: "flawfinder.jrand48"
   - id: "lcong48"
     rules:
     - path: "c/random/rule-drand48_erand48"
+      primary_id: "flawfinder.lcong48"
   - id: "lrand48"
     rules:
     - path: "c/random/rule-drand48_erand48"
+      primary_id: "flawfinder.lrand48"
   - id: "mrand48"
     rules:
     - path: "c/random/rule-drand48_erand48"
+      primary_id: "flawfinder.mrand48"
   - id: "nrand48"
     rules:
     - path: "c/random/rule-drand48_erand48"
+      primary_id: "flawfinder.nrand48"
   - id: "random"
     rules:
     - path: "c/random/rule-drand48_erand48"
+      primary_id: "flawfinder.random"
   - id: "seed48"
     rules:
     - path: "c/random/rule-drand48_erand48"
+      primary_id: "flawfinder.seed48"
   - id: "setstate"
     rules:
     - path: "c/random/rule-drand48_erand48"
+      primary_id: "flawfinder.setstate"
   - id: "srand"
     rules:
     - path: "c/random/rule-drand48_erand48"
+      primary_id: "flawfinder.srand"
   - id: "strfry"
     rules:
     - path: "c/random/rule-drand48_erand48"
+      primary_id: "flawfinder.strfry"
   - id: "srandom"
     rules:
     - path: "c/random/rule-drand48_erand48"
+      primary_id: "flawfinder.srandom"
   - id: "g_rand_boolean"
     rules:
     - path: "c/random/rule-drand48_erand48"
+      primary_id: "flawfinder.g_rand_boolean"
   - id: "g_rand_int"
     rules:
     - path: "c/random/rule-drand48_erand48"
+      primary_id: "flawfinder.g_rand_int"
   - id: "g_rand_int_range"
     rules:
     - path: "c/random/rule-drand48_erand48"
+      primary_id: "flawfinder.g_rand_int_range"
   - id: "g_rand_double"
     rules:
     - path: "c/random/rule-drand48_erand48"
+      primary_id: "flawfinder.g_rand_double"
   - id: "g_rand_double_range"
     rules:
     - path: "c/random/rule-drand48_erand48"
+      primary_id: "flawfinder.g_rand_double_range"
   - id: "g_random_boolean"
     rules:
     - path: "c/random/rule-drand48_erand48"
+      primary_id: "flawfinder.g_random_boolean"
   - id: "g_random_int"
     rules:
     - path: "c/random/rule-drand48_erand48"
+      primary_id: "flawfinder.g_random_int"
   - id: "g_random_int_range"
     rules:
     - path: "c/random/rule-drand48_erand48"
+      primary_id: "flawfinder.g_random_int_range"
   - id: "g_random_double"
     rules:
     - path: "c/random/rule-drand48_erand48"
+      primary_id: "flawfinder.g_random_double"
   - id: "g_random_double_range"
     rules:
     - path: "c/random/rule-drand48_erand48"
+      primary_id: "flawfinder.g_random_double_range"
   - id: "crypt"
     rules:
     - path: "c/crypto/rule-crypt_crypt_r"
+      primary_id: "flawfinder.crypt"
   - id: "crypt_r"
     rules:
     - path: "c/crypto/rule-crypt_crypt_r"
+      primary_id: "flawfinder.crypt_r"
   - id: "EVP_des_ecb"
     rules:
     - path: "c/crypto/rule-EVP_des_ecb_EVP_des_cbc"
+      primary_id: "flawfinder.EVP_des_ecb"
   - id: "EVP_des_cbc"
     rules:
     - path: "c/crypto/rule-EVP_des_ecb_EVP_des_cbc"
+      primary_id: "flawfinder.EVP_des_cbc"
   - id: "EVP_des_cfb"
     rules:
     - path: "c/crypto/rule-EVP_des_ecb_EVP_des_cbc"
+      primary_id: "flawfinder.EVP_des_cfb"
   - id: "EVP_des_ofb"
     rules:
     - path: "c/crypto/rule-EVP_des_ecb_EVP_des_cbc"
+      primary_id: "flawfinder.EVP_des_ofb"
   - id: "EVP_desx_cbc"
     rules:
     - path: "c/crypto/rule-EVP_des_ecb_EVP_des_cbc"
+      primary_id: "flawfinder.EVP_desx_cbc"
   - id: "EVP_rc4_40"
     rules:
     - path: "c/crypto/rule-EVP_rc4_40_EVP_rc2_40_cbc"
+      primary_id: "flawfinder.EVP_rc4_40"
   - id: "EVP_rc2_40_cbc"
     rules:
     - path: "c/crypto/rule-EVP_rc4_40_EVP_rc2_40_cbc"
+      primary_id: "flawfinder.EVP_rc2_40_cbc"
   - id: "EVP_rc2_64_cbc"
     rules:
     - path: "c/crypto/rule-EVP_rc4_40_EVP_rc2_40_cbc"
+      primary_id: "flawfinder.EVP_rc2_64_cbc"
   - id: "chroot"
     rules:
     - path: "c/misc/rule-chroot"
+      primary_id: "flawfinder.chroot"
   - id: "getenv"
     rules:
     - path: "c/buffer/rule-getenv_curl_getenv"
+      primary_id: "flawfinder.getenv"
   - id: "curl_getenv"
     rules:
     - path: "c/buffer/rule-getenv_curl_getenv"
+      primary_id: "flawfinder.curl_getenv"
   - id: "g_get_home_dir"
     rules:
     - path: "c/buffer/rule-g_get_home_dir"
+      primary_id: "flawfinder.g_get_home_dir"
   - id: "g_get_tmp_dir"
     rules:
     - path: "c/buffer/rule-g_get_tmp_dir"
+      primary_id: "flawfinder.g_get_tmp_dir"
   - id: "RpcImpersonateClient"
     rules:
     - path: "c/access/rule-RpcImpersonateClient_ImpersonateLoggedOnUser"
+      primary_id: "flawfinder.RpcImpersonateClient"
   - id: "ImpersonateLoggedOnUser"
     rules:
     - path: "c/access/rule-RpcImpersonateClient_ImpersonateLoggedOnUser"
+      primary_id: "flawfinder.ImpersonateLoggedOnUser"
   - id: "CoImpersonateClient"
     rules:
     - path: "c/access/rule-RpcImpersonateClient_ImpersonateLoggedOnUser"
+      primary_id: "flawfinder.CoImpersonateClient"
   - id: "ImpersonateNamedPipeClient"
     rules:
     - path: "c/access/rule-RpcImpersonateClient_ImpersonateLoggedOnUser"
+      primary_id: "flawfinder.ImpersonateNamedPipeClient"
   - id: "ImpersonateDdeClientWindow"
     rules:
     - path: "c/access/rule-RpcImpersonateClient_ImpersonateLoggedOnUser"
+      primary_id: "flawfinder.ImpersonateDdeClientWindow"
   - id: "ImpersonateSecurityContext"
     rules:
     - path: "c/access/rule-RpcImpersonateClient_ImpersonateLoggedOnUser"
+      primary_id: "flawfinder.ImpersonateSecurityContext"
   - id: "SetThreadToken"
     rules:
     - path: "c/access/rule-RpcImpersonateClient_ImpersonateLoggedOnUser"
+      primary_id: "flawfinder.SetThreadToken"
   - id: "InitializeCriticalSection"
     rules:
     - path: "c/misc/rule-InitializeCriticalSection"
+      primary_id: "flawfinder.InitializeCriticalSection"
   - id: "LoadLibrary"
     rules:
     - path: "c/misc/rule-LoadLibrary"
+      primary_id: "flawfinder.LoadLibrary"
   - id: "LoadLibraryEx"
     rules:
     - path: "c/misc/rule-LoadLibraryEx"
+      primary_id: "flawfinder.LoadLibraryEx"
   - id: "SetSecurityDescriptorDacl"
     rules:
     - path: "c/misc/rule-SetSecurityDescriptorDacl"
+      primary_id: "flawfinder.SetSecurityDescriptorDacl"
   - id: "AddAccessAllowedAce"
     rules:
     - path: "c/misc/rule-AddAccessAllowedAce"
+      primary_id: "flawfinder.AddAccessAllowedAce"
   - id: "getlogin"
     rules:
     - path: "c/misc/rule-getlogin"
+      primary_id: "flawfinder.getlogin"
   - id: "cuserid"
     rules:
     - path: "c/misc/rule-cuserid"
+      primary_id: "flawfinder.cuserid"
   - id: "getpw"
     rules:
     - path: "c/buffer/rule-getpw"
+      primary_id: "flawfinder.getpw"
   - id: "getpass"
     rules:
     - path: "c/misc/rule-getpass"
+      primary_id: "flawfinder.getpass"
   - id: "gsignal"
     rules:
     - path: "c/obsolete/rule-gsignal_ssignal"
+      primary_id: "flawfinder.gsignal"
   - id: "ssignal"
     rules:
     - path: "c/obsolete/rule-gsignal_ssignal"
+      primary_id: "flawfinder.ssignal"
   - id: "memalign"
     rules:
     - path: "c/free/rule-memalign"
+      primary_id: "flawfinder.memalign"
   - id: "ulimit"
     rules:
     - path: "c/obsolete/rule-ulimit"
+      primary_id: "flawfinder.ulimit"
   - id: "usleep"
     rules:
     - path: "c/obsolete/rule-usleep"
+      primary_id: "flawfinder.usleep"
   - id: "equal"
     rules:
     - path: "c/buffer/rule-equal_mismatch"
+      primary_id: "flawfinder.equal"
   - id: "mismatch"
     rules:
     - path: "c/buffer/rule-equal_mismatch"
+      primary_id: "flawfinder.mismatch"
   - id: "is_permutation"
     rules:
     - path: "c/buffer/rule-equal_mismatch"
-# - id: "recv"
-#   rules:
-#     - path: "c/input/rule-recv_recvfrom"
-# - id: "recvfrom"
-#   rules:
-#     - path: "c/input/rule-recv_recvfrom"
-# - id: "recvmsg"
-#   rules:
-#     - path: "c/input/rule-recv_recvfrom"
-# - id: "fread"
-#   rules:
-#     - path: "c/input/rule-recv_recvfrom"
-# - id: "readv"
-#   rules:
-#     - path: "c/input/rule-recv_recvfrom"
+      primary_id: "flawfinder.is_permutation"

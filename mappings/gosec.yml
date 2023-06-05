@@ -1,7 +1,3 @@
-# yamllint disable
-# maps gosec rule ids to semgrep rules
-# License: MIT (c) GitLab Inc.
-# yamllint enable
 ---
 gosec:
   native_id:
@@ -12,97 +8,130 @@ gosec:
   - id: "G101"
     rules:
     - path: "go/secrets/rule-secrets"
+      primary_id: "gosec.G101-1"
   - id: "G102"
     rules:
     - path: "go/network/rule-bind_to_all_interfaces"
+      primary_id: "gosec.G102-1"
   - id: "G103"
     rules:
     - path: "go/unsafe/rule-unsafe"
+      primary_id: "gosec.G103-1"
   - id: "G106"
     rules:
     - path: "go/crypto/rule-insecure_ignore_host_key"
+      primary_id: "gosec.G106-1"
   - id: "G107"
     rules:
     - path: "go/injection/rule-ssrf"
+      primary_id: "gosec.G107-1"
   - id: "G108"
     rules:
     - path: "go/leak/rule-pprof_endpoint"
+      primary_id: "gosec.G108-1"
   - id: "G109"
     rules:
     - path: "go/memory/rule-integer_overflow"
+      primary_id: "gosec.G109-1"
   - id: "G110"
     rules:
     - path: "go/filesystem/rule-decompression_bomb"
+      primary_id: "gosec.G110-1"
   - id: "G111"
     rules:
     - path: "go/filesystem/rule-dirtraversal"
+      primary_id: "gosec.G111-1"
   - id: "G112"
     rules:
     - path: "go/http/rule-slowloris"
+      primary_id: "gosec.G112-1"
   - id: "G113"
     rules:
     - path: "go/memory/rule-math_big_rat"
+      primary_id: "gosec.G113-1"
   - id: "G114"
     rules:
     - path: "go/http/rule-http_serve"
+      primary_id: "gosec.G114-1"
   - id: "G201"
     rules:
     - path: "go/sql/rule-format_string_sqli"
+      primary_id: "gosec.G201-1"
   - id: "G202"
     rules:
     - path: "go/sql/rule-concat_sqli"
+      primary_id: "gosec.G202-1"
   - id: "G203"
     rules:
     - path: "go/injection/rule-template_injection"
+      primary_id: "gosec.G203-1"
   - id: "G204"
     rules:
     - path: "go/subproc/rule-subproc"
+      primary_id: "gosec.G204-1"
   - id: "G301"
     rules:
     - path: "go/file_permissions/rule-mkdir"
+      primary_id: "gosec.G301-1"
   - id: "G302"
     rules:
     - path: "go/file_permissions/rule-fileperm"
+      primary_id: "gosec.G302-1"
   - id: "G303"
     rules:
     - path: "go/filesystem/rule-tempfiles"
+      primary_id: "gosec.G303-1"
   - id: "G304"
     rules:
     - path: "go/filesystem/rule-filereadtaint"
+      primary_id: "gosec.G304-1"
   - id: "G305"
     rules:
     - path: "go/filesystem/rule-ziparchive"
+      primary_id: "gosec.G305-1"
   - id: "G306"
     rules:
     - path: "go/filesystem/rule-poorwritepermissions"
+      primary_id: "gosec.G306-1"
   - id: "G401"
     rules:
     - path: "go/crypto/rule-weakcrypto"
+      primary_id: "gosec.G401-1"
   - id: "G402"
     rules:
     - path: "go/crypto/rule-badtlssettings"
+      primary_id: "gosec.G402-1"
     - path: "go/crypto/rule-tlsversion"
+      primary_id: "gosec.G402-2"
   - id: "G403"
     rules:
     - path: "go/crypto/rule-weakkeystrength"
+      primary_id: "gosec.G403-1"
   - id: "G404"
     rules:
     - path: "go/crypto/rule-weakrandsource"
+      primary_id: "gosec.G404-1"
   - id: "G501"
     rules:
     - path: "go/blocklist/rule-blocklist-md5"
+      primary_id: "gosec.G501-1"
   - id: "G502"
     rules:
     - path: "go/blocklist/rule-blocklist-des"
+      primary_id: "gosec.G502-1"
   - id: "G503"
     rules:
     - path: "go/blocklist/rule-blocklist-rc4"
+      primary_id: "gosec.G503-1"
   - id: "G504"
     rules:
     - path: "go/blocklist/rule-blocklist-cgi"
+      primary_id: "gosec.G504-1"
   - id: "G505"
     rules:
     - path: "go/blocklist/rule-blocklist-sha1"
+      primary_id: "gosec.G505-1"
   - id: "G601"
     rules:
     - path: "go/memory/rule-memoryaliasing"
+      primary_id: "gosec.G601-1"

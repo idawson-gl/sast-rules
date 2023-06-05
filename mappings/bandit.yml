@@ -1,7 +1,3 @@
-# yamllint disable
-# maps bandit rule ids to semgrep rules
-# License: MIT (c) GitLab Inc.
-# yamllint enable
 ---
 bandit:
   native_id:
@@ -12,247 +8,332 @@ bandit:
   - id: "B101"
     rules:
     - path: "python/assert/rule-assert_used"
+      primary_id: "bandit.B101"
   - id: "B102"
     rules:
     - path: "python/exec/rule-exec_used"
+      primary_id: "bandit.B102"
   - id: "B103"
     rules:
     - path: "python/file_permissions/rule-general_bad_permission"
+      primary_id: "bandit.B103"
   - id: "B104"
     rules:
     - path: "python/bind_all_interfaces/rule-general_bindall_interfaces"
+      primary_id: "bandit.B104"
   - id: "B105"
     rules:
     - path: "python/secrets/rule-hardcoded_password_string"
+      primary_id: "bandit.B105"
   - id: "B106"
     rules:
     - path: "python/secrets/rule-hardcoded_password_funcarg"
+      primary_id: "bandit.B106"
   - id: "B107"
     rules:
     - path: "python/secrets/rule-hardcoded_password_default"
+      primary_id: "bandit.B107"
   - id: "B108"
     rules:
     - path: "python/tmpdir/rule-hardcodedtmp"
+      primary_id:
     - path: "python/tmpdir/rule-specialdir"
+      primary_id:
   - id: "B110"
     rules:
     - path: "python/exception/rule-try_except_pass"
+      primary_id: "bandit.B110"
   - id: "B112"
     rules:
     - path: "python/exception/rule-try_except_continue"
+      primary_id: "bandit.B112"
   - id: "B113"
     rules:
     - path: "python/requests/rule-request_without_timeout"
+      primary_id: "bandit.B113"
   - id: "B201"
     rules:
     - path: "python/flask/rule-app_debug"
+      primary_id: "bandit.B201"
   - id: "B202"
     rules:
     - path: "python/files/rule-tarfile_unsafe_members"
+      primary_id: "bandit.B202"
   - id: "B301"
     rules:
     - path: "python/deserialization/rule-pickle"
+      primary_id:
     - path: "python/deserialization/rule-cpickle"
+      primary_id:
     - path: "python/deserialization/rule-dill"
+      primary_id:
     - path: "python/deserialization/rule-shelve"
+      primary_id:
   - id: "B302"
     rules:
     - path: "python/deserialization/rule-marshal"
+      primary_id: "bandit.B302"
   - id: "B303"
     rules:
     - path: "python/crypto/rule-hash_md5"
+      primary_id:
     - path: "python/crypto/rule-hash_sha1"
+      primary_id:
     - path: "python/crypto/rule-hash_md2"
+      primary_id:
     - path: "python/crypto/rule-hash_md4"
+      primary_id:
     - path: "python/crypto/rule-crypto_hash_md5"
+      primary_id:
     - path: "python/crypto/rule-crypto_hash_sha1"
+      primary_id:
     - path: "python/crypto/rule-crypto.hazmat_hash_md5"
+      primary_id:
     - path: "python/crypto/rule-crypto.hazmat_hash_sha1"
+      primary_id:
   - id: "B304"
     rules:
     - path: "python/crypto/rule-crypto_cipher_rc2"
-      primary_id: bandit.B304-5 
+      primary_id: "bandit.B304-5"
     - path: "python/crypto/rule-crypto_cipher_rc4"
-      primary_id: bandit.B304-6
+      primary_id: "bandit.B304-6"
     - path: "python/crypto/rule-crypto_cipher_blowfish"
-      primary_id: bandit.B304-7
+      primary_id: "bandit.B304-7"
     - path: "python/crypto/rule-crypto_cipher_des"
-      primary_id: bandit.B304-8
+      primary_id: "bandit.B304-8"
     - path: "python/crypto/rule-crypto_cipher_xor"
-      primary_id: bandit.B304-9
+      primary_id: "bandit.B304-9"
     - path: "python/crypto/rule-crypto_hazmat_cipher_arc4"
-      primary_id: bandit.B304-10
+      primary_id: "bandit.B304-10"
     - path: "python/crypto/rule-crypto_hazmat_cipher_blowfish"
-      primary_id: bandit.B304-11
+      primary_id: "bandit.B304-11"
     - path: "python/crypto/rule-crypto_hazmat_cipher_idea"
-      primary_id: bandit.B304-12
+      primary_id: "bandit.B304-12"
   - id: "B305"
     rules:
     - path: "python/crypto/rule-cipher_modes"
+      primary_id: "bandit.B305"
   - id: "B306"
     rules:
     - path: "python/tmpdir/rule-mktemp_q"
+      primary_id: "bandit.B306"
   - id: "B307"
     rules:
     - path: "python/eval/rule-eval"
+      primary_id: "bandit.B307"
   - id: "B309"
     rules:
     - path: "python/https/rule-httpsconnection"
+      primary_id: "bandit.B309"
   - id: "B310"
     rules:
     - path: "python/urlopen/rule-urllib_urlopen1"
+      primary_id:
     - path: "python/urlopen/rule-urllib_urlopen2"
+      primary_id:
   - id: "B311"
     rules:
     - path: "python/random/rule-random"
+      primary_id: "bandit.B311"
   - id: "B312"
     rules:
     - path: "python/telnet/rule-telnetlib"
+      primary_id: "bandit.B312"
   - id: "B313"
     rules:
     - path: "python/xml/rule-celement"
+      primary_id: "bandit.B313"
   - id: "B314"
     rules:
     - path: "python/xml/rule-element"
+      primary_id: "bandit.B314"
   - id: "B315"
     rules:
     - path: "python/xml/rule-expatreader"
+      primary_id: "bandit.B315"
   - id: "B316"
     rules:
     - path: "python/xml/rule-expatbuilder"
+      primary_id: "bandit.B316"
   - id: "B317"
     rules:
     - path: "python/xml/rule-sax"
+      primary_id: "bandit.B317"
   - id: "B318"
     rules:
     - path: "python/xml/rule-minidom"
+      primary_id: "bandit.B318"
   - id: "B319"
     rules:
     - path: "python/xml/rule-pulldom"
+      primary_id: "bandit.B319"
   - id: "B320"
     rules:
     - path: "python/xml/rule-etree"
+      primary_id: "bandit.B320"
   - id: "B321"
     rules:
     - path: "python/ftp/rule-ftplib"
+      primary_id: "bandit.B321"
   - id: "B323"
     rules:
     - path: "python/ssl/rule-unverified_context"
+      primary_id: "bandit.B323"
   - id: "B324"
     rules:
     - path: "python/crypto/rule-hashlib_new_insecure_functions"
+      primary_id: "bandit.B324"
   - id: "B325"
     rules:
     - path: "python/tmpdir/rule-tempnam"
+      primary_id: "bandit.B325"
   - id: "B401"
     rules:
     - path: "python/telnet/rule-import_telnib"
+      primary_id: "bandit.B401"
   - id: "B402"
     rules:
     - path: "python/ftp/rule-import_ftplib"
+      primary_id: "bandit.B402"
   - id: "B403"
     rules:
     - path: "python/xml/rule-import_pickle"
+      primary_id: "bandit.B403"
   - id: "B404"
     rules:
     - path: "python/exec/rule-import_subprocess"
+      primary_id: "bandit.B404"
   - id: "B405"
     rules:
     - path: "python/xml/rule-import_etree"
+      primary_id: "bandit.B405"
   - id: "B406"
     rules:
     - path: "python/xml/rule-import_sax"
+      primary_id: "bandit.B406"
   - id: "B407"
     rules:
     - path: "python/xml/rule-import_expat"
+      primary_id: "bandit.B407"
   - id: "B408"
     rules:
     - path: "python/xml/rule-import_minidom"
+      primary_id: "bandit.B408"
   - id: "B409"
     rules:
     - path: "python/xml/rule-import_pulldom"
+      primary_id: "bandit.B409"
   - id: "B410"
     rules:
     - path: "python/xml/rule-import_lxml"
+      primary_id: "bandit.B410"
   - id: "B411"
     rules:
     - path: "python/xml/rule-import_xmlrpclib"
+      primary_id: "bandit.B411"
   - id: "B412"
     rules:
     - path: "python/cgi/rule-import_httpoxy"
+      primary_id: "bandit.B412"
   - id: "B413"
     rules:
     - path: "python/crypto/rule-import_pycrypto"
+      primary_id: "bandit.B413"
   - id: "B415"
     rules:
     - path: "python/crypto/rule-import_pyghmi"
+      primary_id: "bandit.B415"
   - id: "B501"
     rules:
     - path: "python/ssl/rule-req_no_certvalid"
+      primary_id: "bandit.B501"
   - id: "B502"
     rules:
     - path: "python/ssl/rule-ssl_with_bad_version"
+      primary_id: "bandit.B502"
   - id: "B504"
     rules:
     - path: "python/ssl/rule-ssl_no_version"
+      primary_id: "bandit.B504"
   - id: "B505"
     rules:
     - path: "python/crypto/rule-crypto_encrypt_dsa_rsa"
+      primary_id:
     - path: "python/crypto/rule-crypto_encrypt_ec"
+      primary_id:
   - id: "B506"
     rules:
     - path: "python/deserialization/rule-yaml_load"
+      primary_id: "bandit.B506"
   - id: "B507"
     rules:
     - path: "python/ssh/rule-ssl_nohost_key_verification"
+      primary_id: "bandit.B507"
   - id: "B508"
     rules:
     - path: "python/snmp/rule-insecure_snmp_version"
+      primary_id: "bandit.B508"
   - id: "B509"
     rules:
     - path: "python/snmp/rule-snmp_weak_cryptography"
+      primary_id: "bandit.B509"
   - id: "B601"
     rules:
     - path: "python/exec/rule-paramiko_calls"
+      primary_id: "bandit.B601"
   - id: "B602"
     rules:
     - path: "python/exec/rule-subprocess_popen_shell_true"
+      primary_id: "bandit.B602"
   - id: "B603"
     rules:
     - path: "python/exec/rule-subprocess_call"
+      primary_id: "bandit.B603"
   - id: "B604"
     rules:
     - path: "python/exec/rule-subprocess_shell_TRUE"
+      primary_id: "bandit.B604"
   - id: "B605"
     rules:
     - path: "python/exec/rule-os_popen2"
+      primary_id: "bandit.B605"
   - id: "B606"
     rules:
     - path: "python/exec/rule-start_process_with_no_shell"
+      primary_id: "bandit.B606"
   - id: "B607"
     rules:
     - path: "python/exec/rule-os_path"
+      primary_id: "bandit.B607"
   - id: "B608"
     rules:
     - path: "python/sql/rule-hardcoded_sql_expression"
+      primary_id: "bandit.B608"
   - id: "B609"
     rules:
     - path: "python/exec/rule-linux_command_wildcard_injection"
+      primary_id: "bandit.B609"
   - id: "B610"
     rules:
     - path: "python/django/rule-django_extra_used"
+      primary_id: "bandit.B610"
   - id: "B611"
     rules:
     - path: "python/django/rule-django_rawsql_used"
+      primary_id: "bandit.B611"
   - id: "B612"
     rules:
     - path: "python/log/rule-logging_config_insecure_listen"
+      primary_id: "bandit.B612"
   - id: "B701"
     rules:
     - path: "python/escaping/rule-jinja2_autoescape_false"
+      primary_id: "bandit.B701"
   - id: "B702"
     rules:
     - path: "python/escaping/rule-use_of_mako_templates"
+      primary_id: "bandit.B702"
   - id: "B703"
     rules:
     - path: "python/escaping/rule-mark_safe"
+      primary_id: "bandit.B703"
