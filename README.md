@@ -1,5 +1,7 @@
 # semgrep-rules
 
+Testing
+
 This is the central semgrep rule repository that hosts the semgrep rules
 for the [GitLab semgrep analyzer](https://gitlab.com/gitlab-org/security-products/analyzers/semgrep).
 
