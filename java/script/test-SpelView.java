@@ -20,7 +20,6 @@ public class SpelView implements View {
     private final String template;
 
     private final SpelExpressionParser parser = new SpelExpressionParser();
-    private final ExpressionParser parserVariant = new SpelExpressionParser();
 
     private final StandardEvaluationContext context = new StandardEvaluationContext();
 
@@ -32,12 +31,6 @@ public class SpelView implements View {
         this.resolver = name -> {
             try {
                 Expression expression = parser.parseExpression(name); //BOOM!
-                Expression expression2 = parserVariant.parseExpression(name);
-
-                String tainted = name + "blah";
-                Expression expression3 = parser.parseExpression(tainted);
-                Expression expression4 = parserVariant.parseExpression(tainted);
-
                 Object value = expression.getValue(context);
                 return value == null ? null : value.toString();
             }

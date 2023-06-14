@@ -7,13 +7,9 @@ rules:
   languages:
   - "java"
   patterns:
-  - pattern: "($PARSER $P).parseExpression($ARG);"
-  - pattern-not: "($PARSER $P).parseExpression(\"...\");"
-  - metavariable-pattern:
-      metavariable: "$PARSER"
-      pattern-either:
-      - pattern: "org.springframework.expression.spel.standard.SpelExpressionParser"
-      - pattern: "org.springframework.expression.ExpressionParser"
+  - pattern: "(org.springframework.expression.spel.standard.SpelExpressionParser $P).parseExpression($ARG);"
+  - pattern-not: "(org.springframework.expression.spel.standard.SpelExpressionParser
+      $P).parseExpression(\"...\");"
   message: |
     The application was found calling SpringFramework's `SpelExpressionParser.parseExpression`.
     Calling this method directly with user-supplied input may allow an adversary to

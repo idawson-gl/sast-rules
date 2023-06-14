@@ -1,13 +1,11 @@
 sast-rules changelog
 
-## v1.3.23
-- Update Java `rule-CommandInjection.yml`to match concatenated strings (!169)
-- Update Java `rule-SpelView.yml` to also match `ExpressionParser` interface methods (!169)
-- Update Java `rule-XpathInjection.yml` to match actual XPath import path (!169)
-
+<<<<<<< HEAD
 ## v1.3.22
 - Update Java `rule-CommandInjection.yml` with ability to match on String arrays (!168)
 
+=======
+>>>>>>> main
 ## v1.3.21
 - Update Java `rule-BlowfishKeySize.yml` to add back missing `metavariable` (!169)
 - Update Java rules with minor grammatical fixes (!169)

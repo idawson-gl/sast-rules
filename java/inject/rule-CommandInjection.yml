@@ -13,20 +13,19 @@ rules:
           ...
         }
     - pattern-either:
-      - pattern: "(Runtime $R).exec(<...$PARAM...>,...);"
+      - pattern: "(Runtime $R).exec($PARAM,...);"
       - patterns:
         - pattern-either:
           - pattern: |
-              $CMDARR = new String[]{"$SHELL",...,<...$PARAM...>,...};
+              $CMDARR = new String[]{"$SHELL",...,$PARAM,...};
               ...
               (Runtime $R).exec($CMDARR,...);
           - pattern: |
-              String[] $CMDARR = {"$SHELL",...,<...$PARAM...>,...};
+              String[] $CMDARR = {"$SHELL",...,$PARAM,...};
               ...
               (Runtime $R).exec($CMDARR,...);
-          - pattern: "(Runtime $R).exec(new String[]{\"$SHELL\",...,<...$PARAM...>,...},
-              ...);"
-          - pattern: "(Runtime $R).exec(java.util.String.format(\"...\", ...,<...$PARAM...>,...));"
+          - pattern: "(Runtime $R).exec(new String[]{\"$SHELL\",...,$PARAM,...}, ...);"
+          - pattern: "(Runtime $R).exec(java.util.String.format(\"...\", ...,$PARAM,...));"
           - pattern: "(Runtime $R).exec((String $A) + (String $B));"
         - metavariable-regex:
             metavariable: "$SHELL"
@@ -40,21 +39,17 @@ rules:
           ...
         }
     - pattern-either:
-      - pattern: "(ProcessBuilder $PB).command(<...$PARAM...>,...);"
-      - patterns:
-        - pattern-inside: |-
-            $VAL = <...$PARAM...>; ...
-        - pattern: "(ProcessBuilder $PB).command(<...$VAL...>,...);"
+      - pattern: "(ProcessBuilder $PB).command($PARAM,...);"
       - patterns:
         - pattern-either:
-          - pattern: "(ProcessBuilder $PB).command(\"$SHELL\",...,<...$PARAM...>,...);"
+          - pattern: "(ProcessBuilder $PB).command(\"$SHELL\",...,$PARAM,...);"
           - pattern: |
-              $CMDARR = java.util.Arrays.asList("$SHELL",...,<...$PARAM...>,...);
+              $CMDARR = java.util.Arrays.asList("$SHELL",...,$PARAM,...);
               ...
               (ProcessBuilder $PB).command($CMDARR,...);
-          - pattern: "(ProcessBuilder $PB).command(java.util.Arrays.asList(\"$SHELL\",...,<...$PARAM...>,...),...);"
+          - pattern: "(ProcessBuilder $PB).command(java.util.Arrays.asList(\"$SHELL\",...,$PARAM,...),...);"
           - pattern: "(ProcessBuilder $PB).command(java.util.String.format(\"...\",
-              ...,<...$PARAM...>,...));"
+              ...,$PARAM,...));"
           - pattern: "(ProcessBuilder $PB).command((String $A) + (String $B));"
         - metavariable-regex:
             metavariable: "$SHELL"
