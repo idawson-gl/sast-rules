@@ -38,6 +38,8 @@ rules:
   - pattern: "new java.io.FileReader(...)"
   - pattern: "new javax.activation.FileDataSource(...)"
   - pattern: "new java.io.FileInputStream(...)"
+  - pattern: "(ClassLoader $CL).getResourceAsStream(...)"
+  - pattern: "... .getClassLoader().getResourceAsStream(...)"
   - patterns:
     - pattern-either:
       - pattern-inside: |-

@@ -1,5 +1,8 @@
 sast-rules changelog
 
+## v1.3.24
+- Update Java `rule-PathTraversalIn.yml` to match `ClassLoader`'s resource stream and concatenated taint strings (!170)
+
 ## v1.3.23
 - Update Java `rule-CommandInjection.yml`to match concatenated strings (!169)
 - Update Java `rule-SpelView.yml` to also match `ExpressionParser` interface methods (!169)

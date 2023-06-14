@@ -2,6 +2,7 @@
 package inject;
 
 import java.io.File;
+import java.io.InputStream;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.FileReader;
@@ -64,6 +65,14 @@ public class PathTraversal {
 
         Files.createTempDirectory(p,input);
         Files.createTempDirectory(input);
+
+        ClassLoader loader = getClass().getClassLoader();
+        InputStream stream1 = loader.getResourceAsStream(input);
+        InputStream stream2 = getClass().getClassLoader().getResourceAsStream(input);
+
+        String taintStr = "test" + input;
+        InputStream stream3 = loader.getResourceAsStream(taintStr);
+        InputStream stream4 = getClass().getClassLoader().getResourceAsStream(taintStr);
     }
 
     // DETECTS: PATH_TRAVERSAL_OUT
