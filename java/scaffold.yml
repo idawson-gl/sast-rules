@@ -156,6 +156,10 @@ dependencies:
       artifactId: spring-jdbc
       version: 5.3.23
   - dependency:
+      groupId: org.springframework
+      artifactId: spring-expression
+      version: 5.3.23
+  - dependency:
       groupId: io.vertx
       artifactId: vertx-sql-client
       version: 4.3.7
