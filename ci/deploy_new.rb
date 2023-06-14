@@ -51,7 +51,8 @@ class RulesetPackageBuilder
       native_id = mappings[ruleset]['native_id']
 
       generated_rules = []
-      mappings[ruleset]['mappings'].each do |rule_mapping|
+      sorted_mappings = mappings[ruleset]['mappings'].sort_by {|value| value['rules'][0]['path']}
+      sorted_mappings.each do |rule_mapping|
         mapping_rule_data = rule_mapping['rules'].first
   
         parsed_rule = YAML.safe_load(File.read("#{mapping_rule_data['path']}.yml"))['rules'].first()
