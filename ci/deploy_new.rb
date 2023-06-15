@@ -28,9 +28,10 @@ class RuleLookup
       mappings = YAML.safe_load(File.read(mapping_file))
 
       mappings[ruleset]['mappings'].each do |rule_mapping|
-        rule = rule_mapping['rules'].first()
-        @rule_path_to_id[rule['path']] = [] unless @rule_path_to_id.key? rule['path']
-        @rule_path_to_id[rule['path']].append(rule_mapping['id'])
+        rule_mapping['rules'].each do |rule|
+          @rule_path_to_id[rule['path']] = [] unless @rule_path_to_id.key? rule['path']
+          @rule_path_to_id[rule['path']].append(rule_mapping['id'])
+        end
       end
     end
     return @rule_path_to_id
@@ -51,15 +52,14 @@ class RulesetPackageBuilder
       native_id = mappings[ruleset]['native_id']
 
       generated_rules = []
-      sorted_mappings = mappings[ruleset]['mappings'].sort_by {|value| value['rules'][0]['path']}
       sorted_mappings.each do |rule_mapping|
-        mapping_rule_data = rule_mapping['rules'].first
-  
-        parsed_rule = YAML.safe_load(File.read("#{mapping_rule_data['path']}.yml"))['rules'].first()
-        parsed_rule['id'] = mapping_rule_data['id']
-        parsed_rule['metadata']['primary_identifier'] = mapping_rule_data['primary_id']
-        parsed_rule['metadata']['secondary_identifiers'] = generate_secondary_identifiers(mapping_rule_data['path'], native_id)
-        generated_rules.append(parsed_rule)
+        rule_mapping['rules'].each do |mapping_rule_data|
+          parsed_rule = YAML.safe_load(File.read("#{mapping_rule_data['path']}.yml"))['rules'].first()
+          parsed_rule['id'] = mapping_rule_data['id']
+          parsed_rule['metadata']['primary_identifier'] = mapping_rule_data['primary_id']
+          parsed_rule['metadata']['secondary_identifiers'] = generate_secondary_identifiers(mapping_rule_data['path'], native_id)
+          generated_rules.append(parsed_rule)
+        end
       end
   
       formatted_rule = AutoFormat.reformat_yaml('', { 'rules' => generated_rules })
