@@ -9,6 +9,8 @@ import java.net.*;
  */
 public class SSRF {
 
+    private static final int TIMEOUT_IN_SECONDS = 20;
+
     public static void testURL(String url) throws IOException {
         new URL(url).openConnection().connect();
 
@@ -27,5 +29,17 @@ public class SSRF {
 
     public static void testURI(String url) throws IOException, URISyntaxException {
         new URI(url).toURL().openConnection().connect();
+    }
+
+    public static void connect(URI url, SSLContext ctx) throws IOException {
+        var port = url.getPort();
+        port = port > 0 ? port : 443;
+        try (Socket s = ctx.getSocketFactory().createSocket()) {
+            var socketAddress = new InetSocketAddress(url.getHost(), port);
+            s.connect(socketAddress, TIMEOUT_IN_SECONDS * 1000);
+            try (var os = s.getOutputStream()) {
+                os.write("GET / HTTP/1.1\n\n".getBytes());
+            }
+        }
     }
 }

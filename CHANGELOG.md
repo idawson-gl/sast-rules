@@ -1,6 +1,9 @@
 sast-rules changelog
 
 ## v1.3.25
+- Update Java `rule-SSRF.yml` to match more cases under java.net.* package
+
+## v1.3.25
 - Update Java `rule-SpotbugsPathTraversalAbsolute.yml` to handle getResourceAsStream and getResource (!182)
 
 ## v1.3.24
