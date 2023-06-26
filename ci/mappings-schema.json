@@ -1,67 +1,80 @@
 {
-    "type": "object",
-    "minProperties": 1,
-    "maxProperties": 1,
-    "patternProperties": {
-      "^(eslint|bandit|security_code_scan|gosec|flawfinder|find_sec_bugs|find_sec_bugs_scala)$": {
-        "type": "object",
-        "properties": {
-          "native_analyzer": {
-            "type": "string"
+  "type": "object",
+  "minProperties": 1,
+  "maxProperties": 1,
+  "patternProperties": {
+    "^(eslint|bandit|security_code_scan|gosec|flawfinder|find_sec_bugs|find_sec_bugs_scala|(gitlab_.*))$": {
+      "type": "object",
+      "properties": {
+        "native_analyzer": {
+          "type": "string"
+        },
+        "native_id": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "value": {
+              "type": "string"
+            }
           },
-          "native_id": {
+          "required": [
+            "type",
+            "name",
+            "value"
+          ],
+          "additionalProperties": false
+        },
+        "mappings": {
+          "type": "array",
+          "items": {
             "type": "object",
             "properties": {
-              "type": {
+              "id": {
                 "type": "string"
               },
-              "name": {
-                "type": "string"
-              },
-              "value": {
-                "type": "string"
+              "rules": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "path": {
+                      "type": "string"
+                    },
+                    "primary_id": {
+                      "type": "string"
+                    },
+                    "id": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "path",
+                    "primary_id",
+                    "id"
+                  ],
+                  "additionalProperties": false
+                }
               }
             },
-            "required": ["type", "name", "value"],
+            "required": [
+              "id",
+              "rules"
+            ],
             "additionalProperties": false
-          },
-          "mappings": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "rules": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "path": {
-                        "type": "string"
-                      },
-                      "primary_id": {
-                        "type": "string"
-                      },
-                      "id": {
-                        "type": "string"
-                      }
-                    },
-                    "required": ["path", "primary_id", "id"],
-                    "additionalProperties": false
-                  }
-                }
-              },
-              "required": ["id", "rules"],
-              "additionalProperties": false
-            }
           }
-        },
-        "required": ["native_id", "mappings"],
-        "additionalProperties": true
-      }
-    },
-    "additionalProperties": false
-  }
-  
+        }
+      },
+      "required": [
+        "native_id",
+        "mappings"
+      ],
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": false
+}

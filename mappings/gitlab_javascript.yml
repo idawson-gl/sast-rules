@@ -1,0 +1,15 @@
+# yamllint disable
+# License: MIT (c) GitLab Inc.
+# yamllint enable
+---
+gitlab_javascript:
+  native_id:
+    type: "gitlab_javascript_rule_id"
+    name: "GitLab Javascript - ID/$ID"
+    value: "$ID"
+  mappings:
+  - id: "neo4j-cypher-injection"
+    rules:
+    - path: "javascript/inject/rule-neo4j_cypher_injection"
+      primary_id: "gitlab_javascript.neo4j-cypher-injection"
+      id: "gitlab_javascript.neo4j-cypher-injection"

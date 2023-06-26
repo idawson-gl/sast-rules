@@ -1,0 +1,42 @@
+# yamllint disable
+# rule-set version: v1.3.36
+# yamllint enable
+---
+rules:
+- id: "gitlab_javascript.neo4j-cypher-injection"
+  mode: "taint"
+  pattern-sources:
+  - patterns:
+    - pattern-either:
+      - pattern-inside: |
+          $DRIVER = require('neo4j-driver')
+          ...
+      - pattern-inside: |
+          import $DRIVER from 'neo4j-driver';
+          ...
+    - pattern-inside: |-
+        function $FUNC(..., $VAL, ...) { ... }
+    - pattern: "$VAL"
+  pattern-sinks:
+  - patterns:
+    - pattern-inside: |
+        $SESSION = $DRIVER.session()
+        ...
+    - pattern: |
+        $SESSION.run($QUERY, ...)
+    - focus-metavariable: "$QUERY"
+  message: |
+    TBA
+  metadata:
+    cwe: "CWE-1234"
+    shortDescription: "TBA"
+    sourceURL: "https://neo4j.com/developer/kb/protecting-against-cypher-injection/"
+    primary_identifier: "gitlab_javascript.neo4j-cypher-injection"
+    secondary_identifiers:
+    - name: "GitLab Javascript - ID/neo4j-cypher-injection"
+      type: "gitlab_javascript_rule_id"
+      value: "neo4j-cypher-injection"
+  languages:
+  - "javascript"
+  - "typescript"
+  severity: "WARNING"

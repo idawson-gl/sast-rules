@@ -94,44 +94,44 @@ rules:
     category: "security"
     cwe: "CWE-918"
   pattern-either:
-    - patterns:
-      - pattern-either:
-        - pattern-inside: |
-            import java.net.*
-            ...
-        - pattern-inside: |
-            import java.net.URL
-            ...
-        - pattern-inside: |
-            import java.net.URI
-            ...
-      - pattern: "new $TYPE(...). ... .$FUNC"
-      - pattern-not: "new $TYPE(\"...\"). ... .$FUNC"
-      - metavariable-pattern:
-          metavariable: "$FUNC"
-          pattern-either:
-          - pattern: "connect"
-          - pattern: "GetContent"
-          - pattern: "openConnection"
-          - pattern: "openStream"
-          - pattern: "getContent"
-      - metavariable-pattern:
-          metavariable: "$TYPE"
-          pattern-either:
-          - pattern: "URL"
-          - pattern: "java.net.URL"
-          - pattern: "URI"
-          - pattern: "java.net.URI"
-    - patterns:
-        - pattern-either:
-          - pattern-inside: |
-              import java.net.*;
-              ...
-          - pattern-inside: |
-              import java.net.InetSocketAddress;
-              ...
-        - pattern: |
-            new InetSocketAddress(..., $PORT)
-        - pattern-not: |
-            new InetSocketAddress("...", $PORT)
+  - patterns:
+    - pattern-either:
+      - pattern-inside: |
+          import java.net.*
+          ...
+      - pattern-inside: |
+          import java.net.URL
+          ...
+      - pattern-inside: |
+          import java.net.URI
+          ...
+    - pattern: "new $TYPE(...). ... .$FUNC"
+    - pattern-not: "new $TYPE(\"...\"). ... .$FUNC"
+    - metavariable-pattern:
+        metavariable: "$FUNC"
+        pattern-either:
+        - pattern: "connect"
+        - pattern: "GetContent"
+        - pattern: "openConnection"
+        - pattern: "openStream"
+        - pattern: "getContent"
+    - metavariable-pattern:
+        metavariable: "$TYPE"
+        pattern-either:
+        - pattern: "URL"
+        - pattern: "java.net.URL"
+        - pattern: "URI"
+        - pattern: "java.net.URI"
+  - patterns:
+    - pattern-either:
+      - pattern-inside: |
+          import java.net.*;
+          ...
+      - pattern-inside: |
+          import java.net.InetSocketAddress;
+          ...
+    - pattern: |
+        new InetSocketAddress(..., $PORT)
+    - pattern-not: |
+        new InetSocketAddress("...", $PORT)
   severity: "ERROR"

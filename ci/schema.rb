@@ -31,8 +31,8 @@ def validate_short_description_or_cwe(yaml_dict)
   errors = []
   cwe = yaml_dict["rules"][0]["metadata"]["cwe"]
   short = yaml_dict["rules"][0]["metadata"]["shortDescription"]
-  
-  if cwe.nil? 
+
+  if cwe.nil?
     return errors
   end
 
@@ -87,7 +87,7 @@ end
 
 num_errors = 0
 ARGV.flat_map { |path| obtain_yaml_files(path) }.each do |yaml_file|
-  next if %w[bandit eslint flawfinder gosec find_sec_bugs find_sec_bugs_scala nodejs_scan security_code_scan scaffold].include?(File.basename(yaml_file, '.yml'))
+  next if %w[bandit eslint flawfinder gosec find_sec_bugs find_sec_bugs_scala nodejs_scan security_code_scan scaffold gitlab_javascript].include?(File.basename(yaml_file, '.yml'))
 
   errors = validation_errors(yaml_file)
   next unless errors.any?

@@ -1,5 +1,5 @@
 # yamllint disable
-# rule-set version: v1.3.25
+# rule-set version: v1.3.36
 # yamllint enable
 ---
 rules:
@@ -4320,20 +4320,45 @@ rules:
       value: "URLCONNECTION_SSRF_FD"
   pattern-either:
   - patterns:
-    - pattern: "new URL(...). ... .connect()"
-    - pattern-not: "new URL(\"...\"). ... .connect()"
+    - pattern-either:
+      - pattern-inside: |
+          import java.net.*
+          ...
+      - pattern-inside: |
+          import java.net.URL
+          ...
+      - pattern-inside: |
+          import java.net.URI
+          ...
+    - pattern: "new $TYPE(...). ... .$FUNC"
+    - pattern-not: "new $TYPE(\"...\"). ... .$FUNC"
+    - metavariable-pattern:
+        metavariable: "$FUNC"
+        pattern-either:
+        - pattern: "connect"
+        - pattern: "GetContent"
+        - pattern: "openConnection"
+        - pattern: "openStream"
+        - pattern: "getContent"
+    - metavariable-pattern:
+        metavariable: "$TYPE"
+        pattern-either:
+        - pattern: "URL"
+        - pattern: "java.net.URL"
+        - pattern: "URI"
+        - pattern: "java.net.URI"
   - patterns:
-    - pattern: "new URL(...). ... .GetContent(...)"
-    - pattern-not: "new URL(\"...\"). ... .GetContent(...)"
-  - patterns:
-    - pattern: "new URL(...). ... .openConnection(...)"
-    - pattern-not: "new URL(\"...\"). ... .openConnection(...)"
-  - patterns:
-    - pattern: "new URL(...). ... .openStream(...)"
-    - pattern-not: "new URL(\"...\"). ... .openStream(...)"
-  - patterns:
-    - pattern: "new URL(...). ... .getContent(...)"
-    - pattern-not: "new URL(\"...\"). ... .getContent(...)"
+    - pattern-either:
+      - pattern-inside: |
+          import java.net.*;
+          ...
+      - pattern-inside: |
+          import java.net.InetSocketAddress;
+          ...
+    - pattern: |
+        new InetSocketAddress(..., $PORT)
+    - pattern-not: |
+        new InetSocketAddress("...", $PORT)
   severity: "ERROR"
 - id: "find_sec_bugs.BAD_HEXA_CONVERSION-1"
   languages:

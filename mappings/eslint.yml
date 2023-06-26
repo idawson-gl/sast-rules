@@ -74,11 +74,3 @@ eslint:
     - path: "javascript/buf/rule-detect-new-buffer"
       primary_id: "eslint.detect-new-buffer"
       id: "eslint.detect-new-buffer"
-  # TODO: Temporarily keep the below rules under `eslint`
-  # until https://gitlab.com/gitlab-org/gitlab/-/issues/395487 is
-  # resolved for writing nodejs ruleset.
-  - id: "cypher-injection"
-    rules:
-    - path: "javascript/inject/rule-cypher-injection"
-      primary_id: "eslint.cypher-injection"
-      id: "eslint.cypher-injection"
