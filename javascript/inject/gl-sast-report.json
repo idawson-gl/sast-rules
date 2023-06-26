@@ -1,0 +1,514 @@
+{
+  "version": "15.0.4",
+  "vulnerabilities": [
+    {
+      "id": "0d291715662cad9ff26504a5130f5fb1f0b5d41c01d9ada279df14629790d9e4",
+      "category": "sast",
+      "name": "TBA",
+      "title": "TBA",
+      "description": "TBA\n",
+      "cve": "semgrep_id:gitlab_javascript.neo4j-cypher-injection:119:119",
+      "severity": "Medium",
+      "scanner": {
+        "id": "semgrep",
+        "name": "Semgrep"
+      },
+      "location": {
+        "file": "test-neo4j_cypher_injection.js",
+        "start_line": 119
+      },
+      "identifiers": [
+        {
+          "type": "semgrep_id",
+          "name": "gitlab_javascript.neo4j-cypher-injection",
+          "value": "gitlab_javascript.neo4j-cypher-injection"
+        },
+        {
+          "type": "cwe",
+          "name": "CWE-1234",
+          "value": "1234",
+          "url": "https://cwe.mitre.org/data/definitions/1234.html"
+        },
+        {
+          "type": "gitlab_javascript_rule_id",
+          "name": "GitLab Javascript - ID/neo4j-cypher-injection",
+          "value": "neo4j-cypher-injection"
+        }
+      ]
+    },
+    {
+      "id": "a0d04263bbc22222cb1d835c9d0022d7cbad8e1270fddd19b19344618b6c4255",
+      "category": "sast",
+      "name": "TBA",
+      "title": "TBA",
+      "description": "TBA\n",
+      "cve": "semgrep_id:gitlab_javascript.neo4j-cypher-injection:143:143",
+      "severity": "Medium",
+      "scanner": {
+        "id": "semgrep",
+        "name": "Semgrep"
+      },
+      "location": {
+        "file": "test-neo4j_cypher_injection.js",
+        "start_line": 143
+      },
+      "identifiers": [
+        {
+          "type": "semgrep_id",
+          "name": "gitlab_javascript.neo4j-cypher-injection",
+          "value": "gitlab_javascript.neo4j-cypher-injection"
+        },
+        {
+          "type": "cwe",
+          "name": "CWE-1234",
+          "value": "1234",
+          "url": "https://cwe.mitre.org/data/definitions/1234.html"
+        },
+        {
+          "type": "gitlab_javascript_rule_id",
+          "name": "GitLab Javascript - ID/neo4j-cypher-injection",
+          "value": "neo4j-cypher-injection"
+        }
+      ]
+    },
+    {
+      "id": "b2103de5781ea53aa1c14f567e76255058ff38fc872a0896021abb399f58dcaa",
+      "category": "sast",
+      "name": "TBA",
+      "title": "TBA",
+      "description": "TBA\n",
+      "cve": "semgrep_id:gitlab_javascript.neo4j-cypher-injection:15:15",
+      "severity": "Medium",
+      "scanner": {
+        "id": "semgrep",
+        "name": "Semgrep"
+      },
+      "location": {
+        "file": "test-neo4j_cypher_injection.js",
+        "start_line": 15
+      },
+      "identifiers": [
+        {
+          "type": "semgrep_id",
+          "name": "gitlab_javascript.neo4j-cypher-injection",
+          "value": "gitlab_javascript.neo4j-cypher-injection"
+        },
+        {
+          "type": "cwe",
+          "name": "CWE-1234",
+          "value": "1234",
+          "url": "https://cwe.mitre.org/data/definitions/1234.html"
+        },
+        {
+          "type": "gitlab_javascript_rule_id",
+          "name": "GitLab Javascript - ID/neo4j-cypher-injection",
+          "value": "neo4j-cypher-injection"
+        }
+      ],
+      "tracking": {
+        "type": "source",
+        "items": [
+          {
+            "file": "test-neo4j_cypher_injection.js",
+            "line_start": 15,
+            "line_end": 15,
+            "signatures": [
+              {
+                "algorithm": "scope_offset",
+                "value": "test-neo4j_cypher_injection.js|danger[0]:5"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "3670d814cbaf927e745ce2de15e2ad12bbf96158f000ec1eaccdc524f534f08a",
+      "category": "sast",
+      "name": "TBA",
+      "title": "TBA",
+      "description": "TBA\n",
+      "cve": "semgrep_id:gitlab_javascript.neo4j-cypher-injection:27:27",
+      "severity": "Medium",
+      "scanner": {
+        "id": "semgrep",
+        "name": "Semgrep"
+      },
+      "location": {
+        "file": "test-neo4j_cypher_injection.js",
+        "start_line": 27
+      },
+      "identifiers": [
+        {
+          "type": "semgrep_id",
+          "name": "gitlab_javascript.neo4j-cypher-injection",
+          "value": "gitlab_javascript.neo4j-cypher-injection"
+        },
+        {
+          "type": "cwe",
+          "name": "CWE-1234",
+          "value": "1234",
+          "url": "https://cwe.mitre.org/data/definitions/1234.html"
+        },
+        {
+          "type": "gitlab_javascript_rule_id",
+          "name": "GitLab Javascript - ID/neo4j-cypher-injection",
+          "value": "neo4j-cypher-injection"
+        }
+      ],
+      "tracking": {
+        "type": "source",
+        "items": [
+          {
+            "file": "test-neo4j_cypher_injection.js",
+            "line_start": 27,
+            "line_end": 27,
+            "signatures": [
+              {
+                "algorithm": "scope_offset",
+                "value": "test-neo4j_cypher_injection.js|danger[0]:17"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "6fe817983e9ef45104d9bd4fbb2d5149ea020c9fb6ed382a100efb910e421136",
+      "category": "sast",
+      "name": "TBA",
+      "title": "TBA",
+      "description": "TBA\n",
+      "cve": "semgrep_id:gitlab_javascript.neo4j-cypher-injection:36:36",
+      "severity": "Medium",
+      "scanner": {
+        "id": "semgrep",
+        "name": "Semgrep"
+      },
+      "location": {
+        "file": "test-neo4j_cypher_injection.js",
+        "start_line": 36
+      },
+      "identifiers": [
+        {
+          "type": "semgrep_id",
+          "name": "gitlab_javascript.neo4j-cypher-injection",
+          "value": "gitlab_javascript.neo4j-cypher-injection"
+        },
+        {
+          "type": "cwe",
+          "name": "CWE-1234",
+          "value": "1234",
+          "url": "https://cwe.mitre.org/data/definitions/1234.html"
+        },
+        {
+          "type": "gitlab_javascript_rule_id",
+          "name": "GitLab Javascript - ID/neo4j-cypher-injection",
+          "value": "neo4j-cypher-injection"
+        }
+      ],
+      "tracking": {
+        "type": "source",
+        "items": [
+          {
+            "file": "test-neo4j_cypher_injection.js",
+            "line_start": 36,
+            "line_end": 36,
+            "signatures": [
+              {
+                "algorithm": "scope_offset",
+                "value": "test-neo4j_cypher_injection.js|danger[0]:26"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "06b4113801baeea324174493a0fd4c7f6937f21c7d134e9d45eccada51b30c47",
+      "category": "sast",
+      "name": "TBA",
+      "title": "TBA",
+      "description": "TBA\n",
+      "cve": "semgrep_id:gitlab_javascript.neo4j-cypher-injection:49:49",
+      "severity": "Medium",
+      "scanner": {
+        "id": "semgrep",
+        "name": "Semgrep"
+      },
+      "location": {
+        "file": "test-neo4j_cypher_injection.js",
+        "start_line": 49
+      },
+      "identifiers": [
+        {
+          "type": "semgrep_id",
+          "name": "gitlab_javascript.neo4j-cypher-injection",
+          "value": "gitlab_javascript.neo4j-cypher-injection"
+        },
+        {
+          "type": "cwe",
+          "name": "CWE-1234",
+          "value": "1234",
+          "url": "https://cwe.mitre.org/data/definitions/1234.html"
+        },
+        {
+          "type": "gitlab_javascript_rule_id",
+          "name": "GitLab Javascript - ID/neo4j-cypher-injection",
+          "value": "neo4j-cypher-injection"
+        }
+      ],
+      "tracking": {
+        "type": "source",
+        "items": [
+          {
+            "file": "test-neo4j_cypher_injection.js",
+            "line_start": 49,
+            "line_end": 49,
+            "signatures": [
+              {
+                "algorithm": "scope_offset",
+                "value": "test-neo4j_cypher_injection.js|danger[0]:39"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "b49759c8f858cb18a8554049c009a3285901e8c8c0c837d23f7ba325399d9517",
+      "category": "sast",
+      "name": "TBA",
+      "title": "TBA",
+      "description": "TBA\n",
+      "cve": "semgrep_id:gitlab_javascript.neo4j-cypher-injection:100:100",
+      "severity": "Medium",
+      "scanner": {
+        "id": "semgrep",
+        "name": "Semgrep"
+      },
+      "location": {
+        "file": "test-neo4j_cypher_injection.ts",
+        "start_line": 100
+      },
+      "identifiers": [
+        {
+          "type": "semgrep_id",
+          "name": "gitlab_javascript.neo4j-cypher-injection",
+          "value": "gitlab_javascript.neo4j-cypher-injection"
+        },
+        {
+          "type": "cwe",
+          "name": "CWE-1234",
+          "value": "1234",
+          "url": "https://cwe.mitre.org/data/definitions/1234.html"
+        },
+        {
+          "type": "gitlab_javascript_rule_id",
+          "name": "GitLab Javascript - ID/neo4j-cypher-injection",
+          "value": "neo4j-cypher-injection"
+        }
+      ]
+    },
+    {
+      "id": "6d0d66483eac6941f2bcf84ad24d407fa4e8b572b886ebb729fcfe532434815a",
+      "category": "sast",
+      "name": "TBA",
+      "title": "TBA",
+      "description": "TBA\n",
+      "cve": "semgrep_id:gitlab_javascript.neo4j-cypher-injection:11:11",
+      "severity": "Medium",
+      "scanner": {
+        "id": "semgrep",
+        "name": "Semgrep"
+      },
+      "location": {
+        "file": "test-neo4j_cypher_injection.ts",
+        "start_line": 11
+      },
+      "identifiers": [
+        {
+          "type": "semgrep_id",
+          "name": "gitlab_javascript.neo4j-cypher-injection",
+          "value": "gitlab_javascript.neo4j-cypher-injection"
+        },
+        {
+          "type": "cwe",
+          "name": "CWE-1234",
+          "value": "1234",
+          "url": "https://cwe.mitre.org/data/definitions/1234.html"
+        },
+        {
+          "type": "gitlab_javascript_rule_id",
+          "name": "GitLab Javascript - ID/neo4j-cypher-injection",
+          "value": "neo4j-cypher-injection"
+        }
+      ]
+    },
+    {
+      "id": "4aa47e1da5c5f8f04c46b1b632c07d7e8f5b93bc30a37a7e4bc15d55c875f33d",
+      "category": "sast",
+      "name": "TBA",
+      "title": "TBA",
+      "description": "TBA\n",
+      "cve": "semgrep_id:gitlab_javascript.neo4j-cypher-injection:137:137",
+      "severity": "Medium",
+      "scanner": {
+        "id": "semgrep",
+        "name": "Semgrep"
+      },
+      "location": {
+        "file": "test-neo4j_cypher_injection.ts",
+        "start_line": 137
+      },
+      "identifiers": [
+        {
+          "type": "semgrep_id",
+          "name": "gitlab_javascript.neo4j-cypher-injection",
+          "value": "gitlab_javascript.neo4j-cypher-injection"
+        },
+        {
+          "type": "cwe",
+          "name": "CWE-1234",
+          "value": "1234",
+          "url": "https://cwe.mitre.org/data/definitions/1234.html"
+        },
+        {
+          "type": "gitlab_javascript_rule_id",
+          "name": "GitLab Javascript - ID/neo4j-cypher-injection",
+          "value": "neo4j-cypher-injection"
+        }
+      ]
+    },
+    {
+      "id": "fb1ed79488ed71b6a91b05549709777c90c7380034b77cd2523af86582b6a6d5",
+      "category": "sast",
+      "name": "TBA",
+      "title": "TBA",
+      "description": "TBA\n",
+      "cve": "semgrep_id:gitlab_javascript.neo4j-cypher-injection:23:23",
+      "severity": "Medium",
+      "scanner": {
+        "id": "semgrep",
+        "name": "Semgrep"
+      },
+      "location": {
+        "file": "test-neo4j_cypher_injection.ts",
+        "start_line": 23
+      },
+      "identifiers": [
+        {
+          "type": "semgrep_id",
+          "name": "gitlab_javascript.neo4j-cypher-injection",
+          "value": "gitlab_javascript.neo4j-cypher-injection"
+        },
+        {
+          "type": "cwe",
+          "name": "CWE-1234",
+          "value": "1234",
+          "url": "https://cwe.mitre.org/data/definitions/1234.html"
+        },
+        {
+          "type": "gitlab_javascript_rule_id",
+          "name": "GitLab Javascript - ID/neo4j-cypher-injection",
+          "value": "neo4j-cypher-injection"
+        }
+      ]
+    },
+    {
+      "id": "efc662ecfd6c1ae14fb56df1f7725391089099ba892e730dba60016c1428d6f2",
+      "category": "sast",
+      "name": "TBA",
+      "title": "TBA",
+      "description": "TBA\n",
+      "cve": "semgrep_id:gitlab_javascript.neo4j-cypher-injection:32:32",
+      "severity": "Medium",
+      "scanner": {
+        "id": "semgrep",
+        "name": "Semgrep"
+      },
+      "location": {
+        "file": "test-neo4j_cypher_injection.ts",
+        "start_line": 32
+      },
+      "identifiers": [
+        {
+          "type": "semgrep_id",
+          "name": "gitlab_javascript.neo4j-cypher-injection",
+          "value": "gitlab_javascript.neo4j-cypher-injection"
+        },
+        {
+          "type": "cwe",
+          "name": "CWE-1234",
+          "value": "1234",
+          "url": "https://cwe.mitre.org/data/definitions/1234.html"
+        },
+        {
+          "type": "gitlab_javascript_rule_id",
+          "name": "GitLab Javascript - ID/neo4j-cypher-injection",
+          "value": "neo4j-cypher-injection"
+        }
+      ]
+    },
+    {
+      "id": "3cdf03ddf01853bf27b2d03485afb3ef31d36aba02d5d7f6d4e126bdd539b8e3",
+      "category": "sast",
+      "name": "TBA",
+      "title": "TBA",
+      "description": "TBA\n",
+      "cve": "semgrep_id:gitlab_javascript.neo4j-cypher-injection:45:45",
+      "severity": "Medium",
+      "scanner": {
+        "id": "semgrep",
+        "name": "Semgrep"
+      },
+      "location": {
+        "file": "test-neo4j_cypher_injection.ts",
+        "start_line": 45
+      },
+      "identifiers": [
+        {
+          "type": "semgrep_id",
+          "name": "gitlab_javascript.neo4j-cypher-injection",
+          "value": "gitlab_javascript.neo4j-cypher-injection"
+        },
+        {
+          "type": "cwe",
+          "name": "CWE-1234",
+          "value": "1234",
+          "url": "https://cwe.mitre.org/data/definitions/1234.html"
+        },
+        {
+          "type": "gitlab_javascript_rule_id",
+          "name": "GitLab Javascript - ID/neo4j-cypher-injection",
+          "value": "neo4j-cypher-injection"
+        }
+      ]
+    }
+  ],
+  "dependency_files": [],
+  "scan": {
+    "analyzer": {
+      "id": "semgrep",
+      "name": "Semgrep",
+      "url": "https://gitlab.com/gitlab-org/security-products/analyzers/semgrep",
+      "vendor": {
+        "name": "GitLab"
+      },
+      "version": "4.3.5"
+    },
+    "scanner": {
+      "id": "semgrep",
+      "name": "Semgrep",
+      "url": "https://github.com/returntocorp/semgrep",
+      "vendor": {
+        "name": "GitLab"
+      },
+      "version": "1.23.0"
+    },
+    "type": "sast",
+    "start_time": "2023-06-26T10:10:22",
+    "end_time": "2023-06-26T10:10:33",
+    "status": "success"
+  }
+}

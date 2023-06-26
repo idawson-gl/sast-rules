@@ -1,7 +1,7 @@
 sast-rules changelog
 
-## v1.3.25
-- Update Java `rule-SSRF.yml` to match more cases under java.net.* package
+## v1.3.26
+- Introduce GitLab-owned rules for Javascript(`gitlab_javascript`)
 - Add JS/TS `rule-neo4j_cypher.yml` to detect Neo4J-based query injection
 
 ## v1.3.25
