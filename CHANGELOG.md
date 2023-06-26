@@ -2,6 +2,7 @@ sast-rules changelog
 
 ## v1.3.25
 - Update Java `rule-SSRF.yml` to match more cases under java.net.* package
+- Add JS/TS `rule-neo4j_cypher.yml` to detect Neo4J-based query injection
 
 ## v1.3.25
 - Update Java `rule-SpotbugsPathTraversalAbsolute.yml` to handle getResourceAsStream and getResource (!182)

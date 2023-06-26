@@ -1,0 +1,36 @@
+# yamllint disable
+# License: MIT (c) GitLab Inc.
+# yamllint enable
+---
+rules:
+- id: "javascript/inject/rule-neo4j_cypher"
+  mode: taint
+  pattern-sources:
+    - patterns:
+        - pattern-either:
+            - pattern-inside: |
+                $DRIVER = require('neo4j-driver')
+                ...
+            - pattern-inside: |
+                import $DRIVER from 'neo4j-driver';
+                ...
+        - pattern-inside: function $FUNC(..., $VAL, ...) { ... }
+        - pattern: $VAL
+  pattern-sinks:
+    - patterns:
+        - pattern-inside: |
+            $SESSION = $DRIVER.session()
+            ...
+        - pattern: |
+            $SESSION.run($QUERY, ...)
+        - focus-metavariable: $QUERY
+  message: |
+    TBA
+  metadata:
+    cwe: "TBA"
+    shortDescription: "TBA"
+    sourceURL: "https://neo4j.com/developer/kb/protecting-against-cypher-injection/"
+  languages:
+  - "javascript"
+  - "typescript"
+  severity: "WARNING"
