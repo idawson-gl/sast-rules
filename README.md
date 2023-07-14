@@ -1,11 +1,69 @@
-# Semgrep rules
+# SAST rules
 
-This is the central Semgrep rule repository that hosts the Semgrep rules
-for the [GitLab semgrep analyzer](https://gitlab.com/gitlab-org/security-products/analyzers/semgrep).
+This repository holds the rules used in the [Semgrep-based GitLab SAST analyzer](https://gitlab.com/gitlab-org/security-products/analyzers/semgrep).
+
+GitLab writes, maintains, tests, and supports these rules.
+They're available by default in GitLab SAST.
+
+The GitLab Vulnerability Research team manages changes to these rules in collaboration with the GitLab Static Analysis team.
+
+If you have questions about GitLab SAST or these rules, you can:
+- Check the [GitLab SAST documentation](https://docs.gitlab.com/ee/user/application_security/sast/), including how to [customize rulesets](https://docs.gitlab.com/ee/user/application_security/sast/customize_rulesets.html).
+- Request help from [GitLab Support](https://about.gitlab.com/support/) or your account team.
+- [File an issue in `gitlab-org/gitlab`](https://gitlab.com/gitlab-org/gitlab/-/issues/?sort=created_date&state=opened&first_page_size=100).
+     - To ensure your issue lands in the right queue, write the following comment after creating your issue: `@gitlab-bot label ~"group::vulnerability research" ~"Category:SAST"`
+
+## Everyone can contribute
+
+We welcome contributions to this project.
+You can [create an MR directly](https://gitlab.com/gitlab-org/security-products/sast-rules/-/merge_requests) to update rule logic or metadata.
+You should update individual rule files, not the automatically-generated files in the `dist/` directory.
+
+Because these rules affect the default configuration of all GitLab SAST users, some changes may not be accepted right away.
+For example, changes to severity values or reorganizations to existing rules may require additional coordination to avoid disrupting customer workflows.
+Before creating an MR, you can optionally [open an issue in gitlab-org/gitlab](https://gitlab.com/gitlab-org/gitlab/-/issues) to discuss your proposed approach and understand if it's likely to be accepted.
+After you file your issue, please write the following comment to put it in the right queue: `@gitlab-bot label ~"group::vulnerability research" ~"Category:SAST"`.
+
+### Credits
+
+GitLab gratefully acknowledges the following contributors from the wider community for their valuable contributions.
+
+| Author            | MRs/Issues |
+| ----------------- | ---------- |
+| @masakura         | !99, !107  |
+| @gregory.mcdaniel | #32        |
+| @niklas.volcz.    | !183       |
+
+### Contribution instructions
+
+After making changes to rules or mappings, make sure to run `./ci/deploy.sh <semantic version>`
+and commit your updates to the `/dist` directory where `<semantic version>`
+should correspond to the latest published version in [CHANGELOG.md](./CHANGELOG.md)>
+
+### Versioning and Changelog
+
+We apply the following semantic versioning scheme to this repository:
+
+1. patch version increment: for updated/patched/added rules.
+1. minor version increment: backwards-compatible YAML schema changes (e.g., adding/removing optional fields).
+1. major version increment: non-backwards-compatible YAML schema changes (e.g., adding/removing required fields)
+
+## Related projects and resources
+
+- [GitLab SAST rule philosophy](./PHILOSOPHY.md)
+- [GitLab SAST documentation](https://docs.gitlab.com/ee/user/application_security/sast/)
+- How to [customize rulesets](https://docs.gitlab.com/ee/user/application_security/sast/customize_rulesets.html) used in the Semgrep-based GitLab SAST analyzer.
+- [Rule testing project](https://gitlab.com/gitlab-org/security-products/sast-rule-testing-framework/rule-testing)
+
+## Technical details
+
+### Testing
 
 We follow the testing methodology laid out in this [blog post](https://about.gitlab.com/blog/2021/09/08/write-vulnerability-detection-rules/).
 
-The repository is structured as illustrated below:
+### Repository layout
+
+The repository is structured as described below:
 
 ``` bash
 .
@@ -52,7 +110,7 @@ The `mappings` and `dist` directories include the rule-pack configuration which
 define the rules that should included into rule-packs and the resulting,
 assembled rule-packs.
 
-## Formatting guidelines
+### Formatting guidelines
 
 Rules contained in this repository have to adhere to the following format:
 
@@ -69,7 +127,7 @@ so that they adhere to our guidelines listed above. It can be
 executed by running `ci/autoformat.rb` within the sast-rules directory after
 installing the gems `psych yaml fileutils` with `gem install psych yaml fileutils`.
 
-## Mappings
+### Mappings
 
 The mappings directory in this repository contains YAML configuration files
 that map native analyzer ids to the corresponding Semgrep rules. These mappings
@@ -104,7 +162,7 @@ bandit:
   # ...
 ```
 
-## Data sources
+### Data sources
 
 The rules and test-cases in this repository are partially sourced from the
 sources listed below:
@@ -116,41 +174,6 @@ sources listed below:
 
 The details are listed in the headers of all the rule end test-files including
 the licensing information and proper attribution.
-
-## Contributing
-
-If you know about a pattern that isn't present in this repo or refinements that
-could be applied to the rules in this repository, you can contribute by opening
-an issue, or even submit an improvement to the rule files/test cases in this
-repository.
-
-## Contribution instructions
-
-After making changes to rules or mappings, make sure to run `./ci/deploy.sh <semantic version>`
-and commit your updates to the `/dist` directory where `<semantic version>`
-should correspond to the latest published version in [CHANGELOG.md](./CHANGELOG.md)>
-
-## Versioning and Changelog
-
-We apply the following semantic versioning scheme to this repository:
-
-1. patch version increment: for updated/patched/added rules.
-1. minor version increment: backwards-compatible YAML schema changes (e.g., adding/removing optional fields).
-1. major version increment: non-backwards-compatible YAML schema changes (e.g., adding/removing required fields)
-
-## Credits
-
-We would like to thank the following authors very much for their valuable
-contributions.
-
-| Author            | MRs/Issues |
-| ----------------- | ---------- |
-| @masakura         | !99, !107  |
-| @gregory.mcdaniel | #32        |
-| @niklas.volcz.    | !183       |
-
-
-## Rule deployment
 
 ## Rules that are not covered at the moment
 
