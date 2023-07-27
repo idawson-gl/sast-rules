@@ -1,0 +1,497 @@
+---
+nodejs_scan:
+  native_id:
+    type: "nodejs_scan_rule_id"
+    name: "NodeJS Scan rule ID/$ID"
+    value: "$ID"
+  mappings:
+  - id: javascript-ssrf-rule-wkhtmltoimage_ssrf
+    rules:
+    - path: javascript/ssrf/rule-wkhtmltoimage_ssrf
+      primary_id: javascript-ssrf-rule-wkhtmltoimage_ssrf
+      id: javascript-ssrf-rule-wkhtmltoimage_ssrf
+  - id: javascript-eval-rule-serializetojs_deserialize
+    rules:
+    - path: javascript/eval/rule-serializetojs_deserialize
+      primary_id: javascript-eval-rule-serializetojs_deserialize
+      id: javascript-eval-rule-serializetojs_deserialize
+  - id: javascript-electronjs-rule-electron_experimental_features
+    rules:
+    - path: javascript/electronjs/rule-electron_experimental_features
+      primary_id: javascript-electronjs-rule-electron_experimental_features
+      id: javascript-electronjs-rule-electron_experimental_features
+  - id: javascript-crypto-rule-node_timing_attack
+    rules:
+    - path: javascript/crypto/rule-node_timing_attack
+      primary_id: javascript-crypto-rule-node_timing_attack
+      id: javascript-crypto-rule-node_timing_attack
+  - id: javascript-dos-rule-layer7_object_dos
+    rules:
+    - path: javascript/dos/rule-layer7_object_dos
+      primary_id: javascript-dos-rule-layer7_object_dos
+      id: javascript-dos-rule-layer7_object_dos
+  - id: javascript-traversal-rule-express_lfr_warning
+    rules:
+    - path: javascript/traversal/rule-express_lfr_warning
+      primary_id: javascript-traversal-rule-express_lfr_warning
+      id: javascript-traversal-rule-express_lfr_warning
+  - id: javascript-ssrf-rule-puppeteer_ssrf
+    rules:
+    - path: javascript/ssrf/rule-puppeteer_ssrf
+      primary_id: javascript-ssrf-rule-puppeteer_ssrf
+      id: javascript-ssrf-rule-puppeteer_ssrf
+  - id: javascript-headers-rule-generic_header_injection
+    rules:
+    - path: javascript/headers/rule-generic_header_injection
+      primary_id: javascript-headers-rule-generic_header_injection
+      id: javascript-headers-rule-generic_header_injection
+  - id: javascript-eval-rule-server_side_template_injection
+    rules:
+    - path: javascript/eval/rule-server_side_template_injection
+      primary_id: javascript-eval-rule-server_side_template_injection
+      id: javascript-eval-rule-server_side_template_injection
+  - id: javascript-memory-rule-buffer_noassert
+    rules:
+    - path: javascript/memory/rule-buffer_noassert
+      primary_id: javascript-memory-rule-buffer_noassert
+      id: javascript-memory-rule-buffer_noassert
+  - id: javascript-ssrf-rule-wkhtmltopdf_ssrf
+    rules:
+    - path: javascript/ssrf/rule-wkhtmltopdf_ssrf
+      primary_id: javascript-ssrf-rule-wkhtmltopdf_ssrf
+      id: javascript-ssrf-rule-wkhtmltopdf_ssrf
+  - id: javascript-generic-rule-node_error_disclosure
+    rules:
+    - path: javascript/generic/rule-node_error_disclosure
+      primary_id: javascript-generic-rule-node_error_disclosure
+      id: javascript-generic-rule-node_error_disclosure
+  - id: javascript-electronjs-rule-electron_disable_websecurity
+    rules:
+    - path: javascript/electronjs/rule-electron_disable_websecurity
+      primary_id: javascript-electronjs-rule-electron_disable_websecurity
+      id: javascript-electronjs-rule-electron_disable_websecurity
+  - id: javascript-exec-rule-shelljs_os_command_exec
+    rules:
+    - path: javascript/exec/rule-shelljs_os_command_exec
+      primary_id: javascript-exec-rule-shelljs_os_command_exec
+      id: javascript-exec-rule-shelljs_os_command_exec
+  - id: javascript-generic-rule-node_api_key
+    rules:
+    - path: javascript/generic/rule-node_api_key
+      primary_id: javascript-generic-rule-node_api_key
+      id: javascript-generic-rule-node_api_key
+  - id: javascript-traversal-rule-generic_path_traversal
+    rules:
+    - path: javascript/traversal/rule-generic_path_traversal
+      primary_id: javascript-traversal-rule-generic_path_traversal
+      id: javascript-traversal-rule-generic_path_traversal
+  - id: javascript-traversal-rule-express_lfr
+    rules:
+    - path: javascript/traversal/rule-express_lfr
+      primary_id: javascript-traversal-rule-express_lfr
+      id: javascript-traversal-rule-express_lfr
+  - id: javascript-exec-rule-generic_os_command_exec
+    rules:
+    - path: javascript/exec/rule-generic_os_command_exec
+      primary_id: javascript-exec-rule-generic_os_command_exec
+      id: javascript-exec-rule-generic_os_command_exec
+  - id: javascript-headers-rule-cookie_session_no_domain
+    rules:
+    - path: javascript/headers/rule-cookie_session_no_domain
+      primary_id: javascript-headers-rule-cookie_session_no_domain
+      id: javascript-headers-rule-cookie_session_no_domain
+  - id: javascript-headers-rule-cookie_session_no_samesite
+    rules:
+    - path: javascript/headers/rule-cookie_session_no_samesite
+      primary_id: javascript-headers-rule-cookie_session_no_samesite
+      id: javascript-headers-rule-cookie_session_no_samesite
+  - id: javascript-database-rule-sequelize_weak_tls
+    rules:
+    - path: javascript/database/rule-sequelize_weak_tls
+      primary_id: javascript-database-rule-sequelize_weak_tls
+      id: javascript-database-rule-sequelize_weak_tls
+  - id: javascript-eval-rule-node_deserialize
+    rules:
+    - path: javascript/eval/rule-node_deserialize
+      primary_id: javascript-eval-rule-node_deserialize
+      id: javascript-eval-rule-node_deserialize
+  - id: javascript-electronjs-rule-electron_nodejs_integration
+    rules:
+    - path: javascript/electronjs/rule-electron_nodejs_integration
+      primary_id: javascript-electronjs-rule-electron_nodejs_integration
+      id: javascript-electronjs-rule-electron_nodejs_integration
+  - id: javascript-crypto-rule-node_insecure_random_generator
+    rules:
+    - path: javascript/crypto/rule-node_insecure_random_generator
+      primary_id: javascript-crypto-rule-node_insecure_random_generator
+      id: javascript-crypto-rule-node_insecure_random_generator
+  - id: javascript-jwt-rule-jwt_exposed_credentials
+    rules:
+    - path: javascript/jwt/rule-jwt_exposed_credentials
+      primary_id: javascript-jwt-rule-jwt_exposed_credentials
+      id: javascript-jwt-rule-jwt_exposed_credentials
+  - id: javascript-generic-rule-node_password
+    rules:
+    - path: javascript/generic/rule-node_password
+      primary_id: javascript-generic-rule-node_password
+      id: javascript-generic-rule-node_password
+  - id: javascript-eval-rule-vm_runinnewcontext_injection
+    rules:
+    - path: javascript/eval/rule-vm_runinnewcontext_injection
+      primary_id: javascript-eval-rule-vm_runinnewcontext_injection
+      id: javascript-eval-rule-vm_runinnewcontext_injection
+  - id: javascript-eval-rule-vm_compilefunction_injection
+    rules:
+    - path: javascript/eval/rule-vm_compilefunction_injection
+      primary_id: javascript-eval-rule-vm_compilefunction_injection
+      id: javascript-eval-rule-vm_compilefunction_injection
+  - id: javascript-dos-rule-express_bodyparser
+    rules:
+    - path: javascript/dos/rule-express_bodyparser
+      primary_id: javascript-dos-rule-express_bodyparser
+      id: javascript-dos-rule-express_bodyparser
+  - id: javascript-xml-rule-xxe_xml2json
+    rules:
+    - path: javascript/xml/rule-xxe_xml2json
+      primary_id: javascript-xml-rule-xxe_xml2json
+      id: javascript-xml-rule-xxe_xml2json
+  - id: javascript-electronjs-rule-electron_context_isolation
+    rules:
+    - path: javascript/electronjs/rule-electron_context_isolation
+      primary_id: javascript-electronjs-rule-electron_context_isolation
+      id: javascript-electronjs-rule-electron_context_isolation
+  - id: javascript-headers-rule-cookie_session_no_httponly
+    rules:
+    - path: javascript/headers/rule-cookie_session_no_httponly
+      primary_id: javascript-headers-rule-cookie_session_no_httponly
+      id: javascript-headers-rule-cookie_session_no_httponly
+  - id: javascript-dos-rule-regex_dos
+    rules:
+    - path: javascript/dos/rule-regex_dos
+      primary_id: javascript-dos-rule-regex_dos
+      id: javascript-dos-rule-regex_dos
+  - id: javascript-database-rule-node_knex_sqli_injection
+    rules:
+    - path: javascript/database/rule-node_knex_sqli_injection
+      primary_id: javascript-database-rule-node_knex_sqli_injection
+      id: javascript-database-rule-node_knex_sqli_injection
+  - id: javascript-crypto-rule-node_aes_noiv
+    rules:
+    - path: javascript/crypto/rule-node_aes_noiv
+      primary_id: javascript-crypto-rule-node_aes_noiv
+      id: javascript-crypto-rule-node_aes_noiv
+  - id: javascript-headers-rule-host_header_injection
+    rules:
+    - path: javascript/headers/rule-host_header_injection
+      primary_id: javascript-headers-rule-host_header_injection
+      id: javascript-headers-rule-host_header_injection
+  - id: javascript-jwt-rule-jwt_not_revoked
+    rules:
+    - path: javascript/jwt/rule-jwt_not_revoked
+      primary_id: javascript-jwt-rule-jwt_not_revoked
+      id: javascript-jwt-rule-jwt_not_revoked
+  - id: javascript-jwt-rule-hardcoded_jwt_secret
+    rules:
+    - path: javascript/jwt/rule-hardcoded_jwt_secret
+      primary_id: javascript-jwt-rule-hardcoded_jwt_secret
+      id: javascript-jwt-rule-hardcoded_jwt_secret
+  - id: javascript-eval-rule-vm2_context_injection
+    rules:
+    - path: javascript/eval/rule-vm2_context_injection
+      primary_id: javascript-eval-rule-vm2_context_injection
+      id: javascript-eval-rule-vm2_context_injection
+  - id: javascript-redirect-rule-express_open_redirect2
+    rules:
+    - path: javascript/redirect/rule-express_open_redirect2
+      primary_id: javascript-redirect-rule-express_open_redirect2
+      id: javascript-redirect-rule-express_open_redirect2
+  - id: javascript-database-rule-node_nosqli_js_injection
+    rules:
+    - path: javascript/database/rule-node_nosqli_js_injection
+      primary_id: javascript-database-rule-node_nosqli_js_injection
+      id: javascript-database-rule-node_nosqli_js_injection
+  - id: javascript-traversal-rule-tar_path_overwrite
+    rules:
+    - path: javascript/traversal/rule-tar_path_overwrite
+      primary_id: javascript-traversal-rule-tar_path_overwrite
+      id: javascript-traversal-rule-tar_path_overwrite
+  - id: javascript-crypto-rule-node_aes_ecb
+    rules:
+    - path: javascript/crypto/rule-node_aes_ecb
+      primary_id: javascript-crypto-rule-node_aes_ecb
+      id: javascript-crypto-rule-node_aes_ecb
+  - id: javascript-traversal-rule-admzip_path_overwrite
+    rules:
+    - path: javascript/traversal/rule-admzip_path_overwrite
+      primary_id: javascript-traversal-rule-admzip_path_overwrite
+      id: javascript-traversal-rule-admzip_path_overwrite
+  - id: javascript-crypto-rule-node_tls_reject
+    rules:
+    - path: javascript/crypto/rule-node_tls_reject
+      primary_id: javascript-crypto-rule-node_tls_reject
+      id: javascript-crypto-rule-node_tls_reject
+  - id: javascript-eval-rule-yaml_deserialize
+    rules:
+    - path: javascript/eval/rule-yaml_deserialize
+      primary_id: javascript-eval-rule-yaml_deserialize
+      id: javascript-eval-rule-yaml_deserialize
+  - id: javascript-xml-rule-node_entity_expansion
+    rules:
+    - path: javascript/xml/rule-node_entity_expansion
+      primary_id: javascript-xml-rule-node_entity_expansion
+      id: javascript-xml-rule-node_entity_expansion
+  - id: javascript-eval-rule-vm_runincontext_injection
+    rules:
+    - path: javascript/eval/rule-vm_runincontext_injection
+      primary_id: javascript-eval-rule-vm_runincontext_injection
+      id: javascript-eval-rule-vm_runincontext_injection
+  - id: javascript-eval-rule-vm2_code_injection
+    rules:
+    - path: javascript/eval/rule-vm2_code_injection
+      primary_id: javascript-eval-rule-vm2_code_injection
+      id: javascript-eval-rule-vm2_code_injection
+  - id: javascript-xss-rule-xss_serialize_javascript
+    rules:
+    - path: javascript/xss/rule-xss_serialize_javascript
+      primary_id: javascript-xss-rule-xss_serialize_javascript
+      id: javascript-xss-rule-xss_serialize_javascript
+  - id: javascript-xml-rule-xxe_sax
+    rules:
+    - path: javascript/xml/rule-xxe_sax
+      primary_id: javascript-xml-rule-xxe_sax
+      id: javascript-xml-rule-xxe_sax
+  - id: javascript-generic-rule-node_secret
+    rules:
+    - path: javascript/generic/rule-node_secret
+      primary_id: javascript-generic-rule-node_secret
+      id: javascript-generic-rule-node_secret
+  - id: javascript-jwt-rule-jwt_exposed_data
+    rules:
+    - path: javascript/jwt/rule-jwt_exposed_data
+      primary_id: javascript-jwt-rule-jwt_exposed_data
+      id: javascript-jwt-rule-jwt_exposed_data
+  - id: javascript-headers-rule-generic_cors
+    rules:
+    - path: javascript/headers/rule-generic_cors
+      primary_id: javascript-headers-rule-generic_cors
+      id: javascript-headers-rule-generic_cors
+  - id: javascript-traversal-rule-zip_path_overwrite2
+    rules:
+    - path: javascript/traversal/rule-zip_path_overwrite2
+      primary_id: javascript-traversal-rule-zip_path_overwrite2
+      id: javascript-traversal-rule-zip_path_overwrite2
+  - id: javascript-crypto-rule-node_curl_ssl_verify_disable
+    rules:
+    - path: javascript/crypto/rule-node_curl_ssl_verify_disable
+      primary_id: javascript-crypto-rule-node_curl_ssl_verify_disable
+      id: javascript-crypto-rule-node_curl_ssl_verify_disable
+  - id: javascript-xml-rule-xxe_expat
+    rules:
+    - path: javascript/xml/rule-xxe_expat
+      primary_id: javascript-xml-rule-xxe_expat
+      id: javascript-xml-rule-xxe_expat
+  - id: javascript-jwt-rule-node_jwt_none_algorithm
+    rules:
+    - path: javascript/jwt/rule-node_jwt_none_algorithm
+      primary_id: javascript-jwt-rule-node_jwt_none_algorithm
+      id: javascript-jwt-rule-node_jwt_none_algorithm
+  - id: javascript-database-rule-node_nosqli_injection
+    rules:
+    - path: javascript/database/rule-node_nosqli_injection
+      primary_id: javascript-database-rule-node_nosqli_injection
+      id: javascript-database-rule-node_nosqli_injection
+  - id: javascript-traversal-rule-zip_path_overwrite
+    rules:
+    - path: javascript/traversal/rule-zip_path_overwrite
+      primary_id: javascript-traversal-rule-zip_path_overwrite
+      id: javascript-traversal-rule-zip_path_overwrite
+  - id: javascript-electronjs-rule-electron_allow_http
+    rules:
+    - path: javascript/electronjs/rule-electron_allow_http
+      primary_id: javascript-electronjs-rule-electron_allow_http
+      id: javascript-electronjs-rule-electron_allow_http
+  - id: javascript-xss-rule-handlebars_safestring
+    rules:
+    - path: javascript/xss/rule-handlebars_safestring
+      primary_id: javascript-xss-rule-handlebars_safestring
+      id: javascript-xss-rule-handlebars_safestring
+  - id: javascript-xss-rule-squirrelly_autoescape
+    rules:
+    - path: javascript/xss/rule-squirrelly_autoescape
+      primary_id: javascript-xss-rule-squirrelly_autoescape
+      id: javascript-xss-rule-squirrelly_autoescape
+  - id: javascript-xml-rule-node_xxe
+    rules:
+    - path: javascript/xml/rule-node_xxe
+      primary_id: javascript-xml-rule-node_xxe
+      id: javascript-xml-rule-node_xxe
+  - id: javascript-headers-rule-cookie_session_no_secure
+    rules:
+    - path: javascript/headers/rule-cookie_session_no_secure
+      primary_id: javascript-headers-rule-cookie_session_no_secure
+      id: javascript-headers-rule-cookie_session_no_secure
+  - id: javascript-eval-rule-sandbox_code_injection
+    rules:
+    - path: javascript/eval/rule-sandbox_code_injection
+      primary_id: javascript-eval-rule-sandbox_code_injection
+      id: javascript-eval-rule-sandbox_code_injection
+  - id: javascript-headers-rule-helmet_feature_disabled
+    rules:
+    - path: javascript/headers/rule-helmet_feature_disabled
+      primary_id: javascript-headers-rule-helmet_feature_disabled
+      id: javascript-headers-rule-helmet_feature_disabled
+  - id: javascript-generic-rule-hardcoded_passport_secret
+    rules:
+    - path: javascript/generic/rule-hardcoded_passport_secret
+      primary_id: javascript-generic-rule-hardcoded_passport_secret
+      id: javascript-generic-rule-hardcoded_passport_secret
+  - id: javascript-ssrf-rule-node_ssrf
+    rules:
+    - path: javascript/ssrf/rule-node_ssrf
+      primary_id: javascript-ssrf-rule-node_ssrf
+      id: javascript-ssrf-rule-node_ssrf
+  - id: javascript-xss-rule-xss_disable_mustache_escape
+    rules:
+    - path: javascript/xss/rule-xss_disable_mustache_escape
+      primary_id: javascript-xss-rule-xss_disable_mustache_escape
+      id: javascript-xss-rule-xss_disable_mustache_escape
+  - id: javascript-headers-rule-header_xss_lusca
+    rules:
+    - path: javascript/headers/rule-header_xss_lusca
+      primary_id: javascript-headers-rule-header_xss_lusca
+      id: javascript-headers-rule-header_xss_lusca
+  - id: javascript-database-rule-node_sqli_injection
+    rules:
+    - path: javascript/database/rule-node_sqli_injection
+      primary_id: javascript-database-rule-node_sqli_injection
+      id: javascript-database-rule-node_sqli_injection
+  - id: javascript-database-rule-sequelize_tls
+    rules:
+    - path: javascript/database/rule-sequelize_tls
+      primary_id: javascript-database-rule-sequelize_tls
+      id: javascript-database-rule-sequelize_tls
+  - id: javascript-generic-rule-node_logic_bypass
+    rules:
+    - path: javascript/generic/rule-node_logic_bypass
+      primary_id: javascript-generic-rule-node_logic_bypass
+      id: javascript-generic-rule-node_logic_bypass
+  - id: javascript-headers-rule-cookie_session_default
+    rules:
+    - path: javascript/headers/rule-cookie_session_default
+      primary_id: javascript-headers-rule-cookie_session_default
+      id: javascript-headers-rule-cookie_session_default
+  - id: javascript-traversal-rule-join_resolve_path_traversal
+    rules:
+    - path: javascript/traversal/rule-join_resolve_path_traversal
+      primary_id: javascript-traversal-rule-join_resolve_path_traversal
+      id: javascript-traversal-rule-join_resolve_path_traversal
+  - id: javascript-headers-rule-express_cors
+    rules:
+    - path: javascript/headers/rule-express_cors
+      primary_id: javascript-headers-rule-express_cors
+      id: javascript-headers-rule-express_cors
+  - id: javascript-crypto-rule-node_weak_crypto
+    rules:
+    - path: javascript/crypto/rule-node_weak_crypto
+      primary_id: javascript-crypto-rule-node_weak_crypto
+      id: javascript-crypto-rule-node_weak_crypto
+  - id: javascript-dos-rule-regex_injection_dos
+    rules:
+    - path: javascript/dos/rule-regex_injection_dos
+      primary_id: javascript-dos-rule-regex_injection_dos
+      id: javascript-dos-rule-regex_injection_dos
+  - id: javascript-electronjs-rule-electron_blink_integration
+    rules:
+    - path: javascript/electronjs/rule-electron_blink_integration
+      primary_id: javascript-electronjs-rule-electron_blink_integration
+      id: javascript-electronjs-rule-electron_blink_integration
+  - id: javascript-database-rule-sequelize_tls_cert_validation
+    rules:
+    - path: javascript/database/rule-sequelize_tls_cert_validation
+      primary_id: javascript-database-rule-sequelize_tls_cert_validation
+      id: javascript-database-rule-sequelize_tls_cert_validation
+  - id: javascript-eval-rule-grpc_insecure_connection
+    rules:
+    - path: javascript/eval/rule-grpc_insecure_connection
+      primary_id: javascript-eval-rule-grpc_insecure_connection
+      id: javascript-eval-rule-grpc_insecure_connection
+  - id: javascript-headers-rule-cookie_session_no_path
+    rules:
+    - path: javascript/headers/rule-cookie_session_no_path
+      primary_id: javascript-headers-rule-cookie_session_no_path
+      id: javascript-headers-rule-cookie_session_no_path
+  - id: javascript-xss-rule-express_xss
+    rules:
+    - path: javascript/xss/rule-express_xss
+      primary_id: javascript-xss-rule-express_xss
+      id: javascript-xss-rule-express_xss
+  - id: javascript-xml-rule-node_xpath_injection
+    rules:
+    - path: javascript/xml/rule-node_xpath_injection
+      primary_id: javascript-xml-rule-node_xpath_injection
+      id: javascript-xml-rule-node_xpath_injection
+  - id: javascript-crypto-rule-node_md5
+    rules:
+    - path: javascript/crypto/rule-node_md5
+      primary_id: javascript-crypto-rule-node_md5
+      id: javascript-crypto-rule-node_md5
+  - id: javascript-xss-rule-handlebars_noescape
+    rules:
+    - path: javascript/xss/rule-handlebars_noescape
+      primary_id: javascript-xss-rule-handlebars_noescape
+      id: javascript-xss-rule-handlebars_noescape
+  - id: javascript-generic-rule-node_username
+    rules:
+    - path: javascript/generic/rule-node_username
+      primary_id: javascript-generic-rule-node_username
+      id: javascript-generic-rule-node_username
+  - id: javascript-eval-rule-vm_code_injection
+    rules:
+    - path: javascript/eval/rule-vm_code_injection
+      primary_id: javascript-eval-rule-vm_code_injection
+      id: javascript-eval-rule-vm_code_injection
+  - id: javascript-ssrf-rule-playwright_ssrf
+    rules:
+    - path: javascript/ssrf/rule-playwright_ssrf
+      primary_id: javascript-ssrf-rule-playwright_ssrf
+      id: javascript-ssrf-rule-playwright_ssrf
+  - id: javascript-crypto-rule-node_sha1
+    rules:
+    - path: javascript/crypto/rule-node_sha1
+      primary_id: javascript-crypto-rule-node_sha1
+      id: javascript-crypto-rule-node_sha1
+  - id: javascript-eval-rule-eval_nodejs
+    rules:
+    - path: javascript/eval/rule-eval_nodejs
+      primary_id: javascript-eval-rule-eval_nodejs
+      id: javascript-eval-rule-eval_nodejs
+  - id: javascript-redirect-rule-express_open_redirect
+    rules:
+    - path: javascript/redirect/rule-express_open_redirect
+      primary_id: javascript-redirect-rule-express_open_redirect
+      id: javascript-redirect-rule-express_open_redirect
+  - id: javascript-ssrf-rule-phantom_ssrf
+    rules:
+    - path: javascript/ssrf/rule-phantom_ssrf
+      primary_id: javascript-ssrf-rule-phantom_ssrf
+      id: javascript-ssrf-rule-phantom_ssrf
+  - id: javascript-eval-rule-eval_require
+    rules:
+    - path: javascript/eval/rule-eval_require
+      primary_id: javascript-eval-rule-eval_require
+      id: javascript-eval-rule-eval_require
+  - id: javascript-headers-rule-cookie_session_no_maxage
+    rules:
+    - path: javascript/headers/rule-cookie_session_no_maxage
+      primary_id: javascript-headers-rule-cookie_session_no_maxage
+      id: javascript-headers-rule-cookie_session_no_maxage
+  - id: javascript-headers-rule-header_xss_generic
+    rules:
+    - path: javascript/headers/rule-header_xss_generic
+      primary_id: javascript-headers-rule-header_xss_generic
+      id: javascript-headers-rule-header_xss_generic
+  - id: javascript-jwt-rule-jwt_express_hardcoded
+    rules:
+    - path: javascript/jwt/rule-jwt_express_hardcoded
+      primary_id: javascript-jwt-rule-jwt_express_hardcoded
+      id: javascript-jwt-rule-jwt_express_hardcoded

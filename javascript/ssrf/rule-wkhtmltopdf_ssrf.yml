@@ -1,0 +1,41 @@
+# yamllint disable
+# License: MIT (c) GitLab Inc.
+# source (original): https://github.com/ajinabraham/njsscan/blob/master/njsscan/rules/semantic_grep/ssrf/ssrf_wkhtmltopdf.yaml
+# hash: e7a0a61
+# yamllint enable
+---
+rules:
+- id: "javascript/ssrf/rule-wkhtmltopdf_ssrf"
+  patterns:
+  - pattern-inside: |
+      require('wkhtmltopdf')
+      ...
+  - pattern-either:
+    - pattern-inside: function ($REQ, $RES, ...) {...}
+    - pattern-inside: function $FUNC($REQ, $RES, ...) {...}
+    - pattern-inside: "$X = function $FUNC($REQ, $RES, ...) {...}"
+    - pattern-inside: var $X = function $FUNC($REQ, $RES, ...) {...};
+    - pattern-inside: "$APP.$METHOD(..., function $FUNC($REQ, $RES, ...) {...})"
+  - pattern-either:
+    - pattern: |
+        $INP = <... $REQ.$VAR ...>;
+        ...
+        wkhtmltopdf(<... $INP ...>, ...)
+    - pattern: |
+        $INP = <... $REQ.$VAR.$FOO ...>;
+        ...
+        wkhtmltopdf(<... $INP ...>, ...)
+    - pattern: 'wkhtmltopdf(<... $REQ.$VAR ...>, ...)
+
+        '
+    - pattern: 'wkhtmltopdf(<... $REQ.$VAR.$FOO ...>, ...)
+
+        '
+  message: |
+    User controlled URL reached to `wkhtmltopdf` can result in Server Side Request Forgery (SSRF).
+  languages:
+  - "javascript"
+  severity: "ERROR"
+  metadata:
+    owasp: "A1:2017-Injection"
+    cwe: CVE security vulnerability database. Security vulnerabilities, exploits, references and more

@@ -1,0 +1,54 @@
+# yamllint disable
+# License: MIT (c) GitLab Inc.
+# source (original): https://github.com/ajinabraham/njsscan/blob/master/njsscan/rules/semantic_grep/headers/header_cookie.yaml
+# hash: e7a0a61
+# yamllint enable
+---
+rules:
+- id: "javascript/headers/rule-cookie_session_no_httponly"
+  patterns:
+  - pattern-either:
+    - pattern-inside: |
+        $SESSION = require('cookie-session')
+        ...
+    - pattern-inside: |
+        $SESSION = require('express-session')
+        ...
+  - pattern-either:
+    - pattern-inside: "$SESSION(<... {cookie:{httpOnly:false}} ...>,...)"
+    - pattern-inside: |
+        $OPTS = <... {cookie:{httpOnly:false}} ...>;
+        ...
+        $SESSION($OPTS,...)
+    - pattern-inside: |
+        $OPTS = ...;
+        ...
+        $COOKIE = <... {httpOnly:false} ...>;
+        ...
+        $SESSION($OPTS,...)
+    - pattern-inside: |
+        $OPTS = ...;
+        ...
+        $OPTS.cookie = <... {httpOnly:false} ...>;
+        ...
+        $SESSION($OPTS,...)
+    - pattern-inside: |
+        $OPTS = ...;
+        ...
+        $COOKIE.httpOnly = false;
+        ...
+        $SESSION($OPTS,...)
+    - pattern-inside: |
+        $OPTS = ...;
+        ...
+        $OPTS.cookie.httpOnly = false;
+        ...
+        $SESSION($OPTS,...)
+  message: |
+    'Session middleware settings: `httpOnly` is explicitly set to false.  It ensures that sensitive cookies cannot be accessed by client side  JavaScript and helps to protect against cross-site scripting attacks.'
+  severity: "WARNING"
+  languages:
+  - "javascript"
+  metadata:
+    owasp: "A2:2017-Broken Authentication"
+    cwe: CVE security vulnerability database. Security vulnerabilities, exploits, references and more

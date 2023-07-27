@@ -1,0 +1,56 @@
+# yamllint disable
+# License: MIT (c) GitLab Inc.
+# source (original): https://github.com/ajinabraham/njsscan/blob/master/njsscan/rules/semantic_grep/database/sql_injection.yaml
+# hash: e7a0a61
+# yamllint enable
+---
+rules:
+- id: "javascript/database/rule-node_sqli_injection"
+  patterns:
+  - pattern-either:
+    - pattern-inside: |
+        require('sql-client')
+        ...
+    - pattern-inside: |
+        require('mysql')
+        ...
+    - pattern-inside: |
+        require('pg')
+        ...
+    - pattern-inside: |
+        require('mssql')
+        ...
+    - pattern-inside: |
+        require('oracledb')
+        ...
+  - pattern-either:
+    - pattern: "$CON.query(<... $REQ.$QUERY.$VAR ...>, ...)\n"
+    - pattern: "$CON.query(<... $REQ.$QUERY ...>, ...)\n"
+    - pattern: |
+        $SQL = <... $REQ.$QUERY.$VAR ...>;
+        ...
+        $CON.query(<... $SQL ...>, ...)
+    - pattern: |
+        $SQL = <... $REQ.$QUERY ...>;
+        ...
+        $CON.query(<... $SQL ...>, ...)
+    - pattern: |
+        $INP = <... $REQ.$QUERY.$VAR ...>;
+        ...
+        $SQL = <... $INP ...>;
+        ...
+        $CON.query(<... $SQL ...>, ...)
+    - pattern: |
+        $INP = <... $REQ.$QUERY ...>;
+        ...
+        $SQL = <... $INP ...>;
+        ...
+        $CON.query(<... $SQL ...>, ...)
+  message: |
+    Untrusted input concatinated with raw SQL query can result in SQL Injection.
+  languages:
+  - "javascript"
+  severity: "ERROR"
+  metadata:
+    owasp: "A1:2017-Injection"
+    cwe: "CWE-89: Improper Sanitization of Special Elements used in an SQL Command (SQL Injection)"

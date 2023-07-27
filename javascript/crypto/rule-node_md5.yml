@@ -1,0 +1,20 @@
+# yamllint disable
+# License: MIT (c) GitLab Inc.
+# source (original): https://github.com/ajinabraham/njsscan/blob/master/njsscan/rules/semantic_grep/crypto/crypto_node.yaml
+# hash: e7a0a61
+# yamllint enable
+---
+rules:
+- id: "javascript/crypto/rule-node_md5"
+  patterns:
+  - pattern: '$X.createHash("md5")
+
+      '
+  message: |
+    MD5 is a a weak hash which is known to have collision. Use a strong hashing function.
+  languages:
+  - "javascript"
+  severity: "WARNING"
+  metadata:
+    owasp: "A9:2017-Using Components with Known Vulnerabilities"
+    cwe: "CWE-327: Use of a Broken or Risky Cryptographic Algorithm"

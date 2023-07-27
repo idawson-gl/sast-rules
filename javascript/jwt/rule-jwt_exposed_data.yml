@@ -1,0 +1,31 @@
+# yamllint disable
+# License: MIT (c) GitLab Inc.
+# source (original): https://github.com/ajinabraham/njsscan/blob/master/njsscan/rules/semantic_grep/jwt/jwt_exposed_data.yaml
+# hash: e7a0a61
+# yamllint enable
+---
+rules:
+- id: "javascript/jwt/rule-jwt_exposed_data"
+  patterns:
+  - pattern-inside: |
+      require('jose')
+      ...
+  - pattern-either:
+    - patterns:
+      - pattern-inside: function (...,$INPUT,...) {...}
+      - pattern-either:
+        - pattern: "$JOSE.JWT.sign($INPUT,...)"
+        - pattern: "$JWT.sign($INPUT,...)"
+    - patterns:
+      - pattern-inside: function $F(...,$INPUT,...) {...}
+      - pattern-either:
+        - pattern: "$JOSE.JWT.sign($INPUT,...)"
+        - pattern: "$JWT.sign($INPUT,...)"
+  message: |
+    The object is passed strictly to jose.JWT.sign(...). Make sure  that sensitive information is not exposed through JWT token payload.
+  severity: "WARNING"
+  metadata:
+    owasp: "A3:2017-Sensitive Data Exposure"
+    cwe: "CWE-522: Insufficiently Protected Credentials"
+  languages:
+  - "javascript"

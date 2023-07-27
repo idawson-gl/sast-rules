@@ -1,0 +1,30 @@
+# yamllint disable
+# License: MIT (c) GitLab Inc.
+# source (original): https://github.com/ajinabraham/njsscan/blob/master/njsscan/rules/semantic_grep/headers/header_helmet_disabled.yaml
+# hash: e7a0a61
+# yamllint enable
+---
+rules:
+- id: "javascript/headers/rule-helmet_feature_disabled"
+  patterns:
+  - pattern-either:
+    - pattern: "$HELMET(..., {frameguard: false}, ...)\n"
+    - pattern: "$HELMET(..., {contentSecurityPolicy: false}, ...)\n"
+    - pattern: "$HELMET(..., {permittedCrossDomainPolicies: false}, ...)\n"
+    - pattern: "$HELMET(..., {dnsPrefetchControl: false}, ...)\n"
+    - pattern: "$HELMET(..., {expectCt: false}, ...)\n"
+    - pattern: "$HELMET(..., {featurePolicy: false}, ...)\n"
+    - pattern: "$HELMET(..., {hsts: false}, ...)\n"
+    - pattern: "$HELMET(..., {ieNoOpen: false}, ...)\n"
+    - pattern: "$HELMET(..., {noSniff: false}, ...)\n"
+    - pattern: "$HELMET(..., {hidePoweredBy: false}, ...)\n"
+    - pattern: "$HELMET(..., {referrerPolicy: false}, ...)\n"
+    - pattern: "$HELMET(..., {xssFilter: false}, ...)\n"
+  message: |
+    One or more Security Response header is explicitly disabled in Helmet.
+  languages:
+  - "javascript"
+  severity: "WARNING"
+  metadata:
+    owasp: "A6:2017-Security Misconfiguration"
+    cwe: "CWE-693: Protection Mechanism Failure"

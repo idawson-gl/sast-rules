@@ -1,0 +1,36 @@
+# yamllint disable
+# License: MIT (c) GitLab Inc.
+# source (original): https://github.com/ajinabraham/njsscan/blob/master/njsscan/rules/semantic_grep/headers/header_cookie.yaml
+# hash: e7a0a61
+# yamllint enable
+---
+rules:
+- id: "javascript/headers/rule-cookie_session_default"
+  patterns:
+  - pattern-either:
+    - pattern-inside: |
+        $SESSION = require('cookie-session')
+        ...
+    - pattern-inside: |
+        $SESSION = require('express-session')
+        ...
+  - pattern: "$SESSION(...)"
+  - pattern-not-inside: "$SESSION(<... {name:...} ...>,...)"
+  - pattern-not-inside: |
+      $OPTS = <... {name:...} ...>;
+      ...
+      $SESSION($OPTS,...)
+  - pattern-not-inside: |
+      $OPTS = ...;
+      ...
+      $OPTS.name = ...;
+      ...
+      $SESSION($OPTS,...)
+  message: |
+    Consider changing the default session cookie name. An attacker can use it to fingerprint the server and target attacks accordingly.
+  severity: "INFO"
+  languages:
+  - "javascript"
+  metadata:
+    owasp: "A2:2017-Broken Authentication"
+    cwe: "CWE-522: Insufficiently Protected Credentials"

@@ -1,0 +1,18 @@
+# yamllint disable
+# License: MIT (c) GitLab Inc.
+# source (original): https://github.com/ajinabraham/njsscan/blob/master/njsscan/rules/semantic_grep/xss/xss_templates.yaml
+# hash: e7a0a61
+# yamllint enable
+---
+rules:
+- id: "javascript/xss/rule-handlebars_noescape"
+  patterns:
+  - pattern: "$X.compile(..., {noEscape: true}, ...)\n"
+  message: |
+    Disabling Escaping in Handlebars is not a secure behaviour. This can introduce XSS vulnerabilties.
+  languages:
+  - "javascript"
+  severity: "ERROR"
+  metadata:
+    owasp: "A1:2017-Injection"
+    cwe: "CWE-80: Improper Sanitization of Script-Related HTML Tags in a Web Page (Basic XSS)"

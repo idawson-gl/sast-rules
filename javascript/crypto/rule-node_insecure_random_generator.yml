@@ -1,0 +1,22 @@
+# yamllint disable
+# License: MIT (c) GitLab Inc.
+# source (original): https://github.com/ajinabraham/njsscan/blob/master/njsscan/rules/semantic_grep/crypto/crypto_node.yaml
+# hash: e7a0a61
+# yamllint enable
+---
+rules:
+- id: "javascript/crypto/rule-node_insecure_random_generator"
+  patterns:
+  - pattern-either:
+    - pattern: "$X.pseudoRandomBytes(...)\n"
+    - pattern: 'Math.random(...)
+
+        '
+  message: |
+    crypto.pseudoRandomBytes()/Math.random() is a cryptographically weak random number generator.
+  languages:
+  - "javascript"
+  severity: "WARNING"
+  metadata:
+    owasp: "A9:2017-Using Components with Known Vulnerabilities"
+    cwe: "CWE-327: Use of a Broken or Risky Cryptographic Algorithm"

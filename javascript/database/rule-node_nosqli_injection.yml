@@ -1,0 +1,78 @@
+# yamllint disable
+# License: MIT (c) GitLab Inc.
+# source (original): https://github.com/ajinabraham/njsscan/blob/master/njsscan/rules/semantic_grep/database/nosql_find_injection.yaml
+# hash: e7a0a61
+# yamllint enable
+---
+rules:
+- id: "javascript/database/rule-node_nosqli_injection"
+  patterns:
+  - pattern-not-inside: |
+      $SANITIZE = require('mongo-sanitize')
+      ...
+      $SANITIZE(...)
+      ...
+  - pattern-not-inside: |
+      import $SANITIZE from 'mongo-sanitize'
+      ...
+      $SANITIZE(...)
+      ...
+  - pattern-either:
+    - pattern: "$OBJ.findOne({$KEY : <... $REQ.$FOO.$BAR ...> }, ...)\n"
+    - pattern: "$OBJ.findOne({$KEY: <... $REQ.$FOO ...> }, ...)\n"
+    - pattern: |
+        $INP = <... $REQ.$FOO.$BAR ...>;
+        ...
+        $OBJ.findOne({$KEY : <... $INP ...> }, ...)
+    - pattern: |
+        $INP = <... $REQ.$FOO ...>;
+        ...
+        $OBJ.findOne({$KEY: <... $INP ...> }, ...)
+    - pattern: |
+        $QUERY = {$KEY: <... $REQ.$FOO.$BAR ...>};
+        ...
+        $OBJ.findOne($QUERY, ...)
+    - pattern: |
+        $QUERY = {$KEY: <... $REQ.$FOO ...>};
+        ...
+        $OBJ.findOne($QUERY, ...)
+    - pattern: |
+        $INP = <... $REQ.$FOO.$BAR ...>;
+        ...
+        $QUERY = {$KEY : <... $INP ...> };
+        ...
+        $OBJ.findOne(<... $QUERY  ...>, ...)
+    - pattern: |
+        $INP = <... $REQ.$FOO ...>;
+        ...
+        $QUERY = {$KEY : <... $INP ...> };
+        ...
+        $OBJ.findOne(<... $QUERY  ...>, ...)
+    - pattern: |
+        $QUERY[$KEY] = <... $REQ.$FOO.$BAR ...>;
+        ...
+        $OBJ.findOne($QUERY, ...)
+    - pattern: |
+        $QUERY[$KEY] = <... $REQ.$FOO ...>;
+        ...
+        $OBJ.findOne($QUERY, ...)
+    - pattern: |
+        $INP = <... $REQ.$FOO.$BAR ...>;
+        ...
+        $QUERY[$KEY] = <... $INP ...>;
+        ...
+        $OBJ.findOne(<... $QUERY  ...>, ...)
+    - pattern: |
+        $INP = <... $REQ.$FOO ...>;
+        ...
+        $QUERY[$KEY] = <... $INP ...>;
+        ...
+        $OBJ.findOne(<... $QUERY  ...>, ...)
+  message: |
+    Untrusted user input in findOne() function can result in NoSQL Injection.
+  languages:
+  - "javascript"
+  severity: "ERROR"
+  metadata:
+    owasp: "A1:2017-Injection"
+    cwe: CVE security vulnerability database. Security vulnerabilities, exploits, references and more

@@ -1,0 +1,27 @@
+# yamllint disable
+# License: MIT (c) GitLab Inc.
+# source (original): https://github.com/ajinabraham/njsscan/blob/master/njsscan/rules/semantic_grep/generic/hardcoded_secrets.yaml
+# hash: e7a0a61
+# yamllint enable
+---
+rules:
+- id: "javascript/generic/rule-node_api_key"
+  patterns:
+  - pattern-not: "$X = ''"
+  - pattern-not: "$OBJ[$X] = ''"
+  - pattern-not: "$OBJ.$X = ''"
+  - pattern-not: "$OBJ($X, '')"
+  - pattern-either:
+    - pattern: "$X = '...'\n"
+    - pattern: "$Y($X, '...')\n"
+  - metavariable-regex:
+      metavariable: "$X"
+      regex: "(?i).*(api_key|apikey)"
+  message: |
+    A hardcoded API Key is identified. Store it properly in an environment variable.
+  languages:
+  - "javascript"
+  severity: "ERROR"
+  metadata:
+    owasp: "A3:2017-Sensitive Data Exposure"
+    cwe: "CWE-798: Use of Hard-coded Credentials"

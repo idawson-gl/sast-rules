@@ -1,0 +1,21 @@
+# yamllint disable
+# License: MIT (c) GitLab Inc.
+# source (original): https://github.com/ajinabraham/njsscan/blob/master/njsscan/rules/semantic_grep/eval/eval_grpc_deserialize.yaml
+# hash: e7a0a61
+# yamllint enable
+---
+rules:
+- id: "javascript/eval/rule-grpc_insecure_connection"
+  patterns:
+  - pattern-inside: |
+      require('grpc')
+      ...
+  - pattern: "$CREDENTIALS.createInsecure()"
+  message: |
+    Found an insecure gRPC connection. This creates a connection without encryption to a gRPC client/server. A malicious attacker could  tamper with the gRPC message, which could compromise the machine.
+  metadata:
+    owasp: "A8:2017-Insecure Deserialization"
+    cwe: "CWE-502: Deserialization of Untrusted Data"
+  severity: "ERROR"
+  languages:
+  - "javascript"
