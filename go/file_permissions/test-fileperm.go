@@ -40,3 +40,11 @@ func foo4() {
 		return
 	}
 }
+
+func foo5() {
+	err := os.WriteFile("/tmp/thing", []byte("Hello, World!"), 0o666)
+	if err != nil {
+		fmt.Println("Error writing file")
+		return
+	}
+}
