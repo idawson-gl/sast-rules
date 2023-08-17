@@ -5,12 +5,12 @@
 package main
 
 import (
+	"archive/zip"
 	"bytes"
 	"compress/zlib"
-    "archive/zip"
 	"io"
 	"os"
-    "strconv"
+	"strconv"
 )
 
 func foo1() {
@@ -51,7 +51,7 @@ func foo3() {
 	}
 	defer r.Close()
 	for i, f := range r.File {
-		out, err := os.OpenFile("output" + strconv.Itoa(i), os.O_WRONLY|os.O_CREATE|os.O_TRUNC, f.Mode())
+		out, err := os.OpenFile("output"+strconv.Itoa(i), os.O_WRONLY|os.O_CREATE|os.O_TRUNC, f.Mode())
 		if err != nil {
 			panic(err)
 		}
@@ -83,4 +83,22 @@ func foo4() {
 	if err != nil {
 		panic(err)
 	}
+}
+
+func foo5() {
+	buff := []byte{120, 156, 202, 72, 205, 201, 201, 215, 81, 40, 207,
+		47, 202, 73, 225, 2, 4, 0, 0, 255, 255, 33, 231, 4, 147}
+	b := bytes.NewReader(buff)
+	r, err := zlib.NewReader(b)
+	if err != nil {
+		panic(err)
+	}
+
+	lr := io.LimitReader(r, 1024*1024)
+
+	_, err = io.Copy(os.Stdout, lr)
+	if err != nil {
+		panic(err)
+	}
+	r.Close()
 }
