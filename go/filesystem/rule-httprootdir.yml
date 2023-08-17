@@ -4,7 +4,7 @@
 # yamllint enable
 ---
 rules:
-- id: "go/filesystem/rule-dirtraversal"
+- id: "go/filesystem/rule-httprootdir"
   languages:
   - "go"
   patterns:
@@ -32,6 +32,6 @@ rules:
     log.Fatal(http.ListenAndServe(":9000", fs))
     ```
   metadata:
-    shortDescription: "Relative path traversal"
-    cwe: "CWE-23"
+    shortDescription: "Files or directories accessible to external parties"
+    cwe: "CWE-552"
   severity: "WARNING"
