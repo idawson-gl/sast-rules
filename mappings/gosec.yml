@@ -119,11 +119,6 @@ gosec:
     - path: "go/filesystem/rule-poorwritepermissions"
       primary_id: "gosec.G306-1"
       id: "gosec.G306-1"
-  - id: "G401"
-    rules:
-    - path: "go/crypto/rule-weakcrypto"
-      primary_id: "gosec.G401-1"
-      id: "gosec.G401-1"
   - id: "G402"
     rules:
     - path: "go/crypto/rule-badtlssettings"
@@ -157,11 +152,6 @@ gosec:
     - path: "go/blocklist/rule-blocklist-rc4"
       primary_id: "gosec.G503-1"
       id: "gosec.G503-1"
-  - id: "G504"
-    rules:
-    - path: "go/blocklist/rule-blocklist-cgi"
-      primary_id: "gosec.G504-1"
-      id: "gosec.G504-1"
   - id: "G505"
     rules:
     - path: "go/blocklist/rule-blocklist-sha1"
