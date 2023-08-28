@@ -1,5 +1,22 @@
 sast-rules changelog
 
+## v1.3.40
+- Remove poor Python rules (!197)
+  - `python/cgi/rule-import_httpoxy.yml` - Not vulnerable since 2016 https://bugs.python.org/issue27568
+  - `python/crypto/rule-import_pyghmi.yml` - Old rule from 2013 https://www.cisa.gov/news-events/alerts/2013/07/26/risks-using-intelligent-platform-management-interface-ipmi
+  - `python/escaping/rule-mark_safe.yml` - Duplicate of `rule-django.yml`
+  - `python/exception/rule-try_except_continue.yml` - Not a security rule
+  - `python/exception/rule-try_except_pass.yml` - Not a security rule
+  - `python/ftp/rule-import_ftplib.yml` - Duplicate rule, see `rule-ftplib.yml`
+  - `python/https/rule-httpsconnection.yml` - Software Composition Analysis (SCA) problem, not a SAST problem (flag if python < 3.4.3 and HTTPSConnection is used)
+  - `python/secrets/` - enable secret detection instead
+  - `python/telnet/rule-telnetlib.yml` - Duplicate of `rule-import_telnib.yml`
+  - `python/tmpdir/rule-specialdir.yml` - It is perfectly fine to use `/dev/shm` as a tmpfs. Rule for using /tmp/ directly is flagged in `rule-hardcodedtmp.yml`
+  - `python/tmpdir/rule-tempnam.yml` - `tempnam` was removed in Python 3, Python 2.7 is no longer supported
+  - `python/urlopen/rule-urllib_urlopen2.yml` - Duplicate of `rule-urllib_urlopen1.yml` and also missing patterns
+  - `python/xml/rule-import_pickle.yml` - Duplicate rule, see `deserialization/rule-pickle.yml`
+  - `python/xml/rule-import_...` - Removed all `import` rules as they are just duplicates of the other rules
+
 ## v1.3.39
 - Revert rule changes made in (!193), (!198), (!199), (!197), (!194), and (!188) to allow for staged release of those MRs (!214)
 - Fix `$ADDR` var bind error in `find_sec_bugs_scala.URLCONNECTION_SSRF_FD` scala rule (!214)
@@ -79,13 +96,13 @@ sast-rules changelog
 
 ## v1.3.31
 - Remove poor or outdated C rules (!188)
-  - c/buffer/rule-char_TCHAR.yml - Using character arrays is fine
-  - c/buffer/rule-getchar_fgetc.yml - Using getchar does not constitute a vulnerability
-  - c/buffer/rule-getopt_getopt_long.yml - This is a bug from 1999, see: https://stackoverflow.com/questions/64305167/flawfinder-error-internal-buffer-overflows-how-to-limit-string-input-size-and
-  - c/misc/rule-chroot.yml - Does not point to any specific vulnerability.
-  - c/misc/rule-InitializeCriticalSection.yml - This is no longer true since XP / 2003
-  - c/race/rule-chgrp.yml - There is no such function (only a unix command line utility)
-  - c/input/recv_recvfrom.yml - This is a source not a sink
+  - `c/buffer/rule-char_TCHAR.yml` - Using character arrays is fine
+  - `c/buffer/rule-getchar_fgetc.yml` - Using getchar does not constitute a vulnerability
+  - `c/buffer/rule-getopt_getopt_long.yml` - This is a bug from 1999, see: https://stackoverflow.com/questions/64305167/flawfinder-error-internal-buffer-overflows-how-to-limit-string-input-size-and
+  - `c/misc/rule-chroot.yml` - Does not point to any specific vulnerability.
+  - `c/misc/rule-InitializeCriticalSection.yml` - This is no longer true since XP / 2003
+  - `c/race/rule-chgrp.yml` - There is no such function (only a unix command line utility)
+  - `c/input/recv_recvfrom.yml` - This is a source not a sink
 
 ## v1.3.30
 - Enhance Python ruleset descriptions and titles (!170)

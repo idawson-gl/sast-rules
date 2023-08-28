@@ -29,39 +29,11 @@ bandit:
     - path: "python/bind_all_interfaces/rule-general-bindall-interfaces"
       primary_id: "bandit.B104"
       id: "bandit.B104"
-  - id: "B105"
-    rules:
-    - path: "python/secrets/rule-hardcoded-password-string"
-      primary_id: "bandit.B105"
-      id: "bandit.B105"
-  - id: "B106"
-    rules:
-    - path: "python/secrets/rule-hardcoded-password-funcarg"
-      primary_id: "bandit.B106"
-      id: "bandit.B106"
-  - id: "B107"
-    rules:
-    - path: "python/secrets/rule-hardcoded-password-default"
-      primary_id: "bandit.B107"
-      id: "bandit.B107"
   - id: "B108"
     rules:
     - path: "python/tmpdir/rule-hardcodedtmp"
       primary_id: "bandit.B108"
       id: "bandit.B108"
-    - path: "python/tmpdir/rule-specialdir"
-      primary_id: "bandit.B108-2"
-      id: "bandit.B108-2"
-  - id: "B110"
-    rules:
-    - path: "python/exception/rule-try-except-pass"
-      primary_id: "bandit.B110"
-      id: "bandit.B110"
-  - id: "B112"
-    rules:
-    - path: "python/exception/rule-try-except-continue"
-      primary_id: "bandit.B112"
-      id: "bandit.B112"
   - id: "B113"
     rules:
     - path: "python/requests/rule-request-without-timeout"
@@ -163,29 +135,16 @@ bandit:
     - path: "python/eval/rule-eval"
       primary_id: "bandit.B307"
       id: "bandit.B307"
-  - id: "B309"
-    rules:
-    - path: "python/https/rule-httpsconnection"
-      primary_id: "bandit.B309"
-      id: "bandit.B309"
   - id: "B310"
     rules:
     - path: "python/urlopen/rule-urllib-urlopen1"
       primary_id: "bandit.B310-1"
       id: "bandit.B310-1"
-    - path: "python/urlopen/rule-urllib-urlopen2"
-      primary_id: "bandit.B310-2"
-      id: "bandit.B310-2"
   - id: "B311"
     rules:
     - path: "python/random/rule-random"
       primary_id: "bandit.B311"
       id: "bandit.B311"
-  - id: "B312"
-    rules:
-    - path: "python/telnet/rule-telnetlib"
-      primary_id: "bandit.B312"
-      id: "bandit.B312"
   - id: "B313"
     rules:
     - path: "python/xml/rule-celement"
@@ -226,11 +185,6 @@ bandit:
     - path: "python/xml/rule-etree"
       primary_id: "bandit.B320"
       id: "bandit.B320"
-  - id: "B321"
-    rules:
-    - path: "python/ftp/rule-ftplib"
-      primary_id: "bandit.B321"
-      id: "bandit.B321"
   - id: "B323"
     rules:
     - path: "python/ssl/rule-unverified-context"
@@ -241,81 +195,21 @@ bandit:
     - path: "python/crypto/rule-hashlib-new-insecure-functions"
       primary_id: "bandit.B324"
       id: "bandit.B324"
-  - id: "B325"
-    rules:
-    - path: "python/tmpdir/rule-tempnam"
-      primary_id: "bandit.B325"
-      id: "bandit.B325"
   - id: "B401"
     rules:
     - path: "python/telnet/rule-import-telnib"
       primary_id: "bandit.B401"
       id: "bandit.B401"
-  - id: "B402"
-    rules:
-    - path: "python/ftp/rule-import-ftplib"
-      primary_id: "bandit.B402"
-      id: "bandit.B402"
-  - id: "B403"
-    rules:
-    - path: "python/xml/rule-import-pickle"
-      primary_id: "bandit.B403"
-      id: "bandit.B403"
   - id: "B404"
     rules:
     - path: "python/exec/rule-import-subprocess"
       primary_id: "bandit.B404"
       id: "bandit.B404"
-  - id: "B405"
-    rules:
-    - path: "python/xml/rule-import-etree"
-      primary_id: "bandit.B405"
-      id: "bandit.B405"
-  - id: "B406"
-    rules:
-    - path: "python/xml/rule-import-sax"
-      primary_id: "bandit.B406"
-      id: "bandit.B406"
-  - id: "B407"
-    rules:
-    - path: "python/xml/rule-import-expat"
-      primary_id: "bandit.B407"
-      id: "bandit.B407"
-  - id: "B408"
-    rules:
-    - path: "python/xml/rule-import-minidom"
-      primary_id: "bandit.B408"
-      id: "bandit.B408"
-  - id: "B409"
-    rules:
-    - path: "python/xml/rule-import-pulldom"
-      primary_id: "bandit.B409"
-      id: "bandit.B409"
-  - id: "B410"
-    rules:
-    - path: "python/xml/rule-import-lxml"
-      primary_id: "bandit.B410"
-      id: "bandit.B410"
-  - id: "B411"
-    rules:
-    - path: "python/xml/rule-import-xmlrpclib"
-      primary_id: "bandit.B411"
-      id: "bandit.B411"
-  - id: "B412"
-    rules:
-    - path: "python/cgi/rule-import-httpoxy"
-      primary_id: "bandit.B412"
-      id: "bandit.B412"
   - id: "B413"
     rules:
     - path: "python/crypto/rule-import-pycrypto"
       primary_id: "bandit.B413"
       id: "bandit.B413"
-  - id: "B415"
-    rules:
-    - path: "python/crypto/rule-import-pyghmi"
-      primary_id: "bandit.B415"
-      id: "bandit.B415"
   - id: "B501"
     rules:
     - path: "python/ssl/rule-req-no-certvalid"
@@ -429,8 +323,3 @@ bandit:
     - path: "python/escaping/rule-use-of-mako-templates"
       primary_id: "bandit.B702"
       id: "bandit.B702"
-  - id: "B703"
-    rules:
-    - path: "python/escaping/rule-mark-safe"
-      primary_id: "bandit.B703"
-      id: "bandit.B703"
