@@ -10,6 +10,7 @@ rules:
   mode: "taint"
   pattern-sources:
   - pattern: "zip.OpenReader(...)"
+  - pattern: "tar.OpenReader(...)"
   pattern-sinks:
   - pattern: "filepath.Join(...)"
   message: |
