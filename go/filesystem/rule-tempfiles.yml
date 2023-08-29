@@ -10,6 +10,8 @@ rules:
   patterns:
   - pattern-either:
     - pattern: |
+        os.WriteFile("$ARG", ...)
+    - pattern: |
         ioutil.WriteFile("$ARG", ...)
     - pattern: |
         os.Create("$ARG")
