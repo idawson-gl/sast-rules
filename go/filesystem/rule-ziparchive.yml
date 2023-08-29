@@ -11,6 +11,24 @@ rules:
   pattern-sources:
   - pattern: "zip.OpenReader(...)"
   - pattern: "tar.OpenReader(...)"
+  pattern-sanitizers:
+  - patterns:
+    - pattern-either:
+      - pattern: |
+          $CLEAN := $PKG.Clean(...)
+          ...
+          if !strings.HasPrefix($CLEAN, "...") {...}
+      - pattern: |
+          $CLEAN := $PKG.Clean(...)
+          ...
+          if strings.HasPrefix($CLEAN, "...") {...}
+      - pattern: |
+          $CLEAN := $PKG.Clean(...)
+          ...
+          if strings.HasPrefix($CLEAN, "...") == false {...}
+    - metavariable-regex:
+        metavariable: $PKG
+        regex: ^((file)?path)$
   pattern-sinks:
   - pattern: "filepath.Join(...)"
   message: |
