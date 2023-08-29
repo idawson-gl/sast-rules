@@ -7,46 +7,48 @@ rules:
 - id: "go/filesystem/rule-filereadtaint"
   languages:
   - "go"
-  patterns:
-  - pattern-not-inside: |
-      os.OpenFile(filepath.Clean(...), ...)
-  - pattern-not-inside: |
-      os.Open(filepath.Clean(...))
-  - pattern-not-inside: |
-      ioutil.ReadFile(filepath.Clean(...), ...)
-  - pattern-not-inside: |
-      os.OpenFile(filepath.Rel(...), ...)
-  - pattern-not-inside: |
-      os.Open(filepath.Rel(...))
-  - pattern-not-inside: |
-      ioutil.ReadFile(filepath.Rel(...), ...)
-  - pattern-not-inside: |
-      const $ARG = "..."
-      ...
-  - pattern-not-inside: |
-      var $Y string = "..."
-      ...
-      $ARG = $Y
-      ...
-  - pattern-not-inside: |
-      $ARG = filepath.Clean($X)
-      ...
-  - pattern-not-inside: |
-      $ARG = filepath.Rel($X)
-      ...
-  - pattern-not-inside: |
-      $ARG, ... := filepath.Rel("...", "...")
-      ...
-  - pattern-not: "os.OpenFile(\"...\" + strconv.Itoa($I), ...)"
-  - pattern-not: "os.OpenFile(\"...\", ...)"
-  - pattern-not: "os.Open(\"...\")"
-  - pattern-not: "os.Open(\"...\" + strconv.Itoa($I))"
-  - pattern-not: "ioutil.ReadFile(\"...\", ...)"
-  - pattern-not: "ioutil.ReadFile(\"...\" + strconv.Itoa($I), ...)"
+  mode: "taint"
+  pattern-sources:
+  - pattern: os.Getenv(...)
+  - pattern: fmt.Sprintf(...)
+  - pattern: filepath.Join(...)
+  - pattern: path.Join(...)
   - pattern-either:
-    - pattern: "os.OpenFile($ARG, ...)"
-    - pattern: "os.Open($ARG)"
-    - pattern: "ioutil.ReadFile($ARG, ...)"
+    - pattern: '... + $TAINTED'
+    - pattern: '... + $TAINTED + ...'
+    - pattern: '$TAINTED + ...'
+  - patterns:
+    - pattern-either:
+      - pattern: |
+          ($REQUEST : *http.Request).$SOURCE_METHOD
+      - pattern: |
+          ($REQUEST : http.Request).$SOURCE_METHOD
+    - metavariable-regex:
+        metavariable: $SOURCE_METHOD
+        regex: ^(BasicAuth|Body|Cookie|Cookies|Form|FormValue|GetBody|Host|MultipartReader|ParseForm|ParseMultipartForm|PostForm|PostFormValue|Referer|RequestURI|Trailer|TransferEncoding|UserAgent|URL)$
+  pattern-sanitizers:
+  - patterns:
+    - pattern-either:
+      - pattern: |
+          $CLEAN := $PKG.Clean(...)
+          ...
+          if !strings.HasPrefix($CLEAN, "...") {...}
+      - pattern: |
+          $CLEAN := $PKG.Clean(...)
+          ...
+          if strings.HasPrefix($CLEAN, "...") {...}
+      - pattern: |
+          $CLEAN := $PKG.Clean(...)
+          ...
+          if strings.HasPrefix($CLEAN, "...") == false {...}
+    - metavariable-regex:
+        metavariable: $PKG
+        regex: ^((file)?path)$
+  pattern-sinks:
+  - pattern: os.OpenFile(...)
+  - pattern: os.Open(...)
+  - pattern: os.ReadFile(...)
+  - pattern: ioutil.ReadFile(...)
   message: |
     The application dynamically constructs file or path information. If the path
     information comes from user input, it could be abused to read sensitive files,
