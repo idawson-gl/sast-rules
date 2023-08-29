@@ -69,11 +69,6 @@ security_code_scan:
     - path: "csharp/other/rule-UnsafeXSLTSettingUsed"
       primary_id: "security_code_scan.SCS0011-1"
       id: "security_code_scan.SCS0011-1"
-  - id: "SCS0012"
-    rules:
-    - path: "csharp/other/rule-AuthorizationBypass"
-      primary_id: "security_code_scan.SCS0012-1"
-      id: "security_code_scan.SCS0012-1"
   - id: "SCS0018"
     rules:
     - path: "csharp/path/rule-PathTraversal"
@@ -89,11 +84,6 @@ security_code_scan:
     - path: "csharp/validation/rule-InputValidation"
       primary_id: "security_code_scan.SCS0017-1"
       id: "security_code_scan.SCS0017-1"
-  - id: "SCS0019"
-    rules:
-    - path: "csharp/cache/rule-OutputCacheConflicts"
-      primary_id: "security_code_scan.SCS0019-1"
-      id: "security_code_scan.SCS0019-1"
   - id: "SCS0026"
     rules:
     - path: "csharp/injection/rule-LdapInjection"

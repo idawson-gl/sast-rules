@@ -1,5 +1,10 @@
 sast-rules changelog
 
+## v1.3.40
+- Remove poor C# rules (!199)
+  - `csharp/cache/rule-OutputCacheConflicts.yml` - Unable to confirm vulnerability
+  - `csharp/other/rule-AuthorizationBypass.yml` - Highly prone to false positives as it assumes any controller without `[AllowAnonymous]` or `[Authorize]` is an authorization bypass
+
 ## v1.3.39
 - Revert rule changes made in (!193), (!198), (!199), (!197), (!194), and (!188) to allow for staged release of those MRs (!214)
 - Fix `$ADDR` var bind error in `find_sec_bugs_scala.URLCONNECTION_SSRF_FD` scala rule (!214)

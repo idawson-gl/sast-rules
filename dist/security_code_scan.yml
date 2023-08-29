@@ -1,36 +1,8 @@
 # yamllint disable
-# rule-set version: v1.3.39
+# rule-set version: v1.3.40
 # yamllint enable
 ---
 rules:
-- id: "security_code_scan.SCS0019-1"
-  languages:
-  - "csharp"
-  patterns:
-  - pattern-inside: |
-      [Authorize]
-      public class $CLZ {
-        ...
-      }
-  - pattern: |
-      [OutputCache]
-      public $RET $FOO(...)
-      {
-        ...
-      }
-  message: |
-    Having the annotation [OutputCache] will disable the annotation [Authorize] for
-    the requests following the first one.
-  severity: "INFO"
-  metadata:
-    shortDescription: "Use of cache containing sensitive information"
-    category: "security"
-    cwe: "CWE-524"
-    primary_identifier: "security_code_scan.SCS0019-1"
-    secondary_identifiers:
-    - name: "SCS0019"
-      type: "security_code_scan_rule_id"
-      value: "SCS0019"
 - id: "security_code_scan.SCS0009-1"
   languages:
   - "csharp"
@@ -1040,38 +1012,6 @@ rules:
     - name: "SCS0007"
       type: "security_code_scan_rule_id"
       value: "SCS0007"
-- id: "security_code_scan.SCS0012-1"
-  languages:
-  - "csharp"
-  message: |
-    The endpoint is potentially accessible to not authorized users. If it contains sensitive
-    information, like log files for example, it may lead to privilege escalation.
-  metadata:
-    category: "security"
-    cwe: "CWE-284"
-    shortDescription: "Improper Access Control"
-    primary_identifier: "security_code_scan.SCS0012-1"
-    secondary_identifiers:
-    - name: "SCS0012"
-      type: "security_code_scan_rule_id"
-      value: "SCS0012"
-  patterns:
-  - pattern-inside: |
-      using System.Web.Mvc;
-      ...
-  - pattern-either:
-    - pattern: |
-        [$ANNO]
-        class $CLASS : Controller{ ... }
-    - pattern: |
-        class $CLASS : Controller{ ... }
-  - pattern-not: |
-      [AllowAnonymous]
-      class $CLASS : Controller{ ... }
-  - pattern-not: |
-      [Authorize]
-      class $CLASS : Controller{ ... }
-  severity: "WARNING"
 - id: "security_code_scan.SCS0011-1"
   patterns:
   - pattern-either:
