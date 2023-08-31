@@ -132,3 +132,13 @@ func foo10() {
 	client := &http.Client{}
 	client.Do(req)
 }
+
+func foo10() {
+	var q = []byte(`your query`)
+	req, err := http.NewRequestWithContext("POST", url, bytes.NewBuffer(q))
+	req.Header.Set("X-Custom-Header", "myvalue")
+	req.Header.Set("Content-Type", "text/plain")
+
+	client := &http.Client{}
+	client.Do(req)
+}

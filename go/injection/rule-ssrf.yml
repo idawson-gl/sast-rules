@@ -1,7 +1,7 @@
 # yamllint disable
 # License: Apache 2.0 (c) gosec
 # source (original): https://github.com/securego/gosec/blob/master/rules/ssrf.go
-# hash: 2a4064d 
+# hash: 2a4064d
 # yamllint enable
 ---
 rules:
@@ -24,10 +24,13 @@ rules:
       - pattern-not: "http.PostForm(\"...\", ...)"
     - patterns:
       - pattern-inside: |
-          $REQ, ... := http.NewRequest(..., url, ...)
+          $REQ, ... := http.$REQMETHOD(..., url, ...)
           ...
           $CLIENT := &http.Client{...}
           ...
+      - metavariable-regex:
+          metavariable: $REQMETHOD
+          regex: (^NewRequest(WithContext)?$)
       - pattern: "$CLIENT.Do($REQ)"
     - patterns:
       - pattern-not-inside: |
