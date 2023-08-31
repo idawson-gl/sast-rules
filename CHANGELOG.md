@@ -1,5 +1,8 @@
 sast-rules changelog
 
+## v1.3.40
+- Import NodeJS Scan rules (!204)
+
 ## v1.3.39
 - Revert rule changes made in (!193), (!198), (!199), (!197), (!194), and (!188) to allow for staged release of those MRs (!214)
 - Fix `$ADDR` var bind error in `find_sec_bugs_scala.URLCONNECTION_SSRF_FD` scala rule (!214)

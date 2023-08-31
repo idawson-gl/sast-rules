@@ -1,0 +1,22 @@
+# yamllint disable
+# License: MIT (c) GitLab Inc.
+# source (original): https://github.com/ajinabraham/njsscan/blob/master/njsscan/rules/semantic_grep/eval/eval_yaml_deserialize.yaml
+# hash: e7a0a61
+# yamllint enable
+---
+rules:
+- id: "rules/lgpl/javascript/eval/rule-yaml_deserialize"
+  patterns:
+  - pattern-inside: |
+      require('js-yaml')
+      ...
+  - pattern: |
+      $X.load(...)
+  message: |
+    User controlled data in 'yaml.load()' function can result in Remote Code Injection.
+  languages:
+  - "javascript"
+  severity: "ERROR"
+  metadata:
+    owasp: "A8:2017-Insecure Deserialization"
+    cwe: "CWE-502: Deserialization of Untrusted Data"

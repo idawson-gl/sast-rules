@@ -1,0 +1,46 @@
+# yamllint disable
+# License: MIT (c) GitLab Inc.
+# source (original): https://github.com/ajinabraham/njsscan/blob/master/njsscan/rules/semantic_grep/database/sequelize_tls.yaml
+# hash: e7a0a61
+# yamllint enable
+---
+rules:
+- id: "rules/lgpl/javascript/database/rule-sequelize_tls"
+  message: |
+    'The Sequelize connection string indicates that database server does not use TLS. Non TLS connections are susceptible to man in the middle (MITM) attacks.
+
+    '
+  languages:
+  - "javascript"
+  severity: "WARNING"
+  metadata:
+    owasp: "A6:2017-Security Misconfiguration"
+    cwe: "CWE-319: Cleartext Transmission of Sensitive Information"
+  patterns:
+  - pattern: |
+      {
+        host: $HOST,
+        database: $DATABASE,
+        dialect: $DIALECT
+       }
+  - pattern-not: |
+      {
+        host: $HOST,
+        database: $DATABASE,
+        dialect: "postgres",
+        dialectOptions: {
+            ssl: true
+        }
+      }
+  - pattern-not: |
+      {
+        host: $HOST,
+        database: $DATABASE,
+        dialect: $DIALECT,
+        dialectOptions: {
+          ssl: { ... }
+        }
+      }
+  - metavariable-regex:
+      metavariable: "$DIALECT"
+      regex: "['\"](mariadb|mysql|postgres|oracle)['\"]"

@@ -3,7 +3,7 @@
     "minProperties": 1,
     "maxProperties": 1,
     "patternProperties": {
-      "^(eslint|bandit|security_code_scan|gosec|flawfinder|find_sec_bugs|find_sec_bugs_scala)$": {
+      "^(eslint|bandit|security_code_scan|gosec|flawfinder|find_sec_bugs|find_sec_bugs_scala|nodejs_scan)$": {
         "type": "object",
         "properties": {
           "native_analyzer": {

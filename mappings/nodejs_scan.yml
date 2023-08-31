@@ -1,0 +1,615 @@
+# yamllint disable
+# maps nodeJS scan rule ids to semgrep rules
+# License: MIT (c) GitLab Inc.
+# yamllint enable
+---
+nodejs_scan:
+  native_id:
+    type: nodejs_scan_test_id
+    name: NodeJS Scan Test ID $ID
+    value: "$ID"
+  mappings:
+  - id: javascript-ssrf-rule-wkhtmltoimage_ssrf
+    rules:
+    - path: rules/lgpl/javascript/ssrf/rule-wkhtmltoimage_ssrf
+      primary_id: User controlled URL reached to `wkhtmltoimage` can result in Server
+        Side Request Forgery (SSRF).
+      id: javascript-ssrf-rule-wkhtmltoimage_ssrf
+  - id: javascript-eval-rule-serializetojs_deserialize
+    rules:
+    - path: rules/lgpl/javascript/eval/rule-serializetojs_deserialize
+      primary_id: User controlled data in 'unserialize()' or 'deserialize()' function
+        can result in Object Injection or Remote Code Injection.
+      id: javascript-eval-rule-serializetojs_deserialize
+  - id: javascript-electronjs-rule-electron_experimental_features
+    rules:
+    - path: rules/lgpl/javascript/electronjs/rule-electron_experimental_features
+      primary_id: Disabling webSecurity will disable the same-origin policy and allows
+        the execution of insecure code from any domain.
+      id: javascript-electronjs-rule-electron_experimental_features
+  - id: javascript-crypto-rule-node_timing_attack
+    rules:
+    - path: rules/lgpl/javascript/crypto/rule-node_timing_attack
+      primary_id: 'String comparisons using ''==='', ''!=='', ''!='' and ''=='' is
+        vulnerable to timing attacks. More info: https://snyk.io/blog/node-js-timing-attack-ccc-ctf/'
+      id: javascript-crypto-rule-node_timing_attack
+  - id: javascript-dos-rule-layer7_object_dos
+    rules:
+    - path: rules/lgpl/javascript/dos/rule-layer7_object_dos
+      primary_id: Layer7 Denial of Service. Looping over user controlled objects can
+        result in DoS.
+      id: javascript-dos-rule-layer7_object_dos
+  - id: javascript-traversal-rule-express_lfr_warning
+    rules:
+    - path: rules/lgpl/javascript/traversal/rule-express_lfr_warning
+      primary_id: Untrusted user input in express render() function can result in
+        arbitrary file read when hbs templating is used.
+      id: javascript-traversal-rule-express_lfr_warning
+  - id: javascript-ssrf-rule-puppeteer_ssrf
+    rules:
+    - path: rules/lgpl/javascript/ssrf/rule-puppeteer_ssrf
+      primary_id: If unverified user data can reach the `puppeteer` methods it can
+        result in Server-Side Request Forgery vulnerabilities.
+      id: javascript-ssrf-rule-puppeteer_ssrf
+  - id: javascript-headers-rule-generic_header_injection
+    rules:
+    - path: rules/lgpl/javascript/headers/rule-generic_header_injection
+      primary_id: Untrusted user input in response header will result in HTTP Header
+        Injection or Response Splitting Attacks.
+      id: javascript-headers-rule-generic_header_injection
+  - id: javascript-eval-rule-server_side_template_injection
+    rules:
+    - path: rules/lgpl/javascript/eval/rule-server_side_template_injection
+      primary_id: Untrusted user input in templating engine's compile() function can
+        result in Remote Code Execution via server side template injection.
+      id: javascript-eval-rule-server_side_template_injection
+  - id: javascript-memory-rule-buffer_noassert
+    rules:
+    - path: rules/lgpl/javascript/memory/rule-buffer_noassert
+      primary_id: Detected usage of noassert in Buffer API, which allows the offset
+        the be beyond the end of the buffer. This could result in writing or reading
+        beyond the end of the buffer.
+      id: javascript-memory-rule-buffer_noassert
+  - id: javascript-ssrf-rule-wkhtmltopdf_ssrf
+    rules:
+    - path: rules/lgpl/javascript/ssrf/rule-wkhtmltopdf_ssrf
+      primary_id: User controlled URL reached to `wkhtmltopdf` can result in Server
+        Side Request Forgery (SSRF).
+      id: javascript-ssrf-rule-wkhtmltopdf_ssrf
+  - id: javascript-generic-rule-node_error_disclosure
+    rules:
+    - path: rules/lgpl/javascript/generic/rule-node_error_disclosure
+      primary_id: Error messages with stack traces can expose sensitive information
+        about the application.
+      id: javascript-generic-rule-node_error_disclosure
+  - id: javascript-electronjs-rule-electron_disable_websecurity
+    rules:
+    - path: rules/lgpl/javascript/electronjs/rule-electron_disable_websecurity
+      primary_id: Disabling webSecurity will disable the same-origin policy and allows
+        the execution of insecure code from any domain.
+      id: javascript-electronjs-rule-electron_disable_websecurity
+  - id: javascript-exec-rule-shelljs_os_command_exec
+    rules:
+    - path: rules/lgpl/javascript/exec/rule-shelljs_os_command_exec
+      primary_id: User controlled data in 'shelljs.exec()' can result in Remote OS
+        Command Execution.
+      id: javascript-exec-rule-shelljs_os_command_exec
+  - id: javascript-generic-rule-node_api_key
+    rules:
+    - path: rules/lgpl/javascript/generic/rule-node_api_key
+      primary_id: A hardcoded password in plain text is identified. Store it properly
+        in an environment variable.
+      id: javascript-generic-rule-node_api_key
+  - id: javascript-traversal-rule-generic_path_traversal
+    rules:
+    - path: rules/lgpl/javascript/traversal/rule-generic_path_traversal
+      primary_id: Untrusted user input in readFile()/readFileSync() can endup in Directory
+        Traversal Attacks.
+      id: javascript-traversal-rule-generic_path_traversal
+  - id: javascript-traversal-rule-express_lfr
+    rules:
+    - path: rules/lgpl/javascript/traversal/rule-express_lfr
+      primary_id: Untrusted user input in express render() function can result in
+        arbitrary file read when hbs templating is used.
+      id: javascript-traversal-rule-express_lfr
+  - id: javascript-exec-rule-generic_os_command_exec
+    rules:
+    - path: rules/lgpl/javascript/exec/rule-generic_os_command_exec
+      primary_id: User controlled data in 'child_process.exec()' can result in Remote
+        OS Command Execution.
+      id: javascript-exec-rule-generic_os_command_exec
+  - id: javascript-headers-rule-cookie_session_no_domain
+    rules:
+    - path: rules/lgpl/javascript/headers/rule-cookie_session_no_domain
+      primary_id: Consider changing the default session cookie name. An attacker can
+        use it to fingerprint the server and target attacks accordingly.
+      id: javascript-headers-rule-cookie_session_no_domain
+  - id: javascript-headers-rule-cookie_session_no_samesite
+    rules:
+    - path: rules/lgpl/javascript/headers/rule-cookie_session_no_samesite
+      primary_id: Consider changing the default session cookie name. An attacker can
+        use it to fingerprint the server and target attacks accordingly.
+      id: javascript-headers-rule-cookie_session_no_samesite
+  - id: javascript-database-rule-sequelize_weak_tls
+    rules:
+    - path: rules/lgpl/javascript/database/rule-sequelize_weak_tls
+      primary_id: 'The Sequelize connection string indicates that an older version
+        of TLS is in use. TLS1.0 and TLS1.1 are deprecated and should be used. By
+        default, Sequelize use TLSv1.2 but it''s recommended to use TLS1.3. Not applicable
+        to SQLite database.
+
+        '
+      id: javascript-database-rule-sequelize_weak_tls
+  - id: javascript-eval-rule-node_deserialize
+    rules:
+    - path: rules/lgpl/javascript/eval/rule-node_deserialize
+      primary_id: User controlled data in 'unserialize()' or 'deserialize()' function
+        can result in Object Injection or Remote Code Injection.
+      id: javascript-eval-rule-node_deserialize
+  - id: javascript-electronjs-rule-electron_nodejs_integration
+    rules:
+    - path: rules/lgpl/javascript/electronjs/rule-electron_nodejs_integration
+      primary_id: Disabling webSecurity will disable the same-origin policy and allows
+        the execution of insecure code from any domain.
+      id: javascript-electronjs-rule-electron_nodejs_integration
+  - id: javascript-crypto-rule-node_insecure_random_generator
+    rules:
+    - path: rules/lgpl/javascript/crypto/rule-node_insecure_random_generator
+      primary_id: MD5 is a a weak hash which is known to have collision. Use a strong
+        hashing function.
+      id: javascript-crypto-rule-node_insecure_random_generator
+  - id: javascript-jwt-rule-jwt_exposed_credentials
+    rules:
+    - path: rules/lgpl/javascript/jwt/rule-jwt_exposed_credentials
+      primary_id: Password is exposed through JWT token payload. This is not encrypted
+        and  the password could be compromised. Do not store passwords in JWT tokens.
+      id: javascript-jwt-rule-jwt_exposed_credentials
+  - id: javascript-generic-rule-node_password
+    rules:
+    - path: rules/lgpl/javascript/generic/rule-node_password
+      primary_id: A hardcoded password in plain text is identified. Store it properly
+        in an environment variable.
+      id: javascript-generic-rule-node_password
+  - id: javascript-eval-rule-vm_runinnewcontext_injection
+    rules:
+    - path: rules/lgpl/javascript/eval/rule-vm_runinnewcontext_injection
+      primary_id: Untrusted user input in `vm.runInContext()` can result in code injection.
+      id: javascript-eval-rule-vm_runinnewcontext_injection
+  - id: javascript-eval-rule-vm_compilefunction_injection
+    rules:
+    - path: rules/lgpl/javascript/eval/rule-vm_compilefunction_injection
+      primary_id: Untrusted user input in `vm.runInContext()` can result in code injection.
+      id: javascript-eval-rule-vm_compilefunction_injection
+  - id: javascript-dos-rule-express_bodyparser
+    rules:
+    - path: rules/lgpl/javascript/dos/rule-express_bodyparser
+      primary_id: POST Request to Express Body Parser 'bodyParser()' can create Temporary
+        files and consume space.
+      id: javascript-dos-rule-express_bodyparser
+  - id: javascript-xml-rule-xxe_xml2json
+    rules:
+    - path: rules/lgpl/javascript/xml/rule-xxe_xml2json
+      primary_id: Make sure that unverified user data can not reach the XML Parser,
+        as it can result in XML External or Internal Entity (XXE) Processing vulnerabilities.
+      id: javascript-xml-rule-xxe_xml2json
+  - id: javascript-electronjs-rule-electron_context_isolation
+    rules:
+    - path: rules/lgpl/javascript/electronjs/rule-electron_context_isolation
+      primary_id: Disabling webSecurity will disable the same-origin policy and allows
+        the execution of insecure code from any domain.
+      id: javascript-electronjs-rule-electron_context_isolation
+  - id: javascript-headers-rule-cookie_session_no_httponly
+    rules:
+    - path: rules/lgpl/javascript/headers/rule-cookie_session_no_httponly
+      primary_id: Consider changing the default session cookie name. An attacker can
+        use it to fingerprint the server and target attacks accordingly.
+      id: javascript-headers-rule-cookie_session_no_httponly
+  - id: javascript-dos-rule-regex_dos
+    rules:
+    - path: rules/lgpl/javascript/dos/rule-regex_dos
+      primary_id: Ensure that the regex used to compare with user supplied input is
+        safe from regular expression denial of service.
+      id: javascript-dos-rule-regex_dos
+  - id: javascript-database-rule-node_knex_sqli_injection
+    rules:
+    - path: rules/lgpl/javascript/database/rule-node_knex_sqli_injection
+      primary_id: Untrusted input concatinated with raw SQL query using knex raw()  or
+        whereRaw() functions can result in SQL Injection.
+      id: javascript-database-rule-node_knex_sqli_injection
+  - id: javascript-crypto-rule-node_aes_noiv
+    rules:
+    - path: rules/lgpl/javascript/crypto/rule-node_aes_noiv
+      primary_id: MD5 is a a weak hash which is known to have collision. Use a strong
+        hashing function.
+      id: javascript-crypto-rule-node_aes_noiv
+  - id: javascript-headers-rule-host_header_injection
+    rules:
+    - path: rules/lgpl/javascript/headers/rule-host_header_injection
+      primary_id: Using untrusted Host header for generating dynamic URLs can result
+        in web cache and or password reset poisoning.
+      id: javascript-headers-rule-host_header_injection
+  - id: javascript-jwt-rule-jwt_not_revoked
+    rules:
+    - path: rules/lgpl/javascript/jwt/rule-jwt_not_revoked
+      primary_id: No token revoking configured for `express-jwt`. A leaked token could
+        still be used and unable to be revoked. Consider using function as the `isRevoked`
+        option.
+      id: javascript-jwt-rule-jwt_not_revoked
+  - id: javascript-jwt-rule-hardcoded_jwt_secret
+    rules:
+    - path: rules/lgpl/javascript/jwt/rule-hardcoded_jwt_secret
+      primary_id: Hardcoded JWT secret was found. Store it properly in an environment
+        variable.
+      id: javascript-jwt-rule-hardcoded_jwt_secret
+  - id: javascript-eval-rule-vm2_context_injection
+    rules:
+    - path: rules/lgpl/javascript/eval/rule-vm2_context_injection
+      primary_id: Untrusted user input reaching `vm2` can result in code injection.
+      id: javascript-eval-rule-vm2_context_injection
+  - id: javascript-redirect-rule-express_open_redirect2
+    rules:
+    - path: rules/lgpl/javascript/redirect/rule-express_open_redirect2
+      primary_id: Untrusted user input in redirect() can result in Open Redirect vulnerability.
+      id: javascript-redirect-rule-express_open_redirect2
+  - id: javascript-database-rule-node_nosqli_js_injection
+    rules:
+    - path: rules/lgpl/javascript/database/rule-node_nosqli_js_injection
+      primary_id: Untrusted user input in MongoDB $where operator can result in NoSQL
+        JavaScript Injection.
+      id: javascript-database-rule-node_nosqli_js_injection
+  - id: javascript-traversal-rule-tar_path_overwrite
+    rules:
+    - path: rules/lgpl/javascript/traversal/rule-tar_path_overwrite
+      primary_id: Insecure ZIP archive extraction can result in arbitrary path over
+        write and can result in code injection.
+      id: javascript-traversal-rule-tar_path_overwrite
+  - id: javascript-crypto-rule-node_aes_ecb
+    rules:
+    - path: rules/lgpl/javascript/crypto/rule-node_aes_ecb
+      primary_id: MD5 is a a weak hash which is known to have collision. Use a strong
+        hashing function.
+      id: javascript-crypto-rule-node_aes_ecb
+  - id: javascript-traversal-rule-admzip_path_overwrite
+    rules:
+    - path: rules/lgpl/javascript/traversal/rule-admzip_path_overwrite
+      primary_id: Insecure ZIP archive extraction can result in arbitrary path over
+        write and can result in code injection.
+      id: javascript-traversal-rule-admzip_path_overwrite
+  - id: javascript-crypto-rule-node_tls_reject
+    rules:
+    - path: rules/lgpl/javascript/crypto/rule-node_tls_reject
+      primary_id: Setting 'NODE_TLS_REJECT_UNAUTHORIZED' to 0 will allow node server
+        to accept self signed certificates and is not a secure behaviour.
+      id: javascript-crypto-rule-node_tls_reject
+  - id: javascript-eval-rule-yaml_deserialize
+    rules:
+    - path: rules/lgpl/javascript/eval/rule-yaml_deserialize
+      primary_id: User controlled data in 'yaml.load()' function can result in Remote
+        Code Injection.
+      id: javascript-eval-rule-yaml_deserialize
+  - id: javascript-xml-rule-node_entity_expansion
+    rules:
+    - path: rules/lgpl/javascript/xml/rule-node_entity_expansion
+      primary_id: User controlled data in XML Parsers can result in XML Internal Entity
+        Processing vulnerabilities like in DoS.
+      id: javascript-xml-rule-node_entity_expansion
+  - id: javascript-eval-rule-vm_runincontext_injection
+    rules:
+    - path: rules/lgpl/javascript/eval/rule-vm_runincontext_injection
+      primary_id: Untrusted user input in `vm.runInContext()` can result in code injection.
+      id: javascript-eval-rule-vm_runincontext_injection
+  - id: javascript-eval-rule-vm2_code_injection
+    rules:
+    - path: rules/lgpl/javascript/eval/rule-vm2_code_injection
+      primary_id: Untrusted user input reaching `vm2` can result in code injection.
+      id: javascript-eval-rule-vm2_code_injection
+  - id: javascript-xss-rule-xss_serialize_javascript
+    rules:
+    - path: rules/lgpl/javascript/xss/rule-xss_serialize_javascript
+      primary_id: Untrusted user input reaching `serialize-javascript` with `unsafe`
+        attribute can cause Cross Site Scripting (XSS).
+      id: javascript-xss-rule-xss_serialize_javascript
+  - id: javascript-xml-rule-xxe_sax
+    rules:
+    - path: rules/lgpl/javascript/xml/rule-xxe_sax
+      primary_id: Use of 'ondoctype' in 'sax' library detected. By default, 'sax'
+        won't do anything with custom DTD entity definitions. If you're implementing
+        a custom DTD entity definition, be sure not to introduce XML External Entity
+        (XXE) vulnerabilities, or be absolutely sure that external entities received
+        from a trusted source while processing XML.
+      id: javascript-xml-rule-xxe_sax
+  - id: javascript-generic-rule-node_secret
+    rules:
+    - path: rules/lgpl/javascript/generic/rule-node_secret
+      primary_id: A hardcoded password in plain text is identified. Store it properly
+        in an environment variable.
+      id: javascript-generic-rule-node_secret
+  - id: javascript-jwt-rule-jwt_exposed_data
+    rules:
+    - path: rules/lgpl/javascript/jwt/rule-jwt_exposed_data
+      primary_id: The object is passed strictly to jose.JWT.sign(...). Make sure  that
+        sensitive information is not exposed through JWT token payload.
+      id: javascript-jwt-rule-jwt_exposed_data
+  - id: javascript-headers-rule-generic_cors
+    rules:
+    - path: rules/lgpl/javascript/headers/rule-generic_cors
+      primary_id: Access-Control-Allow-Origin response header is set to "*". This
+        will disable CORS Same Origin Policy restrictions.
+      id: javascript-headers-rule-generic_cors
+  - id: javascript-traversal-rule-zip_path_overwrite2
+    rules:
+    - path: rules/lgpl/javascript/traversal/rule-zip_path_overwrite2
+      primary_id: Insecure ZIP archive extraction can result in arbitrary path over
+        write and can result in code injection.
+      id: javascript-traversal-rule-zip_path_overwrite2
+  - id: javascript-crypto-rule-node_curl_ssl_verify_disable
+    rules:
+    - path: rules/lgpl/javascript/crypto/rule-node_curl_ssl_verify_disable
+      primary_id: Setting 'NODE_TLS_REJECT_UNAUTHORIZED' to 0 will allow node server
+        to accept self signed certificates and is not a secure behaviour.
+      id: javascript-crypto-rule-node_curl_ssl_verify_disable
+  - id: javascript-xml-rule-xxe_expat
+    rules:
+    - path: rules/lgpl/javascript/xml/rule-xxe_expat
+      primary_id: Make sure that unverified user data can not reach the XML Parser,
+        as it can result in XML External or Internal Entity (XXE) Processing vulnerabilities.
+      id: javascript-xml-rule-xxe_expat
+  - id: javascript-jwt-rule-node_jwt_none_algorithm
+    rules:
+    - path: rules/lgpl/javascript/jwt/rule-node_jwt_none_algorithm
+      primary_id: Algorithm is set to none for JWT token. This can nullify the integrity
+        of JWT signature.
+      id: javascript-jwt-rule-node_jwt_none_algorithm
+  - id: javascript-database-rule-node_nosqli_injection
+    rules:
+    - path: rules/lgpl/javascript/database/rule-node_nosqli_injection
+      primary_id: Untrusted user input in findOne() function can result in NoSQL Injection.
+      id: javascript-database-rule-node_nosqli_injection
+  - id: javascript-traversal-rule-zip_path_overwrite
+    rules:
+    - path: rules/lgpl/javascript/traversal/rule-zip_path_overwrite
+      primary_id: Insecure ZIP archive extraction can result in arbitrary path over
+        write and can result in code injection.
+      id: javascript-traversal-rule-zip_path_overwrite
+  - id: javascript-electronjs-rule-electron_allow_http
+    rules:
+    - path: rules/lgpl/javascript/electronjs/rule-electron_allow_http
+      primary_id: Disabling webSecurity will disable the same-origin policy and allows
+        the execution of insecure code from any domain.
+      id: javascript-electronjs-rule-electron_allow_http
+  - id: javascript-xss-rule-handlebars_safestring
+    rules:
+    - path: rules/lgpl/javascript/xss/rule-handlebars_safestring
+      primary_id: Handlebars SafeString will not escape the data passed through it.
+        Untrusted user input passing through SafeString can cause XSS.
+      id: javascript-xss-rule-handlebars_safestring
+  - id: javascript-xss-rule-squirrelly_autoescape
+    rules:
+    - path: rules/lgpl/javascript/xss/rule-squirrelly_autoescape
+      primary_id: Handlebars SafeString will not escape the data passed through it.
+        Untrusted user input passing through SafeString can cause XSS.
+      id: javascript-xss-rule-squirrelly_autoescape
+  - id: javascript-xml-rule-node_xxe
+    rules:
+    - path: rules/lgpl/javascript/xml/rule-node_xxe
+      primary_id: User controlled data in XML parsers can result in XML External or
+        Internal Entity (XXE) Processing vulnerabilities
+      id: javascript-xml-rule-node_xxe
+  - id: javascript-headers-rule-cookie_session_no_secure
+    rules:
+    - path: rules/lgpl/javascript/headers/rule-cookie_session_no_secure
+      primary_id: Consider changing the default session cookie name. An attacker can
+        use it to fingerprint the server and target attacks accordingly.
+      id: javascript-headers-rule-cookie_session_no_secure
+  - id: javascript-eval-rule-sandbox_code_injection
+    rules:
+    - path: rules/lgpl/javascript/eval/rule-sandbox_code_injection
+      primary_id: Unrusted data in `sandbox` can result in code injection.
+      id: javascript-eval-rule-sandbox_code_injection
+  - id: javascript-headers-rule-helmet_feature_disabled
+    rules:
+    - path: rules/lgpl/javascript/headers/rule-helmet_feature_disabled
+      primary_id: One or more Security Response header is explicitly disabled in Helmet.
+      id: javascript-headers-rule-helmet_feature_disabled
+  - id: javascript-generic-rule-hardcoded_passport_secret
+    rules:
+    - path: rules/lgpl/javascript/generic/rule-hardcoded_passport_secret
+      primary_id: Hardcoded plain text secret used for Passport Strategy. Store it
+        properly in an environment variable.
+      id: javascript-generic-rule-hardcoded_passport_secret
+  - id: javascript-ssrf-rule-node_ssrf
+    rules:
+    - path: rules/lgpl/javascript/ssrf/rule-node_ssrf
+      primary_id: User controlled URL in http client libraries can result in Server
+        Side Request Forgery (SSRF).
+      id: javascript-ssrf-rule-node_ssrf
+  - id: javascript-xss-rule-xss_disable_mustache_escape
+    rules:
+    - path: rules/lgpl/javascript/xss/rule-xss_disable_mustache_escape
+      primary_id: Markup escaping disabled. This can be used with some template engines
+        to escape disabling of HTML entities, which can lead to XSS attacks.
+      id: javascript-xss-rule-xss_disable_mustache_escape
+  - id: javascript-headers-rule-header_xss_lusca
+    rules:
+    - path: rules/lgpl/javascript/headers/rule-header_xss_lusca
+      primary_id: X-XSS-Protection header is set to 0. This will disable the browser's
+        XSS Filter.
+      id: javascript-headers-rule-header_xss_lusca
+  - id: javascript-database-rule-node_sqli_injection
+    rules:
+    - path: rules/lgpl/javascript/database/rule-node_sqli_injection
+      primary_id: Untrusted input concatinated with raw SQL query can result in SQL
+        Injection.
+      id: javascript-database-rule-node_sqli_injection
+  - id: javascript-database-rule-sequelize_tls
+    rules:
+    - path: rules/lgpl/javascript/database/rule-sequelize_tls
+      primary_id: 'The Sequelize connection string indicates that database server
+        does not use TLS. Non TLS connections are susceptible to man in the middle
+        (MITM) attacks.
+
+        '
+      id: javascript-database-rule-sequelize_tls
+  - id: javascript-generic-rule-node_logic_bypass
+    rules:
+    - path: rules/lgpl/javascript/generic/rule-node_logic_bypass
+      primary_id: User controlled data is used for application business logic decision
+        making. This expose protected data or functionality.
+      id: javascript-generic-rule-node_logic_bypass
+  - id: javascript-headers-rule-cookie_session_default
+    rules:
+    - path: rules/lgpl/javascript/headers/rule-cookie_session_default
+      primary_id: Consider changing the default session cookie name. An attacker can
+        use it to fingerprint the server and target attacks accordingly.
+      id: javascript-headers-rule-cookie_session_default
+  - id: javascript-traversal-rule-join_resolve_path_traversal
+    rules:
+    - path: rules/lgpl/javascript/traversal/rule-join_resolve_path_traversal
+      primary_id: 'Path constructed with user input can result in Path Traversal.
+        Ensure that user input does not reach `join()` or `resolve()`. '
+      id: javascript-traversal-rule-join_resolve_path_traversal
+  - id: javascript-headers-rule-express_cors
+    rules:
+    - path: rules/lgpl/javascript/headers/rule-express_cors
+      primary_id: Access-Control-Allow-Origin response header is set to "*". This
+        will disable CORS Same Origin Policy restrictions.
+      id: javascript-headers-rule-express_cors
+  - id: javascript-crypto-rule-node_weak_crypto
+    rules:
+    - path: rules/lgpl/javascript/crypto/rule-node_weak_crypto
+      primary_id: MD5 is a a weak hash which is known to have collision. Use a strong
+        hashing function.
+      id: javascript-crypto-rule-node_weak_crypto
+  - id: javascript-dos-rule-regex_injection_dos
+    rules:
+    - path: rules/lgpl/javascript/dos/rule-regex_injection_dos
+      primary_id: User controlled data in RegExp() can make the application vulnerable
+        to layer 7 DoS.
+      id: javascript-dos-rule-regex_injection_dos
+  - id: javascript-electronjs-rule-electron_blink_integration
+    rules:
+    - path: rules/lgpl/javascript/electronjs/rule-electron_blink_integration
+      primary_id: Disabling webSecurity will disable the same-origin policy and allows
+        the execution of insecure code from any domain.
+      id: javascript-electronjs-rule-electron_blink_integration
+  - id: javascript-database-rule-sequelize_tls_cert_validation
+    rules:
+    - path: rules/lgpl/javascript/database/rule-sequelize_tls_cert_validation
+      primary_id: 'The Sequelize connection string indicates that TLS certificate
+        vailidation of database server is disabled. This is equivalent to not having
+        TLS. An attacker can present any invalid certificate and Sequelize will make
+        database connection ignoring certificate errors. This setting make the connection
+        susceptible to man in the middle (MITM) attacks. Not applicable to SQLite
+        database.
+
+        '
+      id: javascript-database-rule-sequelize_tls_cert_validation
+  - id: javascript-eval-rule-grpc_insecure_connection
+    rules:
+    - path: rules/lgpl/javascript/eval/rule-grpc_insecure_connection
+      primary_id: Found an insecure gRPC connection. This creates a connection without
+        encryption to a gRPC client/server. A malicious attacker could  tamper with
+        the gRPC message, which could compromise the machine.
+      id: javascript-eval-rule-grpc_insecure_connection
+  - id: javascript-headers-rule-cookie_session_no_path
+    rules:
+    - path: rules/lgpl/javascript/headers/rule-cookie_session_no_path
+      primary_id: Consider changing the default session cookie name. An attacker can
+        use it to fingerprint the server and target attacks accordingly.
+      id: javascript-headers-rule-cookie_session_no_path
+  - id: javascript-xss-rule-express_xss
+    rules:
+    - path: rules/lgpl/javascript/xss/rule-express_xss
+      primary_id: Untrusted User Input in Response will result in Reflected Cross
+        Site Scripting Vulnerability.
+      id: javascript-xss-rule-express_xss
+  - id: javascript-xml-rule-node_xpath_injection
+    rules:
+    - path: rules/lgpl/javascript/xml/rule-node_xpath_injection
+      primary_id: User controlled data in xpath.parse() can result in XPATH injection
+        vulnerability.
+      id: javascript-xml-rule-node_xpath_injection
+  - id: javascript-crypto-rule-node_md5
+    rules:
+    - path: rules/lgpl/javascript/crypto/rule-node_md5
+      primary_id: MD5 is a a weak hash which is known to have collision. Use a strong
+        hashing function.
+      id: javascript-crypto-rule-node_md5
+  - id: javascript-xss-rule-handlebars_noescape
+    rules:
+    - path: rules/lgpl/javascript/xss/rule-handlebars_noescape
+      primary_id: Handlebars SafeString will not escape the data passed through it.
+        Untrusted user input passing through SafeString can cause XSS.
+      id: javascript-xss-rule-handlebars_noescape
+  - id: javascript-generic-rule-node_username
+    rules:
+    - path: rules/lgpl/javascript/generic/rule-node_username
+      primary_id: A hardcoded password in plain text is identified. Store it properly
+        in an environment variable.
+      id: javascript-generic-rule-node_username
+  - id: javascript-eval-rule-vm_code_injection
+    rules:
+    - path: rules/lgpl/javascript/eval/rule-vm_code_injection
+      primary_id: Untrusted user input in `vm.runInContext()` can result in code injection.
+      id: javascript-eval-rule-vm_code_injection
+  - id: javascript-ssrf-rule-playwright_ssrf
+    rules:
+    - path: rules/lgpl/javascript/ssrf/rule-playwright_ssrf
+      primary_id: If unverified user data can reach the `puppeteer` methods it can
+        result in Server-Side Request Forgery vulnerabilities.
+      id: javascript-ssrf-rule-playwright_ssrf
+  - id: javascript-generic-rule-generic_error_disclosure
+    rules:
+    - path: rules/lgpl/javascript/generic/rule-generic_error_disclosure
+      primary_id: Error messages with stack traces can expose sensitive information
+        about the application.
+      id: javascript-generic-rule-generic_error_disclosure
+  - id: javascript-crypto-rule-node_sha1
+    rules:
+    - path: rules/lgpl/javascript/crypto/rule-node_sha1
+      primary_id: MD5 is a a weak hash which is known to have collision. Use a strong
+        hashing function.
+      id: javascript-crypto-rule-node_sha1
+  - id: javascript-eval-rule-eval_nodejs
+    rules:
+    - path: rules/lgpl/javascript/eval/rule-eval_nodejs
+      primary_id: User controlled data in eval() or similar functions may result in
+        Server Side Injection or Remote Code Injection
+      id: javascript-eval-rule-eval_nodejs
+  - id: javascript-redirect-rule-express_open_redirect
+    rules:
+    - path: rules/lgpl/javascript/redirect/rule-express_open_redirect
+      primary_id: Untrusted user input in redirect() can result in Open Redirect vulnerability.
+      id: javascript-redirect-rule-express_open_redirect
+  - id: javascript-ssrf-rule-phantom_ssrf
+    rules:
+    - path: rules/lgpl/javascript/ssrf/rule-phantom_ssrf
+      primary_id: 'If unverified user data can reach the `phantom` methods it can
+        result in Server-Side Request Forgery vulnerabilities.
+
+        '
+      id: javascript-ssrf-rule-phantom_ssrf
+  - id: javascript-eval-rule-eval_require
+    rules:
+    - path: rules/lgpl/javascript/eval/rule-eval_require
+      primary_id: Untrusted user input in `require()` function allows an attacker
+        to load arbitrary code.
+      id: javascript-eval-rule-eval_require
+  - id: javascript-headers-rule-cookie_session_no_maxage
+    rules:
+    - path: rules/lgpl/javascript/headers/rule-cookie_session_no_maxage
+      primary_id: Consider changing the default session cookie name. An attacker can
+        use it to fingerprint the server and target attacks accordingly.
+      id: javascript-headers-rule-cookie_session_no_maxage
+  - id: javascript-headers-rule-header_xss_generic
+    rules:
+    - path: rules/lgpl/javascript/headers/rule-header_xss_generic
+      primary_id: X-XSS-Protection header is set to 0. This will disable the browser's
+        XSS Filter.
+      id: javascript-headers-rule-header_xss_generic
+  - id: javascript-jwt-rule-jwt_express_hardcoded
+    rules:
+    - path: rules/lgpl/javascript/jwt/rule-jwt_express_hardcoded
+      primary_id: Hardcoded JWT secret or private key was found. Store it properly
+        in  an environment variable.
+      id: javascript-jwt-rule-jwt_express_hardcoded

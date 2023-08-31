@@ -1,0 +1,39 @@
+# yamllint disable
+# License: MIT (c) GitLab Inc.
+# source (original): https://github.com/ajinabraham/njsscan/blob/master/njsscan/rules/semantic_grep/eval/eval_require.yaml
+# hash: e7a0a61
+# yamllint enable
+---
+rules:
+- id: "rules/lgpl/javascript/eval/rule-eval_require"
+  patterns:
+  - pattern-either:
+    - pattern-inside: |-
+        function ($REQ, $RES, ...) {...}
+    - pattern-inside: |-
+        function $FUNC($REQ, $RES, ...) {...}
+    - pattern-inside: |-
+        $X = function $FUNC($REQ, $RES, ...) {...}
+    - pattern-inside: |-
+        var $X = function $FUNC($REQ, $RES, ...) {...};
+    - pattern-inside: |-
+        $APP.$METHOD(..., function $FUNC($REQ, $RES, ...) {...})
+  - pattern-either:
+    - pattern: |
+        $INP = <... $REQ.$QUERY ...>;
+        ...
+        require(<... $INP ...>)
+    - pattern: |
+        $INP = <... $REQ.$QUERY.$FOO ...>;
+        ...
+        require(<... $INP ...>)
+    - pattern: "require(<... $REQ.$QUERY.$FOO ...>)"
+    - pattern: "require(<... $REQ.$BODY ...>)"
+  message: |
+    Untrusted user input in `require()` function allows an attacker to load arbitrary code.
+  severity: "ERROR"
+  languages:
+  - "javascript"
+  metadata:
+    owasp: "A1:2017-Injection"
+    cwe: "CWE-706: Use of Incorrectly-Resolved Name or Reference"
