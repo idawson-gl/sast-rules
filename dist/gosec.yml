@@ -1,5 +1,5 @@
 # yamllint disable
-# rule-set version: v1.3.37
+# rule-set version: v1.3.38
 # yamllint enable
 ---
 rules:
@@ -1811,42 +1811,6 @@ rules:
       type: "gosec_rule_id"
       value: "G102"
   severity: "WARNING"
-- id: "gosec.G101-1"
-  languages:
-  - "go"
-  patterns:
-  - pattern-either:
-    - pattern: "$MASK = \"...\""
-  - metavariable-regex:
-      metavariable: "$MASK"
-      regex: "(password|pass|passwd|pwd|secret|token)"
-  message: |
-    A potential hard-coded password was identified. Passwords should not be stored directly in code
-    but loaded from secure locations such as a Key Management System (KMS).
-
-    The purpose of using Key Management System's is so access can be audited and keys easily
-    rotated
-    in the event of a breach. By hardcoding passwords, it will be extremely difficult to determine
-    when or if, a key is compromised.
-
-    The recommendation on which KMS to use depends on the environment the application is running
-    in:
-
-    - For Google Cloud Platform consider [Cloud Key Management](https://cloud.google.com/kms/docs)
-    - For Amazon Web Services consider [AWS Key Management](https://aws.amazon.com/kms/)
-    - For on premise or other alternatives to cloud providers, consider [Hashicorp's
-    Vault](https://www.vaultproject.io/)
-    - For other cloud providers, please see their documentation
-  metadata:
-    shortDescription: "Use of hard-coded password"
-    cwe: "CWE-259"
-    owasp: "A3:2017-Sensitive Data Exposure"
-    primary_identifier: "gosec.G101-1"
-    secondary_identifiers:
-    - name: "Gosec Rule ID G101"
-      type: "gosec_rule_id"
-      value: "G101"
-  severity: "ERROR"
 - id: "gosec.G202-1"
   languages:
   - "go"
