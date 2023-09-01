@@ -184,6 +184,7 @@ contributions.
 
 #### Patterns we were unable to migrate (2)
 
+- G101: Potential hardcoded credentials. The upstream rule applies heuristics to determine if the value is likely to be a credential. These heuristics are difficult to duplicate in Semgrep and hardcoded credential identification is better handled in [Secret Detection](https://docs.gitlab.com/ee/user/application_security/secret_detection/).
 - G104: [Metavariable types not supported for go at the moment](https://github.com/returntocorp/semgrep-rules/issues/1149)
 - G307: [Deferring a method which returns an error](https://github.com/returntocorp/semgrep-rules/issues/1149)
 
