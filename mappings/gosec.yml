@@ -9,11 +9,6 @@ gosec:
     name: "Gosec Rule ID $ID"
     value: "$ID"
   mappings:
-  - id: "G101"
-    rules:
-    - path: "go/secrets/rule-secrets"
-      primary_id: "gosec.G101-1"
-      id: "gosec.G101-1"
   - id: "G102"
     rules:
     - path: "go/network/rule-bind_to_all_interfaces"

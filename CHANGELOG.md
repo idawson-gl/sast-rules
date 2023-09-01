@@ -1,5 +1,8 @@
 sast-rules changelog
 
+## v1.3.38
+- Disable Go rule for hardcoded secrets (G101) due to false positive rate (!205)
+
 ## v1.3.37
 - Disable SAST `message` field wordwrap and update rules that had incorrectly wrapped URLs. (!200)
 
