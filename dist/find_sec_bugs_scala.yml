@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "find_sec_bugs.HTTPONLY_COOKIE-1"
+- id: "find_sec_bugs.scala.HTTPONLY_COOKIE-1"
   languages:
   - "scala"
   message: |

@@ -420,7 +420,7 @@ find_sec_bugs_scala:
     rules:
     - path: "scala/cookie/rule-CookieHTTPOnly"
       primary_id: "find_sec_bugs.HTTPONLY_COOKIE"
-      id: "find_sec_bugs.HTTPONLY_COOKIE-1"
+      id: "find_sec_bugs.scala.HTTPONLY_COOKIE-1"
   - id: "COOKIE_USAGE"
     rules:
     - path: "scala/cookie/rule-CookieUsage"
