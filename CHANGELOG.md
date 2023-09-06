@@ -1,5 +1,8 @@
 sast-rules changelog
 
+## v1.3.30-bugfix
+- Change rule ID format from find_sec_bugs.XYZ to find_sec_bugs_scala.XYZ for Scala rules (!210)
+
 ## v1.3.30
 - Enhance Python ruleset descriptions and titles (!170)
 

@@ -1,9 +1,9 @@
 # yamllint disable
-# rule-set version: v1.3.30
+# rule-set version: v1.3.30-bugfix
 # yamllint enable
 ---
 rules:
-- id: "find_sec_bugs.HTTPONLY_COOKIE-1"
+- id: "find_sec_bugs_scala.HTTPONLY_COOKIE-1"
   languages:
   - "scala"
   message: |
@@ -36,7 +36,7 @@ rules:
         $RESP.addCookie($C);
   - pattern: "(javax.servlet.http.Cookie $C).setHttpOnly(false);"
   severity: "WARNING"
-- id: "find_sec_bugs.INSECURE_COOKIE-1"
+- id: "find_sec_bugs_scala.INSECURE_COOKIE-1"
   languages:
   - "scala"
   message: |
@@ -68,7 +68,7 @@ rules:
         $RESP.addCookie($C);
     - pattern: "($C:javax.servlet.http.Cookie).setSecure(false);"
   severity: "WARNING"
-- id: "find_sec_bugs.COOKIE_PERSISTENT-1"
+- id: "find_sec_bugs_scala.COOKIE_PERSISTENT-1"
   languages:
   - "scala"
   message: |
@@ -92,7 +92,7 @@ rules:
       comparison: "$AGE >= 31536000"
       metavariable: "$AGE"
   severity: "WARNING"
-- id: "find_sec_bugs.COOKIE_USAGE-1"
+- id: "find_sec_bugs_scala.COOKIE_USAGE-1"
   languages:
   - "scala"
   message: |
@@ -129,7 +129,7 @@ rules:
     - pattern: "($C: Cookie).getValue"
     - pattern: "($C: Cookie).getPath"
   severity: "WARNING"
-- id: "find_sec_bugs.HTTP_RESPONSE_SPLITTING-1"
+- id: "find_sec_bugs_scala.HTTP_RESPONSE_SPLITTING-1"
   languages:
   - "scala"
   message: |
@@ -170,7 +170,7 @@ rules:
   pattern-sources:
   - pattern: "($REQ: javax.servlet.http.HttpServletRequest).getParameter(...)"
   severity: "WARNING"
-- id: "find_sec_bugs.HRS_REQUEST_PARAMETER_TO_COOKIE-1"
+- id: "find_sec_bugs_scala.HRS_REQUEST_PARAMETER_TO_COOKIE-1"
   languages:
   - "scala"
   message: |
@@ -214,7 +214,7 @@ rules:
   pattern-sources:
   - pattern: "($REQ: HttpServletRequest).getParameter(...);"
   severity: "ERROR"
-- id: "find_sec_bugs.HRS_REQUEST_PARAMETER_TO_HTTP_HEADER-1"
+- id: "find_sec_bugs_scala.HRS_REQUEST_PARAMETER_TO_HTTP_HEADER-1"
   languages:
   - "scala"
   message: |
@@ -256,7 +256,7 @@ rules:
   pattern-sources:
   - pattern: "($REQ: HttpServletRequest).getParameter(...);"
   severity: "ERROR"
-- id: "find_sec_bugs.TRUST_BOUNDARY_VIOLATION-1"
+- id: "find_sec_bugs_scala.TRUST_BOUNDARY_VIOLATION-1"
   languages:
   - "scala"
   message: |
@@ -286,7 +286,7 @@ rules:
       - pattern: "($H: HttpServletRequest). ... .putValue($ARG1, $ARG2)"
       - pattern-not: "($H: HttpServletRequest). ... .putValue(\"...\", \"...\")"
   severity: "WARNING"
-- id: "find_sec_bugs.PERMISSIVE_CORS-1"
+- id: "find_sec_bugs_scala.PERMISSIVE_CORS-1"
   languages:
   - "scala"
   message: |
@@ -341,7 +341,7 @@ rules:
       - pattern-inside: |-
           ($RESP:javax.servlet.http.HttpServletResponse).addHeader("$HEADER",($REQ: javax.servlet.http.HttpServletRequest).getParameter(...))
   severity: "ERROR"
-- id: "find_sec_bugs.PERMISSIVE_CORS-2"
+- id: "find_sec_bugs_scala.PERMISSIVE_CORS-2"
   languages:
   - "java"
   message: |
@@ -379,7 +379,7 @@ rules:
   pattern-sources:
   - pattern: "(HttpServletRequest $REQ).getParamater(...)"
   severity: "ERROR"
-- id: "find_sec_bugs.BLOWFISH_KEY_SIZE-1"
+- id: "find_sec_bugs_scala.BLOWFISH_KEY_SIZE-1"
   languages:
   - "scala"
   message: |
@@ -405,7 +405,7 @@ rules:
       comparison: "$KEY_SIZE < 128"
       metavariable: "$KEY_SIZE"
   severity: "WARNING"
-- id: "find_sec_bugs.DES_USAGE-1"
+- id: "find_sec_bugs_scala.DES_USAGE-1"
   languages:
   - "scala"
   message: |
@@ -429,7 +429,7 @@ rules:
       metavariable: "$ALG"
       regex: "^(DES)/.*"
   severity: "WARNING"
-- id: "find_sec_bugs.TDES_USAGE-1"
+- id: "find_sec_bugs_scala.TDES_USAGE-1"
   languages:
   - "scala"
   message: |
@@ -453,7 +453,7 @@ rules:
       metavariable: "$ALG"
       regex: "^(DESede)/.*"
   severity: "WARNING"
-- id: "find_sec_bugs.ECB_MODE-1"
+- id: "find_sec_bugs_scala.ECB_MODE-1"
   languages:
   - "scala"
   message: |
@@ -477,7 +477,7 @@ rules:
       javax.crypto.Cipher.getInstance("...")
   - pattern-regex: "(AES|DES(ede)?)(/ECB/*)"
   severity: "ERROR"
-- id: "find_sec_bugs.CIPHER_INTEGRITY-1"
+- id: "find_sec_bugs_scala.CIPHER_INTEGRITY-1"
   languages:
   - "scala"
   message: |
@@ -508,7 +508,7 @@ rules:
   - pattern-not-regex: "^(RSA)/.*"
   - pattern-not-regex: "^(ECIES)$"
   severity: "ERROR"
-- id: "find_sec_bugs.PADDING_ORACLE-1"
+- id: "find_sec_bugs_scala.PADDING_ORACLE-1"
   languages:
   - "scala"
   message: |
@@ -534,7 +534,7 @@ rules:
   - pattern-not-regex: "^(RSA)/.*"
   - pattern-not-regex: "^(ECIES)$"
   severity: "ERROR"
-- id: "find_sec_bugs.CUSTOM_MESSAGE_DIGEST-1"
+- id: "find_sec_bugs_scala.CUSTOM_MESSAGE_DIGEST-1"
   languages:
   - "scala"
   message: |
@@ -558,7 +558,7 @@ rules:
         ...
       }
   severity: "WARNING"
-- id: "find_sec_bugs.DEFAULT_HTTP_CLIENT-1"
+- id: "find_sec_bugs_scala.DEFAULT_HTTP_CLIENT-1"
   patterns:
   - pattern: "new org.apache.http.impl.client.DefaultHttpClient(...)"
   message: |
@@ -577,7 +577,7 @@ rules:
     - name: "Find Security Bugs-DEFAULT_HTTP_CLIENT"
       type: "find_sec_bugs_type"
       value: "DEFAULT_HTTP_CLIENT"
-- id: "find_sec_bugs.HAZELCAST_SYMMETRIC_ENCRYPTION-1"
+- id: "find_sec_bugs_scala.HAZELCAST_SYMMETRIC_ENCRYPTION-1"
   languages:
   - "scala"
   message: |
@@ -598,7 +598,7 @@ rules:
   patterns:
   - pattern: "new com.hazelcast.config.SymmetricEncryptionConfig()"
   severity: "WARNING"
-- id: "find_sec_bugs.RSA_KEY_SIZE-1"
+- id: "find_sec_bugs_scala.RSA_KEY_SIZE-1"
   languages:
   - "scala"
   message: |
@@ -629,7 +629,7 @@ rules:
           metavariable: "$ALG"
           regex: "\"(RSA|DSA)\""
   severity: "WARNING"
-- id: "find_sec_bugs.NULL_CIPHER-1"
+- id: "find_sec_bugs_scala.NULL_CIPHER-1"
   languages:
   - "scala"
   message: |
@@ -649,7 +649,7 @@ rules:
       value: "NULL_CIPHER"
   pattern: "new javax.crypto.NullCipher()"
   severity: "WARNING"
-- id: "find_sec_bugs.RSA_NO_PADDING-1"
+- id: "find_sec_bugs_scala.RSA_NO_PADDING-1"
   languages:
   - "scala"
   message: |
@@ -669,7 +669,7 @@ rules:
       metavariable: "$ALG"
       regex: ".*NoPadding.*"
   severity: "WARNING"
-- id: "find_sec_bugs.WEAK_MESSAGE_DIGEST_MD5-1.WEAK_MESSAGE_DIGEST_SHA1-1"
+- id: "find_sec_bugs_scala.WEAK_MESSAGE_DIGEST_MD5-1.WEAK_MESSAGE_DIGEST_SHA1-1"
   languages:
   - "scala"
   message: |
@@ -697,7 +697,7 @@ rules:
       metavariable: "$ALG"
       regex: "(.*(MD5|MD4|MD2|SHA1|SHA-1).*)"
   severity: "WARNING"
-- id: "find_sec_bugs.SSL_CONTEXT-1"
+- id: "find_sec_bugs_scala.SSL_CONTEXT-1"
   languages:
   - "scala"
   message: |
@@ -723,7 +723,7 @@ rules:
           ...
       - pattern: "SSLContext.getInstance(\"SSL\")"
   severity: "WARNING"
-- id: "find_sec_bugs.SERVLET_PARAMETER-1.SERVLET_CONTENT_TYPE-1.SERVLET_SERVER_NAME-1.SERVLET_SESSION_ID-1.SERVLET_QUERY_STRING-1.SERVLET_HEADER-1.SERVLET_HEADER_REFERER-1.SERVLET_HEADER_USER_AGENT-1"
+- id: "find_sec_bugs_scala.SERVLET_PARAMETER-1.SERVLET_CONTENT_TYPE-1.SERVLET_SERVER_NAME-1.SERVLET_SESSION_ID-1.SERVLET_QUERY_STRING-1.SERVLET_HEADER-1.SERVLET_HEADER_REFERER-1.SERVLET_HEADER_USER_AGENT-1"
   languages:
   - "scala"
   message: |
@@ -789,7 +789,7 @@ rules:
     - pattern: |
         ($REQ: HttpServletRequest).getSession.getAttribute("...")
   severity: "WARNING"
-- id: "find_sec_bugs.JAXRS_ENDPOINT-1"
+- id: "find_sec_bugs_scala.JAXRS_ENDPOINT-1"
   languages:
   - "scala"
   message: |
@@ -822,7 +822,7 @@ rules:
         def $FUNC(..., $VAR: $TYPE, ...) = ...
     - pattern: "$VAR"
   severity: "INFO"
-- id: "find_sec_bugs.JAXWS_ENDPOINT-1"
+- id: "find_sec_bugs_scala.JAXWS_ENDPOINT-1"
   languages:
   - "scala"
   message: |
@@ -854,7 +854,7 @@ rules:
         def $FUNC(..., $VAR: $TYPE, ...) = ...
     - pattern: "$VAR"
   severity: "INFO"
-- id: "find_sec_bugs.UNENCRYPTED_SOCKET-1.UNENCRYPTED_SERVER_SOCKET-1"
+- id: "find_sec_bugs_scala.UNENCRYPTED_SOCKET-1.UNENCRYPTED_SERVER_SOCKET-1"
   languages:
   - "scala"
   message: |
@@ -876,7 +876,7 @@ rules:
   patterns:
   - pattern: "new java.net.Socket(...)"
   severity: "WARNING"
-- id: "find_sec_bugs.UNVALIDATED_REDIRECT-1.URL_REWRITING-1"
+- id: "find_sec_bugs_scala.UNVALIDATED_REDIRECT-1.URL_REWRITING-1"
   languages:
   - "scala"
   message: |
@@ -910,7 +910,7 @@ rules:
       - pattern: "($REQ: HttpServletResponse).encodeRedirectUrl(...)"
       - pattern-not: "($REQ: HttpServletResponse).encodeRedirectUrl(\"...\")"
   severity: "ERROR"
-- id: "find_sec_bugs.WEAK_HOSTNAME_VERIFIER-1.WEAK_TRUST_MANAGER-1"
+- id: "find_sec_bugs_scala.WEAK_HOSTNAME_VERIFIER-1.WEAK_TRUST_MANAGER-1"
   languages:
   - "scala"
   message: |
@@ -955,7 +955,7 @@ rules:
         - pattern: "def getAcceptedIssuers(): Array[X509Certificate] = null"
         - pattern: "def getAcceptedIssuers(): Array[X509Certificate] = {}"
   severity: "WARNING"
-- id: "find_sec_bugs.FILE_UPLOAD_FILENAME-1"
+- id: "find_sec_bugs_scala.FILE_UPLOAD_FILENAME-1"
   languages:
   - "scala"
   message: |
@@ -987,7 +987,7 @@ rules:
       }
   - pattern: "$ITEM.getName()"
   severity: "ERROR"
-- id: "find_sec_bugs.WEAK_FILENAMEUTILS-1"
+- id: "find_sec_bugs_scala.WEAK_FILENAMEUTILS-1"
   languages:
   - "scala"
   message: |
@@ -1027,7 +1027,7 @@ rules:
       - pattern: "org.apache.commons.io.FilenameUtils.getName(...)"
       - pattern: "org.apache.commons.io.FilenameUtils.getBaseName(...)"
   severity: "ERROR"
-- id: "find_sec_bugs.STRUTS_FORM_VALIDATION-1"
+- id: "find_sec_bugs_scala.STRUTS_FORM_VALIDATION-1"
   languages:
   - "scala"
   message: |
@@ -1052,7 +1052,7 @@ rules:
       regex: "(ActionForm|ValidatorForm)"
   - pattern-not: "public void validate() { ... }"
   severity: "WARNING"
-- id: "find_sec_bugs.AWS_QUERY_INJECTION-1"
+- id: "find_sec_bugs_scala.AWS_QUERY_INJECTION-1"
   languages:
   - "scala"
   message: |
@@ -1097,7 +1097,7 @@ rules:
         }
     - pattern: "$QUERY"
   severity: "ERROR"
-- id: "find_sec_bugs.BEAN_PROPERTY_INJECTION-1"
+- id: "find_sec_bugs_scala.BEAN_PROPERTY_INJECTION-1"
   languages:
   - "scala"
   message: |
@@ -1138,7 +1138,7 @@ rules:
       - pattern: "new BeanUtilsBean()"
       - pattern: "org.apache.commons.beanutils.BeanUtils"
   severity: "ERROR"
-- id: "find_sec_bugs.CRLF_INJECTION_LOGS-1"
+- id: "find_sec_bugs_scala.CRLF_INJECTION_LOGS-1"
   languages:
   - "scala"
   message: |
@@ -1203,7 +1203,7 @@ rules:
         }
     - pattern: "$REQ.getParameter(...)"
   severity: "ERROR"
-- id: "find_sec_bugs.COMMAND_INJECTION-1.SCALA_COMMAND_INJECTION-1"
+- id: "find_sec_bugs_scala.COMMAND_INJECTION-1.SCALA_COMMAND_INJECTION-1"
   languages:
   - "scala"
   message: |
@@ -1274,7 +1274,7 @@ rules:
     - pattern-not: |
         $PB.command(java.util.Arrays.asList("...","...","...",...))
   severity: "WARNING"
-- id: "find_sec_bugs.CUSTOM_INJECTION-1"
+- id: "find_sec_bugs_scala.CUSTOM_INJECTION-1"
   languages:
   - "scala"
   message: |
@@ -1315,7 +1315,7 @@ rules:
     - pattern: "$ST.executeQuery(... + $VAR)"
     - pattern: "$ST.executeQuery(...,String.format(\"...\",...,$VAR,...), ...)"
   severity: "WARNING"
-- id: "find_sec_bugs.CUSTOM_INJECTION-2"
+- id: "find_sec_bugs_scala.CUSTOM_INJECTION-2"
   languages:
   - "scala"
   message: |
@@ -1360,7 +1360,7 @@ rules:
       metavariable: "$SQL_STR"
       regex: "(?i)(select|insert|create|update|alter|delete|drop)\\b"
   severity: "WARNING"
-- id: "find_sec_bugs.EL_INJECTION-1"
+- id: "find_sec_bugs_scala.EL_INJECTION-1"
   languages:
   - "scala"
   message: |
@@ -1394,7 +1394,7 @@ rules:
     - pattern: "$X.createValueExpression(..., $EXPR, ...)"
     - pattern: "$X.createMethodExpression(..., $EXPR, ...)"
   severity: "WARNING"
-- id: "find_sec_bugs.REQUESTDISPATCHER_FILE_DISCLOSURE-1.STRUTS_FILE_DISCLOSURE-1.SPRING_FILE_DISCLOSURE-1"
+- id: "find_sec_bugs_scala.REQUESTDISPATCHER_FILE_DISCLOSURE-1.STRUTS_FILE_DISCLOSURE-1.SPRING_FILE_DISCLOSURE-1"
   languages:
   - "scala"
   message: |
@@ -1459,7 +1459,7 @@ rules:
   pattern-sources:
   - pattern: "($VAR: javax.servlet.http.HttpServletRequest).getParameter(...)"
   severity: "ERROR"
-- id: "find_sec_bugs.HTTP_PARAMETER_POLLUTION-1"
+- id: "find_sec_bugs_scala.HTTP_PARAMETER_POLLUTION-1"
   languages:
   - "scala"
   message: |
@@ -1492,7 +1492,7 @@ rules:
   pattern-sources:
   - pattern: "($REQ: HttpServletRequest ).getParameter(...)"
   severity: "ERROR"
-- id: "find_sec_bugs.LDAP_INJECTION-1"
+- id: "find_sec_bugs_scala.LDAP_INJECTION-1"
   languages:
   - "scala"
   message: |
@@ -1543,7 +1543,7 @@ rules:
       - pattern: "($CTX: org.springframework.ldap.core.LdapTemplate)"
       - pattern: "($CTX: org.springframework.ldap.core.LdapOperations)"
   severity: "WARNING"
-- id: "find_sec_bugs.OGNL_INJECTION-1"
+- id: "find_sec_bugs_scala.OGNL_INJECTION-1"
   patterns:
   - pattern-either:
     - pattern-inside: |
@@ -1637,7 +1637,7 @@ rules:
     - name: "Find Security Bugs-OGNL_INJECTION"
       type: "find_sec_bugs_type"
       value: "OGNL_INJECTION"
-- id: "find_sec_bugs.PATH_TRAVERSAL_IN-1.SCALA_PATH_TRAVERSAL_IN-1"
+- id: "find_sec_bugs_scala.PATH_TRAVERSAL_IN-1.SCALA_PATH_TRAVERSAL_IN-1"
   languages:
   - "scala"
   message: |
@@ -1700,7 +1700,7 @@ rules:
     - pattern: "scala.io.Source.fromFile(<...$VAR...>)"
     - pattern: "scala.io.Source.fromString(<...$VAR...>)"
   severity: "ERROR"
-- id: "find_sec_bugs.PATH_TRAVERSAL_OUT-1"
+- id: "find_sec_bugs_scala.PATH_TRAVERSAL_OUT-1"
   languages:
   - "scala"
   message: |
@@ -1746,7 +1746,7 @@ rules:
         }
     - pattern: "$VAR"
   severity: "ERROR"
-- id: "find_sec_bugs.PT_ABSOLUTE_PATH_TRAVERSAL-1"
+- id: "find_sec_bugs_scala.PT_ABSOLUTE_PATH_TRAVERSAL-1"
   languages:
   - "scala"
   message: |
@@ -1803,7 +1803,7 @@ rules:
   pattern-sources:
   - pattern: "($REQ: HttpServletRequest ).getParameter(...)"
   severity: "WARNING"
-- id: "find_sec_bugs.PT_RELATIVE_PATH_TRAVERSAL-1"
+- id: "find_sec_bugs_scala.PT_RELATIVE_PATH_TRAVERSAL-1"
   languages:
   - "scala"
   message: |
@@ -1866,7 +1866,7 @@ rules:
       - pattern: "$P + ..."
       - pattern: "... + $P"
   severity: "WARNING"
-- id: "find_sec_bugs.SQL_INJECTION_SPRING_JDBC-1.SQL_INJECTION_JPA-1.SQL_INJECTION_JDO-1.SQL_INJECTION_JDBC-1.SQL_NONCONSTANT_STRING_PASSED_TO_EXECUTE-1.SCALA_SQL_INJECTION_SLICK-1"
+- id: "find_sec_bugs_scala.SQL_INJECTION_SPRING_JDBC-1.SQL_INJECTION_JPA-1.SQL_INJECTION_JDO-1.SQL_INJECTION_JDBC-1.SQL_NONCONSTANT_STRING_PASSED_TO_EXECUTE-1.SCALA_SQL_INJECTION_SLICK-1"
   languages:
   - "scala"
   message: |
@@ -2136,7 +2136,7 @@ rules:
       - pattern: "SQL(<...$ARG...>)"
       - pattern-not: "SQL(\"...\")"
   severity: "ERROR"
-- id: "find_sec_bugs.LDAP_ANONYMOUS-1"
+- id: "find_sec_bugs_scala.LDAP_ANONYMOUS-1"
   languages:
   - "scala"
   message: |
@@ -2158,7 +2158,7 @@ rules:
       ...
   - pattern: "$ENV.put(Context.SECURITY_AUTHENTICATION, \"none\");"
   severity: "WARNING"
-- id: "find_sec_bugs.LDAP_ENTRY_POISONING-1"
+- id: "find_sec_bugs_scala.LDAP_ENTRY_POISONING-1"
   languages:
   - "scala"
   message: |
@@ -2178,7 +2178,7 @@ rules:
   - pattern: "new javax.naming.directory.SearchControls($SCOPE, $CLIMIT, $TLIMIT,
       $ATTR, true, $DEREF)"
   severity: "ERROR"
-- id: "find_sec_bugs.DMI_CONSTANT_DB_PASSWORD-1.HARD_CODE_PASSWORD-3"
+- id: "find_sec_bugs_scala.DMI_CONSTANT_DB_PASSWORD-1.HARD_CODE_PASSWORD-3"
   languages:
   - "scala"
   message: |
@@ -2201,7 +2201,7 @@ rules:
   patterns:
   - pattern: "java.sql.DriverManager.getConnection($URI, $USR, \"...\");"
   severity: "WARNING"
-- id: "find_sec_bugs.DMI_EMPTY_DB_PASSWORD-1.HARD_CODE_PASSWORD-2"
+- id: "find_sec_bugs_scala.DMI_EMPTY_DB_PASSWORD-1.HARD_CODE_PASSWORD-2"
   languages:
   - "scala"
   message: |
@@ -2224,7 +2224,7 @@ rules:
   patterns:
   - pattern: "java.sql.DriverManager.getConnection($URI, $USR, \"\");"
   severity: "WARNING"
-- id: "find_sec_bugs.HARD_CODE_PASSWORD-1"
+- id: "find_sec_bugs_scala.HARD_CODE_PASSWORD-1"
   languages:
   - "scala"
   message: |
@@ -2338,7 +2338,7 @@ rules:
       metavariable: "$PWD"
       regex: "(?i).*(pass|pwd|psw|secret|key|cipher|crypt|des|aes|mac|private|sign|cert).*"
   severity: "ERROR"
-- id: "find_sec_bugs.DANGEROUS_PERMISSION_COMBINATION-1"
+- id: "find_sec_bugs_scala.DANGEROUS_PERMISSION_COMBINATION-1"
   pattern-either:
   - pattern: |
       $RUNVAR = new RuntimePermission("createClassLoader");
@@ -2365,7 +2365,7 @@ rules:
       type: "find_sec_bugs_type"
       value: "DANGEROUS_PERMISSION_COMBINATION"
   severity: "WARNING"
-- id: "find_sec_bugs.OVERLY_PERMISSIVE_FILE_PERMISSION-1"
+- id: "find_sec_bugs_scala.OVERLY_PERMISSIVE_FILE_PERMISSION-1"
   languages:
   - "scala"
   message: |
@@ -2391,7 +2391,7 @@ rules:
       metavariable: "$PERM_STRING"
       regex: "[rwx-]{6}[rwx]{1,}"
   severity: "WARNING"
-- id: "find_sec_bugs.OVERLY_PERMISSIVE_FILE_PERMISSION-2"
+- id: "find_sec_bugs_scala.OVERLY_PERMISSIVE_FILE_PERMISSION-2"
   languages:
   - "scala"
   message: |
@@ -2417,7 +2417,7 @@ rules:
       metavariable: "$P"
       regex: "(PosixFilePermission.){0,1}(OTHERS_)"
   severity: "WARNING"
-- id: "find_sec_bugs.PREDICTABLE_RANDOM-1.PREDICTABLE_RANDOM_SCALA-1"
+- id: "find_sec_bugs_scala.PREDICTABLE_RANDOM-1.PREDICTABLE_RANDOM_SCALA-1"
   languages:
   - "scala"
   message: |
@@ -2446,7 +2446,7 @@ rules:
         regex: "^(next)"
   - pattern: "Math.random"
   severity: "WARNING"
-- id: "find_sec_bugs.SCRIPT_ENGINE_INJECTION-1.SPEL_INJECTION-1.EL_INJECTION-2.SEAM_LOG_INJECTION-1"
+- id: "find_sec_bugs_scala.SCRIPT_ENGINE_INJECTION-1.SPEL_INJECTION-1.EL_INJECTION-2.SEAM_LOG_INJECTION-1"
   languages:
   - "scala"
   message: |
@@ -2475,7 +2475,7 @@ rules:
   - pattern: "($ENGINE: javax.script.ScriptEngine).eval($ARG)"
   - pattern-not: "($ENGINE: javax.script.ScriptEngine).eval(\"...\")"
   severity: "ERROR"
-- id: "find_sec_bugs.SCRIPT_ENGINE_INJECTION-2"
+- id: "find_sec_bugs_scala.SCRIPT_ENGINE_INJECTION-2"
   languages:
   - "scala"
   message: |
@@ -2496,7 +2496,7 @@ rules:
   - pattern-not: "($P: org.springframework.expression.spel.standard.SpelExpressionParser
       ).parseExpression(\"...\");"
   severity: "ERROR"
-- id: "find_sec_bugs.INSECURE_SMTP_SSL-1"
+- id: "find_sec_bugs_scala.INSECURE_SMTP_SSL-1"
   languages:
   - "scala"
   message: |
@@ -2531,7 +2531,7 @@ rules:
       ...
       $E.setSSLCheckServerIdentity(true);
   severity: "ERROR"
-- id: "find_sec_bugs.SMTP_HEADER_INJECTION-1"
+- id: "find_sec_bugs_scala.SMTP_HEADER_INJECTION-1"
   languages:
   - "scala"
   message: |
@@ -2577,7 +2577,7 @@ rules:
       - pattern: "$M.setDisposition($ARG)"
       - pattern-not: "$M.setDisposition(\"...\")"
   severity: "ERROR"
-- id: "find_sec_bugs.SCALA_PLAY_SSRF-1"
+- id: "find_sec_bugs_scala.SCALA_PLAY_SSRF-1"
   languages:
   - "scala"
   message: |
@@ -2619,7 +2619,7 @@ rules:
       - pattern-not: "($W:play.api.libs.ws.WSClient).url(\"...\")"
       - pattern-not: "($W:play.api.libs.ws.WSClient).url(\"...\" + \"...\")"
   severity: "ERROR"
-- id: "find_sec_bugs.URLCONNECTION_SSRF_FD-1"
+- id: "find_sec_bugs_scala.URLCONNECTION_SSRF_FD-1"
   languages:
   - "scala"
   message: |
@@ -2675,7 +2675,7 @@ rules:
         - pattern: "InetSocketAddress"
         - pattern: "java.net.InetSocketAddress"
   severity: "ERROR"
-- id: "find_sec_bugs.BAD_HEXA_CONVERSION-1"
+- id: "find_sec_bugs_scala.BAD_HEXA_CONVERSION-1"
   languages:
   - "scala"
   message: |
@@ -2707,7 +2707,7 @@ rules:
         Integer.toHexString(...);
       }
   severity: "WARNING"
-- id: "find_sec_bugs.FORMAT_STRING_MANIPULATION-1"
+- id: "find_sec_bugs_scala.FORMAT_STRING_MANIPULATION-1"
   languages:
   - "scala"
   message: |
@@ -2763,7 +2763,7 @@ rules:
     - pattern: "System.out.format($FORMAT_STR, ...);"
     - pattern: "System.out.format(java.util.Locale.$LOCALE, $FORMAT_STR, ...);"
   severity: "ERROR"
-- id: "find_sec_bugs.IMPROPER_UNICODE-1"
+- id: "find_sec_bugs_scala.IMPROPER_UNICODE-1"
   languages:
   - "scala"
   message: |
@@ -2796,7 +2796,7 @@ rules:
   - pattern: "java.net.IDN.toASCII(...);"
   - pattern: "($U: URI).toASCIIString()"
   severity: "ERROR"
-- id: "find_sec_bugs.MODIFICATION_AFTER_VALIDATION-1"
+- id: "find_sec_bugs_scala.MODIFICATION_AFTER_VALIDATION-1"
   patterns:
   - pattern: |
       $Y.matcher($VAR);
@@ -2820,7 +2820,7 @@ rules:
       type: "find_sec_bugs_type"
       value: "MODIFICATION_AFTER_VALIDATION"
   severity: "WARNING"
-- id: "find_sec_bugs.NORMALIZATION_AFTER_VALIDATION-1"
+- id: "find_sec_bugs_scala.NORMALIZATION_AFTER_VALIDATION-1"
   patterns:
   - pattern: |
       $Y = java.util.regex.Pattern.compile("[<>]");
@@ -2843,7 +2843,7 @@ rules:
       type: "find_sec_bugs_type"
       value: "NORMALIZATION_AFTER_VALIDATION"
   severity: "WARNING"
-- id: "find_sec_bugs.TEMPLATE_INJECTION_PEBBLE-1.TEMPLATE_INJECTION_FREEMARKER-1.TEMPLATE_INJECTION_VELOCITY-1"
+- id: "find_sec_bugs_scala.TEMPLATE_INJECTION_PEBBLE-1.TEMPLATE_INJECTION_FREEMARKER-1.TEMPLATE_INJECTION_VELOCITY-1"
   languages:
   - "scala"
   message: |
@@ -2888,7 +2888,7 @@ rules:
         ...
     - pattern: "$C.evaluate(...)"
   severity: "ERROR"
-- id: "find_sec_bugs.EXTERNAL_CONFIG_CONTROL-1"
+- id: "find_sec_bugs_scala.EXTERNAL_CONFIG_CONTROL-1"
   languages:
   - "scala"
   message: |
@@ -2912,7 +2912,7 @@ rules:
       ...
       ($CONN: java.sql.Connection).setCatalog($TAINTED);
   severity: "WARNING"
-- id: "find_sec_bugs.INFORMATION_EXPOSURE_THROUGH_AN_ERROR_MESSAGE-1"
+- id: "find_sec_bugs_scala.INFORMATION_EXPOSURE_THROUGH_AN_ERROR_MESSAGE-1"
   languages:
   - "scala"
   message: |
@@ -2935,7 +2935,7 @@ rules:
   patterns:
   - pattern: "$E.printStackTrace(...)"
   severity: "WARNING"
-- id: "find_sec_bugs.SCALA_SENSITIVE_DATA_EXPOSURE-1"
+- id: "find_sec_bugs_scala.SCALA_SENSITIVE_DATA_EXPOSURE-1"
   languages:
   - "scala"
   message: |
@@ -2966,7 +2966,7 @@ rules:
       ...
   - pattern: "Ok(<...$VAL...>)"
   severity: "WARNING"
-- id: "find_sec_bugs.RPC_ENABLED_EXTENSIONS-1"
+- id: "find_sec_bugs_scala.RPC_ENABLED_EXTENSIONS-1"
   languages:
   - "scala"
   message: |
@@ -2994,7 +2994,7 @@ rules:
           ...
       - pattern: "$VAR.setEnabledForExtensions(true);"
   severity: "WARNING"
-- id: "find_sec_bugs.SAML_IGNORE_COMMENTS-1"
+- id: "find_sec_bugs_scala.SAML_IGNORE_COMMENTS-1"
   languages:
   - "scala"
   message: |
@@ -3010,7 +3010,7 @@ rules:
       value: "SAML_IGNORE_COMMENTS"
   pattern: "($POOL: BasicParserPool).setIgnoreComments(false);"
   severity: "WARNING"
-- id: "find_sec_bugs.XML_DECODER-1"
+- id: "find_sec_bugs_scala.XML_DECODER-1"
   languages:
   - "scala"
   message: |
@@ -3033,7 +3033,7 @@ rules:
       ...
   - pattern: "$D.readObject"
   severity: "WARNING"
-- id: "find_sec_bugs.MALICIOUS_XSLT-1"
+- id: "find_sec_bugs_scala.MALICIOUS_XSLT-1"
   mode: "taint"
   pattern-sources:
   - patterns:
@@ -3084,7 +3084,7 @@ rules:
       type: "find_sec_bugs_type"
       value: "MALICIOUS_XSLT"
   severity: "WARNING"
-- id: "find_sec_bugs.XPATH_INJECTION-1"
+- id: "find_sec_bugs_scala.XPATH_INJECTION-1"
   languages:
   - "scala"
   message: |
@@ -3121,7 +3121,7 @@ rules:
         }
     - pattern: "$ARG"
   severity: "ERROR"
-- id: "find_sec_bugs.SCALA_XSS_MVC_API-1"
+- id: "find_sec_bugs_scala.SCALA_XSS_MVC_API-1"
   languages:
   - "scala"
   message: |
@@ -3149,7 +3149,7 @@ rules:
         }
     - focus-metavariable: "$ARG"
   severity: "WARNING"
-- id: "find_sec_bugs.XSS_REQUEST_WRAPPER-1"
+- id: "find_sec_bugs_scala.XSS_REQUEST_WRAPPER-1"
   languages:
   - "scala"
   message: |
@@ -3171,7 +3171,7 @@ rules:
       }
   - pattern: "def stripXSS(...) = { ... }"
   severity: "INFO"
-- id: "find_sec_bugs.WICKET_XSS1-1"
+- id: "find_sec_bugs_scala.WICKET_XSS1-1"
   languages:
   - "scala"
   message: |
@@ -3189,7 +3189,7 @@ rules:
   patterns:
   - pattern: "($X: Label).setEscapeModelStrings(false);"
   severity: "WARNING"
-- id: "find_sec_bugs.XSS_REQUEST_PARAMETER_TO_SERVLET_WRITER-1"
+- id: "find_sec_bugs_scala.XSS_REQUEST_PARAMETER_TO_SERVLET_WRITER-1"
   languages:
   - "scala"
   message: |
@@ -3233,7 +3233,7 @@ rules:
       - pattern: "$REQ.getParameter(...)"
       - pattern: "$REQ.getQueryString"
   severity: "WARNING"
-- id: "find_sec_bugs.XSS_SERVLET-1"
+- id: "find_sec_bugs_scala.XSS_SERVLET-1"
   languages:
   - "scala"
   message: |
@@ -3275,7 +3275,7 @@ rules:
         def $FUNC(..., $REQ: HttpServletRequest, ...): $TYPE = {...}
     - pattern: "$REQ.getParameter(...);"
   severity: "WARNING"
-- id: "find_sec_bugs.XXE_DOCUMENT-1"
+- id: "find_sec_bugs_scala.XXE_DOCUMENT-1"
   languages:
   - "scala"
   message: |
@@ -3302,7 +3302,7 @@ rules:
       ...
   - pattern: "$DB.parse(...)"
   severity: "ERROR"
-- id: "find_sec_bugs.XXE_SAXPARSER-1"
+- id: "find_sec_bugs_scala.XXE_SAXPARSER-1"
   languages:
   - "scala"
   message: |
@@ -3332,7 +3332,7 @@ rules:
       ...
   - pattern: "$P.parse(...);"
   severity: "ERROR"
-- id: "find_sec_bugs.XXE_DTD_TRANSFORM_FACTORY-1.XXE_XSLT_TRANSFORM_FACTORY-1"
+- id: "find_sec_bugs_scala.XXE_DTD_TRANSFORM_FACTORY-1.XXE_XSLT_TRANSFORM_FACTORY-1"
   languages:
   - "scala"
   message: |
@@ -3368,7 +3368,7 @@ rules:
           ...
     - pattern: "$FACT.newTransformer"
   severity: "ERROR"
-- id: "find_sec_bugs.XXE_XMLREADER-1"
+- id: "find_sec_bugs_scala.XXE_XMLREADER-1"
   languages:
   - "scala"
   message: |
@@ -3392,7 +3392,7 @@ rules:
       ...
   - pattern: "$R.parse(...)"
   severity: "ERROR"
-- id: "find_sec_bugs.XXE_XMLSTREAMREADER-1"
+- id: "find_sec_bugs_scala.XXE_XMLSTREAMREADER-1"
   languages:
   - "scala"
   message: |
@@ -3419,7 +3419,7 @@ rules:
       ...
   - pattern: "$SF.createXMLStreamReader(...)"
   severity: "ERROR"
-- id: "find_sec_bugs.XXE_XPATH-1"
+- id: "find_sec_bugs_scala.XXE_XPATH-1"
   languages:
   - "scala"
   message: |

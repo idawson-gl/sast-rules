@@ -1,5 +1,5 @@
 # yamllint disable
-# rule-set version: v1.3.30
+# rule-set version: v1.3.30-bugfix
 # yamllint enable
 ---
 rules:
