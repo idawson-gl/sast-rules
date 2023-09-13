@@ -1,7 +1,7 @@
 sast-rules changelog
 
 ## v1.3.40
-- Remove poor C# rules (!199)
+- Remove poor C# rules (!218)
   - `csharp/cache/rule-OutputCacheConflicts.yml` - Unable to confirm vulnerability
   - `csharp/other/rule-AuthorizationBypass.yml` - Highly prone to false positives as it assumes any controller without `[AllowAnonymous]` or `[Authorize]` is an authorization bypass
 
