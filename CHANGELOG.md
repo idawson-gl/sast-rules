@@ -1,7 +1,7 @@
 sast-rules changelog
 
 ## v1.3.40
-- Remove poor Python rules (!197)
+- Remove poor Python rules (!217)
   - `python/cgi/rule-import_httpoxy.yml` - Not vulnerable since 2016 https://bugs.python.org/issue27568
   - `python/crypto/rule-import_pyghmi.yml` - Old rule from 2013 https://www.cisa.gov/news-events/alerts/2013/07/26/risks-using-intelligent-platform-management-interface-ipmi
   - `python/escaping/rule-mark_safe.yml` - Duplicate of `rule-django.yml`
