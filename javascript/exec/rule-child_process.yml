@@ -7,6 +7,7 @@ rules:
   languages:
   - "javascript"
   - "typescript"
+  pattern: "foo()"
   severity: "WARNING"
   message: |
     OS command injection is a critical vulnerability that can lead to a full system

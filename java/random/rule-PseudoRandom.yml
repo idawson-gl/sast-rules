@@ -6,6 +6,7 @@ rules:
 - id: "java/random/rule-PseudoRandom"
   languages:
   - "java"
+  pattern: "foo()"
   message: |
     Depending on the context, generating weak random numbers may expose cryptographic functions
     which rely on these numbers, to be exploitable. When generating numbers for sensitive values

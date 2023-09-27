@@ -6,6 +6,7 @@ rules:
 - id: "csharp/crypto/rule-WeakCipherMode"
   languages:
   - "csharp"
+  pattern: "foo()"
   message: |
     Cryptographic algorithms provide many different modes of operation, only some of which provide
     message integrity. Without message integrity it could be possible for an adversary to attempt

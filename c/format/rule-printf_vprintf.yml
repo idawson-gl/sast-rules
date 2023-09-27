@@ -25,4 +25,5 @@ rules:
     shortDescription: "Potential format string vulnerability"
     cwe: "CWE-134"
     owasp: "A1:2017-Injection"
+  pattern: "foo()"
   severity: "ERROR"
