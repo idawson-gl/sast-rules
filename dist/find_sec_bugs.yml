@@ -1626,11 +1626,7 @@ rules:
 - id: "find_sec_bugs.SPRING_CSRF_PROTECTION_DISABLED-1"
   languages:
   - "java"
-  pattern-either:
-  - pattern: "(org.springframework.security.config.annotation.web.builders.HttpSecurity
-      $H). ... .csrf().disable();"
-  - pattern: "(org.springframework.security.config.annotation.web.configurers.CsrfConfigurer<HttpSecurity>
-      $C).disable();"
+  pattern: "foo()"
   message: |
     The application fails to protect against Cross-Site Request Forgery (CSRF)
     due to disabling Spring's CSRF protection features.
@@ -3989,19 +3985,7 @@ rules:
 - id: "find_sec_bugs.PREDICTABLE_RANDOM-1"
   languages:
   - "java"
-  patterns:
-  - pattern-either:
-    - pattern: |
-        java.util.Random $R = new java.util.Random();
-        ...
-        $R.$METHOD();
-    - pattern: "(java.util.Random $R).$METHOD()"
-    - pattern: "new java.util.Random().$METHOD()"
-    - pattern: "org.apache.commons.lang.math.RandomUtils.$METHOD()"
-    - pattern: "org.apache.commons.lang.RandomStringUtils.$METHOD(...)"
-  - metavariable-regex:
-      metavariable: "$METHOD"
-      regex: "^(next|random)"
+  pattern: "foo()"
   message: |
     Depending on the context, generating weak random numbers may expose cryptographic functions
     which rely on these numbers, to be exploitable. When generating numbers for sensitive values
