@@ -1,5 +1,7 @@
 # Semgrep rules
 
+wip dot not merge
+
 This is the central Semgrep rule repository that hosts the Semgrep rules
 for the [GitLab semgrep analyzer](https://gitlab.com/gitlab-org/security-products/analyzers/semgrep).
 
