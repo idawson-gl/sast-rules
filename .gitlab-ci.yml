@@ -113,7 +113,7 @@ semgrep-check:
     - job: assemble
       artifacts: true
   before_script:
-    - export VERSION=$(curl "https://gitlab.com/gitlab-org/security-products/analyzers/semgrep/-/raw/main/Dockerfile" | sed -n 's/ARG SCANNER_VERSION=\([^ ]*\)/\1/p')
+    - export VERSION="1.23.0"
     - echo "Installing semgrep version $VERSION"
     - pip install semgrep==$VERSION
   script:
