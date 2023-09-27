@@ -6,14 +6,6 @@ rules:
 - id: "csharp/crypto/rule-WeakCipherMode"
   languages:
   - "csharp"
-  patterns:
-  - pattern-inside: |
-      using System.Security.Cryptography;
-      ...
-  - metavariable-regex:
-      metavariable: "$CIPHER"
-      regex: "^(ECB|CBC|OFB|CFB|CTS)$"
-  - pattern: "CipherMode.$CIPHER"
   message: |
     Cryptographic algorithms provide many different modes of operation, only some of which provide
     message integrity. Without message integrity it could be possible for an adversary to attempt

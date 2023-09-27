@@ -6,19 +6,6 @@ rules:
 - id: "java/random/rule-PseudoRandom"
   languages:
   - "java"
-  patterns:
-  - pattern-either:
-    - pattern: |
-        java.util.Random $R = new java.util.Random();
-        ...
-        $R.$METHOD();
-    - pattern: "(java.util.Random $R).$METHOD()"
-    - pattern: "new java.util.Random().$METHOD()"
-    - pattern: "org.apache.commons.lang.math.RandomUtils.$METHOD()"
-    - pattern: "org.apache.commons.lang.RandomStringUtils.$METHOD(...)"
-  - metavariable-regex:
-      metavariable: "$METHOD"
-      regex: "^(next|random)"
   message: |
     Depending on the context, generating weak random numbers may expose cryptographic functions
     which rely on these numbers, to be exploitable. When generating numbers for sensitive values

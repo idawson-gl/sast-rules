@@ -7,9 +7,6 @@ rules:
   languages:
   - "javascript"
   - "typescript"
-  patterns:
-  - pattern: "child_process.exec(...)"
-  - pattern-not: "child_process.exec('...')"
   severity: "WARNING"
   message: |
     OS command injection is a critical vulnerability that can lead to a full system
