@@ -4,7 +4,7 @@
 # yamllint enable
 ---
 rules:
-- id: "go/filesystem/rule-dirtraversal"
+- id: "go_filesystem_rule-dirtraversal"
   languages:
   - "go"
   patterns:

@@ -4,7 +4,7 @@
 # yamllint enable
 ---
 rules:
-- id: "go/blocklist/rule-blocklist-des"
+- id: "go_blocklist_rule-blocklist-des"
   languages:
   - "go"
   patterns:

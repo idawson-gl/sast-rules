@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "scala/strings/rule-FormatStringManipulation"
+- id: "scala_strings_rule-FormatStringManipulation"
   languages:
   - "scala"
   message: |

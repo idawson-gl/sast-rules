@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "scala/xml/rule-XmlDecoder"
+- id: "scala_xml_rule-XmlDecoder"
   languages:
   - "scala"
   message: |

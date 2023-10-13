@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "scala/xss/rule-WicketXSS"
+- id: "scala_xss_rule-WicketXSS"
   languages:
   - "scala"
   message: |

@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "scala/crypto/rule-CipherDESInsecure"
+- id: "scala_crypto_rule-CipherDESInsecure"
   languages:
   - "scala"
   message: |

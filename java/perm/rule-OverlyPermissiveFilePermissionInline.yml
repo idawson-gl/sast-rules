@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "java/perm/rule-OverlyPermissiveFilePermissionInline"
+- id: "java_perm_rule-OverlyPermissiveFilePermissionInline"
   languages:
   - "java"
   patterns:

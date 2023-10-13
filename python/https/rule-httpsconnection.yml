@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "python/https/rule-httpsconnection"
+- id: "python_https_rule-httpsconnection"
   languages:
   - "python"
   message: |

@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "java/inject/rule-FileDisclosure"
+- id: "java_inject_rule-FileDisclosure"
   languages:
   - "java"
   mode: "taint"

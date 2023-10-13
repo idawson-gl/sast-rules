@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "python/tmpdir/rule-specialdir"
+- id: "python_tmpdir_rule-specialdir"
   languages:
   - "python"
   message: |

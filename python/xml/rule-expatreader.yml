@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "python/xml/rule-expatreader"
+- id: "python_xml_rule-expatreader"
   languages:
   - "python"
   message: |

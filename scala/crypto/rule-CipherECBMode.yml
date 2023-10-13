@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "scala/crypto/rule-CipherECBMode"
+- id: "scala_crypto_rule-CipherECBMode"
   languages:
   - "scala"
   message: |

@@ -5,7 +5,7 @@
 # yamllint enable
 ---
 rules:
-- id: "c/format/rule-syslog"
+- id: "c_format_rule-syslog"
   languages:
   - "c"
   message: |

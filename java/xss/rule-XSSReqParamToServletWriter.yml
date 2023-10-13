@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "java/xss/rule-XSSReqParamToServletWriter"
+- id: "java_xss_rule-XSSReqParamToServletWriter"
   languages:
   - "java"
   mode: "taint"

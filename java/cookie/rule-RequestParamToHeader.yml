@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "java/cookie/rule-RequestParamToHeader"
+- id: "java_cookie_rule-RequestParamToHeader"
   languages:
   - "java"
   mode: "taint"

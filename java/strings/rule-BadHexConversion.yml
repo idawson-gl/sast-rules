@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "java/strings/rule-BadHexConversion"
+- id: "java_strings_rule-BadHexConversion"
   languages:
   - "java"
   message: |

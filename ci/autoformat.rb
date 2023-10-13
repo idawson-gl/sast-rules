@@ -11,7 +11,7 @@ module AutoFormat
     # apply double quotes
     ast.grep(Psych::Nodes::Scalar).each do |node|
       next if node.value == "regex"
-      
+
       node.plain  = false
       node.quoted = true
       node.style  = Psych::Nodes::Scalar::DOUBLE_QUOTED
@@ -21,7 +21,7 @@ module AutoFormat
     # message, pattern-inside and pattern
     ast.grep(Psych::Nodes::Mapping).each do |node|
       node.children.each_slice(2) do |k, v|
-        next if k.value == "regex" 
+        next if k.value == "regex"
 
         k.plain  = true
         k.quoted = false
@@ -56,7 +56,7 @@ module AutoFormat
   def self.run
     changed = 0
     Dir.glob('**/rule-*.yml').each do |file|
-      id = File.join(File.dirname(file), File.basename(file, '.yml'))
+      id = self.rule_file_path_to_id(file)
       yaml_dict = {}
       begin
         ff = File.read(file)
@@ -121,6 +121,12 @@ module AutoFormat
   def self.make_quoted(value)
     value.style = Psych::Nodes::Scalar::DOUBLE_QUOTED
     value.quoted = true
+  end
+
+  def self.rule_file_path_to_id(path)
+    base_filename = File.basename(path, '.yml')
+
+    File.join(File.dirname(path), base_filename).gsub('_', '-').gsub('/', '_')
   end
 end
 

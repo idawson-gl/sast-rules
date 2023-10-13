@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "java/endpoint/rule-UnvalidatedRedirect"
+- id: "java_endpoint_rule-UnvalidatedRedirect"
   languages:
   - "java"
   message: |

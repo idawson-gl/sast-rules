@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "csharp/other/rule-UnsafeXSLTSettingUsed"
+- id: "csharp_other_rule-UnsafeXSLTSettingUsed"
   patterns:
   - pattern-either:
     - pattern: "new XsltSettings() {EnableScript = true};"

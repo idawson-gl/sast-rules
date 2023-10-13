@@ -4,7 +4,7 @@
 # yamllint enable
 ---
 rules:
-- id: "go/crypto/rule-weakcrypto"
+- id: "go_crypto_rule-weakcrypto"
   languages:
   - "go"
   message: |

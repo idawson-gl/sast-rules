@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "scala/crypto/rule-BlowfishKeySize"
+- id: "scala_crypto_rule-BlowfishKeySize"
   languages:
   - "scala"
   message: |

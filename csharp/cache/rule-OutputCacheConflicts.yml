@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "csharp/cache/rule-OutputCacheConflicts"
+- id: "csharp_cache_rule-OutputCacheConflicts"
   languages:
   - "csharp"
   patterns:

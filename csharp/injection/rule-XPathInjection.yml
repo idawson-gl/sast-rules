@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "csharp/injection/rule-XPathInjection"
+- id: "csharp_injection_rule-XPathInjection"
   languages:
   - "csharp"
   patterns:

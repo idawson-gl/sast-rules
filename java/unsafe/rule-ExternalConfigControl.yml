@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "java/unsafe/rule-ExternalConfigControl"
+- id: "java_unsafe_rule-ExternalConfigControl"
   languages:
   - "java"
   patterns:

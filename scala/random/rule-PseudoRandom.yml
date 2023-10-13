@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "scala/random/rule-PseudoRandom"
+- id: "scala_random_rule-PseudoRandom"
   languages:
   - "scala"
   message: |

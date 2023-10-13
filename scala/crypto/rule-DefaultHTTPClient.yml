@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "scala/crypto/rule-DefaultHTTPClient"
+- id: "scala_crypto_rule-DefaultHTTPClient"
   patterns:
   - pattern: "new org.apache.http.impl.client.DefaultHttpClient(...)"
   message: |

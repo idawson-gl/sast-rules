@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "scala/script/rule-SpelView"
+- id: "scala_script_rule-SpelView"
   languages:
   - "scala"
   message: |

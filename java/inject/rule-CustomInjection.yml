@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "java/inject/rule-CustomInjection"
+- id: "java_inject_rule-CustomInjection"
   languages:
   - "java"
   patterns:

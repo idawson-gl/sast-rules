@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "java/strings/rule-ModifyAfterValidation"
+- id: "java_strings_rule-ModifyAfterValidation"
   languages:
   - "java"
   patterns:

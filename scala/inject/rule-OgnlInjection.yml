@@ -4,7 +4,7 @@
 # yamllint enable
 ---
 rules:
-- id: "scala/inject/rule-OgnlInjection"
+- id: "scala_inject_rule-OgnlInjection"
   patterns:
   - pattern-either:
     - pattern-inside: |

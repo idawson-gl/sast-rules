@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "scala/crypto/rule-HazelcastSymmetricEncryption"
+- id: "scala_crypto_rule-HazelcastSymmetricEncryption"
   languages:
   - "scala"
   message: |

@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "scala/xxe/rule-Document"
+- id: "scala_xxe_rule-Document"
   languages:
   - "scala"
   message: |

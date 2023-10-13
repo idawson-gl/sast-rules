@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "csharp/path/rule-PathTraversal"
+- id: "csharp_path_rule-PathTraversal"
   languages:
   - "csharp"
   mode: "taint"

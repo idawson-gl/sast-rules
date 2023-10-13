@@ -4,7 +4,7 @@
 # yamllint enable
 ---
 rules:
-- id: "scala/xml/rule-XsltTransform"
+- id: "scala_xml_rule-XsltTransform"
   mode: "taint"
   pattern-sources:
   - patterns:

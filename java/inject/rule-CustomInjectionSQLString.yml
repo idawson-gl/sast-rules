@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "java/inject/rule-CustomInjectionSQLString"
+- id: "java_inject_rule-CustomInjectionSQLString"
   languages:
   - "java"
   message: |

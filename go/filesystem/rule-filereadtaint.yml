@@ -4,7 +4,7 @@
 # yamllint enable
 ---
 rules:
-- id: "go/filesystem/rule-filereadtaint"
+- id: "go_filesystem_rule-filereadtaint"
   languages:
   - "go"
   patterns:

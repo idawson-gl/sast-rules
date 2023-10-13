@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "java/password/rule-HardcodeKeySuspiciousName"
+- id: "java_password_rule-HardcodeKeySuspiciousName"
   languages:
   - "java"
   message: |

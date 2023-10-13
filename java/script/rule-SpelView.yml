@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "java/script/rule-SpelView"
+- id: "java_script_rule-SpelView"
   languages:
   - "java"
   patterns:

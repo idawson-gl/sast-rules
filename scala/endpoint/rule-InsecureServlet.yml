@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "scala/endpoint/rule-InsecureServlet"
+- id: "scala_endpoint_rule-InsecureServlet"
   languages:
   - "scala"
   message: |

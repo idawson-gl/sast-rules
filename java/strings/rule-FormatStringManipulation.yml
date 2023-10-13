@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "java/strings/rule-FormatStringManipulation"
+- id: "java_strings_rule-FormatStringManipulation"
   languages:
   - "java"
   patterns:

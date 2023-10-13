@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "java/templateinjection/rule-TemplateInjection"
+- id: "java_templateinjection_rule-TemplateInjection"
   languages:
   - "java"
   message: |

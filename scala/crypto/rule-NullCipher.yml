@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "scala/crypto/rule-NullCipher"
+- id: "scala_crypto_rule-NullCipher"
   languages:
   - "scala"
   message: |

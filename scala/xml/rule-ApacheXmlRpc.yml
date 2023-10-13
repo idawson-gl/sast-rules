@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "scala/xml/rule-ApacheXmlRpc"
+- id: "scala_xml_rule-ApacheXmlRpc"
   languages:
   - "scala"
   message: |

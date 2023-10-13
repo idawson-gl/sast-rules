@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "scala/inject/rule-PathTraversalOut"
+- id: "scala_inject_rule-PathTraversalOut"
   languages:
   - "scala"
   message: |

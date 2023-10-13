@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "java/xxe/rule-XMLStreamRdr"
+- id: "java_xxe_rule-XMLStreamRdr"
   languages:
   - "java"
   message: |

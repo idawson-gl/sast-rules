@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "java/inject/rule-CLRFInjectionLogs"
+- id: "java_inject_rule-CLRFInjectionLogs"
   languages:
   - "java"
   patterns:

@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "java/xss/rule-XSSServlet"
+- id: "java_xss_rule-XSSServlet"
   languages:
   - "java"
   message: |

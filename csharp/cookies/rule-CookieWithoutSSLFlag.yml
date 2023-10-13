@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "csharp/cookies/rule-CookieWithoutSSLFlag"
+- id: "csharp_cookies_rule-CookieWithoutSSLFlag"
   languages:
   - "csharp"
   mode: "taint"

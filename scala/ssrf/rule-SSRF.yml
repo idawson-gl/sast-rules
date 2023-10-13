@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "scala/ssrf/rule-SSRF"
+- id: "scala_ssrf_rule-SSRF"
   languages:
   - "scala"
   message: |

@@ -5,7 +5,7 @@
 # yamllint enable
 ---
 rules:
-- id: "go/file_permissions/rule-mkdir"
+- id: "go_file-permissions_rule-mkdir"
   languages:
   - "go"
   patterns:

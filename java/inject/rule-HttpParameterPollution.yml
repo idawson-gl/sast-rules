@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "java/inject/rule-HttpParameterPollution"
+- id: "java_inject_rule-HttpParameterPollution"
   languages:
   - "java"
   mode: "taint"

@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "java/xml/rule-ApacheXmlRpc"
+- id: "java_xml_rule-ApacheXmlRpc"
   languages:
   - "java"
   message: |

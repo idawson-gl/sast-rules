@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "java/cookie/rule-RequestParamToCookie"
+- id: "java_cookie_rule-RequestParamToCookie"
   languages:
   - "java"
   message: |

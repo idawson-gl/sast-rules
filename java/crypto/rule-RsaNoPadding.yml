@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "java/crypto/rule-RsaNoPadding"
+- id: "java_crypto_rule-RsaNoPadding"
   languages:
   - "java"
   patterns:

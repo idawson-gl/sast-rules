@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "java/endpoint/rule-JaxWsEndpoint"
+- id: "java_endpoint_rule-JaxWsEndpoint"
   languages:
   - "java"
   message: |

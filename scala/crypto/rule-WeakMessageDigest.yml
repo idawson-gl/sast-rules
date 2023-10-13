@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "scala/crypto/rule-WeakMessageDigest"
+- id: "scala_crypto_rule-WeakMessageDigest"
   languages:
   - "scala"
   message: |

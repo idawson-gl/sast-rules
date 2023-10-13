@@ -5,7 +5,7 @@
 # yamllint enable
 ---
 rules:
-- id: "c/shell/rule-system"
+- id: "c_shell_rule-system"
   languages:
   - "c"
   message: |

@@ -5,7 +5,7 @@
 # yamllint enable
 ---
 rules:
-- id: "go/injection/rule-ssrf"
+- id: "go_injection_rule-ssrf"
   languages:
   - "go"
   patterns:

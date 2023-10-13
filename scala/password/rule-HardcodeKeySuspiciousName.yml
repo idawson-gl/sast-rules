@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "scala/password/rule-HardcodeKeySuspiciousName"
+- id: "scala_password_rule-HardcodeKeySuspiciousName"
   languages:
   - "scala"
   message: |

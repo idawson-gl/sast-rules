@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "scala/cookie/rule-CookieHTTPOnly"
+- id: "scala_cookie_rule-CookieHTTPOnly"
   languages:
   - "scala"
   message: |

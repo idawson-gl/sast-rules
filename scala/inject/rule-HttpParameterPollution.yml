@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "scala/inject/rule-HttpParameterPollution"
+- id: "scala_inject_rule-HttpParameterPollution"
   languages:
   - "scala"
   message: |

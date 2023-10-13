@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "java/file/rule-FilenameUtils"
+- id: "java_file_rule-FilenameUtils"
   languages:
   - "java"
   message: |

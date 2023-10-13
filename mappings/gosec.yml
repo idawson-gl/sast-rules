@@ -16,7 +16,7 @@ gosec:
       id: "gosec.G101-1"
   - id: "G102"
     rules:
-    - path: "go/network/rule-bind_to_all_interfaces"
+    - path: "go/network/rule-bind-to-all-interfaces"
       primary_id: "gosec.G102-1"
       id: "gosec.G102-1"
   - id: "G103"
@@ -26,7 +26,7 @@ gosec:
       id: "gosec.G103-1"
   - id: "G106"
     rules:
-    - path: "go/crypto/rule-insecure_ignore_host_key"
+    - path: "go/crypto/rule-insecure-ignore-host-key"
       primary_id: "gosec.G106-1"
       id: "gosec.G106-1"
   - id: "G107"
@@ -36,17 +36,17 @@ gosec:
       id: "gosec.G107-1"
   - id: "G108"
     rules:
-    - path: "go/leak/rule-pprof_endpoint"
+    - path: "go/leak/rule-pprof-endpoint"
       primary_id: "gosec.G108-1"
       id: "gosec.G108-1"
   - id: "G109"
     rules:
-    - path: "go/memory/rule-integer_overflow"
+    - path: "go/memory/rule-integer-overflow"
       primary_id: "gosec.G109-1"
       id: "gosec.G109-1"
   - id: "G110"
     rules:
-    - path: "go/filesystem/rule-decompression_bomb"
+    - path: "go/filesystem/rule-decompression-bomb"
       primary_id: "gosec.G110-1"
       id: "gosec.G110-1"
   - id: "G111"
@@ -61,27 +61,27 @@ gosec:
       id: "gosec.G112-1"
   - id: "G113"
     rules:
-    - path: "go/memory/rule-math_big_rat"
+    - path: "go/memory/rule-math-big-rat"
       primary_id: "gosec.G113-1"
       id: "gosec.G113-1"
   - id: "G114"
     rules:
-    - path: "go/http/rule-http_serve"
+    - path: "go/http/rule-http-serve"
       primary_id: "gosec.G114-1"
       id: "gosec.G114-1"
   - id: "G201"
     rules:
-    - path: "go/sql/rule-format_string_sqli"
+    - path: "go/sql/rule-format-string-sqli"
       primary_id: "gosec.G201-1"
       id: "gosec.G201-1"
   - id: "G202"
     rules:
-    - path: "go/sql/rule-concat_sqli"
+    - path: "go/sql/rule-concat-sqli"
       primary_id: "gosec.G202-1"
       id: "gosec.G202-1"
   - id: "G203"
     rules:
-    - path: "go/injection/rule-template_injection"
+    - path: "go/injection/rule-template-injection"
       primary_id: "gosec.G203-1"
       id: "gosec.G203-1"
   - id: "G204"

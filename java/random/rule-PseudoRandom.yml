@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "java/random/rule-PseudoRandom"
+- id: "java_random_rule-PseudoRandom"
   languages:
   - "java"
   patterns:

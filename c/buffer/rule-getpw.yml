@@ -5,7 +5,7 @@
 # yamllint enable
 ---
 rules:
-- id: "c/buffer/rule-getpw"
+- id: "c_buffer_rule-getpw"
   languages:
   - "c"
   message: |

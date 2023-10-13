@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "scala/file/rule-FilenameUtils"
+- id: "scala_file_rule-FilenameUtils"
   languages:
   - "scala"
   message: |

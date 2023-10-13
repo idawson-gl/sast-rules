@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "java/ssrf/rule-SSRF"
+- id: "java_ssrf_rule-SSRF"
   languages:
   - "java"
   message: |

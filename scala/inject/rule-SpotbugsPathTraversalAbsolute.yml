@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "scala/inject/rule-SpotbugsPathTraversalAbsolute"
+- id: "scala_inject_rule-SpotbugsPathTraversalAbsolute"
   languages:
   - "scala"
   message: |

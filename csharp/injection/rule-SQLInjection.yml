@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "csharp/injection/rule-SQLInjection"
+- id: "csharp_injection_rule-SQLInjection"
   languages:
   - "csharp"
   patterns:

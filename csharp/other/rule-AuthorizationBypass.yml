@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "csharp/other/rule-AuthorizationBypass"
+- id: "csharp_other_rule-AuthorizationBypass"
   languages:
   - "csharp"
   message: |

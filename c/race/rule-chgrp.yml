@@ -5,7 +5,7 @@
 # yamllint enable
 ---
 rules:
-- id: "c/race/rule-chgrp"
+- id: "c_race_rule-chgrp"
   languages:
   - "c"
   message: |

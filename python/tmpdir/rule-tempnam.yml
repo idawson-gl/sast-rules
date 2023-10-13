@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "python/tmpdir/rule-tempnam"
+- id: "python_tmpdir_rule-tempnam"
   languages:
   - "python"
   message: |

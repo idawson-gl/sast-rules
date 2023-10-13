@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "java/endpoint/rule-InsecureServlet"
+- id: "java_endpoint_rule-InsecureServlet"
   languages:
   - "java"
   message: |

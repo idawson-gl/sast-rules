@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "java/cookie/rule-CookieHTTPOnly"
+- id: "java_cookie_rule-CookieHTTPOnly"
   languages:
   - "java"
   pattern-either:

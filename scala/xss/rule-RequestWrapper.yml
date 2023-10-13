@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "scala/xss/rule-RequestWrapper"
+- id: "scala_xss_rule-RequestWrapper"
   languages:
   - "scala"
   message: |

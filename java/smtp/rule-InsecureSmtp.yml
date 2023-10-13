@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "java/smtp/rule-InsecureSmtp"
+- id: "java_smtp_rule-InsecureSmtp"
   languages:
   - "java"
   patterns:

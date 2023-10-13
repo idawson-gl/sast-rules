@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "scala/smtp/rule-InsecureSmtp"
+- id: "scala_smtp_rule-InsecureSmtp"
   languages:
   - "scala"
   message: |

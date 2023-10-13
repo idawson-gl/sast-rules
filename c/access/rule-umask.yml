@@ -5,7 +5,7 @@
 # yamllint enable
 ---
 rules:
-- id: "c/access/rule-umask"
+- id: "c_access_rule-umask"
   languages:
   - "c"
   message: |

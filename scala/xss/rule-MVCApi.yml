@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "scala/xss/rule-MVCApi"
+- id: "scala_xss_rule-MVCApi"
   languages:
   - "scala"
   message: |

@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "scala/ldap/rule-AnonymousLDAP"
+- id: "scala_ldap_rule-AnonymousLDAP"
   languages:
   - "scala"
   message: |

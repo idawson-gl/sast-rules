@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "java/xxe/rule-XPathXXE"
+- id: "java_xxe_rule-XPathXXE"
   languages:
   - "java"
   message: |

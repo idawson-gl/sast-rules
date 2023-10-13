@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "java/inject/rule-PathTraversalIn"
+- id: "java_inject_rule-PathTraversalIn"
   languages:
   - "java"
   message: |

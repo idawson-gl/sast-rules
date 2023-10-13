@@ -4,7 +4,7 @@
 # yamllint enable
 ---
 rules:
-- id: "go/blocklist/rule-blocklist-cgi"
+- id: "go_blocklist_rule-blocklist-cgi"
   languages:
   - "go"
   message: |

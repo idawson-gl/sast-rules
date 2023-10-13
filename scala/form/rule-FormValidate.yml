@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "scala/form/rule-FormValidate"
+- id: "scala_form_rule-FormValidate"
   languages:
   - "scala"
   message: |

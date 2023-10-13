@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "scala/xss/rule-XSSServletParameter"
+- id: "scala_xss_rule-XSSServletParameter"
   languages:
   - "scala"
   message: |

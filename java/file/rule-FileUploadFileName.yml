@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "java/file/rule-FileUploadFileName"
+- id: "java_file_rule-FileUploadFileName"
   languages:
   - "java"
   message: |

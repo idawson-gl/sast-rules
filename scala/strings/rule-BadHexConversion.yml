@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "scala/strings/rule-BadHexConversion"
+- id: "scala_strings_rule-BadHexConversion"
   languages:
   - "scala"
   message: |

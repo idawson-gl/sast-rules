@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "scala/inject/rule-AWSQueryInjection"
+- id: "scala_inject_rule-AWSQueryInjection"
   languages:
   - "scala"
   message: |

@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "java/crypto/rule-CipherDESInsecure"
+- id: "java_crypto_rule-CipherDESInsecure"
   languages:
   - "java"
   patterns:

@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "csharp/xss/rule-Xss"
+- id: "csharp_xss_rule-Xss"
   mode: "taint"
   pattern-sources:
   - patterns:

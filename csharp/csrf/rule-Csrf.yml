@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "csharp/csrf/rule-Csrf"
+- id: "csharp_csrf_rule-Csrf"
   languages:
   - "csharp"
   patterns:

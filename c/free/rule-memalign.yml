@@ -5,7 +5,7 @@
 # yamllint enable
 ---
 rules:
-- id: "c/free/rule-memalign"
+- id: "c_free_rule-memalign"
   languages:
   - "c"
   message: |

@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "scala/inject/rule-CustomInjection"
+- id: "scala_inject_rule-CustomInjection"
   languages:
   - "scala"
   message: |

@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "csharp/deserialization/rule-InsecureDeserialization"
+- id: "csharp_deserialization_rule-InsecureDeserialization"
   patterns:
   - pattern-not: "$OBJ.Deserialize(\"...\")"
   - pattern-not: "$OBJ.UnsafeDeserialize(\"...\")"

@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "scala/xpathi/rule-XpathInjection"
+- id: "scala_xpathi_rule-XpathInjection"
   languages:
   - "scala"
   message: |

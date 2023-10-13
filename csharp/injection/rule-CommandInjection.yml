@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "csharp/injection/rule-CommandInjection"
+- id: "csharp_injection_rule-CommandInjection"
   languages:
   - "csharp"
   patterns:

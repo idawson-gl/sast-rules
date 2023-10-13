@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "java/endpoint/rule-UnencryptedSocket"
+- id: "java_endpoint_rule-UnencryptedSocket"
   languages:
   - "java"
   message: |

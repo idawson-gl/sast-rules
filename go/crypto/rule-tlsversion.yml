@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "go/crypto/rule-tlsversion"
+- id: "go_crypto_rule-tlsversion"
   languages:
   - "go"
   patterns:

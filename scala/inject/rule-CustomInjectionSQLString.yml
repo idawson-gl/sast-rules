@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "scala/inject/rule-CustomInjectionSQLString"
+- id: "scala_inject_rule-CustomInjectionSQLString"
   languages:
   - "scala"
   message: |

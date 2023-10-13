@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "scala/crypto/rule-CipherIntegrity"
+- id: "scala_crypto_rule-CipherIntegrity"
   languages:
   - "scala"
   message: |

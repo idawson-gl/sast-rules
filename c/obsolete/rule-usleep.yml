@@ -5,7 +5,7 @@
 # yamllint enable
 ---
 rules:
-- id: "c/obsolete/rule-usleep"
+- id: "c_obsolete_rule-usleep"
   languages:
   - "c"
   message: |

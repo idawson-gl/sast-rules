@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "python/tmpdir/rule-hardcodedtmp"
+- id: "python_tmpdir_rule-hardcodedtmp"
   languages:
   - "python"
   message: |

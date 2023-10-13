@@ -4,7 +4,7 @@
 # yamllint enable
 ---
 rules:
-- id: "scala/strings/rule-NormalizeAfterValidation"
+- id: "scala_strings_rule-NormalizeAfterValidation"
   patterns:
   - pattern: |
       $Y = java.util.regex.Pattern.compile("[<>]");
