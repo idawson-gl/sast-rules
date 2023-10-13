@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "java/crypto/rule-BlowfishKeySize"
+- id: "java_crypto_rule-BlowfishKeySize"
   languages:
   - "java"
   patterns:

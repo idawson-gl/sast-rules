@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "csharp/crypto/rule-CertificateValidationDisabled"
+- id: "csharp_crypto_rule-CertificateValidationDisabled"
   languages:
   - "csharp"
   patterns:

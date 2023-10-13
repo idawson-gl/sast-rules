@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "java/inject/rule-OgnlInjection"
+- id: "java_inject_rule-OgnlInjection"
   languages:
   - "java"
   mode: "taint"

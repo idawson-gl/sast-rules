@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "scala/endpoint/rule-UnvalidatedRedirect"
+- id: "scala_endpoint_rule-UnvalidatedRedirect"
   languages:
   - "scala"
   message: |

@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "java/cors/rule-PermissiveCORSInjection"
+- id: "java_cors_rule-PermissiveCORSInjection"
   languages:
   - "java"
   mode: "taint"

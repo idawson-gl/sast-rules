@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "java/ldap/rule-AnonymousLDAP"
+- id: "java_ldap_rule-AnonymousLDAP"
   languages:
   - "java"
   patterns:

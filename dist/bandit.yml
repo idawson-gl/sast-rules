@@ -196,97 +196,6 @@ rules:
       value: "B305"
   pattern: "cryptography.hazmat.primitives.ciphers.modes.ECB(...)"
   severity: "WARNING"
-- id: "bandit.B303-7"
-  languages:
-  - "python"
-  message: |
-    The application was found using an insecure or risky digest or signature algorithm. MD2, MD5
-    and SHA1 hash algorithms have been found to be vulnerable to producing collisions.
-
-    This means
-    that two different values, when hashed, can lead to the same hash value. If the application is
-    trying
-    to use these hash methods for storing passwords, then it is recommended to switch to a
-    password hashing
-    algorithm such as Argon2id or PBKDF2.
-    It is strongly recommended that a standard digest algorithm be chosen instead as implementing
-    a custom algorithm is prone to errors.
-
-    Example of creating a SHA-384 hash using the `cryptography` package:
-    ```
-    from cryptography.hazmat.primitives import hashes
-    # Create a SHA384 digest
-    digest = hashes.Hash(hashes.SHA384())
-    # Update the digest with some initial data
-    digest.update(b"some data to hash")
-    # Add more data to the digest
-    digest.update(b"some more data")
-    # Finalize the digest as bytes
-    result = digest.finalize()
-    ```
-
-    For more information on secure password storage see OWASP:
-    - https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html
-
-    For more information on the cryptography module see:
-    - https://cryptography.io/en/latest/
-  metadata:
-    cwe: "CWE-327"
-    owasp: "A3:2017-Sensitive Data Exposure"
-    shortDescription: "Use of a broken or risky cryptographic algorithm"
-    primary_identifier: "bandit.B303-7"
-    secondary_identifiers:
-    - name: "Bandit Test ID B303"
-      type: "bandit_test_id"
-      value: "B303"
-  pattern: "cryptography.hazmat.primitives.hashes.MD5(...)"
-  severity: "WARNING"
-- id: "bandit.B303-8"
-  languages:
-  - "python"
-  message: |
-    The application was found using an insecure or risky digest or signature algorithm. MD2, MD5
-    and SHA1 hash algorithms have been found to be vulnerable to producing collisions.
-
-    This means
-    that two different values, when hashed, can lead to the same hash value. If the application is
-    trying
-    to use these hash methods for storing passwords, then it is recommended to switch to a
-    password hashing
-    algorithm such as Argon2id or PBKDF2.
-    It is strongly recommended that a standard digest algorithm be chosen instead as implementing
-    a custom algorithm is prone to error.
-
-    Example of creating a SHA-384 hash using the `cryptography` package:
-    ```
-    from cryptography.hazmat.primitives import hashes
-    # Create a SHA384 digest
-    digest = hashes.Hash(hashes.SHA384())
-    # Update the digest with some initial data
-    digest.update(b"some data to hash")
-    # Add more data to the digest
-    digest.update(b"some more data")
-    # Finalize the digest as bytes
-    result = digest.finalize()
-    ```
-
-    For more information on secure password storage see OWASP:
-    - https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html
-
-    For more information on the cryptography module see:
-    - https://cryptography.io/en/latest/
-  metadata:
-    cwe: "CWE-327"
-    owasp: "A3:2017-Sensitive Data Exposure"
-    category: "security"
-    shortDescription: "Use of a broken or risky cryptographic algorithm"
-    primary_identifier: "bandit.B303-8"
-    secondary_identifiers:
-    - name: "Bandit Test ID B303"
-      type: "bandit_test_id"
-      value: "B303"
-  pattern: "cryptography.hazmat.primitives.hashes.SHA1(...)"
-  severity: "WARNING"
 - id: "bandit.B304-7"
   languages:
   - "python"
@@ -1106,6 +1015,97 @@ rules:
       type: "bandit_test_id"
       value: "B304"
   pattern: "cryptography.hazmat.primitives.ciphers.algorithms.IDEA(...)"
+  severity: "WARNING"
+- id: "bandit.B303-7"
+  languages:
+  - "python"
+  message: |
+    The application was found using an insecure or risky digest or signature algorithm. MD2, MD5
+    and SHA1 hash algorithms have been found to be vulnerable to producing collisions.
+
+    This means
+    that two different values, when hashed, can lead to the same hash value. If the application is
+    trying
+    to use these hash methods for storing passwords, then it is recommended to switch to a
+    password hashing
+    algorithm such as Argon2id or PBKDF2.
+    It is strongly recommended that a standard digest algorithm be chosen instead as implementing
+    a custom algorithm is prone to errors.
+
+    Example of creating a SHA-384 hash using the `cryptography` package:
+    ```
+    from cryptography.hazmat.primitives import hashes
+    # Create a SHA384 digest
+    digest = hashes.Hash(hashes.SHA384())
+    # Update the digest with some initial data
+    digest.update(b"some data to hash")
+    # Add more data to the digest
+    digest.update(b"some more data")
+    # Finalize the digest as bytes
+    result = digest.finalize()
+    ```
+
+    For more information on secure password storage see OWASP:
+    - https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html
+
+    For more information on the cryptography module see:
+    - https://cryptography.io/en/latest/
+  metadata:
+    cwe: "CWE-327"
+    owasp: "A3:2017-Sensitive Data Exposure"
+    shortDescription: "Use of a broken or risky cryptographic algorithm"
+    primary_identifier: "bandit.B303-7"
+    secondary_identifiers:
+    - name: "Bandit Test ID B303"
+      type: "bandit_test_id"
+      value: "B303"
+  pattern: "cryptography.hazmat.primitives.hashes.MD5(...)"
+  severity: "WARNING"
+- id: "bandit.B303-8"
+  languages:
+  - "python"
+  message: |
+    The application was found using an insecure or risky digest or signature algorithm. MD2, MD5
+    and SHA1 hash algorithms have been found to be vulnerable to producing collisions.
+
+    This means
+    that two different values, when hashed, can lead to the same hash value. If the application is
+    trying
+    to use these hash methods for storing passwords, then it is recommended to switch to a
+    password hashing
+    algorithm such as Argon2id or PBKDF2.
+    It is strongly recommended that a standard digest algorithm be chosen instead as implementing
+    a custom algorithm is prone to error.
+
+    Example of creating a SHA-384 hash using the `cryptography` package:
+    ```
+    from cryptography.hazmat.primitives import hashes
+    # Create a SHA384 digest
+    digest = hashes.Hash(hashes.SHA384())
+    # Update the digest with some initial data
+    digest.update(b"some data to hash")
+    # Add more data to the digest
+    digest.update(b"some more data")
+    # Finalize the digest as bytes
+    result = digest.finalize()
+    ```
+
+    For more information on secure password storage see OWASP:
+    - https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html
+
+    For more information on the cryptography module see:
+    - https://cryptography.io/en/latest/
+  metadata:
+    cwe: "CWE-327"
+    owasp: "A3:2017-Sensitive Data Exposure"
+    category: "security"
+    shortDescription: "Use of a broken or risky cryptographic algorithm"
+    primary_identifier: "bandit.B303-8"
+    secondary_identifiers:
+    - name: "Bandit Test ID B303"
+      type: "bandit_test_id"
+      value: "B303"
+  pattern: "cryptography.hazmat.primitives.hashes.SHA1(...)"
   severity: "WARNING"
 - id: "bandit.B304-1"
   languages:

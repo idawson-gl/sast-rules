@@ -5,7 +5,7 @@
 # yamllint enable
 ---
 rules:
-- id: "c/race/rule-access"
+- id: "c_race_rule-access"
   languages:
   - "c"
   message: |

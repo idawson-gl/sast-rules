@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "csharp/injection/rule-XXEInjection"
+- id: "csharp_injection_rule-XXEInjection"
   languages:
   - "csharp"
   mode: "taint"

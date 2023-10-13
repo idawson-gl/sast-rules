@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "java/inject/rule-AWSQueryInjection"
+- id: "java_inject_rule-AWSQueryInjection"
   languages:
   - "java"
   message: |

@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "scala/ldap/rule-EntryPoisoning"
+- id: "scala_ldap_rule-EntryPoisoning"
   languages:
   - "scala"
   message: |

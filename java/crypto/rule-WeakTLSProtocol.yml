@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "java/crypto/rule-WeakTLSProtocol"
+- id: "java_crypto_rule-WeakTLSProtocol"
   languages:
   - "java"
   patterns:

@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "scala/cookie/rule-HttpResponseSplitting"
+- id: "scala_cookie_rule-HttpResponseSplitting"
   languages:
   - "scala"
   message: |

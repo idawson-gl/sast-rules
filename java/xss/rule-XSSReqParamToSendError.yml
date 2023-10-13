@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "java/xss/rule-XSSReqParamToSendError"
+- id: "java_xss_rule-XSSReqParamToSendError"
   languages:
   - "java"
   mode: "taint"

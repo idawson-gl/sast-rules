@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "java/cookie/rule-CookieInsecure"
+- id: "java_cookie_rule-CookieInsecure"
   languages:
   - "java"
   pattern-either:

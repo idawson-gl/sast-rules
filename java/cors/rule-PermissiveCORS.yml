@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "java/cors/rule-PermissiveCORS"
+- id: "java_cors_rule-PermissiveCORS"
   languages:
   - "java"
   message: |

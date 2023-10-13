@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "java/crypto/rule-CipherECBMode"
+- id: "java_crypto_rule-CipherECBMode"
   languages:
   - "java"
   patterns:

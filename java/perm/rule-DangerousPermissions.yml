@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "java/perm/rule-DangerousPermissions"
+- id: "java_perm_rule-DangerousPermissions"
   pattern-either:
   - pattern: |
       $RUNVAR = new RuntimePermission("createClassLoader");

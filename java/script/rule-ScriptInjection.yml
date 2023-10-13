@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "java/script/rule-ScriptInjection"
+- id: "java_script_rule-ScriptInjection"
   languages:
   - "java"
   patterns:

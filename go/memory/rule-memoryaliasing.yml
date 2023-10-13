@@ -4,7 +4,7 @@
 # yamllint enable
 ---
 rules:
-- id: "go/memory/rule-memoryaliasing"
+- id: "go_memory_rule-memoryaliasing"
   languages:
   - "go"
   patterns:

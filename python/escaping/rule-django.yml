@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "python/escaping/rule-django"
+- id: "python_escaping_rule-django"
   languages:
   - "python"
   message: |

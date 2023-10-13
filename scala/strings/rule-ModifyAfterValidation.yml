@@ -4,7 +4,7 @@
 # yamllint enable
 ---
 rules:
-- id: "scala/strings/rule-ModifyAfterValidation"
+- id: "scala_strings_rule-ModifyAfterValidation"
   patterns:
   - pattern: |
       $Y.matcher($VAR);

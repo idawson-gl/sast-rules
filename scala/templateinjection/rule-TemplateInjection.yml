@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "scala/templateinjection/rule-TemplateInjection"
+- id: "scala_templateinjection_rule-TemplateInjection"
   languages:
   - "scala"
   message: |

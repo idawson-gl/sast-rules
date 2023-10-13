@@ -5,7 +5,7 @@
 # yamllint enable
 ---
 rules:
-- id: "go/subproc/rule-subproc"
+- id: "go_subproc_rule-subproc"
   languages:
   - "go"
   patterns:

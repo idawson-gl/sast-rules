@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "java/xss/rule-WicketXSS"
+- id: "java_xss_rule-WicketXSS"
   languages:
   - "java"
   patterns:

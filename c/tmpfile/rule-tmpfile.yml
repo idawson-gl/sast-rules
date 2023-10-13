@@ -5,7 +5,7 @@
 # yamllint enable
 ---
 rules:
-- id: "c/tmpfile/rule-tmpfile"
+- id: "c_tmpfile_rule-tmpfile"
   languages:
   - "c"
   message: |

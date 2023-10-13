@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "java/endpoint/rule-WeakHostNameVerification"
+- id: "java_endpoint_rule-WeakHostNameVerification"
   languages:
   - "java"
   message: |

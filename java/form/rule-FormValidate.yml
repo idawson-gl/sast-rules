@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "java/form/rule-FormValidate"
+- id: "java_form_rule-FormValidate"
   languages:
   - "java"
   message: |

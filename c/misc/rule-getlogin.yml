@@ -5,7 +5,7 @@
 # yamllint enable
 ---
 rules:
-- id: "c/misc/rule-getlogin"
+- id: "c_misc_rule-getlogin"
   languages:
   - "c"
   message: |

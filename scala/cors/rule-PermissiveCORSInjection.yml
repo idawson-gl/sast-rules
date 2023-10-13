@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "scala/cors/rule-PermissiveCORSInjection"
+- id: "scala_cors_rule-PermissiveCORSInjection"
   languages:
   - "java"
   message: |

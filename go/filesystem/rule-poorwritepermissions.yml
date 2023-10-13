@@ -4,7 +4,7 @@
 # yamllint enable
 ---
 rules:
-- id: "go/filesystem/rule-poorwritepermissions"
+- id: "go_filesystem_rule-poorwritepermissions"
   languages:
   - "go"
   patterns:

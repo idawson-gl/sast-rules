@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "csharp/crypto/rule-WeakCipherMode"
+- id: "csharp_crypto_rule-WeakCipherMode"
   languages:
   - "csharp"
   patterns:

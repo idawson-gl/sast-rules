@@ -5,7 +5,7 @@
 # yamllint enable
 ---
 rules:
-- id: "c/misc/rule-chroot"
+- id: "c_misc_rule-chroot"
   languages:
   - "c"
   message: |

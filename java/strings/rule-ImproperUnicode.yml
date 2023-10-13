@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "java/strings/rule-ImproperUnicode"
+- id: "java_strings_rule-ImproperUnicode"
   languages:
   - "java"
   message: |

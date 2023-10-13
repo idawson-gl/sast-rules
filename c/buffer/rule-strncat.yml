@@ -5,7 +5,7 @@
 # yamllint enable
 ---
 rules:
-- id: "c/buffer/rule-strncat"
+- id: "c_buffer_rule-strncat"
   languages:
   - "c"
   message: |

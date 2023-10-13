@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "java/xml/rule-XmlDecoder"
+- id: "java_xml_rule-XmlDecoder"
   languages:
   - "java"
   message: |

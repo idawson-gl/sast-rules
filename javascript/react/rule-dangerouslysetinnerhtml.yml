@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "javascript/react/rule-dangerouslysetinnerhtml"
+- id: "javascript_react_rule-dangerouslysetinnerhtml"
   languages:
   - "typescript"
   - "javascript"

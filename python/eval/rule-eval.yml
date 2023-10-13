@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "python/eval/rule-eval"
+- id: "python_eval_rule-eval"
   languages:
   - "python"
   message: |

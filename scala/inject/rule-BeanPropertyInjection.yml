@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "scala/inject/rule-BeanPropertyInjection"
+- id: "scala_inject_rule-BeanPropertyInjection"
   languages:
   - "scala"
   message: |

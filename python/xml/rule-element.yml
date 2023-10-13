@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "python/xml/rule-element"
+- id: "python_xml_rule-element"
   languages:
   - "python"
   message: |

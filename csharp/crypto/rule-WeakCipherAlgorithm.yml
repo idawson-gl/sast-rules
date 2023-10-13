@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "csharp/crypto/rule-WeakCipherAlgorithm"
+- id: "csharp_crypto_rule-WeakCipherAlgorithm"
   patterns:
   - pattern-inside: |
       using System.Security.Cryptography;

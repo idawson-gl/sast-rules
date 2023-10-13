@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "java/inject/rule-SpotbugsPathTraversalAbsolute"
+- id: "java_inject_rule-SpotbugsPathTraversalAbsolute"
   languages:
   - "java"
   mode: "taint"

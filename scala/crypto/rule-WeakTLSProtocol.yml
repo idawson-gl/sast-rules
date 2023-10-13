@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "scala/crypto/rule-WeakTLSProtocol"
+- id: "scala_crypto_rule-WeakTLSProtocol"
   languages:
   - "scala"
   message: |

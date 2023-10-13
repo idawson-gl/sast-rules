@@ -5,7 +5,7 @@
 # yamllint enable
 ---
 rules:
-- id: "c/race/rule-vfork"
+- id: "c_race_rule-vfork"
   languages:
   - "c"
   message: |

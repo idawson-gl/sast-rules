@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "python/random/rule-random"
+- id: "python_random_rule-random"
   languages:
   - "python"
   message: |

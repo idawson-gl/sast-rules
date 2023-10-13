@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "scala/xxe/rule-XPathXXE"
+- id: "scala_xxe_rule-XPathXXE"
   languages:
   - "scala"
   message: |

@@ -5,7 +5,7 @@
 # yamllint enable
 ---
 rules:
-- id: "c/buffer/rule-getwd"
+- id: "c_buffer_rule-getwd"
   languages:
   - "c"
   message: |

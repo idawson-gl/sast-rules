@@ -1,0 +1,33 @@
+# yamllint disable
+# License: MIT (c) GitLab Inc.
+# yamllint enable
+---
+rules:
+- id: "python_exec_rule-subprocess-popen-shell-true"
+  languages:
+  - "python"
+  message: |
+    Found `subprocess` function `$FUNC` with `shell=True`. This is dangerous because this call will
+    spawn the command using a shell process. Doing so propagates current shell settings and
+    variables,
+    which makes it much easier for a malicious actor to execute commands. Use `shell=False`
+    instead.
+  metadata:
+    cwe: "CWE-78"
+    owasp: "A1:2017-Injection"
+    shortDescription: "Improper Neutralization of Special Elements used in an OS Command
+      ('OS Command Injection')"
+  patterns:
+  - pattern-not: "subprocess.$FUNC(..., shell=False, ...)"
+  - pattern-not: "subprocess.$FUNC(..., shell=False)"
+  - pattern-not: "subprocess.$FUNC(..., shell=0)"
+  - pattern-not: "subprocess.$FUNC(..., shell=[])"
+  - pattern-not: "subprocess.$FUNC(..., shell={})"
+  - pattern-not: "subprocess.$FUNC(..., shell=None)"
+  - pattern-either:
+    - pattern: "subprocess.$FUNC(..., shell=True, ...)"
+    - pattern: "subprocess.$FUNC(..., shell='True', ...)"
+    - pattern: "subprocess.$FUNC(..., shell='False', ...)"
+    - pattern: "subprocess.$FUNC(..., shell='None', ...)"
+    - pattern: "subprocess.$FUNC(..., shell=$X, ...)"
+  severity: "ERROR"

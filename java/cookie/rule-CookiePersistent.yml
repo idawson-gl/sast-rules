@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "java/cookie/rule-CookiePersistent"
+- id: "java_cookie_rule-CookiePersistent"
   languages:
   - "java"
   message: |

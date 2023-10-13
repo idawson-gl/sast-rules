@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "java/crypto/rule-CustomMessageDigest"
+- id: "java_crypto_rule-CustomMessageDigest"
   languages:
   - "java"
   patterns:

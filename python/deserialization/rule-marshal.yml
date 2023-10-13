@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "python/deserialization/rule-marshal"
+- id: "python_deserialization_rule-marshal"
   languages:
   - "python"
   message: |

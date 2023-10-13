@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "python/xml/rule-minidom"
+- id: "python_xml_rule-minidom"
   languages:
   - "python"
   message: |

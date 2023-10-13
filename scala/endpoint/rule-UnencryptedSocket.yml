@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "scala/endpoint/rule-UnencryptedSocket"
+- id: "scala_endpoint_rule-UnencryptedSocket"
   languages:
   - "scala"
   message: |

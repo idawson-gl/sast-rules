@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "scala/perm/rule-OverlyPermissiveFilePermissionInline"
+- id: "scala_perm_rule-OverlyPermissiveFilePermissionInline"
   languages:
   - "scala"
   message: |

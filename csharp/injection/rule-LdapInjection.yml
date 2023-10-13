@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "csharp/injection/rule-LdapInjection"
+- id: "csharp_injection_rule-LdapInjection"
   languages:
   - "csharp"
   patterns:

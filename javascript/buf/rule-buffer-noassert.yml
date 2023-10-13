@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "javascript/buf/rule-buffer-noassert"
+- id: "javascript_buf_rule-buffer-noassert"
   languages:
   - "javascript"
   - "typescript"

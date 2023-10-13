@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "csharp/validation/rule-InputValidation"
+- id: "csharp_validation_rule-InputValidation"
   languages:
   - "csharp"
   patterns:

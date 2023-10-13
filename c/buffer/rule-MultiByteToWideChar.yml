@@ -5,7 +5,7 @@
 # yamllint enable
 ---
 rules:
-- id: "c/buffer/rule-MultiByteToWideChar"
+- id: "c_buffer_rule-MultiByteToWideChar"
   languages:
   - "c"
   message: |

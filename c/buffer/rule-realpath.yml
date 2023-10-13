@@ -5,7 +5,7 @@
 # yamllint enable
 ---
 rules:
-- id: "c/buffer/rule-realpath"
+- id: "c_buffer_rule-realpath"
   languages:
   - "c"
   message: |

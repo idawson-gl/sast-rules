@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "java/crypto/rule-DefaultHTTPClient"
+- id: "java_crypto_rule-DefaultHTTPClient"
   patterns:
   - pattern: "new org.apache.http.impl.client.DefaultHttpClient(...);"
   message: |

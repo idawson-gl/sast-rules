@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "scala/cookie/rule-CookieInsecure"
+- id: "scala_cookie_rule-CookieInsecure"
   languages:
   - "scala"
   message: |

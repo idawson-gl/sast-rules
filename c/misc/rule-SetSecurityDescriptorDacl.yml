@@ -5,7 +5,7 @@
 # yamllint enable
 ---
 rules:
-- id: "c/misc/rule-SetSecurityDescriptorDacl"
+- id: "c_misc_rule-SetSecurityDescriptorDacl"
   languages:
   - "c"
   message: |

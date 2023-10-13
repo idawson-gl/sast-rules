@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "scala/smtp/rule-SmtpClient"
+- id: "scala_smtp_rule-SmtpClient"
   languages:
   - "scala"
   message: |

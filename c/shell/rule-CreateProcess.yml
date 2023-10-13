@@ -5,7 +5,7 @@
 # yamllint enable
 ---
 rules:
-- id: "c/shell/rule-CreateProcess"
+- id: "c_shell_rule-CreateProcess"
   languages:
   - "c"
   message: |

@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "scala/unsafe/rule-SensitiveDataExposure"
+- id: "scala_unsafe_rule-SensitiveDataExposure"
   languages:
   - "scala"
   message: |

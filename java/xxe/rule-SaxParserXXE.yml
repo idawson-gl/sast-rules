@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "java/xxe/rule-SaxParserXXE"
+- id: "java_xxe_rule-SaxParserXXE"
   languages:
   - "java"
   message: |

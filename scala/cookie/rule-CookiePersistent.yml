@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "scala/cookie/rule-CookiePersistent"
+- id: "scala_cookie_rule-CookiePersistent"
   languages:
   - "scala"
   message: |

@@ -5,7 +5,7 @@
 # yamllint enable
 ---
 rules:
-- id: "go/file_permissions/rule-fileperm"
+- id: "go_file-permissions_rule-fileperm"
   languages:
   - "go"
   patterns:

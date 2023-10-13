@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "javascript/buf/rule-detect-new-buffer"
+- id: "javascript_buf_rule-detect-new-buffer"
   languages:
   - "javascript"
   - "typescript"

@@ -4,7 +4,7 @@
 # yamllint enable
 ---
 rules:
-- id: "go/filesystem/rule-ziparchive"
+- id: "go_filesystem_rule-ziparchive"
   languages:
   - "go"
   mode: "taint"

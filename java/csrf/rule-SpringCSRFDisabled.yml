@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "java/csrf/rule-SpringCSRFDisabled"
+- id: "java_csrf_rule-SpringCSRFDisabled"
   languages:
   - "java"
   pattern-either:

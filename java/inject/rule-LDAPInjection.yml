@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "java/inject/rule-LDAPInjection"
+- id: "java_inject_rule-LDAPInjection"
   languages:
   - "java"
   mode: "taint"

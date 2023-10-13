@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "python/ftp/rule-ftplib"
+- id: "python_ftp_rule-ftplib"
   languages:
   - "python"
   message: |

@@ -4,7 +4,7 @@
 # yamllint enable
 ---
 rules:
-- id: "scala/perm/rule-DangerousPermissions"
+- id: "scala_perm_rule-DangerousPermissions"
   pattern-either:
   - pattern: |
       $RUNVAR = new RuntimePermission("createClassLoader");

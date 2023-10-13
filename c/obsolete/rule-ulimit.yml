@@ -5,7 +5,7 @@
 # yamllint enable
 ---
 rules:
-- id: "c/obsolete/rule-ulimit"
+- id: "c_obsolete_rule-ulimit"
   languages:
   - "c"
   message: |

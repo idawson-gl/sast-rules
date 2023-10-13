@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "java/inject/rule-SqlInjection"
+- id: "java_inject_rule-SqlInjection"
   languages:
   - "java"
   message: |

@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "java/xss/rule-RequestWrapper"
+- id: "java_xss_rule-RequestWrapper"
   languages:
   - "java"
   message: |

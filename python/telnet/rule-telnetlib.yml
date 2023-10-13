@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "python/telnet/rule-telnetlib"
+- id: "python_telnet_rule-telnetlib"
   languages:
   - "python"
   message: |

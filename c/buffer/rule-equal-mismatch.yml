@@ -1,0 +1,25 @@
+# yamllint disable
+# The ruleset is generated from flawfinder official rule repository hosted on github.
+# License: GPL 2.0 (c) 1989, 1991 Free Software Foundation, Inc.
+# source: https://github.com/david-a-wheeler/flawfinder/blob/e0d8827c3b714a883ce8036edc832721f4619524/flawfinder.py
+# yamllint enable
+---
+rules:
+- id: "c_buffer_rule-equal-mismatch"
+  languages:
+  - "c"
+  message: |
+    This function is often discouraged by most C++ coding standards in favor of its safer
+    alternatives provided since C++14. Consider using a form of this function:
+    (std::equal, std::mismatch or std::is_permutation) that checks the second iterator
+    before potentially reading past its bounds.
+
+    For more information please see: https://en.cppreference.com/w/cpp/algorithm
+  metadata:
+    shortDescription: "Function does not check the second iterator for over-read conditions"
+    cwe: "CWE-126"
+  pattern-either:
+  - pattern: "equal(...)"
+  - pattern: "mismatch(...)"
+  - pattern: "is_permutation(...)"
+  severity: "INFO"

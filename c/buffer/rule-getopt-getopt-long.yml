@@ -1,0 +1,21 @@
+# yamllint disable
+# The ruleset is generated from flawfinder official rule repository hosted on github.
+# License: GPL 2.0 (c) 1989, 1991 Free Software Foundation, Inc.
+# source: https://github.com/david-a-wheeler/flawfinder/blob/e0d8827c3b714a883ce8036edc832721f4619524/flawfinder.py
+# yamllint enable
+---
+rules:
+- id: "c_buffer_rule-getopt-getopt-long"
+  languages:
+  - "c"
+  message: |
+    Check implementation on installation, or limit the size of all string inputs.
+  metadata:
+    cwe: "CWE-120"
+    owasp: "A1:2017-Injection"
+    shortDescription: "Some older implementations do not protect against internal
+      buffer overflows (CWE-120, CWE-20)"
+  pattern-either:
+  - pattern: "getopt(...)"
+  - pattern: "getopt_long(...)"
+  severity: "WARNING"

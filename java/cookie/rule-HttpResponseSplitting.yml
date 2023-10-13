@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "java/cookie/rule-HttpResponseSplitting"
+- id: "java_cookie_rule-HttpResponseSplitting"
   languages:
   - "java"
   mode: "taint"

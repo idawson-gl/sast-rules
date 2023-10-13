@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "java/cookie/rule-TrustBoundaryViolation"
+- id: "java_cookie_rule-TrustBoundaryViolation"
   languages:
   - "java"
   message: |

@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "java/xml/rule-XsltTransform"
+- id: "java_xml_rule-XsltTransform"
   languages:
   - "java"
   mode: "taint"

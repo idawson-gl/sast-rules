@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "scala/unsafe/rule-InformationExposureVariant2"
+- id: "scala_unsafe_rule-InformationExposureVariant2"
   languages:
   - "scala"
   message: |

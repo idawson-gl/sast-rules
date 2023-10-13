@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "scala/crypto/rule-CipherPaddingOracle"
+- id: "scala_crypto_rule-CipherPaddingOracle"
   languages:
   - "scala"
   message: |

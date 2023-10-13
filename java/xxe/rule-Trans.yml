@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "java/xxe/rule-Trans"
+- id: "java_xxe_rule-Trans"
   languages:
   - "java"
   message: |

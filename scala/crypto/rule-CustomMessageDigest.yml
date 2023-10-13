@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "scala/crypto/rule-CustomMessageDigest"
+- id: "scala_crypto_rule-CustomMessageDigest"
   languages:
   - "scala"
   message: |

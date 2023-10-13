@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "scala/file/rule-FileUploadFileName"
+- id: "scala_file_rule-FileUploadFileName"
   languages:
   - "scala"
   message: |

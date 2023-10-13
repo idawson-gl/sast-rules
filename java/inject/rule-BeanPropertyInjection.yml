@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "java/inject/rule-BeanPropertyInjection"
+- id: "java_inject_rule-BeanPropertyInjection"
   languages:
   - "java"
   message: |

@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "java/unsafe/rule-InformationExposure"
+- id: "java_unsafe_rule-InformationExposure"
   languages:
   - "java"
   pattern-either:

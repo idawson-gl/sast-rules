@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "java/crypto/rule-WeakMessageDigest"
+- id: "java_crypto_rule-WeakMessageDigest"
   languages:
   - "java"
   patterns:

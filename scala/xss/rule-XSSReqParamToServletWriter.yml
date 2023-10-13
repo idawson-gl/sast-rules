@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "scala/xss/rule-XSSReqParamToServletWriter"
+- id: "scala_xss_rule-XSSReqParamToServletWriter"
   languages:
   - "scala"
   message: |

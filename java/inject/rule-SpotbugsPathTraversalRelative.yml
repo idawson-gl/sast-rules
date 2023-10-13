@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "java/inject/rule-SpotbugsPathTraversalRelative"
+- id: "java_inject_rule-SpotbugsPathTraversalRelative"
   languages:
   - "java"
   message: |

@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "csharp/endpoint/rule-UnvalidatedRedirect"
+- id: "csharp_endpoint_rule-UnvalidatedRedirect"
   languages:
   - "csharp"
   mode: "taint"

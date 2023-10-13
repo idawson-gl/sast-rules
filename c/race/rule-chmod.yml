@@ -5,7 +5,7 @@
 # yamllint enable
 ---
 rules:
-- id: "c/race/rule-chmod"
+- id: "c_race_rule-chmod"
   languages:
   - "c"
   message: |

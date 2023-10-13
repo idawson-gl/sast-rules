@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "scala/endpoint/rule-JaxRsEndpoint"
+- id: "scala_endpoint_rule-JaxRsEndpoint"
   languages:
   - "scala"
   message: |

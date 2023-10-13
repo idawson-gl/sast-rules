@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "java/xml/rule-SAMLIgnoreComments"
+- id: "java_xml_rule-SAMLIgnoreComments"
   languages:
   - "java"
   message: |

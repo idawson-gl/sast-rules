@@ -3,7 +3,7 @@
 # yamllint enable
 ---
 rules:
-- id: "java/password/rule-HardcodeKeyEquals"
+- id: "java_password_rule-HardcodeKeyEquals"
   languages:
   - "java"
   patterns:
