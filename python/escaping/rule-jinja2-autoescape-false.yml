@@ -160,8 +160,24 @@ rules:
     category: "security"
     shortDescription: "Improper encoding or escaping of output"
   patterns:
-  - pattern-not: "jinja2.Environment(..., autoescape=True, ...)"
-  - pattern-not: "jinja2.Environment(..., autoescape=jinja2.select_autoescape(...),
-      ...)"
-  - pattern: "jinja2.Environment(...)"
+    - pattern-not: "jinja2.Environment(..., autoescape=True, ...)"
+    - pattern-not: "jinja2.Environment(..., autoescape=jinja2.select_autoescape(...),
+        ...)"
+    - pattern-not-inside: |
+        $P = {
+          ...,
+          "autoescape": True,
+          ...
+        }
+        ...
+        jinja2.Environment(**$P)
+    - pattern-not-inside: |
+        $P = {
+          ...,
+          "autoescape": jinja2.select_autoescape(...),
+          ...
+        }
+        ...
+        jinja2.Environment(**$P)
+    - pattern: "jinja2.Environment(...)"
   severity: "WARNING"
