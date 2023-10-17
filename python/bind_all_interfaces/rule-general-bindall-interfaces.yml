@@ -36,18 +36,12 @@ rules:
     category: "security"
     owasp: "A6:2017-Security Misconfiguration"
     shortDescription: "Exposure of sensitive information to an unauthorized actor"
-  patterns:
-  - pattern-either:
-    - pattern: |
-        $S = socket.socket(...)
-        ...
-        $S.bind(("0.0.0.0", ...))
-    - pattern: |
-        $S = socket.socket(...)
-        ...
-        $S.bind(("::", ...))
-    - pattern: |
-        $S = socket.socket(...)
-        ...
-        $S.bind(("", ...))
+    patterns:
+    - pattern-inside: |
+          $S = socket.socket(...)
+          ...
+          $S.bind(..., ("$ADDR", ...),...)
+    - metavariable-regex:
+        metavariable: $ADDR
+        regex: "(0.0.0.0)|(::)|(192.168.0.1)|(\\'\\')"
   severity: "INFO"
