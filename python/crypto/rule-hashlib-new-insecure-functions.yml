@@ -37,11 +37,10 @@ rules:
     category: "security"
     shortDescription: "Use of a broken or risky cryptographic algorithm"
   patterns:
-  - pattern-either:
-    - pattern: "hashlib.new(\"=~/[M|m][D|d][4|5]/\", ...)"
-    - pattern: "hashlib.new(..., name=\"=~/[M|m][D|d][4|5]/\", ...)"
-    - pattern: "hashlib.new('sha1')"
-    - pattern: "hashlib.new(..., name='SHA1')"
-    - pattern: "hashlib.new('sha', string='test')"
-    - pattern: "hashlib.new(name='SHA', string='test')"
+    - pattern-either:
+      - pattern: hashlib.new("$ALG",...)
+      - pattern: hashlib.new(..., name="$ALG",...)
+    - metavariable-regex:
+        metavariable: $ALG
+        regex: "^(sha|SHA)(1)?$|^(md|MD)(2|4|5)$"
   severity: "WARNING"
