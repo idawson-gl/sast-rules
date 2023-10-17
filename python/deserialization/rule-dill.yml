@@ -69,6 +69,5 @@ rules:
     owasp: "A8:2017-Insecure Deserialization"
     category: "security"
     shortDescription: "Deserialization of untrusted data"
-  pattern-either:
-  - pattern: "dill.$FUNC(...)"
+  pattern: "dill.$FUNC(...)"
   severity: "WARNING"
