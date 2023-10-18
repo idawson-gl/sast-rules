@@ -14,19 +14,22 @@ rules:
     cwe: "CWE-155"
     owasp: "A1:2017-Injection"
     shortDescription: "Improper Neutralization of Wildcards or Matching Symbols"
-  patterns:
-  - pattern-either:
-    - pattern-inside: |-
-        os.system("...")
-    - pattern-inside: |-
-        os.popen("...")
-    - pattern-inside: |-
-        os.popen2("...")
-    - pattern-inside: |-
-        os.popen3("...")
-    - pattern-inside: |-
-        os.popen4("...")
-    - pattern-inside: |-
-        subprocess.$W(..., shell=True, ...)
-  - pattern-regex: "(tar|chmod|chown|rsync)(.*?)\\*"
+    patterns:
+      - pattern-either:
+          - pattern: os.system("$ARG")
+          - pattern: os.popen("$ARG")
+          - pattern: os.popen2("$ARG")
+          - pattern: os.popen3("$ARG")
+          - pattern: os.popen4("$ARG")
+          - pattern: popen2.Popen3("$ARG")
+          - pattern: popen2.Popen4("$ARG")
+          - pattern: commands.getoutput("$ARG")
+          - pattern: commands.getstatusoutput("$ARG")
+          - pattern: subprocess.Popen("$ARG", ...,shell=True,...)
+          - pattern: subprocess.call("$ARG")
+          - pattern: os.execl("$ARG")
+          - pattern: os.execle("$ARG")
+      - metavariable-regex:
+          metavariable: $ARG
+          regex: .*(chown|chmod|tar|rsync)(.*)+\*
   severity: "WARNING"
