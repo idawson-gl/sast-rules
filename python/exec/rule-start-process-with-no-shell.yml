@@ -16,27 +16,26 @@ rules:
     shortDescription: "Improper Neutralization of Special Elements used in an OS Command
       ('OS Command Injection')"
   patterns:
-  - pattern-either:
-    - patterns:
-      - pattern-not: "os.$W(\"...\", ...)"
-      - pattern-either:
-        - pattern: "os.execl(...)"
-        - pattern: "os.execle(...)"
-        - pattern: "os.execlp(...)"
-        - pattern: "os.execlpe(...)"
-        - pattern: "os.execv(...)"
-        - pattern: "os.execve(...)"
-        - pattern: "os.execvp(...)"
-        - pattern: "os.execvpe(...)"
-        - pattern: "os.startfile(...)"
-    - patterns:
-      - pattern-either:
-        - pattern: "os.spawnl(...)"
-        - pattern: "os.spawnle(...)"
-        - pattern: "os.spawnlp(...)"
-        - pattern: "os.spawnlpe(...)"
-        - pattern: "os.spawnv(...)"
-        - pattern: "os.spawnve(...)"
-        - pattern: "os.spawnvp(...)"
-        - pattern: "os.spawnvpe(...)"
+  - pattern-not: os.$FUNC("...", ...)
+  - pattern: os.$FUNC(<...$VAL...>, ...)
+  - metavariable-pattern:
+      metavariable: $FUNC
+      pattern-either:
+      - pattern: execl
+      - pattern: execle
+      - pattern: execlp
+      - pattern: execlpe
+      - pattern: execv
+      - pattern: execve
+      - pattern: execvp
+      - pattern: execvpe
+      - pattern: spawnl
+      - pattern: spawnle
+      - pattern: spawnlp
+      - pattern: spawnlpe
+      - pattern: spawnv
+      - pattern: spawnve
+      - pattern: spawnvp
+      - pattern: spawnvpe
+      - pattern: startfile
   severity: "WARNING"
