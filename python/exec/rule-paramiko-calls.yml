@@ -7,8 +7,7 @@ rules:
   languages:
   - "python"
   message: |
-    Unverified SSL context detected. This will permit insecure connections without `verifyingSSL`
-    certificates. Use `ssl.create_default_context()` instead.
+    Paramiko is a Python library designed to work with the SSH2 protocol for secure (encrypted and authenticated) connections to remote machines. It is intended to run commands on a remote host. These commands are run within a shell on the target and are thus vulnerable to various shell injection attacks. The scan warns the usage of "exec_command()" method advising the user to check inputs are correctly sanitized.
   metadata:
     cwe: "CWE-78"
     owasp: "A1:2017-Injection"
@@ -16,7 +15,7 @@ rules:
       ('OS Command Injection')"
   patterns:
   - pattern-inside: |
-      import paramiko
+      $CLIENT = paramiko.client.SSHClient()
       ...
   - pattern: "$CLIENT.exec_command(...)"
   severity: "WARNING"

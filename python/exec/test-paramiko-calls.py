@@ -4,8 +4,6 @@
 
 import paramiko
 
-python/exec/test-paramiko_calls.py
-
 client = paramiko.client.SSHClient()
 # this is not safe
 client.exec_command('something; really; unsafe')
