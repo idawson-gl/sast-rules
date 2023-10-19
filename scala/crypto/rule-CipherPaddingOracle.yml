@@ -1,0 +1,25 @@
+# yamllint disable
+# License: MIT (c) GitLab Inc.
+# yamllint enable
+---
+rules:
+- id: "scala/crypto/rule-CipherPaddingOracle"
+  patterns:
+  - pattern-inside: |-
+      javax.crypto.Cipher.getInstance("...")
+  - pattern-regex: "(/CBC/PKCS5Padding)"
+  - pattern-not-regex: "^(RSA)/.*"
+  - pattern-not-regex: "^(ECIES)$"
+  message: |
+    This specific mode of CBC with PKCS5Padding is susceptible to padding oracle attacks. An
+    adversary could potentially decrypt the message if the system exposed the difference between
+    plaintext with invalid padding or valid padding. The distinction between valid and invalid
+    padding is usually revealed through distinct error messages being returned for each condition.
+  languages:
+  - "scala"
+  severity: "ERROR"
+  metadata:
+    category: "security"
+    cwe: "CWE-696: Incorrect Behavior Order"
+    technology:
+    - "scala"

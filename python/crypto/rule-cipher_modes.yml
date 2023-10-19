@@ -1,0 +1,19 @@
+# yamllint disable
+# License: LGPL 2.1 (c) Return To Corporation
+# source (original): https://github.com/returntocorp/semgrep-rules/blob/develop/python/cryptography/security/insecure-cipher-mode-ecb.yaml
+# hash: acdabdb
+# insecure-cipher-mode-ecb
+# yamllint enable
+---
+rules:
+- id: "python/crypto/rule-cipher_modes"
+  pattern: "cryptography.hazmat.primitives.ciphers.modes.ECB(...)"
+  message: |
+    Detected ECB cipher mode which is considered insecure. The algorithm canpotentially leak
+    information about the plaintext. Use CBC mode instead.
+  metadata:
+    cwe: "CWE-327: Use of a Broken or Risky Cryptographic Algorithm"
+    owasp: "A3: Sensitive Data Exposure"
+  severity: "WARNING"
+  languages:
+  - "python"

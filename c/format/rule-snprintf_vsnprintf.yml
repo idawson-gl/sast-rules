@@ -1,0 +1,32 @@
+# yamllint disable
+# The ruleset is generated from flawfinder official rule repository hosted on github.
+# License: GPL 2.0 (c) 1989, 1991 Free Software Foundation, Inc.
+# source: https://github.com/david-a-wheeler/flawfinder/blob/e0d8827c3b714a883ce8036edc832721f4619524/flawfinder.py
+# yamllint enable
+---
+rules:
+- id: "c/format/rule-snprintf_vsnprintf"
+  languages:
+  - "c"
+  message: |
+    Use a constant for the format specification.
+  metadata:
+    cwe: "CWE-134: If format strings can be influenced by an attacker, they can be
+      exploited, and note that sprintf variations do not always \\0-terminate (CWE-134)"
+  pattern-either:
+  - patterns:
+    - pattern: "snprintf($BUF,$SIZ,$FMT,...)"
+    - pattern-not: "snprintf($BUF,$SIZ,\"...\",...)"
+  - patterns:
+    - pattern: "vsnprintf($BUF,$SIZ,$FMT)"
+    - pattern-not: "vsnprintf($BUF,$SIZ,\"...\",...)"
+  - patterns:
+    - pattern: "_snprintf($BUF,$SIZ,$FMT,...)"
+    - pattern-not: "_snprintf($BUF,$SIZ,$FMT,\"...\",...)"
+  - patterns:
+    - pattern: "_sntprintf($VAR,$FMT,...)"
+    - pattern-not: "sntprintf($VAR,\"...\",...)"
+  - patterns:
+    - pattern: "_vsntprintf($VAR,$FMT,...)"
+    - pattern-not: "_vsntprintf($VAR,\"...\",...)"
+  severity: "ERROR"

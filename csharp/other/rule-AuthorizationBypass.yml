@@ -1,0 +1,31 @@
+# yamllint disable
+# License: MIT (c) GitLab Inc.
+# yamllint enable
+---
+rules:
+- id: "csharp/other/rule-AuthorizationBypass"
+  patterns:
+  - pattern-inside: |
+      using System.Web.Mvc;
+      ...
+  - pattern-either:
+    - pattern: |
+        [$ANNO]
+        class $CLASS : Controller{ ... }
+    - pattern: |
+        class $CLASS : Controller{ ... }
+  - pattern-not: |
+      [AllowAnonymous]
+      class $CLASS : Controller{ ... }
+  - pattern-not: |
+      [Authorize]
+      class $CLASS : Controller{ ... }
+  message: |
+    The endpoint is potentially accessible to not authorized users. If it contains sensitive
+    information, like log files for example, it may lead to privilege escalation.
+  languages:
+  - "csharp"
+  severity: "WARNING"
+  metadata:
+    category: "security"
+    cwe: "CWE-284: Improper Access Control"

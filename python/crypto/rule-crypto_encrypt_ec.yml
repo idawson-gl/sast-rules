@@ -1,0 +1,20 @@
+# yamllint disable
+# License: LGPL 2.1 (c) Return To Corporation
+# source (modified/combined): https://github.com/returntocorp/semgrep-rules/tree/develop/python/cryptography/security/insufficient*-size/insufficient*-size.yaml
+# hash: acdabdb
+# yamllint enable
+---
+rules:
+- id: "python/crypto/rule-crypto_encrypt_ec"
+  patterns:
+  - pattern-inside: |-
+      cryptography.hazmat.primitives.asymmetric.ec.generate_private_key(...)
+  message: |
+    Detected an insufficient curve size for EC. NIST recommends
+    a key size of 224 or higher. For example, use 'ec.SECP256R1'.
+  metadata:
+    cwe: "CWE-326: Inadequate Encryption Strength"
+    owasp: "A3: Sensitive Data Exposure"
+  severity: "ERROR"
+  languages:
+  - "python"

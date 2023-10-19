@@ -1,0 +1,32 @@
+# yamllint disable
+# License: MIT (c) GitLab Inc.
+# yamllint enable
+---
+rules:
+- id: "python/urlopen/rule-urllib_urlopen2"
+  pattern-either:
+  - pattern: "urllib.urlopen(...)"
+  - pattern: "urllib2.urlopen(...)"
+  - pattern: "urllib2.Request(...)"
+  - pattern: "urllib.Request(...)"
+  - pattern: "urllib.URLopener(...)"
+  - pattern: "urllib.FancyURLopener(...)"
+  - pattern: "urllib.request.FancyURLopener(...)"
+  - pattern: "urllib.request.urlopen(...)"
+  - pattern: "urllib.request.URLopener(...)"
+  - pattern: "urllib.request.urlretrieve(...)"
+  - pattern: "six.moves.urllib.request.urlopen(...)"
+  - pattern: "six.moves.urllib.request.urlretrieve(...)"
+  - pattern: "six.moves.urllib.request.URLopener(...)"
+  - pattern: "six.moves.urllib.request.FancyURLopener(...)"
+  message: |
+    Detected a dynamic value being used with urllib. urllib supports `file://` schemes, so a
+    dynamic value controlled by a malicious actor may allow them to read arbitrary files. Audit
+    uses of urllib calls to ensure user data cannot control the URLs, or consider using the
+    `requests` library instead.
+  metadata:
+    cwe: "CWE-939: Improper Authorization in Handler for Custom URL Scheme"
+    owasp: "A5: Broken Access Control"
+  severity: "WARNING"
+  languages:
+  - "python"

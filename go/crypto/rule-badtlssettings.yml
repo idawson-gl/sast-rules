@@ -1,0 +1,29 @@
+# yamllint disable
+# License: Apache 2.0 (c) gosec
+# source (original): https://github.com/securego/gosec/blob/master/rules/tls_config.go
+# yamllint enable
+---
+rules:
+- id: "go/crypto/rule-badtlssettings"
+  patterns:
+  - pattern-either:
+    - pattern: |
+        tls.Config{..., CipherSuites: []$SLICE{..., $CIPHERS, ...}, ...}
+    - pattern: |
+        tls.CipherSuite{..., ID: $CIPHERS, ...}
+  - metavariable-regex:
+      metavariable: "$CIPHERS"
+      regex: "((?!tls.TLS_AES_128_GCM_SHA256)|(?!tls.TLS_AES_256_GCM_SHA384)|(?!tls.TLS_CHACHA20_POLY1305_SHA256)|
+        (?!tls.TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256)|(?!tls.TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256)|
+        (?!tls.TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384)|(?!tls.TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384)|
+        (?!tls.TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305)|(?!tls.TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256)|
+        (?!tls.TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305)|(?!tls.TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256)|
+        (?!tls.TLS_DHE_RSA_WITH_AES_128_GCM_SHA256)|(?!tls.TLS_DHE_RSA_WITH_AES_256_GCM_SHA384))"
+  message: "Usage of a cryptographically insecure cipher suite has been detected.
+    It is recommended that \nalternative ciphers be used instead.\n"
+  metadata:
+    cwe: "CWE-327: Use of a Broken or Risky Cryptographic Algorithm"
+    owasp: "A9: Using Components with Known Vulnerabilities"
+  severity: "WARNING"
+  languages:
+  - "go"

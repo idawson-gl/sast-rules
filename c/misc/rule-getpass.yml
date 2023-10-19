@@ -1,0 +1,22 @@
+# yamllint disable
+# The ruleset is generated from flawfinder official rule repository hosted on github.
+# License: GPL 2.0 (c) 1989, 1991 Free Software Foundation, Inc.
+# source: https://github.com/david-a-wheeler/flawfinder/blob/e0d8827c3b714a883ce8036edc832721f4619524/flawfinder.py
+# yamllint enable
+---
+rules:
+- id: "c/misc/rule-getpass"
+  languages:
+  - "c"
+  message: |
+    Make the specific calls to do exactly what you want.  If you continue to use it, or write your
+    own, be sure to zero the password as soon as possible to avoid leaving the cleartext password
+    visible in the process' address space.
+  metadata:
+    cwe: "CWE-20: This function is obsolete and not portable. It was in SUSv2 but
+      removed by POSIX.2.  What it does exactly varies considerably between systems,
+      particularly in where its prompt is displayed and where it gets its data (e.g.,
+      /dev/tty, stdin, stderr, etc.). In addition, some implementations overflow buffers.
+      (CWE-676, CWE-120, CWE-20)"
+  pattern: "getpass(...)"
+  severity: "ERROR"

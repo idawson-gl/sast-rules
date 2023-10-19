@@ -1,0 +1,24 @@
+# yamllint disable
+# License: MIT (c) GitLab Inc.
+# yamllint enable
+---
+rules:
+- id: "java/xml/rule-XmlDecoder"
+  patterns:
+  - pattern-either:
+    - patterns:
+      - pattern-inside: |
+          $D = new XMLDecoder($IN);
+          ...
+      - pattern-not-inside: |
+          $D = new XMLDecoder("...");
+          ...
+      - pattern: "$D.readObject()"
+  languages:
+  - "java"
+  message: |
+    Avoid using XMLDecoder to parse content from an untrusted source.
+  metadata:
+    category: "security"
+    cwe: "CWE-502: Deserialization of Untrusted Data"
+  severity: "WARNING"

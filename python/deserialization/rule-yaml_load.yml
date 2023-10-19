@@ -1,0 +1,24 @@
+# yamllint disable
+# License: LGPL 2.1 (c) Return To Corporation
+# source (original): https://github.com/returntocorp/semgrep-rules/blob/develop/python/lang/security/deserialization/avoid-pyyaml-load.yaml
+# hash: acdabdb
+# id: avoid-pyyaml-load
+# yamllint enable
+---
+rules:
+- id: "python/deserialization/rule-yaml_load"
+  patterns:
+  - pattern-inside: |
+      import yaml
+      ...
+      yaml.load($FOO)
+  - pattern: "yaml.load($FOO)"
+  message: |
+    Avoid using `load()`. `PyYAML.load` can create arbitrary Pythonobjects. A malicious actor could
+    exploit this to run arbitrarycode. Use `safe_load()` instead.
+  metadata:
+    cwe: "CWE-502: Deserialization of Untrusted Data"
+    owasp: "A8: Insecure Deserialization"
+  severity: "ERROR"
+  languages:
+  - "python"

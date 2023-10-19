@@ -1,0 +1,67 @@
+# yamllint disable
+# License: MIT (c) GitLab Inc.
+# yamllint enable
+---
+rules:
+- id: "csharp/xss/rule-Xss"
+  mode: "taint"
+  pattern-sources:
+  - patterns:
+    - pattern: "$PARAM"
+    - metavariable-regex:
+        metavariable: "$HTTP_ANNO"
+        regex: "^(Http)"
+    - pattern-inside: |
+        public class $CLASS : Controller {
+          ...
+        }
+    - pattern-inside: |
+        [$HTTP_ANNO]
+        public string $METHOD(...,$PARAM,...){...}
+  pattern-sanitizers:
+  - patterns:
+    - metavariable-regex:
+        metavariable: "$FUNC"
+        regex: "(SerializeObject|HtmlAttributeEncode|HtmlEncode|HtmlFormUrlEncode|UrlEncode|UrlPathEncode|XmlAttributeEncode|XmlEncode|Encode)"
+    - pattern: "$CLASS.$FUNC(...)"
+  pattern-sinks:
+  - pattern: "(System.Web.Mvc.HtmlHelper $E).Raw(...)"
+  - pattern: "(Microsoft.AspNetCore.Mvc.Rendering.IHtmlHelper $E).Raw(...)"
+  - pattern: "(System.Web.HttpResponse $E).AddHeader(...)"
+  - pattern: "(System.Web.HttpResponse $E).AppendHeader(...)"
+  - pattern: "(System.Web.HttpResponse $E).Write(...)"
+  - pattern: "(System.Web.HttpResponse $E).BinaryWrite(...)"
+  - pattern: "(System.Web.HttpResponse $E).TransmitFile(...)"
+  - pattern: "(System.Web.HttpResponse $E).WriteFile(...)"
+  - pattern: "(System.Web.HttpResponseBase $E).AddHeader(...)"
+  - pattern: "(System.Web.HttpResponseBase $E).AppendHeader(...)"
+  - pattern: "(System.Web.HttpResponseBase $E).Write(...)"
+  - pattern: "(System.Web.HttpResponseBase $E).BinaryWrite(...)"
+  - pattern: "(System.Web.HttpResponseBase $E).WriteFile(...)"
+  - pattern: "(System.Web.UI.HtmlTextWriter $E).AddAttribute(...)"
+  - pattern: "(System.Web.UI.HtmlTextWriter $E).AddStyleAttribute(...)"
+  - pattern: "(System.Web.UI.HtmlTextWriter $E).RenderBeginTag(...)"
+  - pattern: "(System.Web.UI.HtmlTextWriter $E).Write(...)"
+  - pattern: "(System.Web.UI.HtmlTextWriter $E).WriteAttribute(...)"
+  - pattern: "(System.Web.UI.HtmlTextWriter $E).WriteBeginTag(...)"
+  - pattern: "(System.Web.UI.HtmlTextWriter $E).WriteEndTag(...)"
+  - pattern: "(System.Web.UI.HtmlTextWriter $E).WriteFullBeginTag(...)"
+  - pattern: "(System.Web.UI.HtmlTextWriter $E).WriteStyleAttribute(...)"
+  - pattern: "(System.Web.UI.ClientScriptManager $E).RegisterStartupScript(...)"
+  - pattern: "(System.Web.UI.ClientScriptManager $E).RegisterClientScriptBlock(...)"
+  - pattern: "(System.Web.UI.Page $E).RegisterStartupScript(...)"
+  - pattern: "(System.Web.UI.Page $E).RegisterClientScriptBlock(...)"
+  - pattern: "return ...;"
+  languages:
+  - "csharp"
+  message: |
+    A potential XSS was found. The endpoint returns a variable from the client
+    input that has not been encoded. To protect against stored XSS attacks, make
+    sure any dynamic content coming from user or data store cannot be used to
+    inject JavaScript on a page. Most modern frameworks will escape dynamic content
+    by default automatically (Razor for example)
+  metadata:
+    category: "security"
+    cwe: "CWE-79: Improper Neutralization of Input During Web Page Generation (‘Cross-site
+      Scripting’)"
+  severity: "WARNING"

@@ -1,0 +1,19 @@
+# yamllint disable
+# The ruleset is generated from flawfinder official rule repository hosted on github.
+# License: GPL 2.0 (c) 1989, 1991 Free Software Foundation, Inc.
+# source: https://github.com/david-a-wheeler/flawfinder/blob/e0d8827c3b714a883ce8036edc832721f4619524/flawfinder.py
+# yamllint enable
+---
+rules:
+- id: "c/buffer/rule-realpath"
+  languages:
+  - "c"
+  message: |
+    Ensure that the destination buffer is at least of size MAXPATHLEN, andto protect against
+    implementation problems, the input argument should also be checked to ensure it is no larger
+    than MAXPATHLEN.
+  metadata:
+    cwe: "CWE-120: This function does not protect against buffer overflows, and some
+      implementations can overflow internally (CWE-120/CWE-785!)"
+  pattern: "realpath(...)"
+  severity: "WARNING"

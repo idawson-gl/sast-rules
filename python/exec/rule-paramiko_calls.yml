@@ -1,0 +1,24 @@
+# yamllint disable
+# License: LGPL 2.1 (c) Return To Corporation
+# source (original): https://github.com/returntocorp/semgrep-rules/blob/develop/python/lang/security/audit/paramiko/paramiko-exec-command.yaml
+# hash: acdabdb
+# id: paramiko-exec-command
+# yamllint enable
+---
+rules:
+- id: "python/exec/rule-paramiko_calls"
+  patterns:
+  - pattern-inside: |
+      import paramiko
+      ...
+  - pattern: "$CLIENT.exec_command(...)"
+  message: |
+    Unverified SSL context detected. This will permit insecure connections without `verifyingSSL`
+    certificates. Use `ssl.create_default_context()` instead.
+  metadata:
+    cwe: "CWE-78: Improper Neutralization of Special Elements used in an OS Command
+      ('OS Command Injection')"
+    owasp: "A1: Injection"
+  severity: "WARNING"
+  languages:
+  - "python"

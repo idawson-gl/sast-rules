@@ -1,0 +1,26 @@
+# yamllint disable
+# License: Apache 2.0 (c) gosec
+# source (original): https://github.com/securego/gosec/blob/master/rules/bind.go
+# hash: c6e10af 
+# yamllint enable
+---
+rules:
+- id: "go/network/rule-bind_to_all_interfaces"
+  patterns:
+  - pattern-either:
+    - pattern: "net.Listen(..., \"$ADDR\")"
+    - pattern: "tls.Listen(..., \"$ADDR\", ...)"
+  - metavariable-regex:
+      metavariable: "$ADDR"
+      regex: "0.0.0.0:[0-9]+"
+  message: |
+    Binding to all network interfaces can potentially open up a service to
+    traffic on unintended interfaces, that may not be properly documented or
+    secured. This plugin test looks for a string pattern “0.0.0.0” that may
+    indicate a hardcoded binding to all network interfaces.
+  metadata:
+    cwe: "CWE-200: Exposure of Sensitive Information to an Unauthorized Actor"
+    owasp: "A6: Security Misconfiguration"
+  severity: "WARNING"
+  languages:
+  - "go"

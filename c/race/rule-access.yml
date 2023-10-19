@@ -1,0 +1,18 @@
+# yamllint disable
+# The ruleset is generated from flawfinder official rule repository hosted on github.
+# License: GPL 2.0 (c) 1989, 1991 Free Software Foundation, Inc.
+# source: https://github.com/david-a-wheeler/flawfinder/blob/e0d8827c3b714a883ce8036edc832721f4619524/flawfinder.py
+# yamllint enable
+---
+rules:
+- id: "c/race/rule-access"
+  languages:
+  - "c"
+  message: |
+    Set up the correct permissions (e.g., using setuid()) and try to open the file directly.
+  metadata:
+    cwe: "CWE-362: This usually indicates a security flaw.  If an attacker can change
+      anything along the path between the call to access() and the file's actual use
+      (e.g., by moving files), the attacker can exploit the race condition (CWE-362/CWE-367!)"
+  pattern: "access(...)"
+  severity: "ERROR"

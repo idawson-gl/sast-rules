@@ -1,0 +1,20 @@
+# yamllint disable
+# License: MIT (c) GitLab Inc.
+# yamllint enable
+---
+rules:
+- id: "python/django/rule-django_rawsql_used"
+  patterns:
+  - pattern-either:
+    - pattern: "$MODEL.objects.raw($QUERY, ...)"
+    - pattern: "django.db.models.expressions.RawSQL(...)"
+  message: |
+    You should be very careful whenever you write raw SQL. Consider usingDjango ORM before raw SQL.
+    See https://docs.djangoproject.com/en/3.0/topics/db/sql/#passing-parameters-into-raw
+  metadata:
+    cwe: "CWE-89: Improper Neutralization of Special Elements used in an SQL Command
+      ('SQL Injection')"
+    owasp: "A1: Injection"
+  severity: "ERROR"
+  languages:
+  - "python"

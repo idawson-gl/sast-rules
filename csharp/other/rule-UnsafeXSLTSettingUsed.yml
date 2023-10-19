@@ -1,0 +1,22 @@
+# yamllint disable
+# License: MIT (c) GitLab Inc.
+# yamllint enable
+---
+rules:
+- id: "csharp/other/rule-UnsafeXSLTSettingUsed"
+  patterns:
+  - pattern-either:
+    - pattern: "new XsltSettings() {EnableScript = true};"
+    - pattern: |
+        var $SETTINGS = new XsltSettings();
+        ...
+        $SETTINGS.EnableScript = true;
+  message: |
+    The method identified is susceptible to injection. The input should be validated and properly
+    escaped.
+  languages:
+  - "csharp"
+  severity: "WARNING"
+  metadata:
+    category: "security"
+    cwe: "CWE-611: Improper Restriction of XML External Entity Reference"

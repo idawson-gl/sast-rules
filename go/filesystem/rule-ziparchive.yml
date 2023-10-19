@@ -1,0 +1,20 @@
+# yamllint disable
+# License: Apache 2.0 (c) gosec
+# source (original): https://github.com/securego/gosec/blob/master/rules/archive.go
+# yamllint enable
+---
+rules:
+- id: "go/filesystem/rule-ziparchive"
+  mode: "taint"
+  pattern-sources:
+  - pattern: "zip.OpenReader(...)"
+  pattern-sinks:
+  - pattern: "filepath.Join(...)"
+  message: |
+    File traversal when extracting zip/tar archive
+  metadata:
+    cwe: "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path
+      Traversal')"
+  severity: "WARNING"
+  languages:
+  - "go"

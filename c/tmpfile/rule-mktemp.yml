@@ -1,0 +1,17 @@
+# yamllint disable
+# The ruleset is generated from flawfinder official rule repository hosted on github.
+# License: GPL 2.0 (c) 1989, 1991 Free Software Foundation, Inc.
+# source: https://github.com/david-a-wheeler/flawfinder/blob/e0d8827c3b714a883ce8036edc832721f4619524/flawfinder.py
+# yamllint enable
+---
+rules:
+- id: "c/tmpfile/rule-mktemp"
+  languages:
+  - "c"
+  message: |
+    Creating and using insecure temporary files can leave application and system data vulnerable to
+    attack (CWE-377).
+  metadata:
+    cwe: "CWE-377: Temporary file race condition (CWE-377)"
+  pattern: "mktemp(...)"
+  severity: "ERROR"

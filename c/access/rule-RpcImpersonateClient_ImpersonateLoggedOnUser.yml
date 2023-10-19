@@ -1,0 +1,24 @@
+# yamllint disable
+# The ruleset is generated from flawfinder official rule repository hosted on github.
+# License: GPL 2.0 (c) 1989, 1991 Free Software Foundation, Inc.
+# source: https://github.com/david-a-wheeler/flawfinder/blob/e0d8827c3b714a883ce8036edc832721f4619524/flawfinder.py
+# yamllint enable
+---
+rules:
+- id: "c/access/rule-RpcImpersonateClient_ImpersonateLoggedOnUser"
+  languages:
+  - "c"
+  message: |
+    Make sure the return value is checked, and do not continue if a failure is reported.
+  metadata:
+    cwe: "CWE-250: If this call fails, the program could fail to drop heightened privileges
+      (CWE-250)"
+  pattern-either:
+  - pattern: "RpcImpersonateClient(...)"
+  - pattern: "ImpersonateLoggedOnUser(...)"
+  - pattern: "CoImpersonateClient(...)"
+  - pattern: "ImpersonateNamedPipeClient(...)"
+  - pattern: "ImpersonateDdeClientWindow(...)"
+  - pattern: "ImpersonateSecurityContext(...)"
+  - pattern: "SetThreadToken(...)"
+  severity: "ERROR"

@@ -1,0 +1,108 @@
+# yamllint disable
+# maps gosec rule ids to semgrep rules
+# License: MIT (c) GitLab Inc.
+# yamllint enable
+---
+gosec:
+  native_id:
+    type: "gosec_rule_id"
+    name: "Gosec Rule ID $ID"
+    value: "$ID"
+  mappings:
+  - id: "G101"
+    rules:
+    - "go/secrets/rule-secrets"
+  - id: "G102"
+    rules:
+    - "go/network/rule-bind_to_all_interfaces"
+  - id: "G103"
+    rules:
+    - "go/unsafe/rule-unsafe"
+  - id: "G106"
+    rules:
+    - "go/crypto/rule-insecure_ignore_host_key"
+  - id: "G107"
+    rules:
+    - "go/injection/rule-ssrf"
+  - id: "G108"
+    rules:
+    - "go/leak/rule-pprof_endpoint"
+  - id: "G109"
+    rules:
+    - "go/memory/rule-integer_overflow"
+  - id: "G110"
+    rules:
+    - "go/filesystem/rule-decompression_bomb"
+  - id: "G111"
+    rules:
+    - "go/filesystem/rule-dirtraversal"
+  - id: "G112"
+    rules:
+    - "go/http/rule-slowloris"
+  - id: "G113"
+    rules:
+    - "go/memory/rule-math_big_rat"
+  - id: "G114"
+    rules:
+    - "go/http/rule-http_serve"
+  - id: "G201"
+    rules:
+    - "go/sql/rule-format_string_sqli"
+  - id: "G202"
+    rules:
+    - "go/sql/rule-concat_sqli"
+  - id: "G203"
+    rules:
+    - "go/injection/rule-template_injection"
+  - id: "G204"
+    rules:
+    - "go/subproc/rule-subproc"
+  - id: "G301"
+    rules:
+    - "go/file_permissions/rule-mkdir"
+  - id: "G302"
+    rules:
+    - "go/file_permissions/rule-fileperm"
+  - id: "G303"
+    rules:
+    - "go/filesystem/rule-tempfiles"
+  - id: "G304"
+    rules:
+    - "go/filesystem/rule-filereadtaint"
+  - id: "G305"
+    rules:
+    - "go/filesystem/rule-ziparchive"
+  - id: "G306"
+    rules:
+    - "go/filesystem/rule-poorwritepermissions"
+  - id: "G401"
+    rules:
+    - "go/crypto/rule-weakcrypto"
+  - id: "G402"
+    rules:
+    - "go/crypto/rule-badtlssettings"
+    - "go/crypto/rule-tlsversion"
+  - id: "G403"
+    rules:
+    - "go/crypto/rule-weakkeystrength"
+  - id: "G404"
+    rules:
+    - "go/crypto/rule-weakrandsource"
+  - id: "G501"
+    rules:
+    - "go/blocklist/rule-blocklist-md5"
+  - id: "G502"
+    rules:
+    - "go/blocklist/rule-blocklist-des"
+  - id: "G503"
+    rules:
+    - "go/blocklist/rule-blocklist-rc4"
+  - id: "G504"
+    rules:
+    - "go/blocklist/rule-blocklist-cgi"
+  - id: "G505"
+    rules:
+    - "go/blocklist/rule-blocklist-sha1"
+  - id: "G601"
+    rules:
+    - "go/memory/rule-memoryaliasing"

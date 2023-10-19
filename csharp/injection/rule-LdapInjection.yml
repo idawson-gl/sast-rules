@@ -1,0 +1,26 @@
+# yamllint disable
+# License: MIT (c) GitLab Inc.
+# yamllint enable
+---
+rules:
+- id: "csharp/injection/rule-LdapInjection"
+  patterns:
+  - pattern-either:
+    - patterns:
+      - pattern: "(DirectorySearcher $SOURCE).Filter = ..."
+      - pattern-not: "(DirectorySearcher $SOURCE).Filter = \"...\""
+    - patterns:
+      - pattern: "(DirectorySearcher $SOURCE).Path = ..."
+      - pattern-not: "(DirectorySearcher $SOURCE).Path = \"...\""
+  message: |
+    The software constructs all or part of an LDAP query using
+    externally-influenced input from an upstream component, but it does not
+    neutralize or incorrectly neutralizes special elements that could modify
+    the intended LDAP query when it is sent to a downstream component.
+  languages:
+  - "csharp"
+  severity: "WARNING"
+  metadata:
+    category: "security"
+    cwe: "CWE-90: Improper Neutralization of Special Elements used in an LDAP Query
+      (‘LDAP Injection’)"

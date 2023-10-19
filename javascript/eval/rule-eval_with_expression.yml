@@ -1,0 +1,22 @@
+# yamllint disable
+# License: MIT (c) GitLab Inc.
+# yamllint enable
+---
+rules:
+- id: "javascript/eval/rule-eval_with_expression"
+  metadata:
+    cwe: "CWE-95: Improper Neutralization of Directives in Dynamically Evaluated Code
+      ('Eval Injection')"
+    owasp: "A1: Injection"
+    # yamllint disable
+    source-rule-url: "https://github.com/nodesecurity/eslint-plugin-security/blob/master/rules/detect-eval-with-expression.js"
+    # yamllint enable
+  message: |
+    Detected eval(variable), which could allow a malicious actor to run arbitrary code.
+  patterns:
+  - pattern: "eval($OBJ)"
+  - pattern-not: "eval(\"...\")"
+  severity: "WARNING"
+  languages:
+  - "javascript"
+  - "typescript"

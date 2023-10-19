@@ -1,0 +1,109 @@
+# yamllint disable
+# License: MIT (c) GitLab Inc.
+# source file reference: test-InformationExposure.java
+# yamllint enable
+---
+rules:
+- id: "java/unsafe/rule-InformationExposureVariant2"
+  patterns:
+  - pattern-either:
+    - pattern: |
+        catch(Throwable $E) {
+          ...
+          $E.printStackTrace($OUT);
+          ...
+        }
+    - pattern: |
+        catch(Exception $E) {
+          ...
+          $E.printStackTrace($OUT);
+          ...
+        }
+    - pattern: |
+        catch(Error $E) {
+          ...
+          $E.printStackTrace($OUT);
+          ...
+        }
+    - pattern: |
+        catch(java.io.FileNotFoundException $E) {
+          ...
+          $E.printStackTrace($OUT);
+          ...
+        }
+    - pattern: |
+        catch(java.sql.SQLException $E) {
+          ...
+          $E.printStackTrace($OUT);
+          ...
+        }
+    - pattern: |
+        catch(java.net.BindException $E) {
+          ...
+          $E.printStackTrace($OUT);
+          ...
+        }
+    - pattern: |
+        catch(java.util.ConcurrentModificationException $E) {
+          ...
+          $E.printStackTrace($OUT);
+          ...
+        }
+    - pattern: |
+        catch(javax.naming.InsufficientResourcesException $E) {
+          ...
+          $E.printStackTrace($OUT);
+          ...
+        }
+    - pattern: |
+        catch(java.util.MissingResourceException $E) {
+          ...
+          $E.printStackTrace($OUT);
+          ...
+        }
+    - pattern: |
+        catch(java.util.jar.JarException $E) {
+          ...
+          $E.printStackTrace($OUT);
+          ...
+        }
+    - pattern: |
+        catch(java.security.acl.NotOwnerException $E) {
+          ...
+          $E.printStackTrace($OUT);
+          ...
+        }
+    - pattern: |
+        catch(OutOfMemoryError $E) {
+          ...
+          $E.printStackTrace($OUT);
+          ...
+        }
+    - pattern: |
+        catch(StackOverflowError $E) {
+          ...
+          $E.printStackTrace($OUT);
+          ...
+        }
+  - metavariable-pattern:
+      metavariable: "$OUT"
+      pattern-either:
+      - pattern: "(java.io.PrintStream $PS)"
+      - pattern: "(java.io.PrintWriter $PW)"
+      - pattern: "java.lang.System.out"
+      - pattern: "(java.io.OutputStream $O)"
+      - pattern: "(javax.servlet.ServletOutputStream $SOS)"
+  message: |
+    The sensitive information may be valuable information on its own (such as a password), or it
+    may be useful for launching other, more deadly attacks. If an attack fails, an attacker may use
+    error information provided by the server to launch another more focused attack. For example, an
+    attempt to exploit a path traversal weakness (CWE-22) might yield the full pathname of the
+    installed application.
+  languages:
+  - "java"
+  severity: "WARNING"
+  metadata:
+    category: "security"
+    cwe: "CWE-209: Information Exposure Through an Error Message"
+    technology:
+    - "java"

@@ -1,0 +1,20 @@
+# yamllint disable
+# License: MIT (c) GitLab Inc.
+# yamllint enable
+---
+rules:
+- id: "javascript/xss/rule-mustache_escape"
+  metadata:
+    cwe: "CWE-79: Improper Neutralization of Input During Web Page Generation (XSS)"
+    owasp: "A7: Cross-Site Scripting XSS"
+    # yamllint disable
+    source-rule-url: "https://github.com/nodesecurity/eslint-plugin-security/blob/master/rules/detect-disable-mustache-escape.js"
+    # yamllint enable
+  message: |
+    Markup escaping disabled. This can be used with some template engines to escape
+    disabling of HTML entities, which can lead to XSS attacks.
+  pattern: "$OBJ.escapeMarkup = false"
+  severity: "WARNING"
+  languages:
+  - "javascript"
+  - "typescript"

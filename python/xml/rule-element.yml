@@ -1,0 +1,23 @@
+# yamllint disable
+# License: MIT (c) GitLab Inc.
+# yamllint enable
+---
+rules:
+- id: "python/xml/rule-element"
+  pattern-either:
+  - patterns:
+    - pattern: "xml.etree.ElementTree.fromstring(...)"
+    - pattern-not: "xml.etree.ElementTree.fromstring(\"...\")"
+  - pattern: "xml.etree.ElementTree.parse(...)"
+  - pattern: "xml.etree.ElementTree.iterparse(...)"
+  - pattern: "xml.etree.ElementTree.XMLParser(...)"
+  metadata:
+    cwe: "CWE-611: Improper Restriction of XML External Entity Reference"
+    owasp: "A4: XML External Entities (XXE)"
+  message: |
+    Found use of the native Python XML libraries, which is vulnerable to XML external entity (XXE)
+    attacks. The Python documentation recommends the `defusedxml` library instead. Use
+    'defusedxml'. See https://github.com/tiran/defusedxml for more information.
+  severity: "WARNING"
+  languages:
+  - "python"

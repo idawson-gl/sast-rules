@@ -1,0 +1,144 @@
+# yamllint disable
+# License: MIT (c) GitLab Inc.
+# yamllint enable
+---
+rules:
+- id: "java/inject/rule-OgnlInjection"
+  mode: "taint"
+  pattern-sources:
+  - patterns:
+    - pattern-inside: |
+        $FUNC(..., $VAR, ...) {
+          ...
+        }
+    - metavariable-pattern:
+        metavariable: "$VAR"
+        pattern-either:
+        - pattern: "(String $S)"
+        - pattern: "(Map<String, ?> $M)"
+        - pattern: "(Map<String, String> $M)"
+        - pattern: "(Map<String, Object> $M)"
+    - pattern: "$VAR"
+  pattern-sinks:
+  - patterns:
+    - pattern-inside: |-
+        com.opensymphony.xwork2.util.TextParseUtil.translateVariables($VAL, ...)
+    - pattern: "$VAL"
+  - patterns:
+    - pattern-inside: |-
+        com.opensymphony.xwork2.util.TextParseUtil.translateVariablesCollection($VAL, ...)
+    - pattern: "$VAL"
+  - pattern: "com.opensymphony.xwork2.util.TextParseUtil.shallBeIncluded(...)"
+  - pattern: "com.opensymphony.xwork2.util.TextParseUtil.commaDelimitedStringToSet(...)"
+  - patterns:
+    - pattern-inside: |-
+        (com.opensymphony.xwork2.util.TextParser $P).evaluate($VAR, $VAL, ...)
+    - pattern: "$VAL"
+  - patterns:
+    - pattern-inside: |-
+        (com.opensymphony.xwork2.util.OgnlTextParser $P).evaluate($VAR, $VAL, ...)
+    - pattern: "$VAL"
+  - pattern: "(com.opensymphony.xwork2.ognl.OgnlReflectionProvider $P).getGetMethod($CLZ,
+      ...)"
+  - pattern: "(com.opensymphony.xwork2.ognl.OgnlReflectionProvider $P).getSetMethod($CLZ,
+      ...)"
+  - pattern: "(com.opensymphony.xwork2.ognl.OgnlReflectionProvider $P).getField($CLZ,
+      ...)"
+  - patterns:
+    - pattern-inside: |-
+        (com.opensymphony.xwork2.ognl.OgnlReflectionProvider $P).setProperties($MAP, ...)
+    - pattern: "$MAP"
+  - patterns:
+    - pattern-inside: |-
+        (com.opensymphony.xwork2.ognl.OgnlReflectionProvider $P).setProperty($VAL, ...)
+    - pattern: "$VAL"
+  - patterns:
+    - pattern-inside: |-
+        (com.opensymphony.xwork2.ognl.OgnlReflectionProvider $P).getValue($VAL, ...)
+    - pattern: "$VAL"
+  - patterns:
+    - pattern-inside: |-
+        (com.opensymphony.xwork2.ognl.OgnlReflectionProvider $P).setValue($VAL, ...)
+    - pattern: "$VAL"
+  - pattern: "(com.opensymphony.xwork2.util.reflection.ReflectionProvider $P).getGetMethod($CLZ,
+      ...)"
+  - pattern: "(com.opensymphony.xwork2.util.reflection.ReflectionProvider $P).getSetMethod($CLZ,
+      ...)"
+  - pattern: "(com.opensymphony.xwork2.util.reflection.ReflectionProvider $P).getField($CLZ,
+      ...)"
+  - patterns:
+    - pattern-inside: |-
+        (com.opensymphony.xwork2.util.reflection.ReflectionProvider $P).setProperties($MAP, ...)
+    - pattern: "$MAP"
+  - patterns:
+    - pattern-inside: |-
+        (com.opensymphony.xwork2.util.reflection.ReflectionProvider $P).setProperty($VAR, ...)
+    - pattern: "$VAR"
+  - patterns:
+    - pattern-inside: |-
+        (com.opensymphony.xwork2.util.reflection.ReflectionProvider $P).getValue($VAR, ...)
+    - pattern: "$VAR"
+  - patterns:
+    - pattern-inside: |-
+        (com.opensymphony.xwork2.util.reflection.ReflectionProvider $P).setValue($VAR, ...)
+    - pattern: "$VAR"
+  - patterns:
+    - pattern-inside: |-
+        (com.opensymphony.xwork2.ognl.OgnlUtil $P).setProperties($MAP, ...)
+    - pattern: "$MAP"
+  - patterns:
+    - pattern-inside: |-
+        (com.opensymphony.xwork2.ognl.OgnlUtil $P).setProperty($VAR, ...)
+    - pattern: "$VAR"
+  - patterns:
+    - pattern-inside: |-
+        (com.opensymphony.xwork2.ognl.OgnlUtil $P).getValue($VAR, ...)
+    - pattern: "$VAR"
+  - patterns:
+    - pattern-inside: |-
+        (com.opensymphony.xwork2.ognl.OgnlUtil $P).setValue($VAR, ...)
+    - pattern: "$VAR"
+  - patterns:
+    - pattern-inside: |-
+        (com.opensymphony.xwork2.ognl.OgnlUtil $P).callMethod($VAR, ...)
+    - pattern: "$VAR"
+  - patterns:
+    - pattern-inside: |-
+        (com.opensymphony.xwork2.ognl.OgnlUtil $P).compile($VAR, ...)
+    - pattern: "$VAR"
+  - pattern: "(org.apache.struts2.util.VelocityStrutsUtil $P).evaluate(...)"
+  - pattern: "org.apache.struts2.util.StrutsUtil.findString(...)"
+  - pattern: "org.apache.struts2.util.StrutsUtil.findValue(..., $VAL)"
+  - pattern: "org.apache.struts2.util.StrutsUtil.getText(...)"
+  - pattern: "org.apache.struts2.util.StrutsUtil.translateVariables(...)"
+  - patterns:
+    - pattern-inside: |-
+        org.apache.struts2.util.StrutsUtil.makeSelectList($VAR, ...)
+    - pattern: "$VAR"
+  - patterns:
+    - pattern-inside: |-
+        (org.apache.struts2.views.jsp.ui.OgnlTool $T).findValue($VAR, ...)
+    - pattern: "$VAR"
+  - pattern: "(com.opensymphony.xwork2.util.ValueStack $V).findString(...)"
+  - patterns:
+    - pattern-inside: |-
+        (com.opensymphony.xwork2.util.ValueStack $V).findValue($VAR, ...)
+    - pattern: "$VAR"
+  - patterns:
+    - pattern-inside: |-
+        (com.opensymphony.xwork2.util.ValueStack $V).setValue($VAR, ...)
+    - pattern: "$VAR"
+  - patterns:
+    - pattern-inside: |-
+        (com.opensymphony.xwork2.util.ValueStack $V).setParameter($VAR, ...)
+    - pattern: "$VAR"
+  message: |
+    "A expression is built with a dynamic value. The source of the value(s) should be verified to
+    avoid that unfiltered values fall into this risky code evaluation."
+  languages:
+  - "java"
+  severity: "WARNING"
+  metadata:
+    category: "security"
+    technology:
+    - "java"

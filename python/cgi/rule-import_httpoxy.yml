@@ -1,0 +1,17 @@
+# yamllint disable
+# License: MIT (c) GitLab Inc.
+# yamllint enable
+---
+rules:
+- id: "python/cgi/rule-import_httpoxy"
+  pattern-either:
+  - pattern: "wsgiref.handlers.CGIHandler(...)"
+  - pattern: "twisted.web.twcgi.CGIDirectory(...)"
+  message: |
+    Consider possible security implications associated with httpoxy module.
+  metadata:
+    cwe: "CWE-284: Improper Access Control"
+    owasp: "A5: Broken Access Control"
+  severity: "ERROR"
+  languages:
+  - "python"

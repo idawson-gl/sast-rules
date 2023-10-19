@@ -1,0 +1,49 @@
+# yamllint disable
+# License: Apache 2.0 (c) gosec
+# source (original): https://github.com/securego/gosec/blob/master/rules/slowloris.go
+# hash: c6e10af
+# yamllint enable
+---
+rules:
+- id: "go/http/rule-slowloris"
+  patterns:
+  - pattern-inside: |
+      import "net/http"
+      ...
+  - pattern-either:
+    - patterns:
+      - pattern-not-inside: |
+          &http.Server{
+            ...,
+            ReadHeaderTimeout: ...,
+            ...,
+          }
+      - pattern-not-inside: |
+          &http.Server{
+            ...,
+            ReadTimeout: ...,
+            ...,
+          }
+      - pattern-not-inside: |
+          $S = &http.Server{
+            ...,
+          }
+          $S.ReadHeaderTimeout = ...
+          ...
+      - pattern-not-inside: |
+          $S = &http.Server{
+            ...,
+          }
+          $S.ReadTimeout = ...
+          ...
+      - pattern: |
+          &http.Server{
+            ...,
+          }
+  message: |
+    Potential Slowloris Attack because ReadHeaderTimeout is not configured in the http.Server
+  metadata:
+    cwe: "CWE-400: Uncontrolled Resource Consumption"
+  severity: "WARNING"
+  languages:
+  - "go"

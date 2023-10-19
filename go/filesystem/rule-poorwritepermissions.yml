@@ -1,0 +1,22 @@
+# yamllint disable
+# License: Apache 2.0 (c) gosec
+# source (original): https://github.com/securego/gosec/blob/master/rules/fileperms.go
+# yamllint enable
+---
+rules:
+- id: "go/filesystem/rule-poorwritepermissions"
+  patterns:
+  - pattern-either:
+    - pattern: |
+        ioutil.WriteFile(..., ..., $ARG)
+  - metavariable-comparison:
+      metavariable: "$ARG"
+      comparison: "$ARG > 0o600"
+      base: 8
+  message: |
+    Expect WriteFile permissions to be 600 or less
+  metadata:
+    cwe: "CWE-276: Incorrect Default Permissions"
+  severity: "WARNING"
+  languages:
+  - "go"

@@ -1,0 +1,18 @@
+# yamllint disable
+# License: MIT (c) GitLab Inc.
+# yamllint enable
+---
+rules:
+- id: "javascript/random/rule-pseudo_random_bytes"
+  metadata:
+    cwe: "CWE-338: Use of Cryptographically Weak Pseudo-Random Number Generator (PRNG)"
+    # yamllint disable
+    source-rule-url: "https://github.com/nodesecurity/eslint-plugin-security/blob/master/rules/detect-pseudoRandomBytes.js"
+    # yamllint enable
+  message: |
+    Detected usage of crypto.pseudoRandomBytes, which does not produce secure random numbers.
+  pattern: "crypto.pseudoRandomBytes"
+  severity: "WARNING"
+  languages:
+  - "javascript"
+  - "typescript"

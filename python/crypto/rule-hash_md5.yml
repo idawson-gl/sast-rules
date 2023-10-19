@@ -1,0 +1,20 @@
+# yamllint disable
+# License: LGPL 2.1 (c) Return To Corporation
+# source (original): https://github.com/returntocorp/semgrep-rules/blob/develop/python/lang/security/insecure-hash-algorithms.yaml
+# hash: acdabdb
+# id: insecure-hash-algorithm-md5
+# yamllint enable
+---
+rules:
+- id: "python/crypto/rule-hash_md5"
+  pattern: "hashlib.md5(...)"
+  message: |
+    Detected MD5 hash algorithm which is considered insecure. MD5 is not
+    collision resistant and is therefore not suitable as a cryptographic
+    signature. Use SHA256 or SHA3 instead.
+  metadata:
+    cwe: "CWE-327: Use of a Broken or Risky Cryptographic Algorithm"
+    owasp: "A3: Sensitive Data Exposure"
+  severity: "WARNING"
+  languages:
+  - "python"

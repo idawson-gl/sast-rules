@@ -1,0 +1,22 @@
+# yamllint disable
+# License: MIT (c) GitLab Inc.
+# yamllint enable
+---
+rules:
+- id: "python/assert/rule-assert_used"
+  patterns:
+  - pattern: "assert(...)"
+  - pattern-not-inside: |
+      import pytest
+      ...
+  - pattern-not-inside: |
+      import unittest
+      ...
+  message: |
+    Use of assert detected. The enclosed code will be removed when compiling to optimised byte
+    code.
+  metadata:
+    cwe: "CWE-754: Improper Check for Unusual or Exceptional Conditions"
+  severity: "INFO"
+  languages:
+  - "python"

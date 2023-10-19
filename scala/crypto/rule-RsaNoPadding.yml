@@ -1,0 +1,19 @@
+# yamllint disable
+# License: MIT (c) GitLab Inc.
+# yamllint enable
+---
+rules:
+- id: "scala/crypto/rule-RsaNoPadding"
+  patterns:
+  - pattern: "javax.crypto.Cipher.getInstance($ALG,...);"
+  - metavariable-regex:
+      metavariable: "$ALG"
+      regex: ".*NoPadding.*"
+  message: |
+    The software uses the RSA algorithm but does not incorporate Optimal Asymmetric
+    Encryption Padding (OAEP), which might weaken the encryption.
+  metadata:
+    cwe: "CWE-780: Use of RSA Algorithm without OAEP"
+  severity: "WARNING"
+  languages:
+  - "scala"

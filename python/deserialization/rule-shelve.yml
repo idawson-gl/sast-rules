@@ -1,0 +1,22 @@
+# yamllint disable
+# License: LGPL 2.1 (c) Return To Corporation
+# source (original): https://github.com/returntocorp/semgrep-rules/blob/develop/python/lang/security/deserialization/pickle.yaml
+# hash: acdabdb
+# id: avoid-shelve
+# yamllint enable
+---
+rules:
+- id: "python/deserialization/rule-shelve"
+  pattern-either:
+  - pattern: "shelve.$FUNC(...)"
+  message: |
+    Avoid using `shelve`, which uses `pickle`, which is known to lead to code
+    execution vulnerabilities. When unpickling, the serialized data could be
+    manipulated to run arbitrary code. Instead, consider serializing the
+    relevant data as JSON or a similar text-based serialization format.
+  metadata:
+    cwe: "CWE-502: Deserialization of Untrusted Data"
+    owasp: "A8: Insecure Deserialization"
+  severity: "WARNING"
+  languages:
+  - "python"

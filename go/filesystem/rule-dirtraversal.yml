@@ -1,0 +1,24 @@
+# yamllint disable
+# License: Apache 2.0 (c) gosec
+# source (original): https://github.com/securego/gosec/blob/master/rules/directory-traversal.go
+# yamllint enable
+---
+rules:
+- id: "go/filesystem/rule-dirtraversal"
+  patterns:
+  - pattern-either:
+    - pattern: |
+        import $NET "net/http"
+        ...
+        $NET.Dir("/")
+    - pattern: |
+        import "net/http"
+        ...
+        http.Dir("/")
+  message: |
+    Potential directory traversal
+  metadata:
+    cwe: "CWE-23: Relative Path Traversal"
+  severity: "WARNING"
+  languages:
+  - "go"

@@ -1,0 +1,20 @@
+# yamllint disable
+# The ruleset is generated from flawfinder official rule repository hosted on github.
+# License: GPL 2.0 (c) 1989, 1991 Free Software Foundation, Inc.
+# source: https://github.com/david-a-wheeler/flawfinder/blob/e0d8827c3b714a883ce8036edc832721f4619524/flawfinder.py
+# yamllint enable
+---
+rules:
+- id: "c/misc/rule-getlogin"
+  languages:
+  - "c"
+  message: |
+    Use getpwuid(geteuid()) and extract the desired information instead.
+  metadata:
+    cwe: "CWE-807: It's often easy to fool getlogin.  Sometimes it does not work at
+      all, because some program messed up the utmp file.  Often, it gives only the
+      first 8 characters of the login name. The user currently logged in on the controlling
+      tty of our program need not be the user who started it.  Avoid getlogin() for
+      security-related purposes (CWE-807)"
+  pattern: "getlogin(...)"
+  severity: "ERROR"

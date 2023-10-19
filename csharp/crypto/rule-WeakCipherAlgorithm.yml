@@ -1,0 +1,26 @@
+# yamllint disable
+# License: MIT (c) GitLab Inc.
+# yamllint enable
+---
+rules:
+- id: "csharp/crypto/rule-WeakCipherAlgorithm"
+  patterns:
+  - pattern-inside: |
+      using System.Security.Cryptography;
+      ...
+  - pattern-either:
+    - pattern-regex: ".*DES\\.Create\\(\\);"
+    - pattern: "new DESCryptoServiceProvider();"
+    - pattern-regex: ".*TripleDES\\.Create\\(\\);"
+    - pattern: "new TripleDESCryptoServiceProvider();"
+    - pattern-regex: ".*RC2\\.Create\\(\\);"
+    - pattern: "new RC2CryptoServiceProvider();"
+  message: |
+    The use of a broken or risky cryptographic algorithm is an unnecessary risk that may result in
+    the exposure of sensitive information.
+  languages:
+  - "csharp"
+  severity: "WARNING"
+  metadata:
+    category: "security"
+    cwe: "CWE-327: Use of a Broken or Risky Cryptographic Algorithm"

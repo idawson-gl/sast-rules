@@ -1,0 +1,23 @@
+# yamllint disable
+# License: MIT (c) GitLab Inc.
+# yamllint enable
+---
+rules:
+- id: "csharp/cookies/rule-CookieWithoutSSLFlag"
+  mode: "taint"
+  pattern-sources:
+  - pattern: |
+      var $COOKIE = new HttpCookie(...);
+  pattern-sinks:
+  - pattern: "$COOKIE"
+  pattern-sanitizers:
+  - pattern: "$COOKIE.Secure = true;"
+  message: |
+    The Secure attribute for sensitive cookies in HTTPS sessions is not set, which could cause the
+    user agent to send those cookies in plaintext over an HTTP session.
+  languages:
+  - "csharp"
+  severity: "WARNING"
+  metadata:
+    category: "security"
+    cwe: "CWE-614: Sensitive Cookie in HTTPS Session Without ‘Secure’ Attribute"

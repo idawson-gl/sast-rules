@@ -1,0 +1,34 @@
+# yamllint disable
+# License: Apache 2.0 (c) gosec
+# source (original): https://github.com/securego/gosec/blob/master/rules/implicit_aliasing.go
+# yamllint enable
+---
+rules:
+- id: "go/memory/rule-memoryaliasing"
+  patterns:
+  - pattern-either:
+    - pattern: |
+        for _, $ARG := range $SLICE {
+          <... &($ARG) ...>
+        }
+    - pattern: |
+        for _, $ARG := range $SLICE {
+          <... func() { <... &$ARG ...> } ...>
+        }
+    - pattern: |
+        for _, $ARG := range $SLICE {
+          <... $X(..., <... &$ARG ...>, ...) ...>
+        }
+  - pattern-not: |
+      for _, $ARG := range $SLICE {
+        <... *$ARG ...>
+      }
+  - pattern-not-inside: |-
+      for _, $ARG := range $SLICE { return ... }
+  message: |
+    Implicit memory aliasing in for loop.
+  metadata:
+    cwe: "CWE-118: Incorrect Access of Indexable Resource ('Range Error')"
+  severity: "WARNING"
+  languages:
+  - "go"

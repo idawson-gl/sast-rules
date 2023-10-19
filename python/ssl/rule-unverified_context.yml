@@ -1,0 +1,19 @@
+# yamllint disable
+# source (original): https://github.com/returntocorp/semgrep-rules/blob/develop/python/lang/security/unverified-ssl-context.yaml
+# License: LGPL 2.1 (c) Return To Corporation
+# hash: acdabdb
+# id: unverified-ssl-context
+# yamllint enable
+---
+rules:
+- id: "python/ssl/rule-unverified_context"
+  pattern: "ssl._create_unverified_context(...)"
+  message: |
+    Unverified SSL context detected. This will permit insecure connections without `verifyingSSL`
+    certificates. Use `ssl.create_default_context()` instead.
+  metadata:
+    cwe: "CWE-295: Improper Certificate Validation"
+    owasp: "A3: Sensitive Data Exposure"
+  severity: "ERROR"
+  languages:
+  - "python"

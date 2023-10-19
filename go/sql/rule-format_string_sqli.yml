@@ -1,0 +1,31 @@
+# yamllint disable
+# License: Apache 2.0 (c) gosec
+# source (original): https://github.com/securego/gosec/blob/master/rules/sql.go
+# hash: c6e10af 
+# yamllint enable
+---
+rules:
+- id: "go/sql/rule-format_string_sqli"
+  patterns:
+  - pattern-inside: |
+      $Q := fmt.Sprintf("$QUERY", ...)
+      ...
+  - pattern-not-inside: |
+      $Q := fmt.Sprintf("$QUERY", "...")
+      ...
+  - pattern-not-inside: |
+      pq.QuoteIdentifier(...)
+      ...
+  - metavariable-regex:
+      metavariable: "$QUERY"
+      regex: "(?i)(SELECT|DELETE|INSERT|UPDATE|INTO|FROM|WHERE).*%[^bdoxXfFp].*"
+  - pattern-either:
+    - pattern: "$DB.QueryContext(..., $Q)"
+    - pattern: "$DB.Query($Q)"
+  message: |
+    SQL query construction using format string
+  metadata:
+    cwe: "CWE-89: Improper Neutralization of Special Elements used in an SQL Command"
+  severity: "WARNING"
+  languages:
+  - "go"

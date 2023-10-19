@@ -1,0 +1,36 @@
+# yamllint disable
+# License: MIT (c) GitLab Inc.
+# yamllint enable
+---
+rules:
+- id: "java/cookie/rule-CookieUsage"
+  patterns:
+  - pattern-inside: |
+      $FUNC(..., HttpServletRequest $REQ, ...) {
+        ...
+      }
+  - pattern-either:
+    - patterns:
+      - pattern-inside: |
+          for (Cookie $C : $REQ.getCookies()) {
+              ...
+          }
+      - pattern-either:
+        - pattern: "$C.getName();"
+        - pattern: "$C.getValue();"
+        - pattern: "$C.getPath();"
+    - pattern: "(Cookie $COOKIE).getName();"
+    - pattern: "(Cookie $COOKIE).getValue();"
+    - pattern: "(Cookie $COOKIE).getPath();"
+  message: |
+    The information stored in a custom cookie should not be sensitive or related to the session.
+    In most cases, sensitive data should only be stored in session and referenced by the user's
+    session cookie.
+  languages:
+  - "java"
+  severity: "WARNING"
+  metadata:
+    category: "security"
+    cwe: "CWE-614: Sensitive Cookie in HTTPS Session Without 'Secure' Attribute"
+    technology:
+    - "java"

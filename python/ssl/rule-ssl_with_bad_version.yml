@@ -1,0 +1,30 @@
+# yamllint disable
+# License: LGPL 2.1 (c) Return To Corporation
+# source (original): https://github.com/returntocorp/semgrep-rules/blob/develop/python/lang/security/audit/weak-ssl-version.py
+# hash: acdabdb
+# id: weak-ssl-version
+# yamllint enable
+---
+rules:
+- id: "python/ssl/rule-ssl_with_bad_version"
+  patterns:
+  - pattern-either:
+    - pattern: "ssl.PROTOCOL_SSLv2"
+    - pattern: "ssl.PROTOCOL_SSLv3"
+    - pattern: "ssl.PROTOCOL_TLSv1"
+    - pattern: "ssl.PROTOCOL_TLSv1_1"
+    - pattern: "pyOpenSSL.SSL.SSLv2_METHOD"
+    - pattern: "pyOpenSSL.SSL.SSLv23_METHOD"
+    - pattern: "pyOpenSSL.SSL.SSLv3_METHOD"
+    - pattern: "pyOpenSSL.SSL.TLSv1_METHOD"
+    - pattern: "pyOpenSSL.SSL.TLSv1_1_METHOD"
+  message: |
+    An insecure SSL version was detected. TLS versions 1.0, 1.1, and all SSL versions
+    are considered weak encryption and are deprecated.
+    Use 'ssl.PROTOCOL_TLSv1_2' or higher.
+  metadata:
+    cwe: "CWE-326: Inadequate Encryption Strength"
+    owasp: "A3: Sensitive Data Exposure"
+  severity: "ERROR"
+  languages:
+  - "python"

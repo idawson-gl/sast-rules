@@ -1,0 +1,21 @@
+# yamllint disable
+# The ruleset is generated from flawfinder official rule repository hosted on github.
+# License: GPL 2.0 (c) 1989, 1991 Free Software Foundation, Inc.
+# source: https://github.com/david-a-wheeler/flawfinder/blob/e0d8827c3b714a883ce8036edc832721f4619524/flawfinder.py
+# yamllint enable
+---
+rules:
+- id: "c/buffer/rule-lstrcpyn_wcsncpy"
+  languages:
+  - "c"
+  message: |
+    Easily used incorrectly
+  metadata:
+    cwe: "CWE-120: Doesn't always \\0-terminate or check for invalid pointers [MS-banned]
+      (CWE-120)"
+  pattern-either:
+  - pattern: "lstrcpyn(...)"
+  - pattern: "wcsncpy(...)"
+  - pattern: "_tcsncpy(...)"
+  - pattern: "_mbsnbcpy(...)"
+  severity: "INFO"

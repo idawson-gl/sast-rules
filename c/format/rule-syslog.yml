@@ -1,0 +1,20 @@
+# yamllint disable
+# The ruleset is generated from flawfinder official rule repository hosted on github.
+# License: GPL 2.0 (c) 1989, 1991 Free Software Foundation, Inc.
+# source: https://github.com/david-a-wheeler/flawfinder/blob/e0d8827c3b714a883ce8036edc832721f4619524/flawfinder.py
+# yamllint enable
+---
+rules:
+- id: "c/format/rule-syslog"
+  languages:
+  - "c"
+  message: |
+    Use a constant format string for syslog.
+  metadata:
+    cwe: "CWE-134: If syslog's format strings can be influenced by an attacker, they
+      can be exploited (CWE-134)"
+  pattern-either:
+  - patterns:
+    - pattern: "syslog($FUNC,...)"
+    - pattern-not: "syslog($FUNC,\"...\",...)"
+  severity: "ERROR"

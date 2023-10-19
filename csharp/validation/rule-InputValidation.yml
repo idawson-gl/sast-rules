@@ -1,0 +1,23 @@
+# yamllint disable
+# License: MIT (c) GitLab Inc.
+# yamllint enable
+---
+rules:
+- id: "csharp/validation/rule-InputValidation"
+  patterns:
+  - pattern: |
+      [ValidateInput(false)]
+      public $RET $FOO(...)
+      {
+        ...
+      }
+  message: |
+    Input validation is a first line of defence for a variety of different
+    attacks and should be enabled per default. Please do not forget to use
+    @Html.AntiForgeryToken() in your view.
+  languages:
+  - "csharp"
+  severity: "WARNING"
+  metadata:
+    category: "security"
+    cwe: "CWE-554: ASP.NET Misconfiguration: Not Using Input Validation Framework"

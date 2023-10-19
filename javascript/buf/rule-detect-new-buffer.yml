@@ -1,0 +1,32 @@
+# yamllint disable
+# License: MIT (c) GitLab Inc.
+# yamllint enable
+---
+rules:
+- id: "javascript/buf/rule-detect-new-buffer"
+  metadata:
+    # yamllint disable
+    source-rule-url: "https://github.com/eslint-community/eslint-plugin-security/blob/main/rules/detect-new-buffer.js"
+    # yamllint enable
+  patterns:
+  - patterns:
+    - pattern-not-inside: |-
+        require("safe-buffer")
+        ...
+    - pattern-not-inside: |-
+        import { Buffer } from "safe-buffer"
+        ...
+    - pattern-inside: |-
+        function $FUNC(..., $X, ...) { ... }
+    - pattern: "new Buffer($X,...)"
+  - pattern-not: |
+      new Buffer("...",...)
+  - pattern-not: |
+      new Buffer([...] , ...)
+  message: |
+    Detects instances of new Buffer(argument) where argument is any non-literal value which could
+    cause memory leak. Recommended usage is `Buffer.from()` or `Buffer.alloc()`.
+  languages:
+  - "javascript"
+  - "typescript"
+  severity: "WARNING"

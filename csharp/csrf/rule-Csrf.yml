@@ -1,0 +1,36 @@
+# yamllint disable
+# License: MIT (c) GitLab Inc.
+# yamllint enable
+---
+rules:
+- id: "csharp/csrf/rule-Csrf"
+  patterns:
+  - pattern: |
+      [$HTTPMETHOD]
+      public $RET $FOO(...) {
+        ...
+      }
+  - pattern-not: |
+      [ValidateAntiForgeryToken]
+      public $RET $FOO(...) {
+        ...
+      }
+  - metavariable-regex:
+      metavariable: "$HTTPMETHOD"
+      regex: "Http(Post|Delete|Patch|Put)"
+  message: |
+    An attacker could send a link to the victim. By visiting the
+    malicious link, a web page would trigger a POST request (because it is a
+    blind attack - the attacker doesn’t see a response from triggered request
+    and has no use from GET request and GET requests should not change a state
+    on the server by definition) to the website. The victim would not be able
+    to acknowledge that an action is made in the background, but his cookie
+    would be automatically submitted if he is authenticated to the website.
+    This attack does not require special interaction other than visiting a
+    website.
+  languages:
+  - "csharp"
+  severity: "WARNING"
+  metadata:
+    category: "security"
+    cwe: "CWE-352: Cross-Site Request Forgery (CSRF)"

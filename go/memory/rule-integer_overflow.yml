@@ -1,0 +1,24 @@
+# yamllint disable
+# License: Apache 2.0 (c) gosec
+# source (original): https://github.com/securego/gosec/blob/master/rules/integer_overflow.go
+# hash: c6e10af 
+# yamllint enable
+---
+rules:
+- id: "go/memory/rule-integer_overflow"
+  patterns:
+  - pattern-either:
+    - patterns:
+      - pattern-inside: |
+          $X, ... := strconv.Atoi(...)
+          ...
+      - pattern-either:
+        - pattern: "int32($X)"
+        - pattern: "int16($X)"
+  message: |
+    Potential Integer overflow made by strconv.Atoi result conversion to int16/32
+  metadata:
+    cwe: "CWE-190: Integer Overflow or Wraparound"
+  severity: "ERROR"
+  languages:
+  - "go"

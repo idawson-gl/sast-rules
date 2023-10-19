@@ -1,0 +1,69 @@
+# yamllint disable
+# License: MIT (c) GitLab Inc.
+# source file: test-PathTraversal.java
+# yamllint enable
+---
+rules:
+- id: "java/inject/rule-PathTraversalIn"
+  mode: "taint"
+  pattern-sources:
+  - patterns:
+    - pattern-inside: |
+        $FUNC(String[] $ARGS) {
+          ...
+        }
+    - pattern: "$ARGS[$IDX]"
+  - patterns:
+    - pattern-inside: |
+        $FUNC(..., String $VAR, ...) {
+          ...
+        }
+    - pattern: "$VAR"
+  pattern-sanitizers:
+  - pattern: "org.apache.commons.io.FilenameUtils.getName(...)"
+  pattern-sinks:
+  - patterns:
+    - pattern-inside: |
+        $U = new java.net.URI($VAR)
+    - pattern-either:
+      - pattern-inside: |-
+          new java.io.File($U)
+      - pattern-inside: |-
+          java.nio.file.Paths.get($U)
+    - pattern: "$VAR"
+  - patterns:
+    - pattern-inside: |-
+        new java.io.RandomAccessFile($INPUT,...)
+    - pattern: "$INPUT"
+  - pattern: "new java.io.FileReader(...)"
+  - pattern: "new javax.activation.FileDataSource(...)"
+  - pattern: "new java.io.FileInputStream(...)"
+  - patterns:
+    - pattern-either:
+      - pattern-inside: |-
+          new java.io.File(...,(String $VAR), ...)
+      - pattern-inside: |-
+          java.nio.file.Paths.get(...,(String $VAR),...)
+      - pattern-inside: |-
+          java.io.File.createTempFile(...,(String $VAR), ...)
+      - pattern-inside: |-
+          java.io.File.createTempDirectory(...,(String $VAR),...)
+      - pattern-inside: |-
+          java.nio.file.Files.createTempFile(..., (String $VAR), ...)
+      - pattern-inside: |-
+          java.nio.file.Files.createTempDirectory(..., (String $VAR), ...)
+    - pattern: "$VAR"
+  message: |
+    A file is opened to read its content. The filename comes from an input parameter. If an
+    unfiltered parameter is passed to this file API, files from an arbitrary filesystem location
+    could be read. This rule identifies potential path traversal vulnerabilities. In many cases,
+    the constructed file path cannot be controlled by the user.
+  languages:
+  - "java"
+  severity: "ERROR"
+  metadata:
+    category: "security"
+    cwe: "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path
+      Traversal')"
+    technology:
+    - "java"

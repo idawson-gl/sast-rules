@@ -1,0 +1,15 @@
+# yamllint disable
+# License: MIT (c) GitLab Inc.
+# yamllint enable
+---
+rules:
+- id: "java/xml/rule-SAMLIgnoreComments"
+  pattern: "(BasicParserPool $POOL).setIgnoreComments(false);"
+  languages:
+  - "java"
+  message: |
+    Ignoring XML comments in SAML may lead to authentication bypass
+  metadata:
+    cwe: "CWE-287: Improper Authentication"
+    category: "security"
+  severity: "WARNING"

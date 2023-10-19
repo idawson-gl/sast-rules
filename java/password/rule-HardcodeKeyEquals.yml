@@ -1,0 +1,37 @@
+# yamllint disable
+# License: MIT (c) GitLab Inc.
+# yamllint enable
+---
+rules:
+- id: "java/password/rule-HardcodeKeyEquals"
+  patterns:
+  - pattern-not-inside: |
+      $FUNC(..., $VAR_NAME, ...) {
+          ...
+      }
+  - pattern-either:
+    - pattern: "(String $VAR_NAME).equals(...)"
+    - pattern: "(String $OTHER).equals((String $VAR_NAME))"
+    - pattern: "java.util.Arrays.equals(...,(String $VAR_NAME),...)"
+    - pattern: "(byte[] $VAR_NAME).equals(...)"
+    - pattern: "(byte[] $OTHER).equals((byte[] $VAR_NAME))"
+    - pattern: "java.util.Arrays.equals(...,(byte[] $VAR_NAME),...)"
+    - pattern: "java.lang.Byte.comapre(...,(byte[] $VAR_NAME),...)"
+    - pattern: "(char[] $VAR_NAME).equals(...)"
+    - pattern: "(char[] $OTHER).equals((char[] $VAR_NAME))"
+    - pattern: "java.util.Arrays.equals(...,(char[] $VAR_NAME),...)"
+  - metavariable-regex:
+      metavariable: "$VAR_NAME"
+      regex: "(?i).*(pass|pwd|psw|secret|key|cipher|crypt|des|aes|mac|private|sign|cert).*"
+  message: |
+    Cryptographic keys should not be kept in the source code. The source code can be widely shared
+    in an enterprise environment, and is certainly shared in open source. To be managed safely,
+    passwords and secret keys should be stored in separate configuration files or keystores.
+  languages:
+  - "java"
+  severity: "WARNING"
+  metadata:
+    category: "security"
+    cwe: "CWE-321: Use of Hard-coded Cryptographic Key"
+    technology:
+    - "java"

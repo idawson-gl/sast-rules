@@ -1,0 +1,30 @@
+# yamllint disable
+# License: MIT (c) GitLab Inc.
+# yamllint enable
+---
+rules:
+- id: "scala/crypto/rule-InsufficientKeySizeRsa"
+  patterns:
+  - pattern-either:
+    - patterns:
+      - pattern-inside: |
+          $GEN = KeyPairGenerator.getInstance($ALG, ...);
+          ...
+      - pattern-either:
+        - pattern: "$VAR.initialize($SIZE, ...)"
+        - pattern: "new java.security.spec.RSAKeyGenParameterSpec($SIZE, ...)"
+      - metavariable-comparison:
+          metavariable: "$SIZE"
+          comparison: "$SIZE < 2048"
+      - metavariable-regex:
+          metavariable: "$ALG"
+          regex: "\"(RSA|DSA)\""
+  message: |
+    Detected an insufficient key size for DSA. NIST recommends a key size
+    of 2048 or higher.
+  metadata:
+    category: "security"
+    cwe: "CWE-326: Inadequate Encryption Strength"
+  severity: "WARNING"
+  languages:
+  - "scala"

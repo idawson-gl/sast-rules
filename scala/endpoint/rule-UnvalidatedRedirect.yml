@@ -1,0 +1,30 @@
+# yamllint disable
+# License: MIT (c) GitLab Inc.
+# yamllint enable
+---
+rules:
+- id: "scala/endpoint/rule-UnvalidatedRedirect"
+  patterns:
+  - pattern-either:
+    - patterns:
+      - pattern: "($REQ: HttpServletResponse).sendRedirect(...)"
+      - pattern-not: "($REQ: HttpServletResponse).sendRedirect(\"...\")"
+    - patterns:
+      - pattern: "($REQ: HttpServletResponse).addHeader(...)"
+      - pattern-not: "($REQ: HttpServletResponse).addHeader(\"...\", \"...\")"
+    - patterns:
+      - pattern: "($REQ: HttpServletResponse).encodeURL(...)"
+      - pattern-not: "($REQ: HttpServletResponse).encodeURL(\"...\")"
+    - patterns:
+      - pattern: "($REQ: HttpServletResponse).encodeRedirectUrl(...)"
+      - pattern-not: "($REQ: HttpServletResponse).encodeRedirectUrl(\"...\")"
+  languages:
+  - "scala"
+  message: |
+    Unvalidated redirects occur when an application redirects a user to a
+    destination URL specified by a user supplied parameter that is not validated.
+    Such vulnerabilities can be used to facilitate phishing attacks.
+  metadata:
+    category: "security"
+    cwe: "CWE-601: URL Redirection to Untrusted Site ('Open Redirect')"
+  severity: "ERROR"

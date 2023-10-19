@@ -1,0 +1,23 @@
+# yamllint disable
+# License: LGPL 2.1 (c) Return To Corporation
+# source (original): https://github.com/returntocorp/semgrep-rules/blob/develop/python/lang/security/audit/marshal.yaml
+# hash: acdabdb
+# id: marshal-usage
+# yamllint enable
+---
+rules:
+- id: "python/deserialization/rule-marshal"
+  pattern-either:
+  - pattern: "marshal.dump(...)"
+  - pattern: "marshal.dumps(...)"
+  - pattern: "marshal.load(...)"
+  - pattern: "marshal.loads(...)"
+  message: |
+    The marshal module is not intended to be secure against erroneous or maliciously constructed
+    data. Never unmarshal data received from anuntrusted or unauthenticated source.
+  metadata:
+    cwe: "CWE-502: Deserialization of Untrusted Data"
+    owasp: "A8: Insecure Deserialization"
+  severity: "WARNING"
+  languages:
+  - "python"

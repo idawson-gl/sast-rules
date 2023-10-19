@@ -1,0 +1,25 @@
+# yamllint disable
+# License: Apache 2.0 (c) gosec
+# source (original): https://github.com/securego/gosec/blob/master/rules/unsafe.go
+# hash: c6e10af 
+# yamllint enable
+---
+rules:
+- id: "go/unsafe/rule-unsafe"
+  patterns:
+  - pattern-either:
+    - pattern: "unsafe.Alignof(...)"
+    - pattern: "unsafe.Offsetof(...)"
+    - pattern: "unsafe.Sizeof(...)"
+    - pattern: "unsafe.Pointer(...)"
+  message: |
+    Using the unsafe package in Go gives you low-level memory management and many
+    of the strength of the C language but also gives flexibility to the attacker of
+    your application. The pointer arithmetic is one of the examples from the unsafe
+    package which can be used for data leak, memory corruption or even execution of
+    attackers own script.
+  metadata:
+    cwe: "CWE-242: Audit the use of unsafe block"
+  severity: "INFO"
+  languages:
+  - "go"

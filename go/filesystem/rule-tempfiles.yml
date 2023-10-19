@@ -1,0 +1,23 @@
+# yamllint disable
+# License: Apache 2.0 (c) gosec
+# source (original): https://github.com/securego/gosec/blob/master/rules/tempfiles.go
+# yamllint enable
+---
+rules:
+- id: "go/filesystem/rule-tempfiles"
+  patterns:
+  - pattern-either:
+    - pattern: |
+        ioutil.WriteFile("$ARG", ...)
+    - pattern: |
+        os.Create("$ARG")
+  - metavariable-regex:
+      metavariable: "$ARG"
+      regex: "(/tmp/.*|/var/tmp/.*)"
+  message: |
+    File creation in shared tmp directory without using ioutil.Tempfile
+  metadata:
+    cwe: "CWE-378: Creation of Temporary File With Insecure Permissions"
+  severity: "WARNING"
+  languages:
+  - "go"

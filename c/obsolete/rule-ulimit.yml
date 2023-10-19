@@ -1,0 +1,17 @@
+# yamllint disable
+# The ruleset is generated from flawfinder official rule repository hosted on github.
+# License: GPL 2.0 (c) 1989, 1991 Free Software Foundation, Inc.
+# source: https://github.com/david-a-wheeler/flawfinder/blob/e0d8827c3b714a883ce8036edc832721f4619524/flawfinder.py
+# yamllint enable
+---
+rules:
+- id: "c/obsolete/rule-ulimit"
+  languages:
+  - "c"
+  message: |
+    Use getrlimit(2), setrlimit(2), and sysconf(3) instead.
+  metadata:
+    cwe: "CWE-676: This C routine is considered obsolete (as opposed to the shell
+      command by the same name, which is NOT obsolete) (CWE-676)"
+  pattern: "ulimit(...)"
+  severity: "INFO"

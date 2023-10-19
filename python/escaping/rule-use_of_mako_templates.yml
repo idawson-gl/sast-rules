@@ -1,0 +1,22 @@
+# yamllint disable
+# License: LGPL 2.1 (c) Return To Corporation
+# source (original): https://github.com/returntocorp/semgrep-rules/blob/develop/python/lang/security/audit/mako-templates-detected.yaml
+# hash: acdabdb
+# id: mako-templates-detected
+# yamllint enable
+---
+rules:
+- id: "python/escaping/rule-use_of_mako_templates"
+  pattern: "mako.template.Template(...)"
+  message: |
+    Mako templates do not provide a global HTML escaping mechanism.This means you must escape all
+    sensitive data in your templatesusing `| u` for URL escaping or `| h` for HTML escaping. If you
+    are using Mako to serve web content, consider usinga system such as Jinja2 which enables global
+    escaping.
+  metadata:
+    cwe: "CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site
+      Scripting')"
+    owasp: "A7: Cross-Site Scripting (XSS)"
+  severity: "WARNING"
+  languages:
+  - "python"

@@ -1,0 +1,23 @@
+# yamllint disable
+# License: MIT (c) GitLab Inc.
+# yamllint enable
+---
+rules:
+- id: "csharp/cookies/rule-CookieWithoutHttpOnlyFlag"
+  mode: "taint"
+  pattern-sources:
+  - pattern: |
+      var $COOKIE = new HttpCookie(...);
+  pattern-sinks:
+  - pattern: "$COOKIE"
+  pattern-sanitizers:
+  - pattern: "$COOKIE.HttpOnly = true;"
+  message: |
+    The HttpOnly flag is not set for the cookie. An attacker could perform XSS with a malicious
+    script.
+  languages:
+  - "csharp"
+  severity: "WARNING"
+  metadata:
+    category: "security"
+    cwe: "CWE-1004: Sensitive Cookie Without 'HttpOnly' Flag"

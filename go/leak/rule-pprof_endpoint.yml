@@ -1,0 +1,18 @@
+# yamllint disable
+# License: Apache 2.0 (c) gosec
+# source (original): https://github.com/securego/gosec/blob/master/rules/pprof.go
+# hash: c6e10af 
+# yamllint enable
+---
+rules:
+- id: "go/leak/rule-pprof_endpoint"
+  patterns:
+  - pattern: |
+      import _ "net/http/pprof"
+  message: |
+    Profiling endpoint automatically exposed on /debug/pprof
+  metadata:
+    cwe: "CWE-200: Exposure of Sensitive Information to an Unauthorized Actor"
+  severity: "ERROR"
+  languages:
+  - "go"

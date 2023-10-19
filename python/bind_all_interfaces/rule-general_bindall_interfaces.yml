@@ -1,0 +1,34 @@
+# yamllint disable
+# License: LGPL 2.1 (c) Return To Corporation
+# source (original): https://github.com/returntocorp/semgrep-rules/blob/develop/python/lang/security/audit/network/bind.yaml
+# hash: acdabdb
+# id: avoid-bind-to-all-interfaces
+# yamllint enable
+---
+rules:
+- id: "python/bind_all_interfaces/rule-general_bindall_interfaces"
+  patterns:
+  - pattern-either:
+    - pattern: |
+        $S = socket.socket(...)
+        ...
+        $S.bind(("0.0.0.0", ...))
+    - pattern: |
+        $S = socket.socket(...)
+        ...
+        $S.bind(("::", ...))
+    - pattern: |
+        $S = socket.socket(...)
+        ...
+        $S.bind(("", ...))
+  message: |
+    Running `socket.bind` to 0.0.0.0, ::, or empty string could unexpectedly expose the server
+    publicly as it binds to all available interfaces. Consider instead getting correct address from
+    an
+    environment variable or configuration file.
+  metadata:
+    cwe: "CWE-200: Exposure of Sensitive Information to an Unauthorized Actor"
+    owasp: "A6: Security Misconfiguration"
+  severity: "INFO"
+  languages:
+  - "python"

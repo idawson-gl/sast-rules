@@ -1,0 +1,35 @@
+# yamllint disable
+# License: LGPL 2.1 (c) Return To Corporation
+# source (original): https://github.com/returntocorp/semgrep-rules/blob/develop/python/lang/security/audit/subprocess-shell-true.yaml
+# hash: acdabdb
+# id: subprocess-shell-true
+# yamllint enable
+---
+rules:
+- id: "python/exec/rule-subprocess_popen_shell_true"
+  patterns:
+  - pattern-not: "subprocess.$FUNC(..., shell=False, ...)"
+  - pattern-not: "subprocess.$FUNC(..., shell=False)"
+  - pattern-not: "subprocess.$FUNC(..., shell=0)"
+  - pattern-not: "subprocess.$FUNC(..., shell=[])"
+  - pattern-not: "subprocess.$FUNC(..., shell={})"
+  - pattern-not: "subprocess.$FUNC(..., shell=None)"
+  - pattern-either:
+    - pattern: "subprocess.$FUNC(..., shell=True, ...)"
+    - pattern: "subprocess.$FUNC(..., shell='True', ...)"
+    - pattern: "subprocess.$FUNC(..., shell='False', ...)"
+    - pattern: "subprocess.$FUNC(..., shell='None', ...)"
+    - pattern: "subprocess.$FUNC(..., shell=$X, ...)"
+  message: |
+    Found `subprocess` function `$FUNC` with `shell=True`. This is dangerous because this call will
+    spawn the command using a shell process. Doing so propagates current shell settings and
+    variables,
+    which makes it much easier for a malicious actor to execute commands. Use `shell=False`
+    instead.
+  metadata:
+    cwe: "CWE-78: Improper Neutralization of Special Elements used in an OS Command
+      ('OS Command Injection')"
+    owasp: "A1: Injection"
+  severity: "ERROR"
+  languages:
+  - "python"

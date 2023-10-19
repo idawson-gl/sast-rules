@@ -1,0 +1,22 @@
+# yamllint disable
+# License: LGPL 2.1 (c) Return To Corporation
+# source (original): https://github.com/returntocorp/semgrep-rules/blob/develop/python/pycryptodome/security/insecure-cipher-algorithm.yaml
+# hash: acdabdb
+# id: insecure-cipher-algorithm-xor
+# yamllint enable
+---
+rules:
+- id: "python/crypto/rule-crypto_cipher_xor"
+  patterns:
+  - pattern-either:
+    - pattern: "Cryptodome.Cipher.XOR.new(...)"
+    - pattern: "Crypto.Cipher.XOR.new(...)"
+  message: |
+    Detected XOR cipher algorithm which is considered insecure. This algorithm is not
+    cryptographically secure and can be reversed easily. Use AES instead.
+  metadata:
+    cwe: "CWE-327: Use of a Broken or Risky Cryptographic Algorithm"
+    owasp: "A3: Sensitive Data Exposure"
+  severity: "WARNING"
+  languages:
+  - "python"

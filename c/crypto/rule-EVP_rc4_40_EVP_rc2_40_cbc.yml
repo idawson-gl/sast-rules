@@ -1,0 +1,19 @@
+# yamllint disable
+# The ruleset is generated from flawfinder official rule repository hosted on github.
+# License: GPL 2.0 (c) 1989, 1991 Free Software Foundation, Inc.
+# source: https://github.com/david-a-wheeler/flawfinder/blob/e0d8827c3b714a883ce8036edc832721f4619524/flawfinder.py
+# yamllint enable
+---
+rules:
+- id: "c/crypto/rule-EVP_rc4_40_EVP_rc2_40_cbc"
+  languages:
+  - "c"
+  message: |
+    Use a different patent-free encryption algorithm with a larger keysize, such as 3DES or AES.
+  metadata:
+    cwe: "CWE-327: These keysizes are too small given today's computers (CWE-327)"
+  pattern-either:
+  - pattern: "EVP_rc4_40(...)"
+  - pattern: "EVP_rc2_40_cbc(...)"
+  - pattern: "EVP_rc2_64_cbc(...)"
+  severity: "ERROR"

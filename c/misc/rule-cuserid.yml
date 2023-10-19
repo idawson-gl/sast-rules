@@ -1,0 +1,21 @@
+# yamllint disable
+# The ruleset is generated from flawfinder official rule repository hosted on github.
+# License: GPL 2.0 (c) 1989, 1991 Free Software Foundation, Inc.
+# source: https://github.com/david-a-wheeler/flawfinder/blob/e0d8827c3b714a883ce8036edc832721f4619524/flawfinder.py
+# yamllint enable
+---
+rules:
+- id: "c/misc/rule-cuserid"
+  languages:
+  - "c"
+  message: |
+    Use getpwuid(geteuid()) and extract the desired information instead.
+  metadata:
+    cwe: "CWE-120: Exactly what cuserid() does is poorly defined (e.g., some systems
+      use the effective uid, like Linux, while others like System V use the real uid).
+      Thus, you can't trust what it does. It's certainly not portable (The cuserid
+      function was included in the 1988 version of POSIX, but removed from the 1990
+      version).  Also, if passed a non-null parameter, there's a risk of a buffer
+      overflow if the passed-in buffer is not at least L_cuserid characters long (CWE-120)"
+  pattern: "cuserid(...)"
+  severity: "ERROR"

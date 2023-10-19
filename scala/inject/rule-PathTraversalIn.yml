@@ -1,0 +1,53 @@
+# yamllint disable
+# License: MIT (c) GitLab Inc.
+# source file: test-PathTraversal.java
+# yamllint enable
+---
+rules:
+- id: "scala/inject/rule-PathTraversalIn"
+  patterns:
+  - pattern-either:
+    - pattern-inside: |
+        def $FUNC(...,$VAR: String, ...): $TYPE = {
+          ...
+        }
+    - pattern-inside: |
+        def $FUNC(...,$VAR: String, ...): $TYPE = {
+          ...
+        }
+  - pattern-not-inside: |
+      ...
+      org.apache.commons.io.FilenameUtils.getName($VAR)
+      ...
+  - pattern-either:
+    - patterns:
+      - pattern-inside: |
+          $U = new java.net.URI($VAR)
+          ...
+      - pattern-either:
+        - pattern: "java.io.File($U)"
+        - pattern: "java.nio.file.Paths.get($U)"
+    - pattern: "java.io.RandomAccessFile(..., $VAR,...)"
+    - pattern: "java.io.FileReader(..., $VAR, ...)"
+    - pattern: "javax.activation.FileDataSource(..., $VAR, ...)"
+    - pattern: "java.io.FileInputStream(..., $VAR, ...)"
+    - pattern: "java.io.File(...,$VAR, ...)"
+    - pattern: "java.nio.file.Paths.get(...,$VAR,...)"
+    - pattern: "java.io.File.createTempFile(...,$VAR, ...)"
+    - pattern: "java.io.File.createTempDirectory(...,$VAR,...)"
+    - pattern: "java.nio.file.Files.createTempFile(..., $VAR, ...)"
+    - pattern: "java.nio.file.Files.createTempDirectory(..., $VAR, ...)"
+  message: |
+    A file is opened to read its content. The filename comes from an input parameter. If an
+    unfiltered parameter is passed to this file API, files from an arbitrary filesystem location
+    could be read. This rule identifies potential path traversal vulnerabilities. In many cases,
+    the constructed file path cannot be controlled by the user.
+  languages:
+  - "scala"
+  severity: "ERROR"
+  metadata:
+    category: "security"
+    cwe: "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path
+      Traversal')"
+    technology:
+    - "scala"

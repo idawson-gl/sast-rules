@@ -1,0 +1,43 @@
+# yamllint disable
+# License: MIT (c) GitLab Inc.
+# source file reference: test-HttpResponseSplitting.java
+# yamllint enable
+---
+rules:
+- id: "java/cookie/rule-RequestParamToCookie"
+  mode: "taint"
+  pattern-sources:
+  - pattern: "(javax.servlet.http.HttpServletRequest $REQ).getParameter(...);"
+  pattern-sanitizers:
+  - patterns:
+    - pattern-inside: |
+        $STR.replaceAll("$REPLACE_CHAR", "$REPLACER");
+        ...
+    - pattern: "$STR"
+    - metavariable-regex:
+        metavariable: "$REPLACER"
+        regex: ".*^(CRLF).*"
+    - metavariable-regex:
+        metavariable: "$REPLACE_CHAR"
+        regex: "(*CRLF)"
+  - pattern: "org.apache.commons.text.StringEscapeUtils.unescapeJava(...);"
+  pattern-sinks:
+  - pattern: "new javax.servlet.http.Cookie(\"$KEY\", ...);"
+  - patterns:
+    - pattern-inside: |
+        $C = new javax.servlet.http.Cookie("$KEY", ...);
+        ...
+    - pattern: "$C.setValue(...);"
+  message: |
+    This code constructs an HTTP Cookie using an untrusted HTTP parameter. If this cookie is added
+    to an HTTP response, it will allow a HTTP response splitting vulnerability. See
+    http://en.wikipedia.org/wiki/HTTP_response_splitting for more information.
+  languages:
+  - "java"
+  severity: "ERROR"
+  metadata:
+    category: "security"
+    cwe: "CWE-113: Improper Neutralization of CRLF Sequences in HTTP Headers ('HTTP
+      Response Splitting')"
+    technology:
+    - "java"

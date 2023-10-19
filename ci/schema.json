@@ -1,0 +1,43 @@
+{
+  "definitions": {},
+  "$id": "https://gitlab.com/gitlab-org/security-products/gemnasium-db/schema/schema.json",
+  "type": "object",
+  "title": "Gemnasium DB Advisory Schema",
+  "required": [
+    "rules"
+  ],
+  "properties": {
+    "rules": {
+      "$id": "#/properties/rules",
+      "type": "array",
+      "title": "Semgrep rules",
+      "items": {
+        "$id": "#/properties/rules/items",
+        "type": "object",
+        "title": "A single semgrep rule",
+        "required": [
+          "metadata"
+        ],
+        "properties": {
+          "metadata": {
+            "$id": "#/properties/rules/id/metadata",
+            "type": "object",
+            "title": " metadata",
+            "additionalProperties": true,
+            "properties": {
+              "cwe": {
+                "type": "string",
+                "title": "cwe string",
+                "$id": "#/properties/rules/id/metadata/cwe",
+                "examples": [
+                  "CWE-123: a cwe"
+                ],
+                "pattern": "^CWE-\\d{1,4}:.+$"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,25 @@
+# yamllint disable
+# License: MIT (c) GitLab Inc.
+# yamllint enable
+---
+rules:
+- id: "javascript/protinjection/rule-object_injection"
+  patterns:
+  - pattern: "$V = $O[$ARG]"
+  - pattern-not: "$O[\"...\"]"
+  - pattern-not: "$O[($ARG : float)]"
+  - pattern-not-inside: |
+      $ARG = ...;
+      ...
+  - metavariable-regex:
+      metavariable: "$ARG"
+      regex: "(?![0-9]+)"
+  message: |
+    Bracket object notation with user input is present, this might allow an attacker to access all
+    properties of the object and even it's prototype, leading to possible code execution.
+  languages:
+  - "javascript"
+  - "typescript"
+  severity: "WARNING"
+  metadata:
+    cwe: "CWE-94: Improper Control of Generation of Code ('Code Injection')"

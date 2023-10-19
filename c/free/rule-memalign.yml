@@ -1,0 +1,23 @@
+# yamllint disable
+# The ruleset is generated from flawfinder official rule repository hosted on github.
+# License: GPL 2.0 (c) 1989, 1991 Free Software Foundation, Inc.
+# source: https://github.com/david-a-wheeler/flawfinder/blob/e0d8827c3b714a883ce8036edc832721f4619524/flawfinder.py
+# yamllint enable
+---
+rules:
+- id: "c/free/rule-memalign"
+  languages:
+  - "c"
+  message: |
+    Use posix_memalign instead (defined in POSIX's 1003.1d).  Don't switch to valloc(); it is
+    marked as obsolete in BSD 4.3, as legacy in SUSv2, and is no longer defined in SUSv3.  In some
+    cases, malloc()'s alignment may be sufficient.
+  metadata:
+    cwe: "CWE-676: On some systems (though not Linux-based systems) an attempt to
+      free() results from memalign() may fail. This may, on a few systems, be exploitable.
+      \ Also note that memalign() may not check that the boundary parameter is correct
+      (CWE-676)"
+  pattern-either:
+  - pattern: "memalign(...)"
+  - pattern-regex: "(void)\\s\\*(\\s|)(memalign)\\;"
+  severity: "INFO"

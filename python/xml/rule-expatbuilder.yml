@@ -1,0 +1,19 @@
+# yamllint disable
+# License: MIT (c) GitLab Inc.
+# yamllint enable
+---
+rules:
+- id: "python/xml/rule-expatbuilder"
+  pattern-either:
+  - patterns:
+    - pattern: "xml.dom.expatbuilder.parse(...)"
+    - pattern-not: "xml.dom.expatbuilder.parse(\"...\")"
+  - pattern: "xml.dom.expatbuilder.parseString(...)"
+  message: |
+    Insecure XML parsing functionality, prefer `defusedxml`
+  metadata:
+    cwe: "CWE-611: Improper Restriction of XML External Entity Reference"
+    owasp: "A4: XML External Entities (XXE)"
+  severity: "WARNING"
+  languages:
+  - "python"

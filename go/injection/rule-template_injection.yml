@@ -1,0 +1,29 @@
+# yamllint disable
+# License: Apache 2.0 (c) gosec
+# source (original): https://github.com/securego/gosec/blob/master/rules/templates.go
+# hash: 2a4064d 
+# yamllint enable
+---
+rules:
+- id: "go/injection/rule-template_injection"
+  patterns:
+  - pattern-either:
+    - patterns:
+      - pattern: "template.HTML($IN)"
+      - pattern-not: "template.HTML(\"...\")"
+    - patterns:
+      - pattern: "template.JS($IN)"
+      - pattern-not: "template.JS(\"...\")"
+    - patterns:
+      - pattern: "template.URL($IN)"
+      - pattern-not: "template.URL(\"...\")"
+    - patterns:
+      - pattern: "template.HTMLAttr($IN)"
+      - pattern-not: "template.HTMLAttr(\"...\")"
+  message: |
+    Use of unescaped data in HTML templates
+  metadata:
+    cwe: "CWE-79: Improper Neutralization of Input During Web Page Generation"
+  severity: "WARNING"
+  languages:
+  - "go"

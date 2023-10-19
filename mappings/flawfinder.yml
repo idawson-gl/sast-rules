@@ -1,0 +1,677 @@
+# yamllint disable
+# maps flawfinder rule ids to semgrep rules
+# License: MIT (c) GitLab Inc.
+# yamllint enable
+---
+flawfinder:
+  native_id:
+    type: "flawfinder_func_name"
+    name: "Flawfinder - $ID"
+    value: "$ID"
+  mappings:
+  - id: "strcpy"
+    rules: 
+    - "c/buffer/rule-strcpy"
+  - id: "strcpyA"
+    rules: 
+    - "c/buffer/rule-strcpyA_strcpyW"
+  - id: "strcpyW"
+    rules: 
+    - "c/buffer/rule-strcpyA_strcpyW"
+  - id: "StrCpy"
+    rules: 
+    - "c/buffer/rule-strcpyA_strcpyW"
+  - id: "StrCpyA"
+    rules: 
+    - "c/buffer/rule-strcpyA_strcpyW"
+  - id: "lstrcpyA"
+    rules: 
+    - "c/buffer/rule-strcpyA_strcpyW"
+  - id: "lstrcpyW"
+    rules: 
+    - "c/buffer/rule-strcpyA_strcpyW"
+  - id: "_tccpy"
+    rules: 
+    - "c/buffer/rule-strcpyA_strcpyW"
+  - id: "_mbccpy"
+    rules: 
+    - "c/buffer/rule-strcpyA_strcpyW"
+  - id: "_ftcscpy"
+    rules: 
+    - "c/buffer/rule-strcpyA_strcpyW"
+  - id: "_mbsncpy"
+    rules: 
+    - "c/buffer/rule-strcpyA_strcpyW"
+  - id: "StrCpyN"
+    rules: 
+    - "c/buffer/rule-strcpyA_strcpyW"
+  - id: "StrCpyNA"
+    rules: 
+    - "c/buffer/rule-strcpyA_strcpyW"
+  - id: "StrCpyNW"
+    rules: 
+    - "c/buffer/rule-strcpyA_strcpyW"
+  - id: "StrNCpy"
+    rules: 
+    - "c/buffer/rule-strcpyA_strcpyW"
+  - id: "strcpynA"
+    rules: 
+    - "c/buffer/rule-strcpyA_strcpyW"
+  - id: "StrNCpyA"
+    rules: 
+    - "c/buffer/rule-strcpyA_strcpyW"
+  - id: "StrNCpyW"
+    rules: 
+    - "c/buffer/rule-strcpyA_strcpyW"
+  - id: "lstrcpynA"
+    rules: 
+    - "c/buffer/rule-strcpyA_strcpyW"
+  - id: "lstrcpynW"
+    rules: 
+    - "c/buffer/rule-strcpyA_strcpyW"
+  - id: "lstrcpy"
+    rules: 
+    - "c/buffer/rule-lstrcpy_wcscpy"
+  - id: "wcscpy"
+    rules: 
+    - "c/buffer/rule-lstrcpy_wcscpy"
+  - id: "_tcscpy"
+    rules: 
+    - "c/buffer/rule-lstrcpy_wcscpy"
+  - id: "_mbscpy"
+    rules: 
+    - "c/buffer/rule-lstrcpy_wcscpy"
+  - id: "memcpy"
+    rules: 
+    - "c/buffer/rule-memcpy_CopyMemory"
+  - id: "CopyMemory"
+    rules: 
+    - "c/buffer/rule-memcpy_CopyMemory"
+  - id: "bcopy"
+    rules: 
+    - "c/buffer/rule-memcpy_CopyMemory"
+  - id: "strcat"
+    rules: 
+    - "c/buffer/rule-strcat"
+  - id: "lstrcat"
+    rules: 
+    - "c/buffer/rule-lstrcat_wcscat"
+  - id: "wcscat"
+    rules: 
+    - "c/buffer/rule-lstrcat_wcscat"
+  - id: "_tcscat"
+    rules: 
+    - "c/buffer/rule-lstrcat_wcscat"
+  - id: "_mbscat"
+    rules: 
+    - "c/buffer/rule-lstrcat_wcscat"
+  - id: "StrCat"
+    rules: 
+    - "c/buffer/rule-StrCat_StrCatA"
+  - id: "StrCatA"
+    rules: 
+    - "c/buffer/rule-StrCat_StrCatA"
+  - id: "StrcatW"
+    rules: 
+    - "c/buffer/rule-StrCat_StrCatA"
+  - id: "lstrcatA"
+    rules: 
+    - "c/buffer/rule-StrCat_StrCatA"
+  - id: "lstrcatW"
+    rules: 
+    - "c/buffer/rule-StrCat_StrCatA"
+  - id: "strCatBuff"
+    rules: 
+    - "c/buffer/rule-StrCat_StrCatA"
+  - id: "StrCatBuffA"
+    rules: 
+    - "c/buffer/rule-StrCat_StrCatA"
+  - id: "StrCatBuffW"
+    rules: 
+    - "c/buffer/rule-StrCat_StrCatA"
+  - id: "StrCatChainW"
+    rules: 
+    - "c/buffer/rule-StrCat_StrCatA"
+  - id: "_tccat"
+    rules: 
+    - "c/buffer/rule-StrCat_StrCatA"
+  - id: "_mbccat"
+    rules: 
+    - "c/buffer/rule-StrCat_StrCatA"
+  - id: "_ftcscat"
+    rules: 
+    - "c/buffer/rule-StrCat_StrCatA"
+  - id: "StrCatN"
+    rules: 
+    - "c/buffer/rule-StrCat_StrCatA"
+  - id: "StrCatNA"
+    rules: 
+    - "c/buffer/rule-StrCat_StrCatA"
+  - id: "StrCatNW"
+    rules: 
+    - "c/buffer/rule-StrCat_StrCatA"
+  - id: "StrNCat"
+    rules: 
+    - "c/buffer/rule-StrCat_StrCatA"
+  - id: "StrNCatA"
+    rules: 
+    - "c/buffer/rule-StrCat_StrCatA"
+  - id: "StrNCatW"
+    rules: 
+    - "c/buffer/rule-StrCat_StrCatA"
+  - id: "lstrncat"
+    rules: 
+    - "c/buffer/rule-StrCat_StrCatA"
+  - id: "lstrcatnA"
+    rules: 
+    - "c/buffer/rule-StrCat_StrCatA"
+  - id: "lstrcatnW"
+    rules: 
+    - "c/buffer/rule-StrCat_StrCatA"
+  - id: "strncpy"
+    rules: 
+    - "c/buffer/rule-strncpy"
+  - id: "lstrcpyn"
+    rules: 
+    - "c/buffer/rule-lstrcpyn_wcsncpy"
+  - id: "wcsncpy"
+    rules: 
+    - "c/buffer/rule-lstrcpyn_wcsncpy"
+  - id: "_tcsncpy"
+    rules: 
+    - "c/buffer/rule-lstrcpyn_wcsncpy"
+  - id: "_mbsnbcpy"
+    rules: 
+    - "c/buffer/rule-lstrcpyn_wcsncpy"
+  - id: "strncat"
+    rules: 
+    - "c/buffer/rule-strncat"
+  - id: "lstrcatn"
+    rules: 
+    - "c/buffer/rule-lstrcatn_wcsncat"
+  - id: "wcsncat"
+    rules: 
+    - "c/buffer/rule-lstrcatn_wcsncat"
+  - id: "_tcsncat"
+    rules: 
+    - "c/buffer/rule-lstrcatn_wcsncat"
+  - id: "_mbsnbcat"
+    rules: 
+    - "c/buffer/rule-lstrcatn_wcsncat"
+  - id: "strccpy"
+    rules: 
+    - "c/buffer/rule-strccpy_strcadd"
+  - id: "strcadd"
+    rules: 
+    - "c/buffer/rule-strccpy_strcadd"
+  - id: "char"
+    rules: 
+    - "c/buffer/rule-char_TCHAR"
+  - id: "TCHAR"
+    rules: 
+    - "c/buffer/rule-char_TCHAR"
+  - id: "wchar_t"
+    rules: 
+    - "c/buffer/rule-char_TCHAR"
+  - id: "gets"
+    rules: 
+    - "c/buffer/rule-gets__getts"
+  - id: "_getts"
+    rules: 
+    - "c/buffer/rule-gets__getts"
+  - id: "sprintf"
+    rules: 
+    - "c/buffer/rule-sprintf_vsprintf"
+  - id: "vsprintf"
+    rules: 
+    - "c/buffer/rule-sprintf_vsprintf"
+  - id: "swprintf"
+    rules: 
+    - "c/buffer/rule-sprintf_vsprintf"
+  - id: "vswprintf"
+    rules: 
+    - "c/buffer/rule-sprintf_vsprintf"
+  - id: "_stprintf"
+    rules: 
+    - "c/buffer/rule-sprintf_vsprintf"
+  - id: "_vstprintf"
+    rules: 
+    - "c/buffer/rule-sprintf_vsprintf"
+  - id: "printf"
+    rules: 
+    - "c/format/rule-printf_vprintf"
+  - id: "vprintf"
+    rules: 
+    - "c/format/rule-printf_vprintf"
+  - id: "vwprintf"
+    rules: 
+    - "c/format/rule-printf_vprintf"
+  - id: "vfwprintf"
+    rules: 
+    - "c/format/rule-printf_vprintf"
+  - id: "_vtprintf"
+    rules: 
+    - "c/format/rule-printf_vprintf"
+  - id: "wprintf"
+    rules: 
+    - "c/format/rule-printf_vprintf"
+  - id: "fprintf"
+    rules: 
+    - "c/format/rule-fprintf_vfprintf"
+  - id: "vfprintf"
+    rules: 
+    - "c/format/rule-fprintf_vfprintf"
+  - id: "_ftprintf"
+    rules: 
+    - "c/format/rule-fprintf_vfprintf"
+  - id: "_vftprintf"
+    rules: 
+    - "c/format/rule-fprintf_vfprintf"
+  - id: "fwprintf"
+    rules: 
+    - "c/format/rule-fprintf_vfprintf"
+  - id: "fvwprintf"
+    rules: 
+    - "c/format/rule-fprintf_vfprintf"
+  - id: "syslog"
+    rules: 
+    - "c/format/rule-syslog"
+  - id: "snprintf"
+    rules: 
+    - "c/format/rule-snprintf_vsnprintf"
+  - id: "vsnprintf"
+    rules: 
+    - "c/format/rule-snprintf_vsnprintf"
+  - id: "_snprintf"
+    rules: 
+    - "c/format/rule-snprintf_vsnprintf"
+  - id: "_sntprintf"
+    rules: 
+    - "c/format/rule-snprintf_vsnprintf"
+  - id: "_vsntprintf"
+    rules: 
+    - "c/format/rule-snprintf_vsnprintf"
+  - id: "scanf"
+    rules: 
+    - "c/buffer/rule-scanf_vscanf"
+  - id: "vscanf"
+    rules: 
+    - "c/buffer/rule-scanf_vscanf"
+  - id: "wscanf"
+    rules: 
+    - "c/buffer/rule-scanf_vscanf"
+  - id: "_tscanf"
+    rules: 
+    - "c/buffer/rule-scanf_vscanf"
+  - id: "vwscanf"
+    rules: 
+    - "c/buffer/rule-scanf_vscanf"
+  - id: "fscanf"
+    rules: 
+    - "c/buffer/rule-fscanf_sscanf"
+  - id: "sscanf"
+    rules: 
+    - "c/buffer/rule-fscanf_sscanf"
+  - id: "vsscanf"
+    rules: 
+    - "c/buffer/rule-fscanf_sscanf"
+  - id: "vfscanf"
+    rules: 
+    - "c/buffer/rule-fscanf_sscanf"
+  - id: "_ftscanf"
+    rules: 
+    - "c/buffer/rule-fscanf_sscanf"
+  - id: "fwscanf"
+    rules: 
+    - "c/buffer/rule-fscanf_sscanf"
+  - id: "vfwscanf"
+    rules: 
+    - "c/buffer/rule-fscanf_sscanf"
+  - id: "vswscanf"
+    rules: 
+    - "c/buffer/rule-fscanf_sscanf"
+  - id: "strlen"
+    rules: 
+    - "c/buffer/rule-strlen_wcslen"
+  - id: "wcslen"
+    rules: 
+    - "c/buffer/rule-strlen_wcslen"
+  - id: "_tcslen"
+    rules: 
+    - "c/buffer/rule-strlen_wcslen"
+  - id: "_mbslen"
+    rules: 
+    - "c/buffer/rule-strlen_wcslen"
+  - id: "MultiByteToWideChar"
+    rules: 
+    - "c/buffer/rule-MultiByteToWideChar"
+  - id: "streadd"
+    rules: 
+    - "c/buffer/rule-streadd_strecpy"
+  - id: "strecpy"
+    rules: 
+    - "c/buffer/rule-streadd_strecpy"
+  - id: "strtrns"
+    rules: 
+    - "c/buffer/rule-strtrns"
+  - id: "realpath"
+    rules: 
+    - "c/buffer/rule-realpath"
+  - id: "getopt"
+    rules: 
+    - "c/buffer/rule-getopt_getopt_long"
+  - id: "getopt_long"
+    rules: 
+    - "c/buffer/rule-getopt_getopt_long"
+  - id: "getwd"
+    rules: 
+    - "c/buffer/rule-getwd"
+  - id: "getchar"
+    rules: 
+    - "c/buffer/rule-getchar_fgetc"
+  - id: "fgetc"
+    rules: 
+    - "c/buffer/rule-getchar_fgetc"
+  - id: "getc"
+    rules: 
+    - "c/buffer/rule-getchar_fgetc"
+  - id: "read"
+    rules: 
+    - "c/buffer/rule-getchar_fgetc"
+  - id: "_gettc"
+    rules: 
+    - "c/buffer/rule-getchar_fgetc"
+  - id: "access"
+    rules: 
+    - "c/race/rule-access"
+  - id: "chown"
+    rules: 
+    - "c/race/rule-chown"
+  - id: "chgrp"
+    rules: 
+    - "c/race/rule-chgrp"
+  - id: "chmod"
+    rules: 
+    - "c/race/rule-chmod"
+  - id: "vfork"
+    rules: 
+    - "c/race/rule-vfork"
+  - id: "readlink"
+    rules: 
+    - "c/race/rule-readlink"
+  - id: "tmpfile"
+    rules: 
+    - "c/tmpfile/rule-tmpfile"
+  - id: "tmpnam"
+    rules: 
+    - "c/tmpfile/rule-tmpnam_tempnam"
+  - id: "tempnam"
+    rules: 
+    - "c/tmpfile/rule-tmpnam_tempnam"
+  - id: "mktemp"
+    rules: 
+    - "c/tmpfile/rule-mktemp"
+  - id: "mkstemp"
+    rules: 
+    - "c/tmpfile/rule-mkstemp"
+  - id: "fopen"
+    rules: 
+    - "c/misc/rule-fopen_open"
+  - id: "open"
+    rules: 
+    - "c/misc/rule-fopen_open"
+  - id: "umask"
+    rules: 
+    - "c/access/rule-umask"
+  - id: "GetTempFileName"
+    rules: 
+    - "c/tmpfile/rule-GetTempFileName"
+  - id: "execl"
+    rules: 
+    - "c/shell/rule-execl_execlp"
+  - id: "execlp"
+    rules: 
+    - "c/shell/rule-execl_execlp"
+  - id: "execle"
+    rules: 
+    - "c/shell/rule-execl_execlp"
+  - id: "execv"
+    rules: 
+    - "c/shell/rule-execl_execlp"
+  - id: "execvp"
+    rules: 
+    - "c/shell/rule-execl_execlp"
+  - id: "popen"
+    rules: 
+    - "c/shell/rule-execl_execlp"
+  - id: "WinExec"
+    rules: 
+    - "c/shell/rule-execl_execlp"
+  - id: "ShellExecute"
+    rules: 
+    - "c/shell/rule-execl_execlp"
+  - id: "system"
+    rules: 
+    - "c/shell/rule-system"
+  - id: "CreateProcessAsUser"
+    rules: 
+    - "c/shell/rule-CreateProcessAsUser_CreateProcessWithLogon"
+  - id: "CreateProcessWithLogon"
+    rules: 
+    - "c/shell/rule-CreateProcessAsUser_CreateProcessWithLogon"
+  - id: "CreateProcess"
+    rules: 
+    - "c/shell/rule-CreateProcess"
+  - id: "atoi"
+    rules: 
+    - "c/integer/rule-atoi_atol"
+  - id: "atol"
+    rules: 
+    - "c/integer/rule-atoi_atol"
+  - id: "_wtoi"
+    rules: 
+    - "c/integer/rule-atoi_atol"
+  - id: "_wtoi64"
+    rules: 
+    - "c/integer/rule-atoi_atol"
+  - id: "drand48"
+    rules: 
+    - "c/random/rule-drand48_erand48"
+  - id: "erand48"
+    rules: 
+    - "c/random/rule-drand48_erand48"
+  - id: "jrand48"
+    rules: 
+    - "c/random/rule-drand48_erand48"
+  - id: "lcong48"
+    rules: 
+    - "c/random/rule-drand48_erand48"
+  - id: "lrand48"
+    rules: 
+    - "c/random/rule-drand48_erand48"
+  - id: "mrand48"
+    rules: 
+    - "c/random/rule-drand48_erand48"
+  - id: "nrand48"
+    rules: 
+    - "c/random/rule-drand48_erand48"
+  - id: "random"
+    rules: 
+    - "c/random/rule-drand48_erand48"
+  - id: "seed48"
+    rules: 
+    - "c/random/rule-drand48_erand48"
+  - id: "setstate"
+    rules: 
+    - "c/random/rule-drand48_erand48"
+  - id: "srand"
+    rules: 
+    - "c/random/rule-drand48_erand48"
+  - id: "strfry"
+    rules: 
+    - "c/random/rule-drand48_erand48"
+  - id: "srandom"
+    rules: 
+    - "c/random/rule-drand48_erand48"
+  - id: "g_rand_boolean"
+    rules: 
+    - "c/random/rule-drand48_erand48"
+  - id: "g_rand_int"
+    rules: 
+    - "c/random/rule-drand48_erand48"
+  - id: "g_rand_int_range"
+    rules: 
+    - "c/random/rule-drand48_erand48"
+  - id: "g_rand_double"
+    rules: 
+    - "c/random/rule-drand48_erand48"
+  - id: "g_rand_double_range"
+    rules: 
+    - "c/random/rule-drand48_erand48"
+  - id: "g_random_boolean"
+    rules: 
+    - "c/random/rule-drand48_erand48"
+  - id: "g_random_int"
+    rules: 
+    - "c/random/rule-drand48_erand48"
+  - id: "g_random_int_range"
+    rules: 
+    - "c/random/rule-drand48_erand48"
+  - id: "g_random_double"
+    rules: 
+    - "c/random/rule-drand48_erand48"
+  - id: "g_random_double_range"
+    rules: 
+    - "c/random/rule-drand48_erand48"
+  - id: "crypt"
+    rules: 
+    - "c/crypto/rule-crypt_crypt_r"
+  - id: "crypt_r"
+    rules: 
+    - "c/crypto/rule-crypt_crypt_r"
+  - id: "EVP_des_ecb"
+    rules: 
+    - "c/crypto/rule-EVP_des_ecb_EVP_des_cbc"
+  - id: "EVP_des_cbc"
+    rules: 
+    - "c/crypto/rule-EVP_des_ecb_EVP_des_cbc"
+  - id: "EVP_des_cfb"
+    rules: 
+    - "c/crypto/rule-EVP_des_ecb_EVP_des_cbc"
+  - id: "EVP_des_ofb"
+    rules: 
+    - "c/crypto/rule-EVP_des_ecb_EVP_des_cbc"
+  - id: "EVP_desx_cbc"
+    rules: 
+    - "c/crypto/rule-EVP_des_ecb_EVP_des_cbc"
+  - id: "EVP_rc4_40"
+    rules: 
+    - "c/crypto/rule-EVP_rc4_40_EVP_rc2_40_cbc"
+  - id: "EVP_rc2_40_cbc"
+    rules: 
+    - "c/crypto/rule-EVP_rc4_40_EVP_rc2_40_cbc"
+  - id: "EVP_rc2_64_cbc"
+    rules: 
+    - "c/crypto/rule-EVP_rc4_40_EVP_rc2_40_cbc"
+  - id: "chroot"
+    rules: 
+    - "c/misc/rule-chroot"
+  - id: "getenv"
+    rules: 
+    - "c/buffer/rule-getenv_curl_getenv"
+  - id: "curl_getenv"
+    rules: 
+    - "c/buffer/rule-getenv_curl_getenv"
+  - id: "g_get_home_dir"
+    rules: 
+    - "c/buffer/rule-g_get_home_dir"
+  - id: "g_get_tmp_dir"
+    rules: 
+    - "c/buffer/rule-g_get_tmp_dir"
+  - id: "RpcImpersonateClient"
+    rules: 
+    - "c/access/rule-RpcImpersonateClient_ImpersonateLoggedOnUser"
+  - id: "ImpersonateLoggedOnUser"
+    rules: 
+    - "c/access/rule-RpcImpersonateClient_ImpersonateLoggedOnUser"
+  - id: "CoImpersonateClient"
+    rules: 
+    - "c/access/rule-RpcImpersonateClient_ImpersonateLoggedOnUser"
+  - id: "ImpersonateNamedPipeClient"
+    rules: 
+    - "c/access/rule-RpcImpersonateClient_ImpersonateLoggedOnUser"
+  - id: "ImpersonateDdeClientWindow"
+    rules: 
+    - "c/access/rule-RpcImpersonateClient_ImpersonateLoggedOnUser"
+  - id: "ImpersonateSecurityContext"
+    rules: 
+    - "c/access/rule-RpcImpersonateClient_ImpersonateLoggedOnUser"
+  - id: "SetThreadToken"
+    rules: 
+    - "c/access/rule-RpcImpersonateClient_ImpersonateLoggedOnUser"
+  - id: "InitializeCriticalSection"
+    rules: 
+    - "c/misc/rule-InitializeCriticalSection"
+  - id: "LoadLibrary"
+    rules: 
+    - "c/misc/rule-LoadLibrary"
+  - id: "LoadLibraryEx"
+    rules: 
+    - "c/misc/rule-LoadLibraryEx"
+  - id: "SetSecurityDescriptorDacl"
+    rules: 
+    - "c/misc/rule-SetSecurityDescriptorDacl"
+  - id: "AddAccessAllowedAce"
+    rules: 
+    - "c/misc/rule-AddAccessAllowedAce"
+  - id: "getlogin"
+    rules: 
+    - "c/misc/rule-getlogin"
+  - id: "cuserid"
+    rules: 
+    - "c/misc/rule-cuserid"
+  - id: "getpw"
+    rules: 
+    - "c/buffer/rule-getpw"
+  - id: "getpass"
+    rules: 
+    - "c/misc/rule-getpass"
+  - id: "gsignal"
+    rules: 
+    - "c/obsolete/rule-gsignal_ssignal"
+  - id: "ssignal"
+    rules: 
+    - "c/obsolete/rule-gsignal_ssignal"
+  - id: "memalign"
+    rules: 
+    - "c/free/rule-memalign"
+  - id: "ulimit"
+    rules: 
+    - "c/obsolete/rule-ulimit"
+  - id: "usleep"
+    rules: 
+    - "c/obsolete/rule-usleep"
+  - id: "equal"
+    rules: 
+    - "c/buffer/rule-equal_mismatch"
+  - id: "mismatch"
+    rules: 
+    - "c/buffer/rule-equal_mismatch"
+  - id: "is_permutation"
+    rules: 
+    - "c/buffer/rule-equal_mismatch"
+# - id: "recv"
+#   rules: 
+#     - "c/input/rule-recv_recvfrom"
+# - id: "recvfrom"
+#   rules: 
+#     - "c/input/rule-recv_recvfrom"
+# - id: "recvmsg"
+#   rules: 
+#     - "c/input/rule-recv_recvfrom"
+# - id: "fread"
+#   rules: 
+#     - "c/input/rule-recv_recvfrom"
+# - id: "readv"
+#   rules: 
+#     - "c/input/rule-recv_recvfrom"

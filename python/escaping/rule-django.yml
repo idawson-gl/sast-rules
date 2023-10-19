@@ -1,0 +1,37 @@
+# yamllint disable
+# License: MIT (c) GitLab Inc.
+# yamllint enable
+---
+rules:
+- id: "python/escaping/rule-django"
+  patterns:
+  - pattern-not-inside: |-
+      django.utils.html.format_html(...)
+  - pattern-either:
+    - patterns:
+      - pattern: "django.utils.safestring.SafeText(...)"
+      - pattern-not: "django.utils.safestring.SafeText(\"...\")"
+    - patterns:
+      - pattern: "django.utils.safestring.SafeUnicode(...)"
+      - pattern-not: "django.utils.safestring.SafeUnicode(\"...\")"
+    - patterns:
+      - pattern: "django.utils.safestring.SafeString(...)"
+      - pattern-not: "django.utils.safestring.SafeString(\"...\")"
+    - patterns:
+      - pattern: "django.utils.safestring.SafeBytes(...)"
+      - pattern-not: "django.utils.safestring.SafeBytes(\"...\")"
+    - patterns:
+      - pattern: "django.utils.safestring.mark_safe(...)"
+      - pattern-not: "django.utils.safestring.mark_safe(\"...\")"
+  message: |
+    `mark_safe()` is used to mark a string as `safe` for HTML output.
+    This disables escaping and could therefore subject the content to
+    XSS attacks. Use `django.utils.html.format_html()` to build HTML
+    for rendering instead.
+  metadata:
+    cwe: "CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site
+      Scripting')"
+    owasp: "A7: Cross-Site Scripting (XSS)"
+  severity: "WARNING"
+  languages:
+  - "python"

@@ -1,0 +1,23 @@
+# yamllint disable
+# License: LGPL 2.1 (c) Return To Corporation
+# source (original): https://github.com/returntocorp/semgrep-rules/blob/develop/python/pycryptodome/security/insecure-cipher-algorithm.yaml
+# hash: acdabdb
+# insecure-cipher-algorithm-des
+# yamllint enable
+---
+rules:
+- id: "python/crypto/rule-crypto_cipher_des"
+  patterns:
+  - pattern-either:
+    - pattern: "Cryptodome.Cipher.DES.new(...)"
+    - pattern: "Crypto.Cipher.DES.new(...)"
+  message: |
+    Detected DES cipher algorithm which is considered insecure. The algorithm is considered weak
+    and
+    has been deprecated. Use AES instead.
+  metadata:
+    cwe: "CWE-327: Use of a Broken or Risky Cryptographic Algorithm"
+    owasp: "A3: Sensitive Data Exposure"
+  severity: "WARNING"
+  languages:
+  - "python"

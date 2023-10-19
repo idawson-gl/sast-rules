@@ -1,0 +1,17 @@
+# yamllint disable
+# License: LGPL 2.1 (c) Return To Corporation
+# source (original): https://github.com/returntocorp/semgrep-rules/blob/develop/python/lang/best-practice/hardcoded-tmp-path.yaml
+# hash: acdabdb
+# id: hardcoded-tmp-path
+# yamllint enable
+---
+rules:
+- id: "python/tmpdir/rule-hardcodedtmp"
+  pattern: "$CALL(\"=~/^\\/tmp.*/\", ...)"
+  message: |
+    Detected hardcoded temp directory. Consider using `tempfile.TemporaryFile` instead.
+  metadata:
+    cwe: "CWE-377: Insecure Temporary File"
+  severity: "WARNING"
+  languages:
+  - "python"

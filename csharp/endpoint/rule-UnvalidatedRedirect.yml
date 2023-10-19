@@ -1,0 +1,48 @@
+# yamllint disable
+# License: MIT (c) GitLab Inc.
+# yamllint enable
+---
+rules:
+- id: "csharp/endpoint/rule-UnvalidatedRedirect"
+  mode: "taint"
+  pattern-sources:
+  - patterns:
+    - pattern: "$SRC"
+    - pattern-inside: |
+        public $RET $FUNC(...,$SRC,...){...}
+  pattern-sanitizers:
+  - pattern-either:
+    - pattern: "TryCreate(...)"
+    - pattern: "Action(...)"
+    - pattern: "HttpRouteUrl(...)"
+    - pattern: "RouteUrl(...)"
+  pattern-sinks:
+  - patterns:
+    - pattern-not-inside: |
+        if (IsLocalUrl(...)) {
+            ...
+            Redirect(...);
+            ...
+        }
+    - pattern-not-inside: |
+        if ($URL.IsLocalUrl(...)) {
+            ...
+            Redirect(...);
+            ...
+        }
+    - pattern-either:
+      - pattern: "Redirect(...)"
+      - pattern: "RedirectPermanent(...)"
+      - pattern: "RedirectToRoute(...)"
+      - pattern: "RedirectToRoutePermanent(...)"
+      - pattern: "new RedirectResult(...)"
+  languages:
+  - "csharp"
+  message: |
+    Unvalidated redirects occur when an application redirects a user to a
+    destination URL specified by a user supplied parameter that is not validated.
+    Such vulnerabilities can be used to facilitate phishing attacks.
+  metadata:
+    category: "security"
+    cwe: "CWE-601: URL Redirection to Untrusted Site ('Open Redirect')"
+  severity: "WARNING"

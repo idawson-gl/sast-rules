@@ -1,0 +1,22 @@
+# yamllint disable
+# License: MIT (c) GitLab Inc.
+# https://github.com/returntocorp/semgrep-rules/blob/develop/python/lang/security/audit/insecure-file-permissions.yaml
+# should subsume B103 but we are using our rule because we would have to set the flag --dangerously-allow-arbitrary-code-execution-from-rules
+# - using metavariable-based approach for the time being
+# yamllint enable
+---
+rules:
+- id: "python/file_permissions/rule-general_bad_permission"
+  patterns:
+  - pattern: "os.chmod(...,$MASK)"
+  - metavariable-regex:
+      metavariable: "$MASK"
+      regex: "(0x..f|0o..[2,3,7]|stat.S_IXGRP|stat.S_IWOTH)"
+  message: |
+    Chmod setting a permissive mask on file.
+  metadata:
+    cwe: "CWE-732: Incorrect Permission Assignment for Critical Resource"
+    owasp: "A6: Security Misconfiguration"
+  severity: "WARNING"
+  languages:
+  - "python"

@@ -1,0 +1,23 @@
+# yamllint disable
+# License: MIT (c) GitLab Inc.
+# source file reference: test-InformationExposure.java
+# yamllint enable
+---
+rules:
+- id: "scala/unsafe/rule-InformationExposure"
+  patterns:
+  - pattern: "$E.printStackTrace(...)"
+  message: |
+    The sensitive information may be valuable information on its own (such as a password), or it
+    may be useful for launching other, more deadly attacks. If an attack fails, an attacker may use
+    error information provided by the server to launch another more focused attack. For example, an
+    attempt to exploit a path traversal weakness (CWE-22) might yield the full pathname of the
+    installed application.
+  languages:
+  - "scala"
+  severity: "WARNING"
+  metadata:
+    category: "security"
+    cwe: "CWE-209: Information Exposure Through an Error Message"
+    technology:
+    - "scala"

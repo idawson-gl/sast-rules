@@ -1,0 +1,31 @@
+# yamllint disable
+# License: MIT (c) GitLab Inc.
+# yamllint enable
+---
+rules:
+- id: "java/random/rule-PseudoRandom"
+  patterns:
+  - pattern-either:
+    - pattern: |
+        java.util.Random $R = new java.util.Random();
+        ...
+        $R.$METHOD();
+    - pattern: "(java.util.Random $R).$METHOD()"
+    - pattern: "new java.util.Random().$METHOD()"
+    - pattern: "org.apache.commons.lang.math.RandomUtils.$METHOD()"
+    - pattern: "org.apache.commons.lang.RandomStringUtils.$METHOD(...)"
+  - metavariable-regex:
+      metavariable: "$METHOD"
+      regex: "^(next|random)"
+  message: |
+    The use of a predictable random value can lead to vulnerabilities when
+    used in certain security critical contexts. A quick fix could be to replace
+    the use of java.util.Random with something stronger, such as java.security.SecureRandom.
+  languages:
+  - "java"
+  severity: "WARNING"
+  metadata:
+    category: "security"
+    cwe: "CWE-330: Use of Insufficiently Random Values"
+    technology:
+    - "java"

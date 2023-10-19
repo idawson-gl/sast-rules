@@ -1,0 +1,21 @@
+# yamllint disable
+# The ruleset is generated from flawfinder official rule repository hosted on github.
+# License: GPL 2.0 (c) 1989, 1991 Free Software Foundation, Inc.
+# source: https://github.com/david-a-wheeler/flawfinder/blob/e0d8827c3b714a883ce8036edc832721f4619524/flawfinder.py
+# yamllint enable
+---
+rules:
+- id: "c/crypto/rule-crypt_crypt_r"
+  languages:
+  - "c"
+  message: |
+    Use a different algorithm, such as SHA-256, with a larger, non-repeating salt.
+  metadata:
+    cwe: "CWE-327: The crypt functions use a poor one-way hashing algorithm; since
+      they only accept passwords of 8 characters or fewer and only a two-byte salt,
+      they are excessively vulnerable to dictionary attacks given today's faster computing
+      equipment (CWE-327)"
+  pattern-either:
+  - pattern: "crypt(...)"
+  - pattern: "crypt_r(...)"
+  severity: "ERROR"

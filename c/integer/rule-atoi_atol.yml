@@ -1,0 +1,23 @@
+# yamllint disable
+# The ruleset is generated from flawfinder official rule repository hosted on github.
+# License: GPL 2.0 (c) 1989, 1991 Free Software Foundation, Inc.
+# source: https://github.com/david-a-wheeler/flawfinder/blob/e0d8827c3b714a883ce8036edc832721f4619524/flawfinder.py
+# yamllint enable
+---
+rules:
+- id: "c/integer/rule-atoi_atol"
+  languages:
+  - "c"
+  message: |
+    If source untrusted, check both minimum and maximum, even if the input had no minus sign (large
+    numbers can roll over into negative number; consider saving to an unsigned value if that is
+    intended).
+  metadata:
+    cwe: "CWE-190: Unless checked, the resulting number can exceed the expected range
+      (CWE-190)"
+  pattern-either:
+  - pattern: "atoi(...)"
+  - pattern: "atol(...)"
+  - pattern: "_wtoi(...)"
+  - pattern: "_wtoi64(...)"
+  severity: "INFO"

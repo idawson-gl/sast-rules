@@ -1,0 +1,18 @@
+# yamllint disable
+# License: Apache 2.0 (c) gosec
+# source (original): https://github.com/securego/gosec/blob/master/rules/blocklist.go
+# yamllint enable
+---
+rules:
+- id: "go/blocklist/rule-blocklist-cgi"
+  patterns:
+  - pattern: |
+      import "net/http/cgi"
+  message: |
+    Go versions < 1.6.3 are vulnerable to Httpoxy attack: (CVE-2016-5386)
+  metadata:
+    cwe: "CWE-327: Use of a Broken or Risky Cryptographic Algorithm"
+    owasp: "A9: Using Components with Known Vulnerabilities"
+  severity: "WARNING"
+  languages:
+  - "go"

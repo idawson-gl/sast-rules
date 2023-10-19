@@ -1,0 +1,18 @@
+# yamllint disable
+# License: Apache 2.0 (c) gosec
+# source (original): https://github.com/securego/gosec/blob/master/rules/blocklist.go
+# yamllint enable
+---
+rules:
+- id: "go/blocklist/rule-blocklist-des"
+  patterns:
+  - pattern: |
+      import "crypto/des"
+  message: "Usage of a cryptographically broken primitive has been detected. It is
+    recommended that \nChaCha20 or Advanced Encryption Standard (AES) be used instead.\n"
+  metadata:
+    cwe: "CWE-327: Use of a Broken or Risky Cryptographic Algorithm"
+    owasp: "A9: Using Components with Known Vulnerabilities"
+  severity: "WARNING"
+  languages:
+  - "go"

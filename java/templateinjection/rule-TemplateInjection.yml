@@ -1,0 +1,38 @@
+# yamllint disable
+# License: MIT (c) GitLab Inc.
+# yamllint enable
+---
+rules:
+- id: "java/templateinjection/rule-TemplateInjection"
+  pattern-either:
+  - patterns:
+    - pattern: "org.apache.velocity.app.Velocity.evaluate(..., $VAR)"
+    - pattern-not: "org.apache.velocity.app.Velocity.evaluate(..., \"...\")"
+  - patterns:
+    - pattern-not-inside: |
+        $C = (freemarker.template.Configuration $CFG).getTemplate("...");
+        ...
+    - pattern-inside: |
+        $C = (freemarker.template.Configuration $CFG).getTemplate($IN);
+        ...
+    - pattern: "$C.process(...)"
+  - patterns:
+    - pattern-inside: |
+        import com.mitchellbosecke.pebble.PebbleEngine;
+        ...
+    - pattern-inside: |
+        $C = $T.getTemplate($IN);
+        ...
+    - pattern-not-inside: |
+        $C = $T.getTemplate("...");
+        ...
+    - pattern: "$C.evaluate(...)"
+  languages:
+  - "java"
+  message: |
+    A malicious user in control of a template can run malicious code on the
+    server-side. Velocity templates should be seen as scripts.
+  metadata:
+    category: "security"
+    cwe: "CWE-94: Improper Control of Generation of Code ('Code Injection')"
+  severity: "ERROR"

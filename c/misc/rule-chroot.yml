@@ -1,0 +1,18 @@
+# yamllint disable
+# The ruleset is generated from flawfinder official rule repository hosted on github.
+# License: GPL 2.0 (c) 1989, 1991 Free Software Foundation, Inc.
+# source: https://github.com/david-a-wheeler/flawfinder/blob/e0d8827c3b714a883ce8036edc832721f4619524/flawfinder.py
+# yamllint enable
+---
+rules:
+- id: "c/misc/rule-chroot"
+  languages:
+  - "c"
+  message: |
+    Make sure the program immediately chdir("/"), closes file descriptors, and drops root
+    privileges, and that all necessary files (and no more!) are in the new root.
+  metadata:
+    cwe: "CWE-22: chroot can be very helpful, but is hard to use correctly (CWE-250,
+      CWE-22)"
+  pattern: "chroot(...)"
+  severity: "WARNING"

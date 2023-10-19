@@ -1,0 +1,28 @@
+# yamllint disable
+# License: MIT (c) GitLab Inc.
+# yamllint enable
+---
+rules:
+- id: "csharp/crypto/rule-CertificateValidationDisabled"
+  patterns:
+  - pattern-inside: |
+      using System.Net;
+      ...
+  - pattern: "ServicePointManager.ServerCertificateValidationCallback += $CALLBACK;"
+  - metavariable-pattern:
+      metavariable: "$CALLBACK"
+      patterns:
+      - pattern-either:
+        - pattern: "$RETURNTYPE $FUNC(...) { return true; }"
+        - pattern: "(...) => true;"
+  message: |
+    When a certificate is invalid or malicious, it might allow an attacker to spoof a trusted
+    entity by interfering in the communication path between the host and client. The software might
+    connect to a malicious host while believing it is a trusted host, or the software might be
+    deceived into accepting spoofed data that appears to originate from a trusted host.
+  languages:
+  - "csharp"
+  severity: "WARNING"
+  metadata:
+    category: "security"
+    cwe: "CWE-295: Improper Certificate Validation"

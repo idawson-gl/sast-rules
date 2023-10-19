@@ -1,0 +1,49 @@
+# yamllint disable
+# License: MIT (c) GitLab Inc.
+# yamllint enable
+---
+rules:
+- id: "csharp/deserialization/rule-InsecureDeserialization"
+  patterns:
+  - pattern-not: "$OBJ.Deserialize(\"...\")"
+  - pattern-not: "$OBJ.UnsafeDeserialize(\"...\")"
+  - pattern-not: "$OBJ.UnsafeDeserializeMethodResponse(\"...\")"
+  - pattern-not: "$OBJ.ReadObject(\"...\")"
+  - pattern-not: "$OBJ.DeserializeFromString(\"...\")"
+  - pattern-not: "$OBJ.DeserializeFromReader(\"...\")"
+  - pattern-not: "$OBJ.DeserializeFromStream(\"...\")"
+  - pattern-not: "$OBJ.DeserializeRequest(\"...\")"
+  - pattern-not: "$OBJ.ToObject(\"...\")"
+  - pattern-not: "$OBJ.DeserializeResponse(\"...\")"
+  - pattern-not: "new System.Runtime.Serialization.DataContractSerializer(\"...\")"
+  - pattern-not: "new System.Runtime.Serialization.Json.DataContractJsonSerializer(\"...\")"
+  - pattern-not: "new System.Xml.Serialization.XmlSerializer(\"...\")"
+  - pattern-not: "new System.Resources.ResourceReader(\"...\")"
+  - pattern-not: "(System.Messaging.XmlMessageFormatter $E).Read(\"...\")"
+  - pattern-not: "(System.Messaging.BinaryMessageFormatter $E).Read(\"...\")"
+  - pattern-either:
+    - pattern: "$OBJ.Deserialize(...)"
+    - pattern: "$OBJ.UnsafeDeserialize(...)"
+    - pattern: "$OBJ.UnsafeDeserializeMethodResponse(...)"
+    - pattern: "$OBJ.ReadObject(...)"
+    - pattern: "$OBJ.DeserializeFromString(...)"
+    - pattern: "$OBJ.DeserializeFromReader(...)"
+    - pattern: "$OBJ.DeserializeFromStream(...)"
+    - pattern: "$OBJ.DeserializeRequest(...)"
+    - pattern: "$OBJ.ToObject(...)"
+    - pattern: "$OBJ.DeserializeResponse(...)"
+    - pattern: "new System.Runtime.Serialization.DataContractSerializer(...)"
+    - pattern: "new System.Runtime.Serialization.Json.DataContractJsonSerializer(...)"
+    - pattern: "new System.Xml.Serialization.XmlSerializer(...)"
+    - pattern: "new System.Resources.ResourceReader(...)"
+    - pattern: "(System.Messaging.XmlMessageFormatter $E).Read(...)"
+    - pattern: "(System.Messaging.BinaryMessageFormatter $E).Read(...)"
+  languages:
+  - "csharp"
+  message: |
+    The application deserializes untrusted data without sufficiently verifying that
+    the resulting data will be valid.
+  metadata:
+    category: "security"
+    cwe: "CWE-502: Deserialization of Untrusted Data"
+  severity: "WARNING"

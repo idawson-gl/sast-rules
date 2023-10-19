@@ -1,0 +1,41 @@
+# yamllint disable
+# The ruleset is generated from flawfinder official rule repository hosted on github.
+# License: GPL 2.0 (c) 1989, 1991 Free Software Foundation, Inc.
+# source: https://github.com/david-a-wheeler/flawfinder/blob/e0d8827c3b714a883ce8036edc832721f4619524/flawfinder.py
+# yamllint enable
+---
+rules:
+- id: "c/random/rule-drand48_erand48"
+  languages:
+  - "c"
+  message: |
+    Use a more secure technique for acquiring random values.
+  metadata:
+    cwe: "CWE-327: This function is not sufficiently random for security-related functions
+      such as key and nonce creation (CWE-327)"
+  pattern-either:
+  - pattern: "drand48(...)"
+  - pattern: "erand48(...)"
+  - pattern: "jrand48(...)"
+  - pattern: "lcong48(...)"
+  - pattern: "lrand48(...)"
+  - pattern: "mrand48(...)"
+  - pattern: "nrand48(...)"
+  - pattern: "random(...)"
+  - pattern: "seed48(...)"
+  - pattern: "setstate(...)"
+  - pattern: "srand(...)"
+  - pattern: "strfry(...)"
+  - pattern: "srandom(...)"
+  - pattern: "g_rand_boolean(...)"
+  - pattern: "g_rand_int(...)"
+  - pattern: "g_rand_int_range(...)"
+  - pattern: "g_rand_double(...)"
+  - pattern: "g_rand_double_range(...)"
+  - pattern: "g_random_boolean(...)"
+  - pattern: "g_random_int(...)"
+  - pattern: "g_random_int_range(...)"
+  - pattern: "g_random_double(...)"
+  - pattern: "g_random_double_range(...)"
+  - pattern-regex: "(long|short|double|int|float|void)\\s(\\*|)(\\s|)(seed48|lcong48)(\\(.*\\))\\;"
+  severity: "WARNING"

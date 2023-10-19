@@ -1,0 +1,17 @@
+# yamllint disable
+# License: Apchache 2.0 (c) gosec
+# source (original): https://github.com/securego/gosec/blob/master/rules/ssh.go
+# hash: 2a4064d 
+# yamllint enable
+---
+rules:
+- id: "go/crypto/rule-insecure_ignore_host_key"
+  patterns:
+  - pattern: "ssh.InsecureIgnoreHostKey(...)"
+  message: |
+    Audit the use of ssh.InsecureIgnoreHostKey
+  metadata:
+    cwe: "CWE-322: Key Exchange without Entity Authentication"
+  severity: "WARNING"
+  languages:
+  - "go"

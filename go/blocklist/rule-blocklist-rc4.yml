@@ -1,0 +1,20 @@
+# yamllint disable
+# License: Apache 2.0 (c) gosec
+# source (original): https://github.com/securego/gosec/blob/master/rules/blocklist.go
+# yamllint enable
+---
+rules:
+- id: "go/blocklist/rule-blocklist-rc4"
+  patterns:
+  - pattern: |
+      import "crypto/rc4"
+  message: |
+    The RC4 stream-cipher has been cryptographically broken and is unsuitable
+    for use in production. It is recommended that ChaCha20 or Advanced Encryption
+    Standard (AES) be used instead.
+  metadata:
+    cwe: "CWE-327: Use of a Broken or Risky Cryptographic Algorithm"
+    owasp: "A9: Using Components with Known Vulnerabilities"
+  severity: "WARNING"
+  languages:
+  - "go"

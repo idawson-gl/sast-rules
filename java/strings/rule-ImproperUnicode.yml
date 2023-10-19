@@ -1,0 +1,32 @@
+# yamllint disable
+# License: MIT (c) GitLab Inc.
+# yamllint enable
+---
+rules:
+- id: "java/strings/rule-ImproperUnicode"
+  pattern-either:
+  - patterns:
+    - pattern-either:
+      - pattern: |
+          $S = (String $INPUT).$TRANSFORM(...);
+          ...
+          $S.$METHOD(...);
+      - pattern: "(String $INPUT).$TRANSFORM().$METHOD(...);"
+    - metavariable-regex:
+        metavariable: "$METHOD"
+        regex: "(equals|equalsIgnoreCase|indexOf)"
+    - metavariable-regex:
+        metavariable: "$TRANSFORM"
+        regex: "(toLowerCase|toUpperCase)"
+  - pattern: "java.text.Normalizer.normalize(...);"
+  - pattern: "java.net.IDN.toASCII(...);"
+  - pattern: "(URI $U).toASCIIString();"
+  languages:
+  - "java"
+  message: |
+    Improper Handling of Unicode Encoding
+  metadata:
+    cwe: "CWE-176: Improper Handling of Unicode Encoding"
+    category: "security"
+    confidence: "HIGH"
+  severity: "ERROR"

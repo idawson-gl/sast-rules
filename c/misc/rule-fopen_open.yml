@@ -1,0 +1,20 @@
+# yamllint disable
+# The ruleset is generated from flawfinder official rule repository hosted on github.
+# License: GPL 2.0 (c) 1989, 1991 Free Software Foundation, Inc.
+# source: https://github.com/david-a-wheeler/flawfinder/blob/e0d8827c3b714a883ce8036edc832721f4619524/flawfinder.py
+# yamllint enable
+---
+rules:
+- id: "c/misc/rule-fopen_open"
+  languages:
+  - "c"
+  message: |
+    Check when opening files - can an attacker redirect it (via symlinks).
+  metadata:
+    cwe: "CWE-362: Check when opening files - can an attacker redirect it (via symlinks),
+      force the opening of special file type (e.g., device files), move things around
+      to create a race condition, control its ancestors, or change its contents? (CWE-362)"
+  pattern-either:
+  - pattern: "fopen(...)"
+  - pattern: "open(...)"
+  severity: "INFO"

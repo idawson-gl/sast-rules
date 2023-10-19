@@ -1,0 +1,20 @@
+# yamllint disable
+# License: LGPL 2.1 (c) Return To Corporation
+# source (original): https://github.com/returntocorp/semgrep-rules/blob/develop/python/lang/correctness/unchecked-returns.yaml
+# hash: acdabdb
+# id: unchecked-subprocess-call
+# yamllint enable
+---
+rules:
+- id: "python/exec/rule-import_subprocess"
+  patterns:
+  - pattern: "import subprocess"
+  message: |
+    Consider possible security implications associated with subprocess module.
+  metadata:
+    cwe: "CWE-78: Improper Neutralization of Special Elements used in an OS Command
+      ('OS Command Injection')"
+    owasp: "A8: Insecure Deserialization"
+  languages:
+  - "python"
+  severity: "WARNING"

@@ -1,0 +1,19 @@
+# yamllint disable
+# The ruleset is generated from flawfinder official rule repository hosted on github.
+# License: GPL 2.0 (c) 1989, 1991 Free Software Foundation, Inc.
+# source: https://github.com/david-a-wheeler/flawfinder/blob/e0d8827c3b714a883ce8036edc832721f4619524/flawfinder.py
+# yamllint enable
+---
+rules:
+- id: "c/tmpfile/rule-mkstemp"
+  languages:
+  - "c"
+  message: |
+    Some older Unix-like systems create temp files with permission to write by
+    all by default, so be sure to set the umask to override this. Also, some older
+    Unix systems might fail to use O_EXCL when opening the file, so make sure that
+    O_EXCL is used by the library.
+  metadata:
+    cwe: "CWE-377: Potential for temporary file vulnerability in some circumstances."
+  pattern: "mkstemp(...)"
+  severity: "INFO"

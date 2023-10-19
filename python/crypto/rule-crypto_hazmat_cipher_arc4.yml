@@ -1,0 +1,19 @@
+# yamllint disable
+# License: LGPL 2.1 (c) Return To Corporation
+# source (original): https://github.com/returntocorp/semgrep-rules/blob/develop/python/pycryptodome/security/insecure-cipher-algorithm.yaml
+# hash: acdabdb
+# id: insecure-cipher-algorithm-rc4
+# yamllint enable
+---
+rules:
+- id: "python/crypto/rule-crypto_hazmat_cipher_arc4"
+  pattern: "cryptography.hazmat.primitives.ciphers.algorithms.ARC4(...)"
+  message: |
+    Detected RC4 cipher algorithm which is considered insecure. The algorithm has many known
+    vulnerabilities. Use AES instead.
+  metadata:
+    cwe: "CWE-327: Use of a Broken or Risky Cryptographic Algorithm"
+    owasp: "A3: Sensitive Data Exposure"
+  severity: "WARNING"
+  languages:
+  - "python"

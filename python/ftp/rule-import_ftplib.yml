@@ -1,0 +1,20 @@
+# yamllint disable
+# License: MIT (c) GitLab Inc.
+# yamllint enable
+---
+rules:
+- id: "python/ftp/rule-import_ftplib"
+  patterns:
+  - pattern-either:
+    - pattern: "import ftplib"
+    - pattern: "from ftplib import FTP"
+    - pattern: "ftplib.FTP(...)"
+  message: |
+    functions are being called. FTP is considered insecure. Use SSH/SFTP/SCP orsome other encrypted
+    protocol
+  metadata:
+    cwe: "CWE-319: Cleartext Transmission of Sensitive Information"
+    owasp: "A3: Sensitive Data Exposure"
+  severity: "ERROR"
+  languages:
+  - "python"

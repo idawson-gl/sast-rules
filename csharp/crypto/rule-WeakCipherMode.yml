@@ -1,0 +1,25 @@
+# yamllint disable
+# License: MIT (c) GitLab Inc.
+# yamllint enable
+---
+rules:
+- id: "csharp/crypto/rule-WeakCipherMode"
+  patterns:
+  - pattern-inside: |
+      using System.Security.Cryptography;
+      ...
+  - metavariable-regex:
+      metavariable: "$CIPHER"
+      regex: "^(ECB|CBC|OFB|CFB|CTS)$"
+  - pattern: "CipherMode.$CIPHER"
+  message: |
+    The cipher text produced is susceptible to alteration by an adversary. The cipher provides no
+    way to detect that the data has been tampered with. If the cipher text can be controlled by an
+    attacker, it could be altered without detection. The use of AES in CBC mode with a HMAC is
+    recommended guaranteeing integrity and confidentiality.
+  languages:
+  - "csharp"
+  severity: "WARNING"
+  metadata:
+    category: "security"
+    cwe: "CWE-327: Use of a Broken or Risky Cryptographic Algorithm"

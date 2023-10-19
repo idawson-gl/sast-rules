@@ -1,0 +1,89 @@
+# yamllint disable
+# License: MIT (c) GitLab Inc.
+# yamllint enable
+---
+rules:
+- id: "scala/inject/rule-OgnlInjection"
+  patterns:
+  - pattern-either:
+    - pattern-inside: |
+        def $FUNC(..., $VAR: String, ...): $TYPE = {
+          ...
+        }
+    - pattern-inside: |
+        def $FUNC(..., $VAR: Map[String, ?], ...): $TYPE = {
+          ...
+        }
+    - pattern-inside: |
+        def $FUNC(..., $VAR: Map[String, String], ...): $TYPE = {
+          ...
+        }
+    - pattern-inside: |
+        def $FUNC(..., $VAR: Map[String, Object], ...): $TYPE = {
+          ...
+        }
+    - pattern: "com.opensymphony.xwork2.util.TextParseUtil.translateVariables($VAR,
+        ...)"
+    - pattern: "com.opensymphony.xwork2.util.TextParseUtil.translateVariablesCollection($VAL,
+        ...)"
+    - pattern: "com.opensymphony.xwork2.util.TextParseUtil.shallBeIncluded(...)"
+    - pattern: "com.opensymphony.xwork2.util.TextParseUtil.commaDelimitedStringToSet(...)"
+    - pattern: "(com.opensymphony.xwork2.util.TextParser $P).evaluate($VAR, $VAL,
+        ...)"
+    - pattern: "(com.opensymphony.xwork2.util.OgnlTextParser $P).evaluate($VAR, $VAL,
+        ...)"
+    - pattern: "(com.opensymphony.xwork2.ognl.OgnlReflectionProvider $P).getGetMethod($CLZ,
+        ...)"
+    - pattern: "(com.opensymphony.xwork2.ognl.OgnlReflectionProvider $P).getSetMethod($CLZ,
+        ...)"
+    - pattern: "(com.opensymphony.xwork2.ognl.OgnlReflectionProvider $P).getField($CLZ,
+        ...)"
+    - pattern: "(com.opensymphony.xwork2.ognl.OgnlReflectionProvider $P).setProperties($MAP,
+        ...)"
+    - pattern: "(com.opensymphony.xwork2.ognl.OgnlReflectionProvider $P).setProperty($VAL,
+        ...)"
+    - pattern: "(com.opensymphony.xwork2.ognl.OgnlReflectionProvider $P).getValue($VAL,
+        ...)"
+    - pattern: "(com.opensymphony.xwork2.ognl.OgnlReflectionProvider $P).setValue($VAL,
+        ...)"
+    - pattern: "(com.opensymphony.xwork2.util.reflection.ReflectionProvider $P).getGetMethod($CLZ,
+        ...)"
+    - pattern: "(com.opensymphony.xwork2.util.reflection.ReflectionProvider $P).getSetMethod($CLZ,
+        ...)"
+    - pattern: "(com.opensymphony.xwork2.util.reflection.ReflectionProvider $P).getField($CLZ,
+        ...)"
+    - pattern: "(com.opensymphony.xwork2.util.reflection.ReflectionProvider $P).setProperties($MAP,
+        ...)"
+    - pattern: "(com.opensymphony.xwork2.util.reflection.ReflectionProvider $P).setProperty($VAR,
+        ...)"
+    - pattern: "(com.opensymphony.xwork2.util.reflection.ReflectionProvider $P).getValue($VAR,
+        ...)"
+    - pattern: "(com.opensymphony.xwork2.util.reflection.ReflectionProvider $P).setValue($VAR,
+        ...)"
+    - pattern: "(com.opensymphony.xwork2.ognl.OgnlUtil $P).setProperties($MAP, ...)"
+    - pattern: "(com.opensymphony.xwork2.ognl.OgnlUtil $P).setProperty($VAR, ...)"
+    - pattern: "(com.opensymphony.xwork2.ognl.OgnlUtil $P).getValue($VAR, ...)"
+    - pattern: "(com.opensymphony.xwork2.ognl.OgnlUtil $P).setValue($VAR, ...)"
+    - pattern: "(com.opensymphony.xwork2.ognl.OgnlUtil $P).callMethod($VAR, ...)"
+    - pattern: "(com.opensymphony.xwork2.ognl.OgnlUtil $P).compile($VAR, ...)"
+    - pattern: "(org.apache.struts2.util.VelocityStrutsUtil $P).evaluate(...)"
+    - pattern: "org.apache.struts2.util.StrutsUtil.findString(...)"
+    - pattern: "org.apache.struts2.util.StrutsUtil.findValue(..., $VAL)"
+    - pattern: "org.apache.struts2.util.StrutsUtil.getText(...)"
+    - pattern: "org.apache.struts2.util.StrutsUtil.translateVariables(...)"
+    - pattern: "org.apache.struts2.util.StrutsUtil.makeSelectList($VAR, ...)"
+    - pattern: "(org.apache.struts2.views.jsp.ui.OgnlTool $T).findValue($VAR, ...)"
+    - pattern: "(com.opensymphony.xwork2.util.ValueStack $V).findString(...)"
+    - pattern: "(com.opensymphony.xwork2.util.ValueStack $V).findValue($VAR, ...)"
+    - pattern: "(com.opensymphony.xwork2.util.ValueStack $V).setValue($VAR, ...)"
+    - pattern: "(com.opensymphony.xwork2.util.ValueStack $V).setParameter($VAR, ...)"
+  message: |
+    "A expression is built with a dynamic value. The source of the value(s) should be verified to
+    avoid that unfiltered values fall into this risky code evaluation."
+  languages:
+  - "scala"
+  severity: "WARNING"
+  metadata:
+    category: "security"
+    technology:
+    - "scala"
