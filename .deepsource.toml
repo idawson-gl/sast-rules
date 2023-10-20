@@ -1,0 +1,41 @@
+version = 1
+
+[[analyzers]]
+name = "scala"
+
+[[analyzers]]
+name = "javascript"
+
+  [analyzers.meta]
+  plugins = [
+    "vue",
+    "react"
+  ]
+  environment = [
+    "nodejs",
+    "jquery"
+  ]
+
+[[analyzers]]
+name = "python"
+
+  [analyzers.meta]
+  runtime_version = "3.x.x"
+
+[[analyzers]]
+name = "go"
+
+  [analyzers.meta]
+  import_root = "github.com/idawson-gl/sast-rules"
+
+[[analyzers]]
+name = "java"
+
+  [analyzers.meta]
+  runtime_version = "11"
+
+[[analyzers]]
+name = "cxx"
+
+[[analyzers]]
+name = "csharp"
